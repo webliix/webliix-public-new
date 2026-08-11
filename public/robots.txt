@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /meta-tag-generator/meta-tag-generator.test.js
+Disallow: /meta-tag-generator/netlify.toml
+Disallow: /meta-tag-generator/README.md
+
+Sitemap: https://webliix.in/sitemap.xml
