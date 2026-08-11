@@ -47,7 +47,7 @@ export default function SpatialHeroCanvas() {
       y: height / 2,
       targetX: width / 2,
       targetY: height / 2,
-      radius: 240,
+      radius: 260,
       active: false
     };
 
@@ -77,18 +77,42 @@ export default function SpatialHeroCanvas() {
     window.addEventListener('touchmove', handleTouchMove);
     window.addEventListener('mouseleave', handleMouseLeave);
 
-    // Clean Subtle Background Particles
-    const particleCount = Math.min(Math.floor(width / 24), 55);
+    // Balanced IT Tokens, Brand & Services List
+    const itTokens = [
+      'Webliix',
+      'Software',
+      'LaunchKit',
+      'Web Development',
+      'E-Commerce',
+      'SEO & Maps',
+      'Branding & Design',
+      'Website Maintenance',
+      '</>',
+      'Your success is our code',
+      '{ }',
+      '=>',
+      'npm run dev',
+      'API',
+      'React',
+      'AI Systems'
+    ];
+
+    // Floating Particles System (Balanced Count)
+    const particleCount = Math.min(Math.floor(width / 16), 75);
     const particles = [];
 
     for (let i = 0; i < particleCount; i++) {
+      const isText = i % 3 === 0;
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
         vx: (Math.random() - 0.5) * 0.5,
         vy: (Math.random() - 0.5) * 0.5,
         radius: Math.random() * 2 + 1,
-        alpha: Math.random() * 0.4 + 0.2
+        alpha: Math.random() * 0.4 + 0.22,
+        isText,
+        text: itTokens[i % itTokens.length],
+        fontSize: isText && (i % itTokens.length === 9) ? 12 : Math.floor(Math.random() * 3) + 11
       });
     }
 
@@ -115,7 +139,6 @@ export default function SpatialHeroCanvas() {
       // -------------------------------------------------------------
       // 1. CLEAN 3D PERSPECTIVE GRID (Far Horizon Shifted Upwards + Slower Speed)
       // -------------------------------------------------------------
-      // Far point (startY) shifted upwards to 8% screen height
       const startY = height * 0.08;
 
       const gridPoints = [];
@@ -216,7 +239,7 @@ export default function SpatialHeroCanvas() {
       ctx.restore();
 
       // -------------------------------------------------------------
-      // 2. SUBTLE PARTICLES & MESH LINES
+      // 2. FLOATING BRAND, SERVICE & CODE TOKENS
       // -------------------------------------------------------------
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
@@ -228,28 +251,49 @@ export default function SpatialHeroCanvas() {
 
         const particleY = p.y + scrollY * 0.15;
 
-        ctx.beginPath();
-        ctx.arc(p.x, particleY, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = primaryColor;
-        ctx.globalAlpha = p.alpha;
-        ctx.fill();
+        // Pointer Push Physics
+        const dx = mouse.x - p.x;
+        const dy = mouse.y - particleY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
 
+        if (dist < mouse.radius * 0.7) {
+          const force = (mouse.radius * 0.7 - dist) / (mouse.radius * 0.7);
+          p.x -= (dx / dist) * force * 2.5;
+          p.y -= (dy / dist) * force * 2.5;
+        }
+
+        ctx.save();
+        ctx.fillStyle = primaryColor;
+        ctx.globalAlpha = isDark ? p.alpha : p.alpha * 1.25;
+
+        if (p.isText) {
+          ctx.font = `600 ${p.fontSize}px monospace`;
+          ctx.fillText(p.text, p.x, particleY);
+        } else {
+          ctx.beginPath();
+          ctx.arc(p.x, particleY, p.radius, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        // Draw Subtle Mesh Connections
         for (let j = i + 1; j < particles.length; j++) {
           const p2 = particles[j];
           const pdx = p2.x - p.x;
           const pdy = (p2.y + scrollY * 0.15) - particleY;
           const pdist = Math.sqrt(pdx * pdx + pdy * pdy);
 
-          if (pdist < 120) {
+          if (pdist < 115) {
             ctx.beginPath();
             ctx.moveTo(p.x, particleY);
             ctx.lineTo(p2.x, p2.y + scrollY * 0.15);
             ctx.strokeStyle = primaryColor;
-            ctx.globalAlpha = (1 - pdist / 120) * (isDark ? 0.25 : 0.35);
-            ctx.lineWidth = 0.8;
+            ctx.globalAlpha = (1 - pdist / 115) * (isDark ? 0.2 : 0.3);
+            ctx.lineWidth = 0.7;
             ctx.stroke();
           }
         }
+
+        ctx.restore();
       }
 
       animationFrameId = requestAnimationFrame(render);
