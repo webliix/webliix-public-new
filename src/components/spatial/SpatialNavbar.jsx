@@ -14,7 +14,7 @@ export default function SpatialNavbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 15);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -87,22 +87,24 @@ export default function SpatialNavbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 glass-spatial border-b ${
-        scrolled ? 'border-theme-border/80 shadow-spatial-lg' : 'border-theme-border/40'
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-500 ${
+        scrolled
+          ? 'glass-spatial border-b border-theme-border/80 shadow-spatial-lg'
+          : 'bg-transparent border-b border-transparent shadow-none'
       }`}
       style={{
-        backdropFilter: 'blur(var(--glass-blur, 28px))',
-        WebkitBackdropFilter: 'blur(var(--glass-blur, 28px))'
+        backdropFilter: scrolled ? 'blur(var(--glass-blur, 28px))' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(var(--glass-blur, 28px))' : 'none'
       }}
     >
       <div className="max-w-7xl mx-auto px-6 h-16 sm:h-[68px] flex items-center justify-between">
         
-        {/* Brand Logo - Cropped tight & larger sizing */}
-        <Link to="/" className="flex items-center gap-2.5 shrink-0 group overflow-hidden py-1">
+        {/* Brand Logo */}
+        <Link to="/" className="flex items-center gap-2.5 shrink-0 group">
           <img
             src={logoSrc}
             alt={siteConfig.brand.name}
-            className="h-12 sm:h-[56px] w-auto object-cover object-left scale-[1.18] transition-transform group-hover:scale-[1.24] origin-left"
+            className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
           />
         </Link>
 
