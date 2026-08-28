@@ -3,7 +3,9 @@ import { Helmet } from 'react-helmet-async';
 import { Sparkles, Target, Compass, Award, CheckCircle2, ArrowRight, Code, ShieldCheck, Zap, Globe, Cpu, Heart, Rocket, Layers } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import GlassCard from '../components/spatial/GlassCard';
-import SpatialButton from '../components/ui/SpatialButton';
+import WebliixCard from '../components/ui/WebliixCard';
+import WebliixIcon from '../components/ui/WebliixIcon';
+import WebliixButton from '../components/ui/WebliixButton';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
 import { Link } from 'react-router-dom';
 import himanshuImg from '../assets/himanshu.jpg';
@@ -22,7 +24,7 @@ export default function About() {
       highlights: [
         { label: 'Specialty', value: 'Managing Director & Enterprise Tech' },
         { label: 'Focus', value: 'Java Full Stack & Strategy' },
-        { label: 'Based in', value: 'Noida, India 🇮🇳' }
+        { label: 'Based in', value: 'Naugachia, Bihar, India 🇮🇳' }
       ]
     },
     {
@@ -36,7 +38,7 @@ export default function About() {
       highlights: [
         { label: 'Specialty', value: 'Business Executive & MERN Architect' },
         { label: 'Focus', value: '10X Full-Stack Engineering' },
-        { label: 'Based in', value: 'Noida, India 🇮🇳' }
+        { label: 'Based in', value: 'Naugachia, Bihar, India 🇮🇳' }
       ]
     }
   ];
@@ -91,7 +93,7 @@ export default function About() {
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <span className="px-4 py-1.5 rounded-full glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-semibold uppercase tracking-widest inline-flex items-center gap-1.5">
-          <Sparkles className="w-3.5 h-3.5" /> Founded April 2025 · Noida, India
+          <Sparkles className="w-3.5 h-3.5" /> Founded April 2025 · Naugachia, Bihar, India
         </span>
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">
           We Are <span className="text-shimmer">Webliix</span>
@@ -198,9 +200,7 @@ export default function About() {
       {/* MISSION & VISION */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <GlassCard className="p-8 border border-theme-border space-y-4">
-          <div className="w-12 h-12 rounded-2xl bg-theme-primary/20 border border-theme-primary flex items-center justify-center text-theme-primary">
-            <Target className="w-6 h-6" />
-          </div>
+          <WebliixIcon icon={Target} variant="badge" size="lg" />
           <h3 className="text-2xl font-display font-bold text-theme-text">Our Mission</h3>
           <p className="text-theme-muted text-sm leading-relaxed">
             {siteConfig.about.mission}
@@ -208,9 +208,7 @@ export default function About() {
         </GlassCard>
 
         <GlassCard className="p-8 border border-theme-border space-y-4">
-          <div className="w-12 h-12 rounded-2xl bg-theme-primary/20 border border-theme-primary flex items-center justify-center text-theme-primary">
-            <Compass className="w-6 h-6" />
-          </div>
+          <WebliixIcon icon={Compass} variant="badge" size="lg" />
           <h3 className="text-2xl font-display font-bold text-theme-text">Our Vision</h3>
           <p className="text-theme-muted text-sm leading-relaxed">
             {siteConfig.about.vision}
@@ -292,7 +290,7 @@ export default function About() {
             Serving Clients Worldwide
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
-            Headquartered in Noida, India — operating across global time zones.
+            Headquartered in Naugachia, Bhagalpur, Bihar — operating across global time zones.
           </p>
         </div>
 
@@ -308,7 +306,7 @@ export default function About() {
       </GlassCard>
 
       {/* CTA BANNER */}
-      <GlassCard className="p-8 sm:p-12 text-center border border-theme-primary/40 shadow-spatial space-y-5">
+      <WebliixCard variant="accent" accentColor="primary" className="p-8 sm:p-12 text-center space-y-5">
         <h2 className="text-2xl sm:text-5xl font-display font-bold text-theme-text max-w-2xl mx-auto leading-tight">
           Ready to Work with <span className="text-shimmer">Webliix?</span>
         </h2>
@@ -317,12 +315,12 @@ export default function About() {
         </p>
         <div className="pt-2 flex justify-center">
           <Link to="/contact">
-            <SpatialButton variant="primary" icon={ArrowRight} className="text-sm px-8 py-3.5">
+            <WebliixButton variant="primary" icon={ArrowRight} size="lg">
               Start Your Project Consultation
-            </SpatialButton>
+            </WebliixButton>
           </Link>
         </div>
-      </GlassCard>
+      </WebliixCard>
     </div>
   );
 }

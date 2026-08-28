@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronRight, Home } from 'lucide-react';
+import WebliixIcon from './WebliixIcon';
 
 const routeLabels = {
   '': 'Home',
@@ -30,12 +31,12 @@ export default function Breadcrumbs({ customCrumbs, className = '' }) {
     return (
       <nav aria-label="Breadcrumb" className={`text-xs font-mono text-theme-muted flex items-center gap-1.5 flex-wrap ${className}`}>
         <Link to="/" className="hover:text-theme-primary transition-colors flex items-center gap-1">
-          <Home className="w-3 h-3" />
+          <WebliixIcon icon={Home} variant="inline" size="xs" color="inherit" />
           <span>Home</span>
         </Link>
         {customCrumbs.map((crumb, idx) => (
           <React.Fragment key={idx}>
-            <ChevronRight className="w-3 h-3 text-theme-border shrink-0" />
+            <WebliixIcon icon={ChevronRight} variant="inline" size="xs" color="muted" />
             {crumb.path ? (
               <Link to={crumb.path} className="hover:text-theme-primary transition-colors">
                 {crumb.label}
@@ -62,7 +63,7 @@ export default function Breadcrumbs({ customCrumbs, className = '' }) {
   return (
     <nav aria-label="Breadcrumb" className={`text-xs font-mono text-theme-muted flex items-center gap-1.5 flex-wrap ${className}`}>
       <Link to="/" className="hover:text-theme-primary transition-colors flex items-center gap-1">
-        <Home className="w-3 h-3" />
+        <WebliixIcon icon={Home} variant="inline" size="xs" color="inherit" />
         <span>Home</span>
       </Link>
 
@@ -73,7 +74,7 @@ export default function Breadcrumbs({ customCrumbs, className = '' }) {
 
         return (
           <React.Fragment key={accumulatedPath}>
-            <ChevronRight className="w-3 h-3 text-theme-border shrink-0" />
+            <WebliixIcon icon={ChevronRight} variant="inline" size="xs" color="muted" />
             {isLast ? (
               <span className="text-theme-text font-semibold">{label}</span>
             ) : (

@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin, Send, MessageSquare, CheckCircle, Sparkles, Clock 
 import { siteConfig } from '../config/siteConfig';
 import GlassCard from '../components/spatial/GlassCard';
 import SpatialButton from '../components/ui/SpatialButton';
+import WebliixIcon from '../components/ui/WebliixIcon';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
 import { useModal } from '../context/ModalContext';
 
@@ -107,9 +108,7 @@ export default function Contact() {
                 href={`tel:${siteConfig.brand.contactPhone.replace(/\s+/g, '')}`}
                 className="flex items-center gap-4 p-4 rounded-2xl glass-spatial hover:border-theme-primary transition group"
               >
-                <div className="w-10 h-10 rounded-xl bg-theme-primary/20 border border-theme-primary flex items-center justify-center text-theme-primary group-hover:scale-110 transition-transform">
-                  <Phone className="w-5 h-5" />
-                </div>
+                <WebliixIcon icon={Phone} variant="badge" size="md" className="group-hover:scale-110" />
                 <div>
                   <span className="text-xs text-theme-muted block">Call Direct / WhatsApp</span>
                   <span className="font-mono font-bold text-base">{siteConfig.brand.contactPhone}</span>
@@ -120,9 +119,7 @@ export default function Contact() {
                 href={`mailto:${siteConfig.brand.contactEmail}`}
                 className="flex items-center gap-4 p-4 rounded-2xl glass-spatial hover:border-theme-primary transition group"
               >
-                <div className="w-10 h-10 rounded-xl bg-theme-primary/20 border border-theme-primary flex items-center justify-center text-theme-primary group-hover:scale-110 transition-transform">
-                  <Mail className="w-5 h-5" />
-                </div>
+                <WebliixIcon icon={Mail} variant="badge" size="md" className="group-hover:scale-110" />
                 <div>
                   <span className="text-xs text-theme-muted block">Email Inquiry</span>
                   <span className="font-mono font-bold text-base">{siteConfig.brand.contactEmail}</span>
@@ -130,9 +127,7 @@ export default function Contact() {
               </a>
 
               <div className="flex items-center gap-4 p-4 rounded-2xl glass-spatial">
-                <div className="w-10 h-10 rounded-xl bg-theme-primary/20 border border-theme-primary flex items-center justify-center text-theme-primary">
-                  <MapPin className="w-5 h-5" />
-                </div>
+                <WebliixIcon icon={MapPin} variant="badge" size="md" />
                 <div>
                   <span className="text-xs text-theme-muted block">Headquarters</span>
                   <span className="font-semibold">{siteConfig.brand.address}</span>
@@ -221,7 +216,7 @@ export default function Contact() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="Aryan Kashyap"
+                  placeholder="Your Name"
                   className="w-full px-4 py-3 rounded-xl glass-spatial border border-theme-border text-theme-text text-sm focus:outline-none focus:border-theme-primary"
                 />
               </div>

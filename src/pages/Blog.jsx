@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Search, Clock, User, ArrowRight, Sparkles } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import GlassCard from '../components/spatial/GlassCard';
+import WebliixIcon from '../components/ui/WebliixIcon';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
 import { useModal } from '../context/ModalContext';
 
@@ -21,8 +22,8 @@ export default function Blog() {
       content: (
         <div className="space-y-4">
           <div className="flex items-center gap-4 text-xs text-theme-muted border-b border-theme-border pb-3">
-            <span className="flex items-center gap-1"><User className="w-3.5 h-3.5 text-theme-primary" /> {blog.author}</span>
-            <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5 text-theme-primary" /> {blog.readTime}</span>
+            <span className="flex items-center gap-1"><WebliixIcon icon={User} variant="inline" size="sm" /> {blog.author}</span>
+            <span className="flex items-center gap-1"><WebliixIcon icon={Clock} variant="inline" size="sm" /> {blog.readTime}</span>
             <span>{blog.date}</span>
           </div>
           <p className="text-theme-text text-sm sm:text-base leading-relaxed font-sans">{blog.content}</p>

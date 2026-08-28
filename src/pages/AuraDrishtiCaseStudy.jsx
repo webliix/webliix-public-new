@@ -4,7 +4,8 @@ import { motion } from 'framer-motion';
 import { ShieldCheck, ArrowRight, ExternalLink, CheckCircle2, TrendingUp, Phone, MapPin, Globe } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import GlassCard from '../components/spatial/GlassCard';
-import SpatialButton from '../components/ui/SpatialButton';
+import WebliixCard from '../components/ui/WebliixCard';
+import WebliixButton from '../components/ui/WebliixButton';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
 import auradrishtiImg from '../assets/logos/auradrishti.png';
 
@@ -35,8 +36,8 @@ export default function AuraDrishtiCaseStudy() {
       {/* Main Showcase Card */}
       <GlassCard className="p-6 sm:p-10 border border-theme-border space-y-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div className="rounded-2xl overflow-hidden border border-theme-border bg-white/5 p-4 flex items-center justify-center">
-            <img src={auradrishtiImg} alt="AuraDrishti Platform" className="max-h-56 w-auto object-contain" />
+          <div className="rounded-2xl overflow-hidden border border-theme-border bg-theme-bg h-56 sm:h-64 relative group">
+            <img src={auradrishtiImg} alt="AuraDrishti Platform" className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
           </div>
           <div className="space-y-4">
             <span className="text-xs font-mono text-theme-primary uppercase font-semibold">Security & Surveillance Tech</span>
@@ -67,7 +68,7 @@ export default function AuraDrishtiCaseStudy() {
       </GlassCard>
 
       {/* Measured Results */}
-      <GlassCard className="p-8 border border-emerald-500/40 text-center space-y-6">
+      <WebliixCard variant="accent" accentColor="success" className="p-8 text-center space-y-6">
         <span className="text-xs font-mono text-emerald-400 font-semibold uppercase tracking-wider block">
           Verified Impact & Results
         </span>
@@ -87,12 +88,12 @@ export default function AuraDrishtiCaseStudy() {
         </div>
         <div className="pt-4">
           <a href="https://auradrishti.com" target="_blank" rel="noopener noreferrer" className="inline-block">
-            <SpatialButton variant="primary" icon={ExternalLink}>
+            <WebliixButton variant="primary" icon={ExternalLink} size="lg">
               Visit Live AuraDrishti Platform
-            </SpatialButton>
+            </WebliixButton>
           </a>
         </div>
-      </GlassCard>
+      </WebliixCard>
     </div>
   );
 }

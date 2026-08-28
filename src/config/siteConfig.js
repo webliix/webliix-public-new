@@ -43,7 +43,7 @@ export const siteConfig = {
     contactEmail: 'contact@webliix.in',
     contactPhone: '+91 93101 81569',
     alternatePhone: '+91 88106 50511',
-    address: 'Blue Sapphire Plaza, Sector 63, Noida, NCR, India',
+    address: '1st Floor, Building: Hotel Raj Inn, Village/Town: Tetri, Block/Street: Block Naugachia, Naugachia Road, City: Naugachia, District: Bhagalpur, State: Bihar, PIN Code: 853204, India',
     geoReach: ['NCR India', 'USA', 'Canada', 'Germany'],
     socials: {
       linkedin: 'https://www.linkedin.com/company/webliix/',
@@ -111,108 +111,301 @@ export const siteConfig = {
     { value: 3, suffix: 'x', label: 'Avg. Traffic Growth' }
   ],
 
-  services: [
-    {
-      id: 'brand-launchkit',
-      title: 'Webliix LaunchKit',
-      tag: 'All in One',
-      icon: '🚀',
-      shortDesc: 'All-in-one digital launch package — logo, website, business email, GMB setup & 5-day ad campaign from day one.',
-      fullDesc: 'Launch your entire brand professionally in 5–7 days. Includes complete brand identity, high-converting responsive web application, Google Business setup, and a targeted 5-day marketing campaign.',
-      startingPrice: 'Starting at ₹15,999',
-      features: [
-        'Logo & Brand Strategy',
-        'Website (Static, Interactive or E-Commerce)',
-        'Domain & Professional Email Setup',
-        'Google My Business (GMB) Setup',
-        '5-Day Meta Ads Campaign',
-        'Basic SEO & Analytics Setup'
-      ],
-      link: '/services'
-    },
-    {
-      id: 'quick-ecommerce',
-      title: 'Fast E-Commerce Store Launch',
-      tag: 'Trending',
-      icon: '⚡',
-      shortDesc: 'Launch your online store in as little as 5–7 days with essentials done right — perfect for small businesses and quick market entry.',
-      fullDesc: 'Custom e-commerce store built for speed, seamless checkout, up to 50 products, payment gateway, and mobile optimization.',
-      startingPrice: 'Starting at ₹12,999',
-      features: [
-        'Shopify, WooCommerce or Custom React Store',
-        'Up to 50 Product Listings',
-        'Payment & Shipping Gateway Integration',
-        'Basic SEO & Analytics Tracking',
-        'Mobile-Responsive Design'
-      ],
-      link: '/services'
-    },
-    {
-      id: 'website-dev',
-      title: 'Website Development',
-      tag: 'Core Service',
-      icon: '💻',
-      shortDesc: 'Crafting responsive, high-performance static and dynamic websites tailored to your business needs.',
-      fullDesc: 'From business portfolio sites to dynamic interactive applications, we engineer clean, scalable websites built for conversion.',
-      startingPrice: 'Starting at ₹9,999',
-      features: [
-        'Static & Dynamic Web Pages',
-        'Fast Load Times & Top Google Speed',
-        'Custom UI/UX Design',
-        'Mobile & Tablet Responsive',
-        'SSL & Security Best Practices'
-      ],
-      link: '/services'
-    },
-    {
-      id: 'seo-gmb',
-      title: 'SEO & GMB Setup',
-      tag: 'Local Reach',
-      icon: '📍',
-      shortDesc: 'Boosting your local visibility with an optimized Google My Business profile and organic keyword rankings.',
-      fullDesc: 'Data-driven local SEO and profile optimization strategies to get your business verified, ranked, and discovered on Google Maps.',
-      startingPrice: 'Starting at ₹7,999',
-      features: [
-        'Google My Business Profile & Verification',
-        'On-Page SEO & Meta Tags',
-        'Keyword Research & Local Citations',
-        'Ranking Optimization Reports'
-      ],
-      link: '/services'
-    },
-    {
-      id: 'branding-design',
-      title: 'Branding & Design',
-      tag: 'Creative',
-      icon: '🎨',
-      shortDesc: 'Building a cohesive and memorable brand identity that resonates with your audience.',
-      fullDesc: 'Custom logo design, brand guidelines, print-ready business cards, and social media starter kits.',
-      startingPrice: 'Starting at ₹5,999',
-      features: [
-        'Custom Logo Design',
-        'Brand Color & Typography Guidelines',
-        'Digital & Print Business Cards',
-        'Social Media Kit'
-      ],
-      link: '/services'
-    },
-    {
-      id: 'website-maintenance',
-      title: 'Website Maintenance',
-      tag: 'Support',
-      icon: '🔧',
-      shortDesc: 'Ensuring your website stays secure, updated, and running smoothly with dedicated support.',
-      fullDesc: 'Regular content updates, performance checks, security monitoring, and bug fixes to keep your digital site performing at peak.',
-      startingPrice: 'Starting at ₹2,999 / mo',
-      features: [
-        'Regular Updates & Security Audits',
-        'Bug Fixes & Speed Optimizations',
-        'Office-Time Support',
-        'Daily & Weekly Backups'
-      ],
-      link: '/services'
-    }
-  ],
+services: [
+  {
+    id: 'brand-launchkit',
+    title: 'Webliix LaunchKit',
+    tag: 'All in One',
+    icon: '🚀',
+    shortDesc:
+      'All-in-one business launch package — branding, website, business email, Google Business Profile, SEO foundations and launch support.',
+    fullDesc:
+      'Launch your business professionally with a coordinated digital setup covering brand identity, a high-performance responsive website, business email, Google Business Profile support, SEO foundations, analytics and lead-generation essentials.',
+    startingPrice: 'Starting at ₹14,999',
+    features: [
+      'Professional Logo & Brand Identity',
+      'Business Website Development',
+      'Domain, SSL & Professional Email Setup',
+      'Google Business Profile Setup & Optimization',
+      'On-Page SEO & Analytics Foundation',
+      'WhatsApp Lead Generation Integration',
+      'Business Launch Strategy & Guidance',
+      'Post-Launch Support'
+    ],
+    link: '/launch-kit'
+  },
+
+  {
+    id: 'quick-ecommerce',
+    title: 'Fast E-Commerce Store Launch',
+    tag: 'Trending',
+    icon: '⚡',
+    shortDesc:
+      'Launch a professional online store in 5–7 days with products, payments, shipping and mobile optimization.',
+    fullDesc:
+      'Build a conversion-focused ecommerce website for your products or services with product catalogues, shopping cart, checkout, payment gateway integration, shipping configuration, analytics and SEO foundations.',
+    startingPrice: 'Starting at ₹12,999',
+    features: [
+      'Shopify, WooCommerce or Custom React Store',
+      'Up to 50 Initial Product Listings',
+      'Product Categories & Detail Pages',
+      'Shopping Cart & Secure Checkout',
+      'Payment Gateway Integration',
+      'Shipping & Order Management Setup',
+      'Mobile-Responsive Store Design',
+      'Basic SEO & Analytics Tracking'
+    ],
+    link: '/services'
+  },
+
+  {
+    id: 'website-dev',
+    title: 'Website Development',
+    tag: 'Core Service',
+    icon: '💻',
+    shortDesc:
+      'Professional business websites, landing pages and high-performance web experiences built around your goals.',
+    fullDesc:
+      'From simple business websites and portfolio sites to advanced dynamic websites and interactive web experiences, we build fast, responsive and scalable solutions designed for usability, SEO and conversions.',
+    startingPrice: 'Starting at ₹9,999',
+    features: [
+      'Business & Corporate Websites',
+      'Landing Pages & Marketing Websites',
+      'Static & Dynamic Websites',
+      'Custom UI/UX Design',
+      'React, Next.js & Modern Web Technologies',
+      'Mobile, Tablet & Desktop Optimization',
+      'Performance & Technical SEO Foundation',
+      'SSL, Security & Deployment Setup'
+    ],
+    link: '/services'
+  },
+
+  {
+    id: 'web-app-development',
+    title: 'Custom Web Application Development',
+    tag: 'Advanced',
+    icon: '🖥️',
+    shortDesc:
+      'Custom web applications, portals and business platforms built for complex workflows and scalable operations.',
+    fullDesc:
+      'We design and develop custom web applications for businesses that need more than a traditional website — including dashboards, portals, SaaS platforms, customer systems, booking platforms and workflow applications.',
+    startingPrice: 'Custom Quote',
+    features: [
+      'Custom Web Application Architecture',
+      'React & Next.js Frontends',
+      'Java Spring Boot & Node.js Backends',
+      'REST API & Third-Party Integrations',
+      'Authentication & Role-Based Access',
+      'Admin & Analytics Dashboards',
+      'Database Design & Integration',
+      'Cloud Deployment & Scalable Architecture'
+    ],
+    link: '/services'
+  },
+
+  {
+    id: 'mobile-app-development',
+    title: 'Mobile App Development',
+    tag: 'Mobile',
+    icon: '📱',
+    shortDesc:
+      'Custom Android and iOS applications designed for startups, businesses and scalable digital products.',
+    fullDesc:
+      'Build a professional mobile application for Android, iPhone and other supported platforms with modern UI/UX, secure APIs, authentication, notifications, payments and scalable backend integration.',
+    startingPrice: 'Starting from Custom Quote',
+    features: [
+      'Android App Development',
+      'iOS App Development',
+      'Cross-Platform Mobile Apps',
+      'Flutter & Modern Mobile Technologies',
+      'Custom Mobile UI/UX Design',
+      'REST API & Backend Integration',
+      'User Authentication & Role Management',
+      'Push Notifications',
+      'Payment Gateway Integration',
+      'App Analytics & Crash Monitoring',
+      'Google Play Store Deployment Support',
+      'Apple App Store Deployment Support'
+    ],
+    link: '/services'
+  },
+
+  {
+    id: 'software-development',
+    title: 'Custom Software Development',
+    tag: 'Business Solutions',
+    icon: '⚙️',
+    shortDesc:
+      'Custom business software designed to automate workflows, improve operations and solve specific business requirements.',
+    fullDesc:
+      'We develop custom software systems for companies that need tailored solutions for internal operations, customer management, automation, reporting, finance, inventory and business workflows.',
+    startingPrice: 'Custom Quote',
+    features: [
+      'Custom Business Software',
+      'Workflow Automation',
+      'Employee & User Management',
+      'Inventory & Operations Systems',
+      'Reporting & Analytics',
+      'API Integrations',
+      'Secure Authentication',
+      'Role-Based Access Control',
+      'Cloud & Database Integration',
+      'Scalable Software Architecture'
+    ],
+    link: '/services'
+  },
+
+  {
+    id: 'saas-development',
+    title: 'SaaS Product Development',
+    tag: 'Startup',
+    icon: '☁️',
+    shortDesc:
+      'Build scalable SaaS products with subscriptions, user accounts, dashboards, APIs and cloud-ready architecture.',
+    fullDesc:
+      'Turn your software idea into a scalable SaaS platform with multi-user architecture, subscription workflows, dashboards, authentication, billing integrations, APIs and cloud deployment.',
+    startingPrice: 'Custom Quote',
+    features: [
+      'SaaS Product Architecture',
+      'Multi-User & Multi-Tenant Systems',
+      'Subscription & Billing Integration',
+      'User Authentication',
+      'Role-Based Access Control',
+      'Admin & Customer Dashboards',
+      'REST API Development',
+      'Database & Cloud Infrastructure',
+      'Notifications & Email Workflows',
+      'Scalable Backend Architecture'
+    ],
+    link: '/services'
+  },
+
+  {
+    id: 'crm-erp-development',
+    title: 'CRM & ERP Software',
+    tag: 'Enterprise',
+    icon: '📊',
+    shortDesc:
+      'Custom CRM and ERP systems that centralize customers, sales, projects, finance, HR and business operations.',
+    fullDesc:
+      'Build an integrated business management platform tailored to your organization, including CRM, customer management, sales pipelines, projects, tasks, invoicing, finance, HR, tickets, notifications and reporting.',
+    startingPrice: 'Custom Quote',
+    features: [
+      'Custom CRM Development',
+      'ERP Software Development',
+      'Customer & Lead Management',
+      'Sales Pipeline Management',
+      'Project & Task Management',
+      'Invoices & Payment Management',
+      'HR & Employee Management',
+      'Support Ticket Management',
+      'Business Reports & Dashboards',
+      'Workflow Automation',
+      'Role-Based Access Control',
+      'API & Third-Party Integrations'
+    ],
+    link: '/services'
+  },
+
+  {
+    id: 'seo-gmb',
+    title: 'SEO & Google Business Profile',
+    tag: 'Local Reach',
+    icon: '📍',
+    shortDesc:
+      'Improve your local online presence with Google Business Profile setup, local SEO and search-ready website optimization.',
+    fullDesc:
+      'Build a stronger local search foundation with Google Business Profile setup or optimization for eligible businesses, keyword targeting, on-page SEO, technical SEO and local search improvements.',
+    startingPrice: 'Starting at ₹7,999',
+    features: [
+      'Google Business Profile Setup',
+      'Google Business Profile Optimization',
+      'Local SEO Foundation',
+      'Keyword Research & Targeting',
+      'On-Page SEO',
+      'Meta Titles & Descriptions',
+      'Technical SEO Setup',
+      'Local Citation Guidance',
+      'Google Search Console Setup',
+      'GA4 Analytics Setup',
+      'Schema Markup',
+      'SEO Performance Reporting'
+    ],
+    link: '/services'
+  },
+
+  {
+    id: 'branding-design',
+    title: 'Branding & Design',
+    tag: 'Creative',
+    icon: '🎨',
+    shortDesc:
+      'Build a professional and memorable visual identity for your business, startup or product.',
+    fullDesc:
+      'Create a cohesive brand identity including logo design, colors, typography, business cards, social media assets and brand guidelines that keep your business visually consistent.',
+    startingPrice: 'Starting at ₹5,999',
+    features: [
+      'Custom Logo Design',
+      'Brand Identity Development',
+      'Brand Color Palette',
+      'Typography System',
+      'Business Card Design',
+      'Social Media Starter Kit',
+      'Digital Brand Guidelines',
+      'Print-Ready Brand Assets'
+    ],
+    link: '/services'
+  },
+
+  {
+    id: 'ui-ux-design',
+    title: 'UI/UX Design',
+    tag: 'Product Design',
+    icon: '✨',
+    shortDesc:
+      'User-focused interface and experience design for websites, dashboards, mobile apps and digital products.',
+    fullDesc:
+      'Design intuitive digital experiences that make websites and applications easier to use, visually consistent and focused on user journeys and business goals.',
+    startingPrice: 'Custom Quote',
+    features: [
+      'Website UI/UX Design',
+      'Mobile App UI/UX',
+      'Dashboard Design',
+      'SaaS Product Design',
+      'User Flow Mapping',
+      'Wireframes & Prototypes',
+      'Responsive Design Systems',
+      'Conversion-Focused Interfaces'
+    ],
+    link: '/services'
+  },
+
+  {
+    id: 'website-maintenance',
+    title: 'Website & Software Maintenance',
+    tag: 'Support',
+    icon: '🔧',
+    shortDesc:
+      'Keep your website, application or digital platform secure, updated and running smoothly.',
+    fullDesc:
+      'Ongoing technical support covering updates, performance checks, security monitoring, backups, bug fixes, content changes and optimization for websites and web applications.',
+    startingPrice: 'Starting at ₹2,999 / mo',
+    features: [
+      'Regular Website Updates',
+      'Security Monitoring',
+      'Bug Fixes & Technical Support',
+      'Performance Optimization',
+      'Speed Monitoring',
+      'Content Updates',
+      'Database Maintenance',
+      'Daily & Weekly Backup Options',
+      'Software & Dependency Updates',
+      'Office-Time Technical Support'
+    ],
+    link: '/services'
+  }
+],
 
   portfolio: [
     {

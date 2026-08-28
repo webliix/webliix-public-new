@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle, Info, AlertCircle } from 'lucide-react';
 import { useModal } from '../../context/ModalContext';
+import WebliixIcon from '../ui/WebliixIcon';
 
 export default function SpatialModal() {
   const { modalConfig, closeModal, toast } = useModal();
@@ -18,11 +19,11 @@ export default function SpatialModal() {
             className="fixed top-6 right-6 z-50 flex items-center gap-3 px-5 py-3.5 rounded-2xl glass-spatial border border-theme-primary shadow-spatial text-sm font-medium text-theme-text"
           >
             {toast.type === 'success' ? (
-              <CheckCircle className="w-5 h-5 text-emerald-400 shrink-0" />
+              <WebliixIcon icon={CheckCircle} variant="inline" size="lg" color="success" />
             ) : toast.type === 'error' ? (
-              <AlertCircle className="w-5 h-5 text-rose-400 shrink-0" />
+              <WebliixIcon icon={AlertCircle} variant="inline" size="lg" color="error" />
             ) : (
-              <Info className="w-5 h-5 text-theme-primary shrink-0" />
+              <WebliixIcon icon={Info} variant="inline" size="lg" color="primary" />
             )}
             <span>{toast.message}</span>
           </motion.div>

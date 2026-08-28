@@ -104,6 +104,11 @@ export default function SpatialFooter() {
             Solutions
           </h4>
           <ul className="space-y-2 text-xs text-theme-muted">
+            <li>
+              <Link to="/launch-kit" className="text-theme-primary font-semibold hover:underline flex items-center gap-1 group">
+                <span className="group-hover:translate-x-1 transition-transform">🚀 LaunchKit Business Packages</span>
+              </Link>
+            </li>
             {siteConfig.services.map((s) => (
               <li key={s.id}>
                 <Link to="/services" className="hover:text-theme-primary transition-colors flex items-center gap-1 group">

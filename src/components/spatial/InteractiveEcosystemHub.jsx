@@ -7,8 +7,9 @@ import { useAudio } from '../../context/AudioContext';
 import { useModal } from '../../context/ModalContext';
 import GlassCard from './GlassCard';
 import SpatialButton from '../ui/SpatialButton';
+import WebliixIcon from '../ui/WebliixIcon';
 
-export default function CapabilityHub() {
+export default function InteractiveEcosystemHub() {
   const [activeNodeIndex, setActiveNodeIndex] = useState(0);
   const [activeRegion, setActiveRegion] = useState('NCR India');
   const { currentTheme } = useTheme();
@@ -215,7 +216,7 @@ export default function CapabilityHub() {
         {/* Operational Footer Bar */}
         <div className="pt-4 border-t border-theme-border/60 flex flex-wrap items-center justify-between gap-2 text-[11px] text-theme-muted font-mono">
           <span>Region Target: <strong className="text-theme-text">{activeRegion}</strong></span>
-          <span className="flex items-center gap-1 text-emerald-400 font-semibold"><ShieldCheck className="w-3.5 h-3.5" /> High-Performance Stack</span>
+          <span className="flex items-center gap-1 text-emerald-400 font-semibold"><WebliixIcon icon={ShieldCheck} variant="inline" size="sm" color="success" /> High-Performance Stack</span>
           <span>98% Client Satisfaction</span>
         </div>
       </GlassCard>

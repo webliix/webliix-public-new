@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import { ArrowRight, CheckCircle2, ShieldCheck, Zap, Globe, ArrowUpRight, ExternalLink, HelpCircle, ChevronDown, Check, Star, Award, Clock, Code, Target, Sparkles, Layers } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ShieldCheck, Zap, Globe, ArrowUpRight, ExternalLink, HelpCircle, ChevronDown, Check, Star, Award, Clock, Code, Target, Sparkles, Layers, Rocket } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import { businessConfig } from '../config/businessConfig';
 import SpatialHeroCanvas from '../components/spatial/SpatialHeroCanvas';
 import GlassCard from '../components/spatial/GlassCard';
-import SpatialButton from '../components/ui/SpatialButton';
+import WebliixCard from '../components/ui/WebliixCard';
+import WebliixIcon from '../components/ui/WebliixIcon';
+import WebliixButton from '../components/ui/WebliixButton';
 import QuoteEstimator from '../components/spatial/QuoteEstimator';
 import InteractiveEcosystemHub from '../components/spatial/InteractiveEcosystemHub';
 import { useModal } from '../context/ModalContext';
@@ -39,9 +41,9 @@ export default function Home() {
               {service.startingPrice}
             </span>
             <Link to="/contact">
-              <SpatialButton variant="primary" icon={ArrowUpRight}>
+              <WebliixButton variant="primary" icon={ArrowUpRight}>
                 Book Consultation
-              </SpatialButton>
+              </WebliixButton>
             </Link>
           </div>
         </div>
@@ -74,22 +76,22 @@ export default function Home() {
 
   const whyChooseUs = [
     {
-      icon: <Clock className="w-6 h-6 text-theme-primary" />,
+      iconComponent: Clock,
       title: '5-Day Fast Launch Guarantee',
       desc: 'No waiting for months. We deploy turnkey brand websites, local SEO profiles, and marketing campaigns in 5–7 days.'
     },
     {
-      icon: <Code className="w-6 h-6 text-theme-primary" />,
+      iconComponent: Code,
       title: '100% Custom SOLID Code',
       desc: 'Clean React 18, Vite, and Next.js architectures optimized for 99/100 Google PageSpeed scores.'
     },
     {
-      icon: <Target className="w-6 h-6 text-theme-primary" />,
+      iconComponent: Target,
       title: 'Local Google Map Rank #1',
       desc: 'Targeted local SEO citations and Google My Business profile optimization engineered to capture high-intent local phone calls.'
     },
     {
-      icon: <ShieldCheck className="w-6 h-6 text-theme-primary" />,
+      iconComponent: ShieldCheck,
       title: 'Transparent Pricing & Zero Lock-In',
       desc: 'Clear upfront pricing starting from ₹15,999 with 100% client code and domain ownership upon completion.'
     }
@@ -147,14 +149,14 @@ export default function Home() {
             className="flex flex-wrap justify-center gap-3 pt-1"
           >
             <Link to="/contact">
-              <SpatialButton variant="primary" icon={ArrowRight} className="text-xs sm:text-sm px-6 py-3">
+              <WebliixButton variant="primary" icon={ArrowRight} className="text-xs sm:text-sm px-6 py-3">
                 Start Your Project Free
-              </SpatialButton>
+              </WebliixButton>
             </Link>
             <Link to="/services">
-              <SpatialButton variant="glass" className="text-xs sm:text-sm px-6 py-3">
+              <WebliixButton variant="ghost" className="text-xs sm:text-sm px-6 py-3">
                 Explore Solutions
-              </SpatialButton>
+              </WebliixButton>
             </Link>
           </motion.div>
 
@@ -197,19 +199,17 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 items-center">
             {siteConfig.clients.map((client, idx) => (
-              <GlassCard
+              <WebliixCard
                 key={idx}
-                className="p-2.5 h-20 sm:h-24 flex items-center justify-center border border-theme-border/40 hover:border-theme-primary/60 transition-all group"
-                hoverAudio={false}
+                variant="panel"
+                className="p-3 h-20 sm:h-24 bg-white border border-gray-200/80 shadow-sm rounded-2xl group hover:border-theme-primary/60 transition-all"
               >
-                <div className="w-full h-full flex items-center justify-center p-1 bg-white rounded-xl shadow-sm border border-gray-200">
-                  <img
-                    src={client.logo}
-                    alt={client.name}
-                    className="w-full h-full object-contain max-h-16 group-hover:scale-105 transition-all duration-300"
-                  />
-                </div>
-              </GlassCard>
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  className="w-full h-full object-contain mx-auto group-hover:scale-105 transition-all duration-300"
+                />
+              </WebliixCard>
             ))}
           </div>
         </div>
@@ -219,14 +219,14 @@ export default function Home() {
       <section className="relative z-10 max-w-6xl mx-auto px-6 py-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {siteConfig.stats.map((stat, i) => (
-            <GlassCard key={i} className="p-5 text-center border border-theme-border group hover:border-theme-primary/60 transition-all">
+            <WebliixCard key={i} variant="stat" className="p-5 group">
               <div className="text-2xl sm:text-4xl font-display font-extrabold text-theme-primary mb-1 group-hover:scale-105 transition-transform">
                 {stat.value}{stat.suffix}
               </div>
               <div className="text-[11px] uppercase tracking-wider font-semibold text-theme-muted">
                 {stat.label}
               </div>
-            </GlassCard>
+            </WebliixCard>
           ))}
         </div>
       </section>
@@ -247,15 +247,13 @@ export default function Home() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {whyChooseUs.map((item, idx) => (
-            <GlassCard key={idx} className="p-6 border border-theme-border flex gap-4 items-start group">
-              <div className="p-3 rounded-2xl bg-theme-primary/10 border border-theme-primary/30 shrink-0 group-hover:scale-110 transition-transform">
-                {item.icon}
-              </div>
+            <WebliixCard key={idx} variant="feature" className="p-6 flex gap-4 items-start group">
+              <WebliixIcon icon={item.iconComponent} variant="badge" size="lg" className="group-hover:scale-110" />
               <div className="space-y-1.5">
                 <h3 className="text-base font-display font-bold text-theme-text group-hover:text-theme-primary transition-colors">{item.title}</h3>
                 <p className="text-xs text-theme-muted leading-relaxed">{item.desc}</p>
               </div>
-            </GlassCard>
+            </WebliixCard>
           ))}
         </div>
       </section>
@@ -309,6 +307,30 @@ export default function Home() {
         </div>
       </section>
 
+      {/* WEBLIIX LAUNCHKIT SHOWCASE BANNER */}
+      <section className="relative z-10 max-w-6xl mx-auto px-6 py-6">
+        <WebliixCard variant="featured" className="p-8 sm:p-10 border border-theme-primary/40 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="space-y-3 max-w-2xl text-center md:text-left">
+            <span className="px-3 py-1 rounded-full bg-theme-primary/15 text-theme-primary text-xs font-mono font-bold border border-theme-primary/30 inline-flex items-center gap-1.5">
+              <WebliixIcon icon={Rocket} variant="inline" size="xs" color="primary" /> Turnkey Digital Launch
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-display font-bold text-theme-text">
+              Webliix LaunchKit — All-In-One Business Package
+            </h3>
+            <p className="text-theme-muted text-xs sm:text-sm leading-relaxed">
+              Complete website engineering, brand identity, Google Business setup, and local SEO foundation starting from ₹14,999. Launch your business online in 5–7 days.
+            </p>
+          </div>
+          <div className="shrink-0">
+            <Link to="/launch-kit">
+              <WebliixButton variant="primary" icon={ArrowRight} size="md">
+                Explore LaunchKit
+              </WebliixButton>
+            </Link>
+          </div>
+        </WebliixCard>
+      </section>
+
       {/* INTERACTIVE 4-STEP BLUEPRINT WORKFLOW */}
       <section className="relative z-10 max-w-6xl mx-auto px-6 py-12">
         <div className="text-center max-w-xl mx-auto mb-10 space-y-2">
@@ -328,18 +350,16 @@ export default function Home() {
             {siteConfig.about.process.map((proc, index) => {
               const isActive = activeProcessStep === index;
               return (
-                <button
+                <WebliixButton
                   key={proc.step}
+                  variant="utility"
+                  active={isActive}
                   onClick={() => setActiveProcessStep(index)}
-                  className={`p-3 rounded-2xl text-left transition-all ${
-                    isActive
-                      ? 'bg-theme-primary text-white shadow-spatial font-semibold'
-                      : 'glass-spatial text-theme-muted hover:text-theme-text'
-                  }`}
+                  className="flex-col items-start h-auto p-3 text-left w-full"
                 >
                   <span className="text-xs font-mono font-bold block opacity-80">{proc.step}</span>
                   <span className="text-xs font-display font-bold">{proc.title}</span>
-                </button>
+                </WebliixButton>
               );
             })}
           </div>
@@ -381,9 +401,9 @@ export default function Home() {
             </h2>
           </div>
           <Link to="/portfolio">
-            <SpatialButton variant="glass" className="text-xs py-2.5 px-4" icon={ArrowRight}>
+            <WebliixButton variant="ghost" size="sm" icon={ArrowRight}>
               View All Projects
-            </SpatialButton>
+            </WebliixButton>
           </Link>
         </div>
 
@@ -400,11 +420,11 @@ export default function Home() {
                   <span className="text-theme-primary font-semibold">{item.category}</span>
                 </div>
 
-                <div className="h-40 sm:h-44 overflow-hidden relative bg-white p-2 flex items-center justify-center">
+                <div className="h-44 sm:h-48 overflow-hidden relative bg-theme-bg">
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-theme-bg/80 via-transparent to-transparent opacity-60 pointer-events-none" />
                   
@@ -483,7 +503,7 @@ export default function Home() {
 
       {/* FINAL CTA BANNER */}
       <section className="relative z-10 max-w-6xl mx-auto px-6 py-12">
-        <GlassCard className="p-8 sm:p-12 text-center border border-theme-primary/40 shadow-spatial-lg space-y-5">
+        <WebliixCard variant="accent" accentColor="primary" className="p-8 sm:p-12 text-center space-y-5">
           <h2 className="text-2xl sm:text-5xl font-display font-bold text-theme-text max-w-2xl mx-auto leading-tight">
             Transform Your Vision into <span className="text-shimmer">Digital Reality</span>
           </h2>
@@ -492,12 +512,12 @@ export default function Home() {
           </p>
           <div className="pt-2 flex justify-center">
             <Link to="/contact">
-              <SpatialButton variant="primary" icon={ArrowUpRight} className="text-sm px-6 py-3">
+              <WebliixButton variant="primary" icon={ArrowUpRight} size="lg">
                 Talk to Us
-              </SpatialButton>
+              </WebliixButton>
             </Link>
           </div>
-        </GlassCard>
+        </WebliixCard>
       </section>
     </div>
   );

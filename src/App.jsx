@@ -10,6 +10,8 @@ import SpatialFooter from './components/spatial/SpatialFooter';
 import SpatialThemeControl from './components/spatial/SpatialThemeControl';
 import SpatialModal from './components/spatial/SpatialModal';
 import FloatingWhatsApp from './components/ui/FloatingWhatsApp';
+import ScrollToTop from './components/ui/ScrollToTop';
+import FirstVisitEnquiry from './components/ui/FirstVisitEnquiry';
 
 import Home from './pages/Home';
 import About from './pages/About';
@@ -19,6 +21,7 @@ import AuraDrishtiCaseStudy from './pages/AuraDrishtiCaseStudy';
 import Blog from './pages/Blog';
 import Tools from './pages/Tools';
 import Contact from './pages/Contact';
+import LaunchKit from './pages/LaunchKit';
 
 import BusinessInformation from './pages/BusinessInformation';
 import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -33,6 +36,7 @@ export default function App() {
         <AudioProvider>
           <ModalProvider>
             <Router>
+              <ScrollToTop />
               <div className="relative min-h-screen bg-theme-bg text-theme-text font-sans antialiased selection:bg-theme-primary selection:text-white">
                 <div className="scan-line" />
                 <SpatialNavbar />
@@ -47,6 +51,8 @@ export default function App() {
                     <Route path="/blog" element={<Blog />} />
                     <Route path="/tools" element={<Tools />} />
                     <Route path="/contact" element={<Contact />} />
+                    <Route path="/launch-kit" element={<LaunchKit />} />
+                    <Route path="/launchkit" element={<LaunchKit />} />
 
                     {/* Business Compliance & Legal System Routes */}
                     <Route path="/business-information" element={<BusinessInformation />} />
@@ -66,6 +72,7 @@ export default function App() {
                 <SpatialThemeControl />
                 <FloatingWhatsApp />
                 <SpatialModal />
+                <FirstVisitEnquiry />
               </div>
             </Router>
           </ModalProvider>

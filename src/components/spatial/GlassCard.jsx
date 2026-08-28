@@ -1,52 +1,26 @@
-import React, { useState } from 'react';
-import { useAudio } from '../../context/AudioContext';
+/**
+ * GlassCard — backward-compatibility alias
+ * All actual card styling lives in WebliixCard.jsx
+ * This file exists so any existing imports of GlassCard continue working.
+ *
+ * Maps old API → new API:
+ *   hoverAudio  → no direct equivalent (WebliixCard auto-plays via clickable/hoverable)
+ *   onClick     → clickable=true + onClick
+ *   className   → passed through
+ */
+import WebliixCard from '../ui/WebliixCard';
 
-export default function GlassCard({
-  children,
-  className = '',
-  onClick,
-  hoverAudio = true,
-  ...props
-}) {
-  const [glarePosition, setGlarePosition] = useState({ x: 50, y: 50 });
-  const { playHoverSound, playClickSound } = useAudio();
-
-  const handleMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    setGlarePosition({ x, y });
-  };
-
-  const handleMouseEnter = () => {
-    if (hoverAudio) playHoverSound();
-  };
-
-  const handleClick = (e) => {
-    if (onClick) {
-      playClickSound();
-      onClick(e);
-    }
-  };
-
+export default function GlassCard({ onClick, hoverAudio = true, className = '', children, ...props }) {
   return (
-    <div
-      onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
-      onClick={handleClick}
-      className={`glass-spatial rounded-3xl relative overflow-hidden transition-all duration-300 ${
-        onClick ? 'cursor-pointer hover:-translate-y-1' : ''
-      } ${className}`}
+    <WebliixCard
+      variant="surface"
+      clickable={!!onClick}
+      hoverable={hoverAudio}
+      onClick={onClick}
+      className={className}
       {...props}
     >
-      {/* Specular Interactive Glass Glare */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-0 hover:opacity-100 transition-opacity duration-300"
-        style={{
-          background: `radial-gradient(400px circle at ${glarePosition.x}% ${glarePosition.y}%, var(--color-glow, rgba(37, 99, 235, 0.25)), transparent 80%)`
-        }}
-      />
-      <div className="relative z-10">{children}</div>
-    </div>
+      {children}
+    </WebliixCard>
   );
 }

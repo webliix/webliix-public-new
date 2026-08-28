@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Palette, Volume2, VolumeX, RotateCcw, Sliders, Type, Zap, Sparkles } from 'lucide-react';
+import { Palette, Volume2, VolumeX, RotateCcw, Sliders, Type, Zap, X } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { useAudio } from '../../context/AudioContext';
+import WebliixIcon from '../ui/WebliixIcon';
 
 export default function SpatialThemeControl() {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,19 +42,35 @@ export default function SpatialThemeControl() {
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
-            className="absolute bottom-16 right-0 glass-spatial p-5 rounded-3xl w-84 shadow-spatial-lg border border-theme-border text-theme-text mb-2 space-y-4 max-h-[80vh] overflow-y-auto"
+            style={{
+              backdropFilter: `blur(${glassBlur})`,
+              WebkitBackdropFilter: `blur(${glassBlur})`,
+              transform: 'translateZ(0)',
+              WebkitTransform: 'translateZ(0)',
+              willChange: 'backdrop-filter, transform'
+            }}
+            className="fixed sm:absolute bottom-20 sm:bottom-16 right-4 sm:right-0 glass-spatial p-5 rounded-3xl w-[calc(100vw-2rem)] sm:w-84 max-w-sm shadow-spatial-lg border border-theme-border text-theme-text mb-2 space-y-4 max-h-[75vh] overflow-y-auto z-50"
           >
             <div className="flex items-center justify-between border-b border-theme-border pb-3">
               <span className="font-display font-semibold text-sm flex items-center gap-2">
-                <Palette className="w-4 h-4 text-theme-primary" /> Theme & Glass Controls
+                <WebliixIcon icon={Palette} variant="inline" size="md" /> Theme & Glass Controls
               </span>
-              <button
-                onClick={resetTheme}
-                className="text-xs text-theme-muted hover:text-theme-primary flex items-center gap-1 transition"
-                title="Reset to default"
-              >
-                <RotateCcw className="w-3 h-3" /> Reset
-              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={resetTheme}
+                  className="text-xs text-theme-muted hover:text-theme-primary flex items-center gap-1 transition"
+                  title="Reset to default"
+                >
+                  <WebliixIcon icon={RotateCcw} variant="inline" size="xs" color="inherit" /> Reset
+                </button>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="p-1 rounded-full hover:bg-theme-border/30 text-theme-muted hover:text-theme-text transition sm:hidden"
+                  aria-label="Close Popup"
+                >
+                  <WebliixIcon icon={X} variant="inline" size="md" color="inherit" />
+                </button>
+              </div>
             </div>
 
             {/* Color Presets */}
@@ -68,8 +85,8 @@ export default function SpatialThemeControl() {
                     onClick={() => selectTheme(preset.id)}
                     className={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                       currentTheme.id === preset.id
-                        ? 'bg-theme-primary text-white shadow-md'
-                        : 'hover:bg-theme-border/20 text-theme-text'
+                        ? 'bg-theme-primary text-white shadow-md font-bold'
+                        : 'hover:bg-theme-border/20 text-theme-text glass-spatial'
                     }`}
                   >
                     <span>{preset.icon}</span>
@@ -82,7 +99,7 @@ export default function SpatialThemeControl() {
             {/* Font Pair Combinations */}
             <div>
               <label className="text-xs font-semibold text-theme-muted uppercase tracking-wider block mb-2 flex items-center gap-1">
-                <Type className="w-3.5 h-3.5 text-theme-primary" /> Font Pairings
+                <WebliixIcon icon={Type} variant="inline" size="sm" /> Font Pairings
               </label>
               <div className="grid grid-cols-1 gap-1.5">
                 {fontPresets.map((font) => (
@@ -121,7 +138,7 @@ export default function SpatialThemeControl() {
             {/* Glass Backdrop Blur Controls */}
             <div>
               <label className="text-xs font-semibold text-theme-muted uppercase tracking-wider block mb-2 flex items-center gap-1">
-                <Sliders className="w-3.5 h-3.5 text-theme-primary" /> Glassmorphism Blur
+                <WebliixIcon icon={Sliders} variant="inline" size="sm" /> Glassmorphism Blur
               </label>
               <div className="grid grid-cols-2 gap-1.5">
                 {blurOptions.map((option) => (
@@ -130,7 +147,7 @@ export default function SpatialThemeControl() {
                     onClick={() => setGlassBlur(option.value)}
                     className={`py-1.5 px-2.5 rounded-xl text-[11px] font-semibold transition ${
                       glassBlur === option.value
-                        ? 'bg-theme-primary text-white shadow-sm'
+                        ? 'bg-theme-primary text-white shadow-sm font-bold'
                         : 'glass-spatial text-theme-muted hover:text-theme-text'
                     }`}
                   >
@@ -143,7 +160,7 @@ export default function SpatialThemeControl() {
             {/* 3D Particle Canvas Toggle */}
             <div className="flex items-center justify-between pt-1">
               <span className="text-xs font-medium text-theme-muted flex items-center gap-1">
-                <Zap className="w-3.5 h-3.5 text-theme-primary" /> 3D Grid Animation
+                <WebliixIcon icon={Zap} variant="inline" size="sm" /> 3D Grid Animation
               </span>
               <button
                 onClick={() => setCanvasParticles(!canvasParticles)}
@@ -160,7 +177,7 @@ export default function SpatialThemeControl() {
             {/* Sound FX Toggle */}
             <div className="pt-2 border-t border-theme-border flex items-center justify-between">
               <span className="text-xs font-medium text-theme-muted flex items-center gap-1">
-                <Volume2 className="w-3.5 h-3.5 text-theme-primary" /> Sound FX
+                <WebliixIcon icon={Volume2} variant="inline" size="sm" /> Sound FX
               </span>
               <button
                 onClick={toggleSound}

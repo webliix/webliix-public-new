@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { Printer, List, ShieldCheck, FileText } from 'lucide-react';
-import GlassCard from '../spatial/GlassCard';
+import WebliixCard from '../ui/WebliixCard';
+import WebliixButton from '../ui/WebliixButton';
+import WebliixIcon from '../ui/WebliixIcon';
 import Breadcrumbs from '../ui/Breadcrumbs';
 import { siteConfig } from '../../config/siteConfig';
 
@@ -47,7 +49,8 @@ export default function LegalLayout({
       {/* Header Banner */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <span className="px-3.5 py-1.5 rounded-full glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-semibold uppercase tracking-widest inline-flex items-center gap-1.5">
-          <ShieldCheck className="w-3.5 h-3.5" /> {categoryTag} • Last Updated: {lastUpdated}
+          <WebliixIcon icon={ShieldCheck} variant="inline" size="xs" color="primary" />
+          {categoryTag} • Last Updated: {lastUpdated}
         </span>
         <h1 className="text-3xl sm:text-5xl font-display font-extrabold text-theme-text leading-tight">
           {title}
@@ -60,18 +63,26 @@ export default function LegalLayout({
 
         {/* Action Controls */}
         <div className="flex flex-wrap items-center justify-center gap-3 pt-2 print:hidden">
-          <button
+          <WebliixButton
+            variant="ghost"
+            size="sm"
+            iconLeft={Printer}
             onClick={handlePrint}
-            className="px-4 py-2 rounded-xl glass-spatial border border-theme-primary/40 text-xs font-mono font-semibold text-theme-primary hover:bg-theme-primary hover:text-white transition-all flex items-center gap-2"
           >
-            <Printer className="w-3.5 h-3.5" /> Print / Save PDF
-          </button>
-          <Link
-            to="/business-information"
-            className="px-4 py-2 rounded-xl glass-spatial border border-theme-border text-xs font-mono font-semibold text-theme-muted hover:text-theme-text transition flex items-center gap-1.5"
-          >
-            <FileText className="w-3.5 h-3.5" /> Business Information
-          </Link>
+            Print / Save PDF
+          </WebliixButton>
+
+          {canonicalPath !== '/business-information' && (
+            <Link to="/business-information">
+              <WebliixButton
+                variant="ghost"
+                size="sm"
+                iconLeft={FileText}
+              >
+                Business Information
+              </WebliixButton>
+            </Link>
+          )}
         </div>
       </div>
 
@@ -81,10 +92,10 @@ export default function LegalLayout({
         {/* Table of Contents (Sticky on Desktop) */}
         {tableOfContents.length > 0 && (
           <aside className="lg:col-span-4 lg:sticky lg:top-28 print:hidden space-y-4">
-            <GlassCard className="p-5 border border-theme-border space-y-3">
+            <WebliixCard variant="panel" className="p-5 space-y-3">
               <div className="flex items-center justify-between border-b border-theme-border/60 pb-2.5">
                 <span className="text-xs font-mono font-bold text-theme-primary uppercase tracking-wider flex items-center gap-1.5">
-                  <List className="w-3.5 h-3.5" /> Table of Contents
+                  <WebliixIcon icon={List} variant="inline" size="xs" color="primary" /> Table of Contents
                 </span>
                 <span className="text-[10px] font-mono text-theme-muted">{tableOfContents.length} Sections</span>
               </div>
@@ -104,15 +115,15 @@ export default function LegalLayout({
                   </button>
                 ))}
               </nav>
-            </GlassCard>
+            </WebliixCard>
           </aside>
         )}
 
         {/* Main Content Area */}
         <main className={`${tableOfContents.length > 0 ? 'lg:col-span-8' : 'lg:col-span-12'}`}>
-          <GlassCard className="p-6 sm:p-10 border border-theme-border space-y-8 text-theme-text leading-relaxed font-sans shadow-spatial-lg">
+          <WebliixCard variant="standard" className="p-6 sm:p-10 space-y-8 text-theme-text leading-relaxed font-sans shadow-spatial-lg">
             {children}
-          </GlassCard>
+          </WebliixCard>
         </main>
       </div>
     </div>

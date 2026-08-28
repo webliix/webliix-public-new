@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import { ShieldCheck, Building2, Award, FileCode2, MapPin, CheckCircle2, ArrowUpRight, Copy, Check, ExternalLink, HelpCircle } from 'lucide-react';
 import { businessConfig } from '../config/businessConfig';
 import { siteConfig } from '../config/siteConfig';
-import GlassCard from '../components/spatial/GlassCard';
-import SpatialButton from '../components/ui/SpatialButton';
+import WebliixCard from '../components/ui/WebliixCard';
+import WebliixIcon from '../components/ui/WebliixIcon';
+import WebliixButton from '../components/ui/WebliixButton';
 import LegalLayout from '../components/legal/LegalLayout';
 
 export default function BusinessInformation() {
@@ -40,7 +41,7 @@ export default function BusinessInformation() {
       {/* SECTION A: BUSINESS IDENTITY */}
       <section id="business-identity" className="space-y-4">
         <div className="flex items-center gap-2 border-b border-theme-border/60 pb-3">
-          <Building2 className="w-5 h-5 text-theme-primary" />
+          <WebliixIcon icon={Building2} variant="section" size="sm" />
           <h2 className="text-xl sm:text-2xl font-display font-bold text-theme-text">
             A. Business Identity
           </h2>
@@ -51,34 +52,34 @@ export default function BusinessInformation() {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-2">
-          <div className="p-4 rounded-2xl glass-spatial border border-theme-border space-y-1">
+          <WebliixCard variant="panel" className="p-4 space-y-1">
             <span className="text-[10px] font-mono text-theme-muted uppercase tracking-wider block">Enterprise Name</span>
             <span className="text-sm font-display font-bold text-theme-text">{businessConfig.name}</span>
-          </div>
+          </WebliixCard>
 
-          <div className="p-4 rounded-2xl glass-spatial border border-theme-border space-y-1">
+          <WebliixCard variant="panel" className="p-4 space-y-1">
             <span className="text-[10px] font-mono text-theme-muted uppercase tracking-wider block">Enterprise Category</span>
             <span className="text-sm font-display font-bold text-theme-primary">{businessConfig.enterpriseType}</span>
-          </div>
+          </WebliixCard>
 
-          <div className="p-4 rounded-2xl glass-spatial border border-theme-border space-y-1">
+          <WebliixCard variant="panel" className="p-4 space-y-1">
             <span className="text-[10px] font-mono text-theme-muted uppercase tracking-wider block">Primary Sector</span>
             <span className="text-sm font-display font-bold text-theme-text">{businessConfig.majorActivity}</span>
-          </div>
+          </WebliixCard>
         </div>
       </section>
 
       {/* SECTION B: UDYAM / MSME REGISTRATION CARD */}
       <section id="udyam-registration" className="space-y-4 pt-4">
         <div className="flex items-center gap-2 border-b border-theme-border/60 pb-3">
-          <Award className="w-5 h-5 text-theme-primary" />
+          <WebliixIcon icon={Award} variant="section" size="sm" />
           <h2 className="text-xl sm:text-2xl font-display font-bold text-theme-text">
             B. Udyam MSME Registration
           </h2>
         </div>
 
         {/* Premium Tech Registration Card */}
-        <div className="p-6 sm:p-8 rounded-3xl glass-spatial border border-theme-primary/40 shadow-spatial space-y-6">
+        <WebliixCard variant="featured" accentColor="primary" className="p-6 sm:p-8 space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-theme-border/60 pb-4">
             <div>
               <span className="px-3 py-1 rounded-full bg-theme-primary/15 text-theme-primary text-xs font-mono font-bold border border-theme-primary/30 inline-block mb-1">
@@ -94,7 +95,7 @@ export default function BusinessInformation() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-4 rounded-2xl bg-theme-bg/60 border border-theme-border space-y-1">
+            <WebliixCard variant="panel" className="p-4 space-y-1">
               <span className="text-xs font-mono text-theme-muted uppercase tracking-wider block">
                 Udyam Registration Number
               </span>
@@ -102,48 +103,49 @@ export default function BusinessInformation() {
                 <span className="font-mono font-bold text-sm sm:text-base text-theme-primary break-all">
                   {businessConfig.udyamNumber}
                 </span>
-                <button
+                <WebliixButton
+                  variant="utility"
+                  size="sm"
+                  iconOnly
+                  icon={copied ? Check : Copy}
                   onClick={handleCopyUdyam}
-                  className="p-1.5 rounded-lg glass-spatial text-theme-muted hover:text-theme-primary transition shrink-0"
-                  title="Copy Registration Number"
-                >
-                  {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
-                </button>
+                  aria-label="Copy Registration Number"
+                />
               </div>
-            </div>
+            </WebliixCard>
 
-            <div className="p-4 rounded-2xl bg-theme-bg/60 border border-theme-border space-y-1">
+            <WebliixCard variant="panel" className="p-4 space-y-1">
               <span className="text-xs font-mono text-theme-muted uppercase tracking-wider block">
                 Classification Year
               </span>
               <span className="font-mono font-bold text-sm sm:text-base text-theme-text">
                 {businessConfig.classificationYear}
               </span>
-            </div>
+            </WebliixCard>
 
-            <div className="p-4 rounded-2xl bg-theme-bg/60 border border-theme-border space-y-1">
+            <WebliixCard variant="panel" className="p-4 space-y-1">
               <span className="text-xs font-mono text-theme-muted uppercase tracking-wider block">
                 NIC 5-Digit Code
               </span>
               <span className="font-mono font-bold text-sm sm:text-base text-theme-text">
                 {businessConfig.nicCode}
               </span>
-            </div>
+            </WebliixCard>
 
-            <div className="p-4 rounded-2xl bg-theme-bg/60 border border-theme-border space-y-1">
+            <WebliixCard variant="panel" className="p-4 space-y-1">
               <span className="text-xs font-mono text-theme-muted uppercase tracking-wider block">
                 Unit Name
               </span>
               <span className="font-mono font-bold text-sm sm:text-base text-theme-text">
                 {businessConfig.unitName}
               </span>
-            </div>
+            </WebliixCard>
           </div>
 
-          <div className="p-4 rounded-2xl bg-theme-bg/40 border border-theme-border/60 text-xs text-theme-muted space-y-1">
-            <span className="font-mono font-semibold text-theme-primary uppercase block">NIC Description</span>
-            <p className="text-theme-text font-medium">{businessConfig.nicDescription}</p>
-          </div>
+          <WebliixCard variant="panel" className="p-4 space-y-1">
+            <span className="font-mono font-semibold text-theme-primary uppercase block text-xs">NIC Description</span>
+            <p className="text-theme-text font-medium text-xs">{businessConfig.nicDescription}</p>
+          </WebliixCard>
 
           {/* Conditional Official Verification Link */}
           {businessConfig.udyamVerificationUrl ? (
@@ -154,19 +156,19 @@ export default function BusinessInformation() {
                 rel="noopener noreferrer"
                 className="inline-block"
               >
-                <SpatialButton variant="primary" icon={ExternalLink} className="text-xs py-2 px-4">
+                <WebliixButton variant="primary" size="sm" icon={ExternalLink}>
                   Verify Official MSME Record
-                </SpatialButton>
+                </WebliixButton>
               </a>
             </div>
           ) : null}
-        </div>
+        </WebliixCard>
       </section>
 
       {/* SECTION C: BUSINESS ACTIVITY */}
       <section id="business-activity" className="space-y-4 pt-4">
         <div className="flex items-center gap-2 border-b border-theme-border/60 pb-3">
-          <FileCode2 className="w-5 h-5 text-theme-primary" />
+          <WebliixIcon icon={FileCode2} variant="section" size="sm" />
           <h2 className="text-xl sm:text-2xl font-display font-bold text-theme-text">
             C. National Industry Classification (NIC) Activity
           </h2>
@@ -177,63 +179,63 @@ export default function BusinessInformation() {
         </p>
 
         <div className="space-y-3">
-          <div className="p-4 rounded-2xl glass-spatial border border-theme-border flex items-center justify-between gap-4 text-xs font-mono">
+          <WebliixCard variant="panel" className="p-4 flex items-center justify-between gap-4 text-xs font-mono">
             <span className="text-theme-muted">NIC 2-Digit (62):</span>
             <span className="font-bold text-theme-text">Computer Programming, Consultancy and Related Activities</span>
-          </div>
+          </WebliixCard>
 
-          <div className="p-4 rounded-2xl glass-spatial border border-theme-border flex items-center justify-between gap-4 text-xs font-mono">
+          <WebliixCard variant="panel" className="p-4 flex items-center justify-between gap-4 text-xs font-mono">
             <span className="text-theme-muted">NIC 4-Digit (6209):</span>
             <span className="font-bold text-theme-text">Other Information Technology and Computer Service Activities</span>
-          </div>
+          </WebliixCard>
 
-          <div className="p-4 rounded-2xl glass-spatial border border-theme-border flex items-center justify-between gap-4 text-xs font-mono">
+          <WebliixCard variant="panel" className="p-4 flex items-center justify-between gap-4 text-xs font-mono">
             <span className="text-theme-muted">NIC 5-Digit Code (62099):</span>
             <span className="font-bold text-theme-primary">Other Information Technology and Computer Service Activities n.e.c.</span>
-          </div>
+          </WebliixCard>
         </div>
       </section>
 
       {/* SECTION D: BUSINESS LOCATION */}
       <section id="business-location" className="space-y-4 pt-4">
         <div className="flex items-center gap-2 border-b border-theme-border/60 pb-3">
-          <MapPin className="w-5 h-5 text-theme-primary" />
+          <WebliixIcon icon={MapPin} variant="section" size="sm" />
           <h2 className="text-xl sm:text-2xl font-display font-bold text-theme-text">
             D. Business Location & Addresses
           </h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="p-5 rounded-2xl glass-spatial border border-theme-border space-y-2">
+          <WebliixCard variant="panel" className="p-5 space-y-2">
             <span className="text-xs font-mono font-bold text-theme-primary uppercase tracking-wider block">
               Registered Unit Location
             </span>
             <p className="text-xs text-theme-text font-medium leading-relaxed">
               {businessConfig.businessAddress}
             </p>
-          </div>
+          </WebliixCard>
 
-          <div className="p-5 rounded-2xl glass-spatial border border-theme-border space-y-2">
+          <WebliixCard variant="panel" className="p-5 space-y-2">
             <span className="text-xs font-mono font-bold text-theme-primary uppercase tracking-wider block">
               NCR Corporate Hub
             </span>
             <p className="text-xs text-theme-text font-medium leading-relaxed">
               {businessConfig.corporateAddress}
             </p>
-          </div>
+          </WebliixCard>
         </div>
       </section>
 
       {/* SECTION E: GST REGISTRATION STATUS (CONFIGURATION DRIVEN) */}
       <section id="gst-status" className="space-y-4 pt-4">
         <div className="flex items-center gap-2 border-b border-theme-border/60 pb-3">
-          <ShieldCheck className="w-5 h-5 text-theme-primary" />
+          <WebliixIcon icon={ShieldCheck} variant="section" size="sm" />
           <h2 className="text-xl sm:text-2xl font-display font-bold text-theme-text">
             E. GST Registration Status
           </h2>
         </div>
 
-        <div className="p-6 rounded-3xl glass-spatial border border-theme-border space-y-3">
+        <WebliixCard variant="standard" className="p-6 space-y-3">
           <div className="flex items-center justify-between">
             <span className="text-sm font-display font-bold text-theme-text">GST Registration</span>
             <span className={`px-3 py-1 rounded-full text-xs font-mono font-bold border ${
@@ -255,13 +257,13 @@ export default function BusinessInformation() {
               {businessConfig.gstPendingNotice}
             </p>
           )}
-        </div>
+        </WebliixCard>
       </section>
 
       {/* SECTION F: LEGAL & COMPLIANCE LINKS */}
       <section id="legal-governance" className="space-y-4 pt-4">
         <div className="flex items-center gap-2 border-b border-theme-border/60 pb-3">
-          <HelpCircle className="w-5 h-5 text-theme-primary" />
+          <WebliixIcon icon={HelpCircle} variant="section" size="sm" />
           <h2 className="text-xl sm:text-2xl font-display font-bold text-theme-text">
             F. Legal Governance & Public Policies
           </h2>
@@ -272,24 +274,32 @@ export default function BusinessInformation() {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1">
-          <Link to="/privacy-policy" className="p-4 rounded-2xl glass-spatial border border-theme-border hover:border-theme-primary text-xs font-mono font-semibold text-theme-text hover:text-theme-primary transition flex items-center justify-between group">
-            <span>Privacy Policy</span>
-            <ArrowUpRight className="w-4 h-4 text-theme-primary group-hover:translate-x-0.5 transition-transform" />
+          <Link to="/privacy-policy">
+            <WebliixCard variant="panel" clickable className="p-4 text-xs font-mono font-semibold text-theme-text hover:text-theme-primary flex items-center justify-between group">
+              <span>Privacy Policy</span>
+              <ArrowUpRight className="w-4 h-4 text-theme-primary group-hover:translate-x-0.5 transition-transform" />
+            </WebliixCard>
           </Link>
 
-          <Link to="/terms-and-conditions" className="p-4 rounded-2xl glass-spatial border border-theme-border hover:border-theme-primary text-xs font-mono font-semibold text-theme-text hover:text-theme-primary transition flex items-center justify-between group">
-            <span>Terms & Conditions</span>
-            <ArrowUpRight className="w-4 h-4 text-theme-primary group-hover:translate-x-0.5 transition-transform" />
+          <Link to="/terms-and-conditions">
+            <WebliixCard variant="panel" clickable className="p-4 text-xs font-mono font-semibold text-theme-text hover:text-theme-primary flex items-center justify-between group">
+              <span>Terms & Conditions</span>
+              <ArrowUpRight className="w-4 h-4 text-theme-primary group-hover:translate-x-0.5 transition-transform" />
+            </WebliixCard>
           </Link>
 
-          <Link to="/refund-cancellation" className="p-4 rounded-2xl glass-spatial border border-theme-border hover:border-theme-primary text-xs font-mono font-semibold text-theme-text hover:text-theme-primary transition flex items-center justify-between group">
-            <span>Refund Policy</span>
-            <ArrowUpRight className="w-4 h-4 text-theme-primary group-hover:translate-x-0.5 transition-transform" />
+          <Link to="/refund-cancellation">
+            <WebliixCard variant="panel" clickable className="p-4 text-xs font-mono font-semibold text-theme-text hover:text-theme-primary flex items-center justify-between group">
+              <span>Refund Policy</span>
+              <ArrowUpRight className="w-4 h-4 text-theme-primary group-hover:translate-x-0.5 transition-transform" />
+            </WebliixCard>
           </Link>
 
-          <Link to="/disclaimer" className="p-4 rounded-2xl glass-spatial border border-theme-border hover:border-theme-primary text-xs font-mono font-semibold text-theme-text hover:text-theme-primary transition flex items-center justify-between group">
-            <span>Disclaimer</span>
-            <ArrowUpRight className="w-4 h-4 text-theme-primary group-hover:translate-x-0.5 transition-transform" />
+          <Link to="/disclaimer">
+            <WebliixCard variant="panel" clickable className="p-4 text-xs font-mono font-semibold text-theme-text hover:text-theme-primary flex items-center justify-between group">
+              <span>Disclaimer</span>
+              <ArrowUpRight className="w-4 h-4 text-theme-primary group-hover:translate-x-0.5 transition-transform" />
+            </WebliixCard>
           </Link>
         </div>
       </section>

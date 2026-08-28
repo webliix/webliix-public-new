@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Calculator, Check, ArrowRight, Sparkles, Clock } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
 import GlassCard from './GlassCard';
-import SpatialButton from '../ui/SpatialButton';
+import WebliixCard from '../ui/WebliixCard';
+import WebliixIcon from '../ui/WebliixIcon';
+import WebliixButton from '../ui/WebliixButton';
 import { useModal } from '../../context/ModalContext';
 
 export default function QuoteEstimator() {
@@ -65,9 +67,9 @@ export default function QuoteEstimator() {
               <label className="text-xs font-semibold text-theme-muted block mb-1">Phone / WhatsApp</label>
               <input required type="tel" placeholder="+91 93101 81569" className="w-full px-4 py-2.5 rounded-xl glass-spatial border border-theme-border text-theme-text text-sm focus:outline-none focus:border-theme-primary" />
             </div>
-            <SpatialButton type="submit" variant="primary" className="w-full mt-2">
+            <WebliixButton type="submit" variant="primary" fullWidth className="mt-2">
               Submit Configuration & Request Callback
-            </SpatialButton>
+            </WebliixButton>
           </form>
         </div>
       )
@@ -95,14 +97,12 @@ export default function QuoteEstimator() {
             {siteConfig.pricingModules.map((module) => {
               const isSelected = selectedModules.includes(module.id);
               return (
-                <button
+                <WebliixButton
                   key={module.id}
+                  variant="utility"
+                  active={isSelected}
                   onClick={() => toggleModule(module.id)}
-                  className={`flex items-center justify-between p-3.5 rounded-2xl border text-left transition-all duration-300 ${
-                    isSelected
-                      ? 'bg-theme-primary/15 border-theme-primary text-theme-text shadow-sm'
-                      : 'glass-spatial border-theme-border text-theme-muted hover:border-theme-primary/50 hover:text-theme-text'
-                  }`}
+                  className="w-full justify-between h-auto p-3.5"
                 >
                   <div className="flex items-center gap-3">
                     <div className={`w-5 h-5 rounded-lg border flex items-center justify-center transition ${
@@ -115,7 +115,7 @@ export default function QuoteEstimator() {
                   <span className="text-xs font-mono font-bold text-theme-primary">
                     +₹{module.price.toLocaleString()}
                   </span>
-                </button>
+                </WebliixButton>
               );
             })}
           </div>
@@ -126,38 +126,36 @@ export default function QuoteEstimator() {
               Delivery Pace
             </label>
             <div className="flex items-center gap-3">
-              <button
+              <WebliixButton
+                variant="utility"
+                active={deliverySpeed === 'standard'}
                 onClick={() => setDeliverySpeed('standard')}
-                className={`flex-1 py-2.5 px-4 rounded-xl border text-xs font-semibold transition ${
-                  deliverySpeed === 'standard'
-                    ? 'bg-theme-primary text-white border-theme-primary shadow-md'
-                    : 'glass-spatial border-theme-border text-theme-muted'
-                }`}
+                className="flex-1"
+                size="sm"
               >
                 Standard Pace (7–10 Days)
-              </button>
-              <button
+              </WebliixButton>
+              <WebliixButton
+                variant="utility"
+                active={deliverySpeed === 'rush'}
                 onClick={() => setDeliverySpeed('rush')}
-                className={`flex-1 py-2.5 px-4 rounded-xl border text-xs font-semibold transition ${
-                  deliverySpeed === 'rush'
-                    ? 'bg-theme-primary text-white border-theme-primary shadow-md'
-                    : 'glass-spatial border-theme-border text-theme-muted'
-                }`}
+                className="flex-1"
+                size="sm"
               >
                 🚀 Express Rush (3–5 Days)
-              </button>
+              </WebliixButton>
             </div>
           </div>
         </div>
 
         {/* Live Calculation Card */}
-        <div className="w-full lg:w-80 glass-spatial p-6 rounded-3xl border border-theme-primary/40 shadow-spatial space-y-6 flex flex-col justify-between">
+        <WebliixCard variant="accent" accentColor="primary" className="w-full lg:w-80 p-6 space-y-6 flex flex-col justify-between">
           <div className="space-y-4">
             <div className="flex items-center justify-between pb-3 border-b border-theme-border">
               <span className="text-xs font-semibold text-theme-muted uppercase tracking-wider">
                 Live Estimation
               </span>
-              <Sparkles className="w-4 h-4 text-theme-primary animate-pulse" />
+              <WebliixIcon icon={Sparkles} variant="inline" size="md" className="animate-pulse" />
             </div>
 
             <div>
@@ -173,7 +171,7 @@ export default function QuoteEstimator() {
             <div className="p-3.5 rounded-2xl bg-theme-primary/10 border border-theme-primary/20 space-y-2">
               <div className="flex items-center justify-between text-xs text-theme-text">
                 <span className="flex items-center gap-1 text-theme-muted">
-                  <Clock className="w-3.5 h-3.5 text-theme-primary" /> Est. Delivery:
+                  <WebliixIcon icon={Clock} variant="inline" size="sm" /> Est. Delivery:
                 </span>
                 <span className="font-bold font-mono text-theme-primary">
                   ~{Math.ceil(estimatedDays)} Days
@@ -181,17 +179,17 @@ export default function QuoteEstimator() {
               </div>
               <div className="flex items-center justify-between text-xs text-theme-text">
                 <span className="flex items-center gap-1 text-theme-muted">
-                  <Check className="w-3.5 h-3.5 text-theme-primary" /> Support Included:
+                  <WebliixIcon icon={Check} variant="inline" size="sm" /> Support Included:
                 </span>
                 <span className="font-bold text-emerald-400">30 Days Free</span>
               </div>
             </div>
           </div>
 
-          <SpatialButton onClick={handleLaunchInquiry} variant="primary" className="w-full" icon={ArrowRight}>
+          <WebliixButton onClick={handleLaunchInquiry} variant="primary" fullWidth icon={ArrowRight}>
             Lock Quote & Proceed
-          </SpatialButton>
-        </div>
+          </WebliixButton>
+        </WebliixCard>
       </div>
     </GlassCard>
   );

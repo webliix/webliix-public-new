@@ -114,17 +114,45 @@ h1, h2, h3, h4, h5, h6, .font-display {
 
 /* W3C Standard Glassmorphism Container */
 .glass-spatial {
-  background: var(--color-card, rgba(15, 23, 42, 0.85));
-  backdrop-filter: blur(var(--glass-blur, 24px));
-  -webkit-backdrop-filter: blur(var(--glass-blur, 24px));
+  background: var(--color-card, rgba(15, 23, 42, 0.75));
+  backdrop-filter: blur(var(--glass-blur, 28px));
+  -webkit-backdrop-filter: blur(var(--glass-blur, 28px));
   border: 1px solid var(--color-border, rgba(37, 99, 235, 0.35));
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, backdrop-filter;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .glass-spatial:hover {
   border-color: var(--color-primary, #2563eb);
   box-shadow: 0 15px 40px -10px var(--color-glow, rgba(37, 99, 235, 0.4));
+}
+
+/* ─── Primary Button ─────────────────────────────────────────────
+   Handles bg, text, shadow, hover, disabled purely in CSS.
+   color-mix() darkens primary by 15% for hover — no hardcoded colors.
+   Works automatically with every theme preset and custom color picker. */
+.webliix-btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-primary-fg, #ffffff);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.10);
+  transition: background-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.webliix-btn-primary:not(:disabled):hover {
+  background-color: var(
+    --color-primary-hover,
+    color-mix(in srgb, var(--color-primary) 82%, #000 18%)
+  );
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.24), 0 2px 6px rgba(0, 0, 0, 0.14);
+}
+
+.webliix-btn-primary:disabled {
+  box-shadow: none;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 /* Shimmer Gradient Text */
@@ -157,4 +185,22 @@ h1, h2, h3, h4, h5, h6, .font-display {
 @keyframes scan {
   0% { transform: translateY(-100%); }
   100% { transform: translateY(100vh); }
+}
+
+/* Infinite slow-looping marquee carousel */
+.animate-scroll-slow {
+  animation: scroll-slow 35s linear infinite;
+}
+
+.animate-scroll-slow:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-slow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
 }
