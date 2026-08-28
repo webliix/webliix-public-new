@@ -88,70 +88,9 @@ export default function SpatialFooter() {
         <input type="checkbox" name="agree" />
       </form>
 
-      {/* Newsletter Subscription Banner */}
-      <div className="max-w-7xl mx-auto mb-16 p-6 sm:p-8 rounded-3xl glass-spatial border border-theme-border/80 flex flex-col lg:flex-row items-center justify-between gap-6">
-        <div className="space-y-1.5 text-center lg:text-left max-w-lg">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-theme-primary/15 border border-theme-primary/30 text-theme-primary text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-widest">
-            <Mail className="w-3 h-3" /> Stay in the Loop
-          </span>
-          <h3 className="text-xl sm:text-2xl font-display font-bold text-theme-text">
-            Subscribe to Webliix Updates
-          </h3>
-          <p className="text-xs sm:text-sm text-theme-muted">
-            Get web dev insights, SEO tips, and LaunchKit package updates directly to your inbox.
-          </p>
-        </div>
-
-        {subscribed ? (
-          <div className="flex items-center gap-3 p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-medium">
-            <CheckCircle2 className="w-5 h-5 shrink-0 text-emerald-400" />
-            <span>Thank you for subscribing! We've sent you a welcome email.</span>
-          </div>
-        ) : (
-          <form
-            name="newsletter-subscribe"
-            method="POST"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
-            onSubmit={handleFooterSubscribe}
-            className="w-full lg:max-w-md flex flex-col sm:flex-row items-center gap-2.5"
-          >
-            <input type="hidden" name="form-name" value="newsletter-subscribe" />
-            <input type="hidden" name="bot-field" />
-            <input type="hidden" name="interest" value="general" />
-            <input type="hidden" name="name" value="Footer Subscriber" />
-            <input type="hidden" name="agree" value="true" />
-
-            <div className="relative w-full">
-              <WebliixInput
-                type="email"
-                name="email"
-                required
-                value={subscribeEmail}
-                onChange={(e) => setSubscribeEmail(e.target.value)}
-                placeholder="Enter your email address..."
-                icon={Mail}
-                className="w-full"
-              />
-            </div>
-            <WebliixButton
-              type="submit"
-              variant="primary"
-              loading={subscribing}
-              disabled={subscribing}
-              icon={Send}
-              className="w-full sm:w-auto shrink-0"
-            >
-              Subscribe
-            </WebliixButton>
-          </form>
-        )}
-      </div>
-
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-
         
-        {/* Brand Overview & Social Handles */}
+        {/* Brand Overview, Social Handles & Subscribe Input */}
         <div className="lg:col-span-2 space-y-4">
           <Link to="/" className="inline-block group">
             <img
@@ -165,13 +104,13 @@ export default function SpatialFooter() {
           </p>
 
           {/* Udyam MSME Compliance Badge */}
-          <Link to="/business-information" className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-theme-primary/15 text-theme-primary border border-theme-primary/30 text-xs font-mono font-semibold hover:bg-theme-primary hover:text-white transition">
+          <Link to="/business-information" className="inline-flex items-center gap-2 px-3 py-1.5 rounded-none sm:rounded-[4px] bg-theme-primary/15 text-theme-primary border border-theme-primary/30 text-xs font-mono font-semibold hover:bg-theme-primary hover:text-white transition">
             <Award className="w-4 h-4 shrink-0" />
             <span>Udyam Reg. No. {businessConfig.udyamNumber}</span>
           </Link>
 
           {/* Social Media Handles */}
-          <div className="pt-2">
+          <div className="pt-1">
             <span className="text-xs font-mono font-semibold text-theme-primary uppercase tracking-wider block mb-2">
               Connect With Us
             </span>
@@ -183,7 +122,7 @@ export default function SpatialFooter() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.name}
-                  className="p-2.5 rounded-xl glass-spatial border border-theme-border/60 hover:border-theme-primary hover:text-theme-primary text-theme-muted transition group"
+                  className="p-2.5 rounded-none sm:rounded-[4px] glass-spatial border border-theme-border/80 hover:border-theme-primary hover:text-theme-primary text-theme-muted transition group"
                 >
                   <span className="group-hover:scale-110 transition-transform block">
                     {social.svg}
@@ -192,7 +131,56 @@ export default function SpatialFooter() {
               ))}
             </div>
           </div>
+
+
+          {/* Compact Subscribe Input & Button */}
+          <div className="pt-2 max-w-sm">
+            {subscribed ? (
+              <div className="flex items-center gap-2 py-2 px-3 rounded-none sm:rounded-[4px] bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono">
+                <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-400" />
+                <span>Thank you for subscribing!</span>
+              </div>
+            ) : (
+              <form
+                name="newsletter-subscribe"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                onSubmit={handleFooterSubscribe}
+                className="flex items-center gap-2"
+              >
+                <input type="hidden" name="form-name" value="newsletter-subscribe" />
+                <input type="hidden" name="bot-field" />
+                <input type="hidden" name="interest" value="general" />
+                <input type="hidden" name="name" value="Footer Subscriber" />
+                <input type="hidden" name="agree" value="true" />
+
+                <div className="relative w-full">
+                  <WebliixInput
+                    type="email"
+                    name="email"
+                    required
+                    value={subscribeEmail}
+                    onChange={(e) => setSubscribeEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    className="w-full text-xs py-2.5 px-3"
+                  />
+                </div>
+                <WebliixButton
+                  type="submit"
+                  variant="primary"
+                  size="sm"
+                  loading={subscribing}
+                  disabled={subscribing}
+                  className="shrink-0"
+                >
+                  Subscribe
+                </WebliixButton>
+              </form>
+            )}
+          </div>
         </div>
+
 
         {/* Core Solutions Links */}
         <div className="space-y-3">

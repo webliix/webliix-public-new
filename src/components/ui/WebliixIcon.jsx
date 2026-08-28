@@ -102,12 +102,12 @@ export default function WebliixIcon({
     '2xl': 'w-8 h-8'
   };
 
-  // Container & icon size mapping for badge variant
+  // Container & icon size mapping for badge variant — Edgy / Sharp spatial geometry
   const badgeContainerSizeMap = {
-    sm: 'w-8 h-8 rounded-xl',
-    md: 'w-10 h-10 rounded-xl',
-    lg: 'w-12 h-12 rounded-2xl',
-    xl: 'w-14 h-14 rounded-2xl'
+    sm: 'w-8 h-8 rounded-none sm:rounded-[2px]',
+    md: 'w-10 h-10 rounded-none sm:rounded-[4px]',
+    lg: 'w-12 h-12 rounded-none sm:rounded-[4px]',
+    xl: 'w-14 h-14 rounded-none sm:rounded-[4px]'
   };
 
   const badgeIconSizeMap = {
@@ -119,12 +119,12 @@ export default function WebliixIcon({
 
   const textColorClass = colorMap[color] || colorMap.primary;
 
-  // Social Variant — Tile container with hover scaling & theme primary accent
+  // Social Variant — Edgy tile container with hover scaling & theme primary accent
   if (variant === 'social') {
     const socialIconSizeClass = iconSizeMap[effectiveSize] || iconSizeMap.md;
     return (
       <div
-        className={`inline-flex items-center justify-center p-2.5 rounded-xl glass-spatial border border-theme-border/60 hover:border-theme-primary hover:text-theme-primary text-theme-muted transition-all duration-300 group shrink-0 ${className}`}
+        className={`inline-flex items-center justify-center p-2.5 rounded-none sm:rounded-[4px] glass-spatial border border-theme-border/80 hover:border-theme-primary hover:text-theme-primary text-theme-muted transition-all duration-300 group shrink-0 shadow-sm ${className}`}
         {...props}
       >
         <IconComponent className={`${socialIconSizeClass} group-hover:scale-110 transition-transform block shrink-0`} />
@@ -140,13 +140,14 @@ export default function WebliixIcon({
 
     return (
       <div
-        className={`inline-flex items-center justify-center shrink-0 border transition-all duration-300 ${containerSizeClass} ${badgeColorClass} ${className}`}
+        className={`inline-flex items-center justify-center shrink-0 border transition-all duration-300 shadow-sm ${containerSizeClass} ${badgeColorClass} ${className}`}
         {...props}
       >
         <IconComponent className={`${badgeIconSizeClass} shrink-0`} />
       </div>
     );
   }
+
 
   // Inline & Section Variant
   const iconSizeClass = iconSizeMap[effectiveSize] || iconSizeMap.sm;

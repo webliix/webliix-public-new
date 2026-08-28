@@ -123,21 +123,21 @@ export default function Contact() {
             </div>
 
             <div className="space-y-4 text-sm text-theme-text">
-              <a href={`tel:${siteConfig.brand.contactPhone.replace(/\s+/g, '')}`} className="flex items-center gap-4 p-4 rounded-2xl glass-spatial hover:border-theme-primary transition group">
+              <a href={`tel:${siteConfig.brand.contactPhone.replace(/\s+/g, '')}`} className="flex items-center gap-4 p-4 rounded-none sm:rounded-[4px] glass-spatial border border-theme-border/60 hover:border-theme-primary transition group">
                 <WebliixIcon icon={Phone} variant="badge" size="md" className="group-hover:scale-110" />
                 <div>
                   <span className="text-xs text-theme-muted block">Call Direct / WhatsApp</span>
                   <span className="font-mono font-bold text-base">{siteConfig.brand.contactPhone}</span>
                 </div>
               </a>
-              <a href={`mailto:${siteConfig.brand.contactEmail}`} className="flex items-center gap-4 p-4 rounded-2xl glass-spatial hover:border-theme-primary transition group">
+              <a href={`mailto:${siteConfig.brand.contactEmail}`} className="flex items-center gap-4 p-4 rounded-none sm:rounded-[4px] glass-spatial border border-theme-border/60 hover:border-theme-primary transition group">
                 <WebliixIcon icon={Mail} variant="badge" size="md" className="group-hover:scale-110" />
                 <div>
                   <span className="text-xs text-theme-muted block">Email Inquiry</span>
                   <span className="font-mono font-bold text-base">{siteConfig.brand.contactEmail}</span>
                 </div>
               </a>
-              <div className="flex items-center gap-4 p-4 rounded-2xl glass-spatial">
+              <div className="flex items-center gap-4 p-4 rounded-none sm:rounded-[4px] glass-spatial border border-theme-border/60">
                 <WebliixIcon icon={MapPin} variant="badge" size="md" />
                 <div>
                   <span className="text-xs text-theme-muted block">Headquarters</span>
@@ -152,13 +152,14 @@ export default function Contact() {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {socialLinks.map((social) => (
                   <a key={social.name} href={social.href} target="_blank" rel="noopener noreferrer"
-                    className="p-3 rounded-2xl glass-spatial border border-theme-border/60 hover:border-theme-primary hover:text-theme-primary text-theme-text text-xs font-semibold flex items-center justify-center gap-2 transition group">
+                    className="p-3 rounded-none sm:rounded-[4px] glass-spatial border border-theme-border/80 hover:border-theme-primary hover:text-theme-primary text-theme-text text-xs font-semibold flex items-center justify-center gap-2 transition group">
                     <span className="group-hover:scale-110 transition-transform">{social.svg}</span>
                     <span>{social.name}</span>
                   </a>
                 ))}
               </div>
             </div>
+
           </GlassCard>
 
           {/* WhatsApp Direct */}
