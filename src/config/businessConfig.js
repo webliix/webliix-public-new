@@ -12,8 +12,8 @@ export const businessConfig = {
   nicCode: "62099",
   nicDescription: "Other information technology and computer service activities n.e.c.",
   unitName: "Naugachia",
-  businessAddress: "1st Floor, Building: Hotel Raj Inn, Village/Town: Tetri, Block/Street: Block Naugachia, Naugachia Road, City: Naugachia, District: Bhagalpur, State: Bihar, PIN Code: 853204, India",
-  corporateAddress: "1st Floor, Building: Hotel Raj Inn, Village/Town: Tetri, Block/Street: Block Naugachia, Naugachia Road, City: Naugachia, District: Bhagalpur, State: Bihar, PIN Code: 853204, India",
+  businessAddress: "1st Floor, Hotel Raj Inn, Tetri, Naugachia Road, Naugachia, Bhagalpur, Bihar - 853204, India",
+  corporateAddress: "1st Floor, Hotel Raj Inn, Tetri, Naugachia Road, Naugachia, Bhagalpur, Bihar - 853204, India",
   dateOfRegistration: "01/08/2026",
   udyamRegistrationDate: "03/08/2026",
 

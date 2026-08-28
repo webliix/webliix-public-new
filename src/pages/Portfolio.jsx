@@ -187,8 +187,8 @@ export default function Portfolio() {
                     <span className="text-theme-primary font-bold">{item.category}</span>
                   </div>
 
-                  {/* Clean Image Container — flush to card corners */}
-                  <div className="h-56 sm:h-64 overflow-hidden relative bg-theme-bg">
+                  {/* Clean Image Container — landscape responsive */}
+                  <div className="aspect-[16/10] sm:aspect-video w-full overflow-hidden relative bg-theme-bg">
                     <img
                       src={item.image}
                       alt={item.title}
@@ -253,12 +253,12 @@ export default function Portfolio() {
               <WebliixCard
                 key={index}
                 variant="panel"
-                className="w-40 h-40 sm:w-44 sm:h-44 aspect-square shrink-0 p-4 bg-white border border-gray-200/80 shadow-sm rounded-2xl flex items-center justify-center group hover:border-theme-primary/60 transition-all"
+                className="w-36 h-36 sm:w-40 sm:h-40 aspect-square shrink-0 p-3 bg-white border border-gray-200/80 shadow-sm rounded-2xl flex items-center justify-center group hover:border-theme-primary/60 transition-all"
               >
                 <img
                   src={logo}
                   alt={`Branding Logo ${index + 1}`}
-                  className="max-h-24 max-w-full object-contain mx-auto group-hover:scale-105 transition-transform duration-300"
+                  className="max-h-20 max-w-[85%] object-contain mx-auto group-hover:scale-105 transition-transform duration-300"
                 />
               </WebliixCard>
             ))}
@@ -280,40 +280,43 @@ export default function Portfolio() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
           {clients.map((client) => (
             <GlassCard
               key={client.name}
-              className="p-6 space-y-5 border border-theme-border/80 hover:border-theme-primary/50 transition-all duration-300"
+              className="p-3.5 sm:p-5 space-y-3 sm:space-y-4 border border-theme-border/80 hover:border-theme-primary/50 transition-all duration-300 flex flex-col justify-between"
             >
-              {/* Square Logo Container — white bg, centered PNG logo */}
-              <div className="w-full aspect-square bg-white rounded-2xl p-5 border border-gray-200/80 shadow-sm flex items-center justify-center">
-                <img
-                  src={client.logo}
-                  alt={`${client.name} logo`}
-                  className="max-h-full max-w-full object-contain"
-                />
+              <div className="space-y-3">
+                {/* Logo Container — white bg, perfectly proportioned */}
+                <div className="w-full h-20 sm:h-24 bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-3 border border-gray-200/80 shadow-sm flex items-center justify-center">
+                  <img
+                    src={client.logo}
+                    alt={`${client.name} logo`}
+                    className="max-h-12 sm:max-h-14 max-w-[85%] object-contain"
+                  />
+                </div>
+
+                <h3 className="text-xs sm:text-sm font-display font-bold text-center text-theme-text line-clamp-1">
+                  {client.name}
+                </h3>
               </div>
 
-              <h3 className="text-lg font-display font-bold text-center text-theme-text">
-                {client.name}
-              </h3>
-
-              <div className="flex flex-wrap justify-center gap-2 pt-1 border-t border-theme-border/40">
+              <div className="flex flex-wrap justify-center gap-1.5 pt-2 border-t border-theme-border/40">
                 {client.services.map((service, idx) => (
-                  <div
+                  <span
                     key={idx}
-                    className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-theme-primary/15 text-xs font-mono text-theme-primary border border-theme-primary/30"
+                    className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-theme-primary/10 text-[10px] font-mono text-theme-primary border border-theme-primary/20 text-center"
                   >
-                    <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+                    <CheckCircle2 className="w-2.5 h-2.5 shrink-0" />
                     <span>{service}</span>
-                  </div>
+                  </span>
                 ))}
               </div>
             </GlassCard>
           ))}
         </div>
       </section>
+
 
     </div>
   );

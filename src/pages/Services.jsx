@@ -7,8 +7,8 @@ import GlassCard from '../components/spatial/GlassCard';
 import WebliixCard from '../components/ui/WebliixCard';
 import WebliixIcon from '../components/ui/WebliixIcon';
 import WebliixButton from '../components/ui/WebliixButton';
-import QuoteEstimator from '../components/spatial/QuoteEstimator';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
+
 
 export default function Services() {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -457,11 +457,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* INTERACTIVE PACKAGE ESTIMATOR */}
-      <section className="pt-4">
-        <QuoteEstimator />
-      </section>
-
     </div>
   );
 }
+

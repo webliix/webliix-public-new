@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Mail, Phone, MapPin, Send, MessageSquare, CheckCircle, Sparkles, Clock } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Mail, Phone, MapPin, Send, MessageSquare, CheckCircle, Sparkles, Clock, Star } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
+
 import GlassCard from '../components/spatial/GlassCard';
 import SpatialButton from '../components/ui/SpatialButton';
 import WebliixIcon from '../components/ui/WebliixIcon';
@@ -163,11 +165,37 @@ export default function Contact() {
           <GlassCard className="p-6 border border-emerald-500/40 shadow-spatial space-y-3 text-center">
             <span className="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-400">Instant WhatsApp Support</span>
             <p className="text-xs text-theme-muted">Need immediate answers? Chat directly with our lead project architect on WhatsApp.</p>
-            <a href={`https://wa.me/${siteConfig.brand.contactPhone.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" className="inline-block w-full">
-              <SpatialButton variant="primary" className="w-full bg-emerald-600 hover:bg-emerald-500 shadow-none" icon={MessageSquare}>
-                Chat on WhatsApp Now
-              </SpatialButton>
-            </a>
+            <div className="pt-2">
+              <a href={`https://wa.me/${siteConfig.brand.contactPhone.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" className="inline-block w-full">
+                <SpatialButton variant="primary" className="w-full bg-emerald-600 hover:bg-emerald-500 shadow-none" icon={MessageSquare}>
+                  Chat on WhatsApp Now
+                </SpatialButton>
+              </a>
+            </div>
+          </GlassCard>
+
+          {/* Client Feedback Card */}
+          <GlassCard className="p-6 border border-theme-border shadow-spatial space-y-3 text-center">
+            <div className="flex items-center justify-center gap-1 text-amber-400">
+              <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+              <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+              <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+              <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+              <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+            </div>
+            <h4 className="text-base font-display font-bold text-theme-text">
+              Worked With Webliix?
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">
+              Share your honest review and experience. Your feedback helps us continually improve and guide future clients.
+            </p>
+            <div className="pt-2">
+              <Link to="/feedback" className="inline-block w-full">
+                <SpatialButton variant="ghost" className="w-full">
+                  Share Your Feedback &rarr;
+                </SpatialButton>
+              </Link>
+            </div>
           </GlassCard>
         </div>
 
@@ -210,8 +238,9 @@ export default function Contact() {
                 </WebliixFieldGroup>
 
                 <WebliixFieldGroup label="Email Address" htmlFor="ct-email" optional>
-                  <WebliixInput id="ct-email" type="email" name="email" value={formData.email} onChange={handleChange} placeholder="contact@webliix.com" autoComplete="email" icon={Mail} />
+                  <WebliixInput id="ct-email" type="email" name="email" value={formData.email} onChange={handleChange} placeholder="contact@webliix.com" autoComplete="email" />
                 </WebliixFieldGroup>
+
 
                 <WebliixFieldGroup label="Interested Solution" htmlFor="ct-service">
                   <WebliixSelect id="ct-service" name="service" value={formData.service} onChange={handleChange}>

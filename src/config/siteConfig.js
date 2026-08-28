@@ -43,7 +43,7 @@ export const siteConfig = {
     contactEmail: 'contact@webliix.com',
     contactPhone: '+91 93101 81569',
     alternatePhone: '+91 88106 50511',
-    address: '1st Floor, Building: Hotel Raj Inn, Village/Town: Tetri, Block/Street: Block Naugachia, Naugachia Road, City: Naugachia, District: Bhagalpur, State: Bihar, PIN Code: 853204, India',
+    address: '1st Floor, Hotel Raj Inn, Tetri, Naugachia Road, Naugachia, Bhagalpur, Bihar - 853204, India',
     geoReach: ['NCR India', 'USA', 'Canada', 'Germany'],
     socials: {
       linkedin: 'https://www.linkedin.com/company/webliix/',

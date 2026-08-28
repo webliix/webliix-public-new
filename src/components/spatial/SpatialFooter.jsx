@@ -1,16 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, MessageSquare, ShieldCheck, Award } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageSquare, ShieldCheck, Award, Send, CheckCircle2, Sparkles } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
 import { businessConfig } from '../../config/businessConfig';
 import { useTheme } from '../../context/ThemeContext';
+import { WebliixInput, netlifyEncode } from '../ui/WebliixInput';
+import WebliixButton from '../ui/WebliixButton';
 
 export default function SpatialFooter() {
   const { currentTheme } = useTheme();
+  const [subscribeEmail, setSubscribeEmail] = useState('');
+  const [subscribing, setSubscribing] = useState(false);
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleFooterSubscribe = async (e) => {
+    e.preventDefault();
+    if (!subscribeEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(subscribeEmail)) return;
+    setSubscribing(true);
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: netlifyEncode({
+          'form-name': 'newsletter-subscribe',
+          email: subscribeEmail,
+          interest: 'general',
+          name: 'Footer Subscriber',
+          agree: 'true',
+        }),
+      });
+    } catch { /* local dev - ignore */ }
+    setSubscribed(true);
+    setSubscribing(false);
+  };
 
   const logoSrc = currentTheme.isDark === false
     ? siteConfig.brand.logoLight
     : siteConfig.brand.logoDark;
+
 
   const socialLinks = [
     {
@@ -53,7 +80,76 @@ export default function SpatialFooter() {
 
   return (
     <footer className="relative z-10 border-t border-theme-border/60 glass-spatial mt-20 pt-16 pb-12 px-6">
+      {/* Hidden Netlify detection form */}
+      <form name="newsletter-subscribe" data-netlify="true" netlify-honeypot="bot-field" hidden>
+        <input type="email" name="email" />
+        <input type="text" name="name" />
+        <input type="text" name="interest" />
+        <input type="checkbox" name="agree" />
+      </form>
+
+      {/* Newsletter Subscription Banner */}
+      <div className="max-w-7xl mx-auto mb-16 p-6 sm:p-8 rounded-3xl glass-spatial border border-theme-border/80 flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div className="space-y-1.5 text-center lg:text-left max-w-lg">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-theme-primary/15 border border-theme-primary/30 text-theme-primary text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-widest">
+            <Mail className="w-3 h-3" /> Stay in the Loop
+          </span>
+          <h3 className="text-xl sm:text-2xl font-display font-bold text-theme-text">
+            Subscribe to Webliix Updates
+          </h3>
+          <p className="text-xs sm:text-sm text-theme-muted">
+            Get web dev insights, SEO tips, and LaunchKit package updates directly to your inbox.
+          </p>
+        </div>
+
+        {subscribed ? (
+          <div className="flex items-center gap-3 p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-medium">
+            <CheckCircle2 className="w-5 h-5 shrink-0 text-emerald-400" />
+            <span>Thank you for subscribing! We've sent you a welcome email.</span>
+          </div>
+        ) : (
+          <form
+            name="newsletter-subscribe"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            onSubmit={handleFooterSubscribe}
+            className="w-full lg:max-w-md flex flex-col sm:flex-row items-center gap-2.5"
+          >
+            <input type="hidden" name="form-name" value="newsletter-subscribe" />
+            <input type="hidden" name="bot-field" />
+            <input type="hidden" name="interest" value="general" />
+            <input type="hidden" name="name" value="Footer Subscriber" />
+            <input type="hidden" name="agree" value="true" />
+
+            <div className="relative w-full">
+              <WebliixInput
+                type="email"
+                name="email"
+                required
+                value={subscribeEmail}
+                onChange={(e) => setSubscribeEmail(e.target.value)}
+                placeholder="Enter your email address..."
+                icon={Mail}
+                className="w-full"
+              />
+            </div>
+            <WebliixButton
+              type="submit"
+              variant="primary"
+              loading={subscribing}
+              disabled={subscribing}
+              icon={Send}
+              className="w-full sm:w-auto shrink-0"
+            >
+              Subscribe
+            </WebliixButton>
+          </form>
+        )}
+      </div>
+
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+
         
         {/* Brand Overview & Social Handles */}
         <div className="lg:col-span-2 space-y-4">
@@ -104,14 +200,12 @@ export default function SpatialFooter() {
             Solutions
           </h4>
           <ul className="space-y-2 text-xs text-theme-muted">
-            <li>
-              <Link to="/launch-kit" className="text-theme-primary font-semibold hover:underline flex items-center gap-1 group">
-                <span className="group-hover:translate-x-1 transition-transform">🚀 LaunchKit Business Packages</span>
-              </Link>
-            </li>
             {siteConfig.services.map((s) => (
               <li key={s.id}>
-                <Link to="/services" className="hover:text-theme-primary transition-colors flex items-center gap-1 group">
+                <Link
+                  to={s.id === 'brand-launchkit' ? '/launch-kit' : '/services'}
+                  className="hover:text-theme-primary transition-colors flex items-center gap-1 group"
+                >
                   <span className="group-hover:translate-x-1 transition-transform">{s.title}</span>
                 </Link>
               </li>
@@ -132,11 +226,9 @@ export default function SpatialFooter() {
             <li><Link to="/blog" className="hover:text-theme-primary transition">Knowledge Hub</Link></li>
             <li><Link to="/tools" className="hover:text-theme-primary transition">Free Meta Tag Tool</Link></li>
             <li><Link to="/contact" className="hover:text-theme-primary transition">Contact Us</Link></li>
-            <li><Link to="/subscribe" className="hover:text-theme-primary transition">📬 Subscribe to Updates</Link></li>
-            <li><Link to="/feedback" className="hover:text-theme-primary transition">⭐ Share Feedback</Link></li>
+            <li><Link to="/feedback" className="hover:text-theme-primary transition">Share Feedback</Link></li>
           </ul>
         </div>
-
 
         {/* Business & Legal Area */}
         <div className="space-y-3">
@@ -144,12 +236,13 @@ export default function SpatialFooter() {
             Business & Legal
           </h4>
           <ul className="space-y-2 text-xs text-theme-muted">
-            <li><Link to="/business-information" className="hover:text-theme-primary font-semibold text-theme-primary transition flex items-center gap-1"><span>Business Information</span></Link></li>
+            <li><Link to="/business-information" className="hover:text-theme-primary transition flex items-center gap-1"><span>Business Information</span></Link></li>
             <li><Link to="/privacy-policy" className="hover:text-theme-primary transition">Privacy Policy</Link></li>
             <li><Link to="/terms-and-conditions" className="hover:text-theme-primary transition">Terms & Conditions</Link></li>
             <li><Link to="/refund-cancellation" className="hover:text-theme-primary transition">Refund & Cancellation</Link></li>
             <li><Link to="/disclaimer" className="hover:text-theme-primary transition">Disclaimer</Link></li>
           </ul>
+
 
           <div className="pt-2 text-[11px] font-mono text-theme-muted space-y-1">
             <p className="text-theme-text font-bold">Udyam Registered Micro Enterprise</p>

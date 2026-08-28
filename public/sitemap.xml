@@ -93,10 +93,24 @@
   </url>
 
   <url>
-    <loc>https://webliix.com/subscribe</loc>
+    <loc>https://webliix.com/blog/free-meta-tag-generator-for-seo-2026</loc>
     <lastmod>2026-08-28</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.60</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://webliix.com/blog/digital-marketing-small-business-india-2026-complete-guide</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://webliix.com/blog/why-every-small-business-in-india-needs-a-website-in-2025</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
   </url>
 
   <url>
@@ -105,6 +119,7 @@
     <changefreq>yearly</changefreq>
     <priority>0.55</priority>
   </url>
+
 
   <!-- ─── TIER 6: Business Information & Legal ─────────────────── -->
 

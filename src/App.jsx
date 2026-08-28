@@ -22,7 +22,7 @@ import Blog from './pages/Blog';
 import Tools from './pages/Tools';
 import Contact from './pages/Contact';
 import LaunchKit from './pages/LaunchKit';
-import Subscribe from './pages/Subscribe';
+import BlogPost from './pages/BlogPost';
 import Feedback from './pages/Feedback';
 
 import BusinessInformation from './pages/BusinessInformation';
@@ -52,12 +52,13 @@ export default function App() {
                     <Route path="/portfolio" element={<Portfolio />} />
                     <Route path="/case-studies/auradrishti" element={<AuraDrishtiCaseStudy />} />
                     <Route path="/blog" element={<Blog />} />
+                    <Route path="/blog/:id" element={<BlogPost />} />
                     <Route path="/tools" element={<Tools />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/launch-kit" element={<LaunchKit />} />
                     <Route path="/launchkit" element={<LaunchKit />} />
-                    <Route path="/subscribe" element={<Subscribe />} />
                     <Route path="/feedback" element={<Feedback />} />
+
 
 
                     {/* Business Compliance & Legal System Routes */}

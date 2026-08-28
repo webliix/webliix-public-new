@@ -10,9 +10,9 @@ import GlassCard from '../components/spatial/GlassCard';
 import WebliixCard from '../components/ui/WebliixCard';
 import WebliixIcon from '../components/ui/WebliixIcon';
 import WebliixButton from '../components/ui/WebliixButton';
-import QuoteEstimator from '../components/spatial/QuoteEstimator';
 import InteractiveEcosystemHub from '../components/spatial/InteractiveEcosystemHub';
 import { useModal } from '../context/ModalContext';
+
 
 export default function Home() {
   const [activeProcessStep, setActiveProcessStep] = useState(0);
@@ -193,27 +193,28 @@ export default function Home() {
       {/* CLIENT LOGOS SHOWCASE TICKER WITH SOLID WHITE BADGES */}
       <section className="relative z-10 py-10 border-y border-theme-border/40 bg-theme-bg/40 backdrop-blur-md overflow-hidden">
         <div className="text-center mb-6 text-[11px] font-mono text-theme-muted uppercase tracking-widest font-semibold">
-          Trusted by Businesses & Innovative Brands Worldwide
+          Trusted by Businesses &amp; Innovative Brands Worldwide
         </div>
         
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 items-center">
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4 items-center">
             {siteConfig.clients.map((client, idx) => (
               <WebliixCard
                 key={idx}
                 variant="panel"
-                className="p-3 h-20 sm:h-24 bg-white border border-gray-200/80 shadow-sm rounded-2xl group hover:border-theme-primary/60 transition-all"
+                className="p-2 sm:p-3 h-16 sm:h-20 lg:h-24 bg-white border border-gray-200/80 shadow-sm rounded-2xl group hover:border-theme-primary/60 transition-all flex items-center justify-center overflow-hidden"
               >
                 <img
                   src={client.logo}
                   alt={client.name}
-                  className="w-full h-full object-contain mx-auto group-hover:scale-105 transition-all duration-300"
+                  className="w-auto h-auto max-h-11 sm:max-h-14 max-w-[85%] object-contain mx-auto group-hover:scale-105 transition-all duration-300"
                 />
               </WebliixCard>
             ))}
           </div>
         </div>
       </section>
+
 
       {/* STATS METRICS SECTION */}
       <section className="relative z-10 max-w-6xl mx-auto px-6 py-12">
@@ -420,7 +421,7 @@ export default function Home() {
                   <span className="text-theme-primary font-semibold">{item.category}</span>
                 </div>
 
-                <div className="h-44 sm:h-48 overflow-hidden relative bg-theme-bg">
+                <div className="aspect-[16/10] sm:aspect-video w-full overflow-hidden relative bg-theme-bg">
                   <img
                     src={item.image}
                     alt={item.title}
@@ -454,10 +455,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ESTIMATOR SECTION */}
-      <section className="relative z-10 max-w-6xl mx-auto px-6 py-12">
-        <QuoteEstimator />
-      </section>
 
       {/* INTERACTIVE FAQ ACCORDION SECTION */}
       <section className="relative z-10 max-w-4xl mx-auto px-6 py-12 space-y-8">
