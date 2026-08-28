@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       WEBLIIX SITEMAP — https://webliix.com
+       Last updated: 2026-08-28
+       Priority guide:
+         1.0  → Homepage (most critical)
+         0.9  → High-value conversion pages
+         0.8  → Core service / product pages
+         0.7  → Company / supporting pages
+         0.6  → Legal / compliance / utility pages
+       changefreq guide:
+         weekly   → Content updated frequently (home, blog, portfolio)
+         monthly  → Relatively stable (services, about)
+         yearly   → Very stable (legal, policies)
+  ═══════════════════════════════════════════════════════════════ -->
+
+  <!-- ─── TIER 1: Primary Conversion Pages ──────────────────────── -->
+
+  <url>
+    <loc>https://webliix.com/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://webliix.com/launch-kit</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://webliix.com/contact</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- ─── TIER 2: Core Service Pages ────────────────────────────── -->
+
+  <url>
+    <loc>https://webliix.com/services</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://webliix.com/portfolio</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- ─── TIER 3: Company & Content Pages ───────────────────────── -->
+
+  <url>
+    <loc>https://webliix.com/about</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://webliix.com/blog</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- ─── TIER 4: Case Studies ──────────────────────────────────── -->
+
+  <url>
+    <loc>https://webliix.com/case-studies/auradrishti</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- ─── TIER 5: Tools & Engagement Pages ─────────────────────── -->
+
+  <url>
+    <loc>https://webliix.com/tools</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+
+  <url>
+    <loc>https://webliix.com/subscribe</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.60</priority>
+  </url>
+
+  <url>
+    <loc>https://webliix.com/feedback</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.55</priority>
+  </url>
+
+  <!-- ─── TIER 6: Business Information & Legal ─────────────────── -->
+
+  <url>
+    <loc>https://webliix.com/business-information</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.55</priority>
+  </url>
+
+  <url>
+    <loc>https://webliix.com/privacy-policy</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.50</priority>
+  </url>
+
+  <url>
+    <loc>https://webliix.com/terms-and-conditions</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.50</priority>
+  </url>
+
+  <url>
+    <loc>https://webliix.com/refund-cancellation</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.50</priority>
+  </url>
+
+  <url>
+    <loc>https://webliix.com/disclaimer</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.50</priority>
+  </url>
+
+</urlset>

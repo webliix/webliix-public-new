@@ -308,7 +308,7 @@ export default function LaunchKit() {
           content="Launch your new business with a professional website, branding, Google Business Profile support and SEO foundations. Webliix LaunchKit packages start at ₹14,999."
         />
 
-        <link rel="canonical" href="https://webliix.in/launchkit" />
+        <link rel="canonical" href="https://webliix.com/launch-kit" />
 
         <meta
           property="og:title"
@@ -319,10 +319,11 @@ export default function LaunchKit() {
           content="Website + branding + Google presence + SEO + lead generation in one coordinated business launch package. From ₹14,999."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://webliix.in/launchkit" />
+        <meta property="og:url" content="https://webliix.com/launch-kit" />
+
         <meta
           property="og:image"
-          content="https://webliix.in/og-launchkit.jpg"
+          content="https://webliix.com/og-launchkit.jpg"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -339,14 +340,14 @@ export default function LaunchKit() {
         />
         <meta
           name="twitter:image"
-          content="https://webliix.in/og-launchkit.jpg"
+          content="https://webliix.com/og-launchkit.jpg"
         />
 
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "@id": "https://webliix.in/launchkit#service",
+            "@id": "https://webliix.com/launchkit#service",
             "name": "Webliix Business Launch Packages",
             "serviceType": "Business website design, branding and SEO launch packages",
             "description":
@@ -354,7 +355,7 @@ export default function LaunchKit() {
             "provider": {
               "@type": "Organization",
               "name": "Webliix",
-              "url": "https://webliix.in"
+              "url": "https://webliix.com"
             },
             "areaServed": [
               {"@type": "Country", "name": "India"},
@@ -371,21 +372,21 @@ export default function LaunchKit() {
                   "name": "LaunchKit Starter — New Business Website",
                   "price": "14999",
                   "priceCurrency": "INR",
-                  "url": "https://webliix.in/launchkit"
+                  "url": "https://webliix.com/launchkit"
                 },
                 {
                   "@type": "Offer",
                   "name": "LaunchKit Growth — Small Business Website & SEO",
                   "price": "29999",
                   "priceCurrency": "INR",
-                  "url": "https://webliix.in/launchkit"
+                  "url": "https://webliix.com/launchkit"
                 },
                 {
                   "@type": "Offer",
                   "name": "LaunchKit Business — Ecommerce Website",
                   "price": "59999",
                   "priceCurrency": "INR",
-                  "url": "https://webliix.in/launchkit"
+                  "url": "https://webliix.com/launchkit"
                 }
               ]
             }
@@ -401,13 +402,13 @@ export default function LaunchKit() {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://webliix.in/"
+                "item": "https://webliix.com/"
               },
               {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Business Launch Packages",
-                "item": "https://webliix.in/launchkit"
+                "item": "https://webliix.com/launchkit"
               }
             ]
           })}

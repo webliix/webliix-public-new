@@ -105,7 +105,7 @@ export default function PrivacyPolicy() {
   return (
     <LegalLayout
       title="Privacy Policy"
-      subtitle="This policy explains how WEBLIIX collects, uses, and protects information obtained through webliix.in — based on an audit of the actual website implementation."
+      subtitle="This policy explains how WEBLIIX collects, uses, and protects information obtained through webliix.com — based on an audit of the actual website implementation."
       categoryTag="Privacy & Compliance"
       lastUpdated={EFFECTIVE_DATE}
       seoTitle="Privacy Policy | WEBLIIX — Data Protection & Privacy Practices"
@@ -118,23 +118,23 @@ export default function PrivacyPolicy() {
       <Section id="sec-1" title="1. Introduction">
         <Para>
           WEBLIIX (Udyam Registration No. {businessConfig.udyamNumber}, registered at{' '}
-          {businessConfig.businessAddress}) operates the website webliix.in (the "Website"). We provide
+          {businessConfig.businessAddress}) operates the website webliix.com (the "Website"). We provide
           website development, e-commerce, software development, Google Business Profile setup,
           local SEO, and related digital technology services to small and medium-sized businesses.
         </Para>
         <Para>
-          This Privacy Policy explains what personal data we collect through webliix.in, why we collect it,
+          This Privacy Policy explains what personal data we collect through webliix.com, why we collect it,
           how we use it, who may receive it, how long we retain it, and what rights you have regarding
           your personal data.
         </Para>
         <Para>
-          This policy applies to your use of the webliix.in website. It does not govern data that Webliix
+          This policy applies to your use of the webliix.com website. It does not govern data that Webliix
           processes on behalf of its clients as part of delivering services — that relationship is governed
           by separate agreements between Webliix and each client.
         </Para>
         <NoteBox>
           <strong className="text-theme-text">Legal Transparency Note:</strong> This policy is based on an
-          audit of the current webliix.in implementation. If Webliix adds new services, integrations, or
+          audit of the current webliix.com implementation. If Webliix adds new services, integrations, or
           data flows in future, this policy will be updated to reflect those changes before implementation.
         </NoteBox>
       </Section>
@@ -143,10 +143,10 @@ export default function PrivacyPolicy() {
       <Section id="sec-2" title="2. Who This Policy Applies To">
         <Para>This Privacy Policy applies to:</Para>
         <BulletList items={[
-          'Visitors to the webliix.in website',
+          'Visitors to the webliix.com website',
           'Businesses and individuals who submit enquiries through our contact form',
           'Businesses and individuals who contact us through WhatsApp or email',
-          'Anyone who interacts with content or features on webliix.in',
+          'Anyone who interacts with content or features on webliix.com',
         ]} />
         <Para>
           Our website and services are directed toward businesses and business professionals. We do not
@@ -202,11 +202,11 @@ export default function PrivacyPolicy() {
         <NoteBox>
           <strong className="text-theme-text">What we do NOT collect:</strong> We do not collect
           payment information, banking details, national ID numbers, biometric data, health data,
-          social media credentials, or passwords through webliix.in.
+          social media credentials, or passwords through webliix.com.
         </NoteBox>
         <NoteBox>
           <strong className="text-theme-text">Analytics notice:</strong> The current version of
-          webliix.in does NOT use Google Analytics, Google Tag Manager, Meta Pixel, Microsoft Clarity,
+          webliix.com does NOT use Google Analytics, Google Tag Manager, Meta Pixel, Microsoft Clarity,
           Hotjar, or any other behavioural tracking or analytics service. If this changes, this policy
           will be updated before deployment.
         </NoteBox>
@@ -343,7 +343,7 @@ export default function PrivacyPolicy() {
       {/* 9 — Third-Party Services */}
       <Section id="sec-9" title="9. Third-Party Services">
         <Para>
-          The current webliix.in website uses the following third-party services. We only include
+          The current webliix.com website uses the following third-party services. We only include
           services that were detected in the actual website implementation:
         </Para>
         <DataTable
@@ -381,7 +381,7 @@ export default function PrivacyPolicy() {
           use Google Analytics, Google Tag Manager, Meta Pixel, Microsoft Clarity, Hotjar, Firebase,
           Razorpay, Stripe, or any payment gateway, CRM, or email marketing platform.
           The Disclaimer page references payment gateways in the context of client projects we build —
-          not in the context of webliix.in itself.
+          not in the context of webliix.com itself.
         </NoteBox>
       </Section>
 
@@ -564,13 +564,13 @@ export default function PrivacyPolicy() {
           live previews, and external tools. These links are provided for your convenience.
         </Para>
         <Para>
-          When you follow a link to a third-party website, you leave webliix.in and that website's
+          When you follow a link to a third-party website, you leave webliix.com and that website's
           own privacy policy governs the collection and use of any information you provide or that is
           collected about you. We have no control over and are not responsible for the privacy practices
           of any third-party website.
         </Para>
         <Para>
-          We encourage you to review the privacy policy of any website you visit after leaving webliix.in.
+          We encourage you to review the privacy policy of any website you visit after leaving webliix.com.
         </Para>
       </Section>
 
@@ -605,7 +605,7 @@ export default function PrivacyPolicy() {
         </Para>
         <BulletList items={[
           'Update the "Last Updated" date at the top of this page',
-          'Post the revised policy at the same URL: webliix.in/privacy-policy',
+          'Post the revised policy at the same URL: webliix.com/privacy-policy',
           'Where required by law or good practice, take additional steps to notify users of significant changes',
         ]} />
         <Para>
@@ -643,12 +643,12 @@ export default function PrivacyPolicy() {
           <p className="font-semibold text-theme-text text-xs">Important Notice</p>
           <p>
             This Privacy Policy represents Webliix's good-faith implementation of privacy best practices
-            based on the current webliix.in website implementation. It is not a complete substitute for
+            based on the current webliix.com website implementation. It is not a complete substitute for
             qualified legal advice. Areas marked <span className="text-theme-primary font-mono">[LEGAL REVIEW REQUIRED]</span> should
             be reviewed by a qualified Indian privacy law professional before publishing as final.
           </p>
           <p>
-            This policy covers webliix.in only. Data processed by Webliix as part of client project delivery
+            This policy covers webliix.com only. Data processed by Webliix as part of client project delivery
             is governed by separate client agreements and is not covered by this policy.
           </p>
           <p>See also: <Link to="/terms-and-conditions" className="text-theme-primary underline">Terms & Conditions</Link>

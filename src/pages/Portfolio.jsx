@@ -133,7 +133,7 @@ export default function Portfolio() {
         <title>Our Work | Website, Branding & Marketing Projects | Webliix</title>
         <meta name="description" content="View our portfolio of websites, branding, and digital marketing projects for clients in India, Canada, USA, and Germany." />
         <meta name="keywords" content="web design portfolio, branding samples, ecommerce site showcase, SEO results, India USA website agency, Webliix case studies" />
-        <link rel="canonical" href="https://webliix.in/portfolio" />
+        <link rel="canonical" href="https://webliix.com/portfolio" />
       </Helmet>
 
       {/* Dynamic Breadcrumbs */}

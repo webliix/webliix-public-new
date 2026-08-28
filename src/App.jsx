@@ -22,12 +22,15 @@ import Blog from './pages/Blog';
 import Tools from './pages/Tools';
 import Contact from './pages/Contact';
 import LaunchKit from './pages/LaunchKit';
+import Subscribe from './pages/Subscribe';
+import Feedback from './pages/Feedback';
 
 import BusinessInformation from './pages/BusinessInformation';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsAndConditions from './pages/TermsAndConditions';
 import RefundPolicy from './pages/RefundPolicy';
 import Disclaimer from './pages/Disclaimer';
+
 
 export default function App() {
   return (
@@ -53,6 +56,9 @@ export default function App() {
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/launch-kit" element={<LaunchKit />} />
                     <Route path="/launchkit" element={<LaunchKit />} />
+                    <Route path="/subscribe" element={<Subscribe />} />
+                    <Route path="/feedback" element={<Feedback />} />
+
 
                     {/* Business Compliance & Legal System Routes */}
                     <Route path="/business-information" element={<BusinessInformation />} />

@@ -9,8 +9,8 @@ export default function MetaGenTool() {
     title: 'Webliix | High-Converting Website Design, SEO & Software Studio',
     description: 'Webliix is a full-service digital agency offering custom website development, Google Business Profile (GMB) SEO, e-commerce applications, and branding across NCR India, USA, Canada & Germany.',
     keywords: 'Webliix, web development, SEO services, GMB setup, ecommerce, branding, Noida web agency, software studio',
-    url: 'https://webliix.in/',
-    ogImage: 'https://webliix.in/og-image.jpg',
+    url: 'https://webliix.com/',
+    ogImage: 'https://webliix.com/og-image.jpg',
     author: 'Webliix Spatial',
     twitterHandle: '@webliix'
   });

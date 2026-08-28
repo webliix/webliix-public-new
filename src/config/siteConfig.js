@@ -40,7 +40,7 @@ export const siteConfig = {
       '< E-Commerce & Custom Software />'
     ],
     heroSubtext: 'Building immersive digital experiences, brands that resonate, and SEO engines that dominate — tailored for NCR India, USA, Canada & Germany.',
-    contactEmail: 'contact@webliix.in',
+    contactEmail: 'contact@webliix.com',
     contactPhone: '+91 93101 81569',
     alternatePhone: '+91 88106 50511',
     address: '1st Floor, Building: Hotel Raj Inn, Village/Town: Tetri, Block/Street: Block Naugachia, Naugachia Road, City: Naugachia, District: Bhagalpur, State: Bihar, PIN Code: 853204, India',
@@ -461,7 +461,7 @@ services: [
       image: thehubImg,
       description: 'Modern corporate website showcasing premium workspace suites, virtual tour inquiries, and social media marketing.',
       deliveredServices: ['Advertising', 'Social Media Management', 'Web Development'],
-      liveUrl: 'https://webliix.in/portfolio'
+      liveUrl: 'https://webliix.com/portfolio'
     },
     {
       id: 'loanheaven',
@@ -472,7 +472,7 @@ services: [
       image: loanheavenImg,
       description: 'Interactive financial platform equipped with instant EMI loan calculators, document submission flow, and advertising lead capture.',
       deliveredServices: ['Advertising', 'Website Maintenance', 'Lead Automation'],
-      liveUrl: 'https://webliix.in/portfolio'
+      liveUrl: 'https://webliix.com/portfolio'
     },
     {
       id: 'connectify',
@@ -483,7 +483,7 @@ services: [
       image: connectifyImg,
       description: 'Unified communication platform connecting modern enterprises with digital tools, social media marketing, and graphic design.',
       deliveredServices: ['Advertising', 'Website Maintenance', 'Social Media Management', 'Graphic Design'],
-      liveUrl: 'https://webliix.in/portfolio'
+      liveUrl: 'https://webliix.com/portfolio'
     },
     {
       id: 'ghomes',
@@ -494,7 +494,7 @@ services: [
       image: ghomesImg,
       description: 'High-end property and home furnishing showcase portal featuring interactive floor plans, neighborhood guides, and lead advertising.',
       deliveredServices: ['Advertising', 'Property Listings', 'Lead Generation'],
-      liveUrl: 'https://webliix.in/portfolio'
+      liveUrl: 'https://webliix.com/portfolio'
     },
     {
       id: 'janaushadi',
@@ -505,7 +505,7 @@ services: [
       image: janaushadiImg,
       description: 'Public healthcare distribution portal listing accessible generic medicine prices, store finders, and targeted digital ad campaigns.',
       deliveredServices: ['Advertising', 'Public Portal', 'SEO Optimization'],
-      liveUrl: 'https://webliix.in/portfolio'
+      liveUrl: 'https://webliix.com/portfolio'
     }
   ],
 

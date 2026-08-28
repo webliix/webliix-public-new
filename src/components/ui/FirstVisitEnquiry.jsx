@@ -4,6 +4,14 @@ import { X, Send, Sparkles, ChevronRight, Phone, Mail, CheckCircle2 } from 'luci
 import { siteConfig } from '../../config/siteConfig';
 import { useTheme } from '../../context/ThemeContext';
 import WebliixButton from './WebliixButton';
+import {
+  WebliixInput,
+  WebliixTextarea,
+  WebliixSelect,
+  WebliixLabel,
+  netlifyEncode,
+} from './WebliixInput';
+
 
 /* ─── constants ──────────────────────────────────────────────── */
 const STORAGE_KEY   = 'webliix_enquiry_shown';
@@ -23,10 +31,8 @@ const SERVICES = [
   'Other / Not Listed',
 ];
 
-const encode = (data) =>
-  Object.keys(data)
-    .map((k) => encodeURIComponent(k) + '=' + encodeURIComponent(data[k]))
-    .join('&');
+
+const encode = (data) => netlifyEncode(data);
 
 /* ─── WhatsApp icon (inline to avoid extra import) ───────────── */
 const WaIcon = () => (
@@ -101,18 +107,6 @@ export default function FirstVisitEnquiry() {
     if (scrollRef.current) scrollRef.current.scrollTop = 0;
   };
 
-  /* shared input/label styles */
-  const input = [
-    'w-full px-3.5 py-2.5 rounded-xl',
-    'glass-spatial border border-theme-border',
-    'text-theme-text text-sm',
-    'focus:outline-none focus:border-theme-primary',
-    'bg-transparent placeholder:text-theme-muted/40',
-    'transition-colors duration-150',
-  ].join(' ');
-
-  const label = 'block text-[10px] sm:text-[11px] font-semibold text-theme-muted uppercase tracking-wider mb-1.5';
-
   return (
     <AnimatePresence>
       {visible && (
@@ -129,29 +123,19 @@ export default function FirstVisitEnquiry() {
           />
 
           {/* ── Outer positioner ─────────────────────── */}
-          {/*
-              Mobile  → slides up from bottom, full-width, max-h 92dvh
-              Desktop → springs in from center, max-w-lg, centered
-          */}
           <div className="fixed inset-0 z-[9999] flex items-end sm:items-center justify-center pointer-events-none">
             <motion.div
               key="fve-panel"
-              /* mobile: slide-up; desktop: scale+fade */
               initial={{ opacity: 0, y: 60, scale: 0.97 }}
               animate={{ opacity: 1, y: 0,  scale: 1    }}
               exit={{    opacity: 0, y: 50, scale: 0.95 }}
               transition={{ type: 'spring', stiffness: 320, damping: 30 }}
               className={[
-                /* size */
                 'relative w-full sm:max-w-lg pointer-events-auto',
-                /* shape — square bottom on mobile (sheet), fully rounded on sm+ */
                 'rounded-t-3xl sm:rounded-3xl',
-                /* glass card */
                 'glass-spatial border border-theme-primary/35',
                 'shadow-[0_-8px_60px_rgba(0,0,0,0.5)] sm:shadow-[0_24px_80px_rgba(0,0,0,0.55)]',
-                /* height control */
                 'max-h-[92dvh] sm:max-h-[88vh]',
-                /* gpu */
                 'will-change-transform',
               ].join(' ')}
               style={{ transform: 'translateZ(0)' }}
@@ -200,23 +184,13 @@ export default function FirstVisitEnquiry() {
                     >
                       {/* ── Header ──────────────────────────── */}
                       <div className="flex flex-col items-center text-center gap-2.5 mb-5">
-                        <img
-                          src={logoSrc}
-                          alt={siteConfig.brand.name}
-                          className="h-9 sm:h-11 w-auto object-contain"
-                          draggable={false}
-                        />
+                        <img src={logoSrc} alt={siteConfig.brand.name} className="h-9 sm:h-11 w-auto object-contain" draggable={false} />
                         <div className="space-y-1.5">
-                          <span className="inline-flex items-center gap-1.5
-                                           px-3 py-1 rounded-full
-                                           bg-theme-primary/15 border border-theme-primary/30
-                                           text-theme-primary text-[10px] sm:text-[11px]
-                                           font-mono font-bold uppercase tracking-widest">
+                          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-theme-primary/15 border border-theme-primary/30 text-theme-primary text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-widest">
                             <Sparkles className="w-3 h-3 shrink-0" />
                             Free Consultation — No Obligation
                           </span>
-                          <h2 className="text-[1.3rem] sm:text-2xl font-display font-extrabold
-                                         text-theme-text leading-snug">
+                          <h2 className="text-[1.3rem] sm:text-2xl font-display font-extrabold text-theme-text leading-snug">
                             Let's Build Something{' '}
                             <span className="text-shimmer">Remarkable</span>
                           </h2>
@@ -242,10 +216,8 @@ export default function FirstVisitEnquiry() {
                         {/* Name + Phone — side by side on sm+ */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                           <div>
-                            <label className={label}>
-                              Full Name <span className="text-rose-400">*</span>
-                            </label>
-                            <input
+                            <WebliixLabel required>Full Name</WebliixLabel>
+                            <WebliixInput
                               required
                               type="text"
                               name="name"
@@ -253,14 +225,11 @@ export default function FirstVisitEnquiry() {
                               onChange={handleChange}
                               placeholder="e.g. Aryan Sharma"
                               autoComplete="name"
-                              className={input}
                             />
                           </div>
                           <div>
-                            <label className={label}>
-                              WhatsApp / Mobile <span className="text-rose-400">*</span>
-                            </label>
-                            <input
+                            <WebliixLabel required>WhatsApp / Mobile</WebliixLabel>
+                            <WebliixInput
                               required
                               type="tel"
                               name="phone"
@@ -268,45 +237,36 @@ export default function FirstVisitEnquiry() {
                               onChange={handleChange}
                               placeholder="+91 98765 43210"
                               autoComplete="tel"
-                              className={input}
                             />
                           </div>
                         </div>
 
                         {/* Service */}
                         <div>
-                          <label className={label}>
-                            I Need Help With <span className="text-rose-400">*</span>
-                          </label>
-                          <select
+                          <WebliixLabel required>I Need Help With</WebliixLabel>
+                          <WebliixSelect
                             required
                             name="service"
                             value={form.service}
                             onChange={handleChange}
-                            className={`${input} bg-theme-bg`}
+                            placeholder="Choose a service…"
                           >
-                            <option value="" disabled>Choose a service…</option>
                             {SERVICES.map((s) => (
                               <option key={s} value={s}>{s}</option>
                             ))}
-                          </select>
+                          </WebliixSelect>
                         </div>
 
-                        {/* Message — compact textarea */}
+                        {/* Message */}
                         <div>
-                          <label className={label}>
-                            Brief Description{' '}
-                            <span className="normal-case font-normal text-theme-muted/55">
-                              (optional)
-                            </span>
-                          </label>
-                          <textarea
+                          <WebliixLabel optional>Brief Description</WebliixLabel>
+                          <WebliixTextarea
                             rows={2}
                             name="message"
                             value={form.message}
                             onChange={handleChange}
                             placeholder="e.g. I need an e-commerce site for my clothing brand…"
-                            className={`${input} resize-none`}
+                            resize="none"
                           />
                         </div>
 

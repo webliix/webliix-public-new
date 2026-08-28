@@ -24,8 +24,8 @@ export const businessConfig = {
   gstPendingNotice: "GST registration details will be updated following registration.",
 
   // Public Business Contact Details (Confidential/Personal Data Excluded)
-  businessEmail: "contact@webliix.in",
-  supportEmail: "support@webliix.in",
+  businessEmail: "contact@webliix.com",
+  supportEmail: "support@webliix.com",
   businessPhone: "+91 93101 81569",
   alternatePhone: "+91 88106 50511",
 

@@ -40,7 +40,7 @@ export default function LegalLayout({
       <Helmet>
         <title>{seoTitle || `${title} | ${siteConfig.brand.name}`}</title>
         <meta name="description" content={seoDescription || subtitle} />
-        <link rel="canonical" href={`https://webliix.in${canonicalPath}`} />
+        <link rel="canonical" href={`https://webliix.com${canonicalPath}`} />
       </Helmet>
 
       {/* Dynamic Breadcrumb Navigation */}

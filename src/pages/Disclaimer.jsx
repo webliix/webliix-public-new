@@ -31,7 +31,7 @@ export default function Disclaimer() {
           1. Website Information & Accuracy
         </h2>
         <p className="text-xs sm:text-sm text-theme-muted leading-relaxed">
-          The information contained on webliix.in and related client preview subdomains is provided for general informational purposes only. While WEBLIIX makes reasonable efforts to ensure the accuracy and currency of website content, case studies, service descriptions, and pricing estimations, we make no express or implied warranties regarding completeness or absolute error-free accuracy.
+          The information contained on webliix.com and related client preview subdomains is provided for general informational purposes only. While WEBLIIX makes reasonable efforts to ensure the accuracy and currency of website content, case studies, service descriptions, and pricing estimations, we make no express or implied warranties regarding completeness or absolute error-free accuracy.
         </p>
       </section>
 

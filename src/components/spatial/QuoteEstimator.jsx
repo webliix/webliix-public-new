@@ -6,6 +6,8 @@ import WebliixCard from '../ui/WebliixCard';
 import WebliixIcon from '../ui/WebliixIcon';
 import WebliixButton from '../ui/WebliixButton';
 import { useModal } from '../../context/ModalContext';
+import { WebliixInput, WebliixFieldGroup, netlifyEncode } from '../ui/WebliixInput';
+
 
 export default function QuoteEstimator() {
   const [selectedModules, setSelectedModules] = useState(['design', 'frontend']);
@@ -59,14 +61,12 @@ export default function QuoteEstimator() {
             }}
             className="space-y-3 pt-2"
           >
-            <div>
-              <label className="text-xs font-semibold text-theme-muted block mb-1">Your Name</label>
-              <input required type="text" placeholder="John Doe" className="w-full px-4 py-2.5 rounded-xl glass-spatial border border-theme-border text-theme-text text-sm focus:outline-none focus:border-theme-primary" />
-            </div>
-            <div>
-              <label className="text-xs font-semibold text-theme-muted block mb-1">Phone / WhatsApp</label>
-              <input required type="tel" placeholder="+91 93101 81569" className="w-full px-4 py-2.5 rounded-xl glass-spatial border border-theme-border text-theme-text text-sm focus:outline-none focus:border-theme-primary" />
-            </div>
+            <WebliixFieldGroup label="Your Name" htmlFor="qe-name" required>
+              <WebliixInput id="qe-name" required type="text" placeholder="John Doe" />
+            </WebliixFieldGroup>
+            <WebliixFieldGroup label="Phone / WhatsApp" htmlFor="qe-phone" required>
+              <WebliixInput id="qe-phone" required type="tel" placeholder="+91 93101 81569" />
+            </WebliixFieldGroup>
             <WebliixButton type="submit" variant="primary" fullWidth className="mt-2">
               Submit Configuration & Request Callback
             </WebliixButton>

@@ -132,8 +132,11 @@ export default function SpatialFooter() {
             <li><Link to="/blog" className="hover:text-theme-primary transition">Knowledge Hub</Link></li>
             <li><Link to="/tools" className="hover:text-theme-primary transition">Free Meta Tag Tool</Link></li>
             <li><Link to="/contact" className="hover:text-theme-primary transition">Contact Us</Link></li>
+            <li><Link to="/subscribe" className="hover:text-theme-primary transition">📬 Subscribe to Updates</Link></li>
+            <li><Link to="/feedback" className="hover:text-theme-primary transition">⭐ Share Feedback</Link></li>
           </ul>
         </div>
+
 
         {/* Business & Legal Area */}
         <div className="space-y-3">
