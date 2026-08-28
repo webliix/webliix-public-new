@@ -115,12 +115,16 @@ export default function Contact() {
         {/* Contact Details & Social Channels */}
         <div className="space-y-6">
           <GlassCard className="p-8 space-y-6 border border-theme-border">
-            <div className="flex items-center justify-between">
-              <h3 className="text-2xl font-display font-bold text-theme-text">Direct Channels</h3>
-              <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-theme-border/60 pb-3">
+              <div>
+                <h3 className="text-xl font-display font-bold text-theme-text">Direct Channels</h3>
+                <span className="text-xs font-mono font-bold text-theme-primary block mt-0.5">{siteConfig.brand.tagline}</span>
+              </div>
+              <span className="px-3 py-1 rounded-none sm:rounded-[4px] text-[11px] font-mono font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center gap-1 self-start sm:self-auto">
                 <Clock className="w-3 h-3" /> SLA &lt; 2 Hrs
               </span>
             </div>
+
 
             <div className="space-y-4 text-sm text-theme-text">
               <a href={`tel:${siteConfig.brand.contactPhone.replace(/\s+/g, '')}`} className="flex items-center gap-4 p-4 rounded-none sm:rounded-[4px] glass-spatial border border-theme-border/60 hover:border-theme-primary transition group">

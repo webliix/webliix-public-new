@@ -44,52 +44,52 @@ const ACCENT_STYLES = {
 
 const VARIANTS = {
   standard: {
-    base: 'bg-theme-card border border-theme-border shadow-[0_4px_20px_rgba(0,0,0,0.055)]',
-    hover: 'hover:border-theme-primary/45',
+    base: 'bg-theme-card border border-theme-border/80 rounded-none sm:rounded-[4px] shadow-[0_4px_20px_rgba(0,0,0,0.055)]',
+    hover: 'hover:border-theme-primary/50',
     lift: -3,
     tiltDeg: 2,
   },
   surface: {
-    base: 'bg-theme-card border border-theme-border shadow-[0_4px_20px_rgba(0,0,0,0.055)]',
-    hover: 'hover:border-theme-primary/45',
+    base: 'bg-theme-card border border-theme-border/80 rounded-none sm:rounded-[4px] shadow-[0_4px_20px_rgba(0,0,0,0.055)]',
+    hover: 'hover:border-theme-primary/50',
     lift: -3,
     tiltDeg: 2,
   },
   feature: {
-    base: 'bg-theme-card border border-theme-border shadow-[0_4px_20px_rgba(0,0,0,0.055)] group',
-    hover: 'hover:border-theme-primary/55',
+    base: 'bg-theme-card border border-theme-border/80 rounded-none sm:rounded-[4px] shadow-[0_4px_20px_rgba(0,0,0,0.055)] group',
+    hover: 'hover:border-theme-primary/60',
     lift: -4,
     tiltDeg: 3,
   },
   featured: {
-    base: 'bg-theme-card border border-theme-primary/35 shadow-[0_12px_40px_rgba(0,0,0,0.10)] relative overflow-hidden',
-    hover: 'hover:border-theme-primary/65',
+    base: 'bg-theme-card border border-theme-primary/40 rounded-none sm:rounded-[4px] shadow-[0_12px_40px_rgba(0,0,0,0.10)] relative overflow-hidden',
+    hover: 'hover:border-theme-primary/70',
     lift: -3,
     tiltDeg: 5,
   },
   accent: {
-    base: 'bg-theme-card border border-theme-primary/35 shadow-[0_12px_40px_rgba(0,0,0,0.10)] relative overflow-hidden',
-    hover: 'hover:border-theme-primary/65',
+    base: 'bg-theme-card border border-theme-primary/40 rounded-none sm:rounded-[4px] shadow-[0_12px_40px_rgba(0,0,0,0.10)] relative overflow-hidden',
+    hover: 'hover:border-theme-primary/70',
     lift: -3,
     tiltDeg: 5,
   },
   spatial: {
-    base: 'bg-theme-card border border-theme-primary/30 shadow-[0_16px_48px_rgba(0,0,0,0.12)] relative overflow-hidden',
-    hover: 'hover:border-theme-primary/60',
+    base: 'bg-theme-card border border-theme-primary/35 rounded-none sm:rounded-[4px] shadow-[0_16px_48px_rgba(0,0,0,0.12)] relative overflow-hidden',
+    hover: 'hover:border-theme-primary/65',
     lift: -2,
     tiltDeg: 6,
   },
   stat: {
-    base: 'bg-theme-card border border-theme-border shadow-[0_4px_20px_rgba(0,0,0,0.055)] text-center group',
-    hover: 'hover:border-theme-primary/50',
+    base: 'bg-theme-card border border-theme-border/80 rounded-none sm:rounded-[4px] shadow-[0_4px_20px_rgba(0,0,0,0.055)] text-center group',
+    hover: 'hover:border-theme-primary/55',
     lift: -2,
     tiltDeg: 2,
   },
   panel: {
-    base: 'bg-theme-card border border-theme-border/60',
-    hover: 'hover:border-theme-primary/35',
+    base: 'bg-theme-card border border-theme-border/80 rounded-none sm:rounded-[4px]',
+    hover: 'hover:border-theme-primary/50',
     lift: 0,
-    tiltDeg: 0,
+    tiltDeg: 2,
   },
 };
 
@@ -102,25 +102,26 @@ const HOVER_SHADOW = {
 };
 
 /* ─────────────────────────────────────────────
- * CORNER BRACKETS — same motif as WebliixButton.
- * Now flush against the square edge.
+ * CORNER BRACKETS — signature motif matching WebliixButton
+ * Sits flush against the edgy square edges
  * ───────────────────────────────────────────── */
 
 function CornerBrackets() {
   const armVariants = {
     rest: { opacity: 0, scale: 0.8 },
-    hover: { opacity: 1, scale: 1, transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] } },
+    hover: { opacity: 1, scale: 1, transition: { duration: 0.25, ease: [0.22, 1, 0.36, 1] } },
   };
-  const arm = 'pointer-events-none absolute h-3 w-3 border-theme-primary/60';
+  const arm = 'pointer-events-none absolute h-2.5 w-2.5 border-theme-primary';
   return (
     <>
-      <motion.span aria-hidden="true" variants={armVariants} className={`${arm} left-2.5 top-2.5 border-l-[1.5px] border-t-[1.5px]`} />
-      <motion.span aria-hidden="true" variants={armVariants} className={`${arm} right-2.5 top-2.5 border-r-[1.5px] border-t-[1.5px]`} />
-      <motion.span aria-hidden="true" variants={armVariants} className={`${arm} left-2.5 bottom-2.5 border-l-[1.5px] border-b-[1.5px]`} />
-      <motion.span aria-hidden="true" variants={armVariants} className={`${arm} right-2.5 bottom-2.5 border-r-[1.5px] border-b-[1.5px]`} />
+      <motion.span aria-hidden="true" variants={armVariants} className={`${arm} left-1.5 top-1.5 border-l-[1.5px] border-t-[1.5px]`} />
+      <motion.span aria-hidden="true" variants={armVariants} className={`${arm} right-1.5 top-1.5 border-r-[1.5px] border-t-[1.5px]`} />
+      <motion.span aria-hidden="true" variants={armVariants} className={`${arm} left-1.5 bottom-1.5 border-l-[1.5px] border-b-[1.5px]`} />
+      <motion.span aria-hidden="true" variants={armVariants} className={`${arm} right-1.5 bottom-1.5 border-r-[1.5px] border-b-[1.5px]`} />
     </>
   );
 }
+
 
 export default function WebliixCard({
   children,

@@ -5,12 +5,15 @@ import { Menu, X, ArrowUpRight, Phone } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
 import { useTheme } from '../../context/ThemeContext';
 import SpatialButton from '../ui/SpatialButton';
+import WebliixCard from '../ui/WebliixCard';
+import WebliixIcon from '../ui/WebliixIcon';
 
 export default function SpatialNavbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
-  const { currentTheme } = useTheme();
+  const { currentTheme, glassBlur } = useTheme();
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -108,6 +111,8 @@ export default function SpatialNavbar() {
           />
         </Link>
 
+
+
         {/* Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-7">
           {navLinks.map((link) => (
@@ -182,36 +187,40 @@ export default function SpatialNavbar() {
         {/* Mobile Menu Toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden p-2 rounded-xl text-theme-text hover:text-theme-primary hover:bg-theme-border/30 transition"
+          className="lg:hidden p-2 rounded-none sm:rounded-[4px] glass-spatial border border-theme-border/80 text-theme-text hover:text-theme-primary hover:border-theme-primary transition shadow-sm"
           aria-label="Toggle Navigation"
         >
           {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer inheriting WebliixCard */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden glass-spatial border-b border-theme-border overflow-hidden"
-            style={{
-              backdropFilter: 'blur(var(--glass-blur, 28px))',
-              WebkitBackdropFilter: 'blur(var(--glass-blur, 28px))'
-            }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:hidden overflow-hidden px-4 pt-1 pb-4"
           >
-            <div className="px-6 py-5 space-y-4 max-h-[85vh] overflow-y-auto">
+            <WebliixCard
+              variant="spatial"
+              className="p-5 space-y-4 max-h-[80vh] overflow-y-auto border border-theme-primary/50 shadow-spatial-lg"
+              style={{
+                backdropFilter: `blur(${glassBlur || '28px'})`,
+                WebkitBackdropFilter: `blur(${glassBlur || '28px'})`
+              }}
+            >
               <nav className="flex flex-col space-y-1.5">
                 {navLinks.map((link) => (
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
+                    className={`px-4 py-2.5 rounded-none sm:rounded-[4px] text-sm font-semibold transition-all border ${
                       isActive(link.path)
-                        ? 'bg-theme-primary text-white shadow-md'
-                        : 'text-theme-text hover:bg-theme-border/20'
+                        ? 'bg-theme-primary text-white border-theme-primary shadow-sm font-bold'
+                        : 'text-theme-text hover:bg-theme-primary/10 hover:border-theme-primary/40 border-transparent glass-spatial'
                     }`}
                   >
                     {link.name}
@@ -224,11 +233,9 @@ export default function SpatialNavbar() {
                   href={waUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2.5 w-full p-2.5 rounded-xl bg-[#25D366] text-white font-mono text-xs font-bold shadow-sm hover:bg-[#20ba5a] transition"
+                  className="flex items-center justify-center gap-2.5 w-full p-2.5 rounded-none sm:rounded-[4px] bg-[#25D366]/15 text-[#25D366] border border-[#25D366]/40 hover:bg-[#25D366] hover:text-white font-mono text-xs font-bold shadow-sm transition"
                 >
-                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-                  </svg>
+                  <WebliixIcon social="whatsapp" size="sm" color="inherit" />
                   <span>Chat on WhatsApp</span>
                 </a>
 
@@ -242,9 +249,11 @@ export default function SpatialNavbar() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={social.name}
-                        className="p-1.5 rounded-lg text-theme-muted hover:text-theme-primary hover:bg-theme-primary/10 transition"
+                        className="p-2 rounded-none sm:rounded-[4px] glass-spatial border border-theme-border/80 text-theme-muted hover:text-theme-primary hover:border-theme-primary transition group"
                       >
-                        {social.svg}
+                        <span className="group-hover:scale-110 transition-transform block">
+                          {social.svg}
+                        </span>
                       </a>
                     ))}
                   </div>
@@ -256,10 +265,11 @@ export default function SpatialNavbar() {
                   </SpatialButton>
                 </Link>
               </div>
-            </div>
+            </WebliixCard>
           </motion.div>
         )}
       </AnimatePresence>
     </header>
   );
 }
+

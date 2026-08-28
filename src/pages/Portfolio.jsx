@@ -253,7 +253,7 @@ export default function Portfolio() {
               <WebliixCard
                 key={index}
                 variant="panel"
-                className="w-36 h-36 sm:w-40 sm:h-40 aspect-square shrink-0 p-3 bg-white border border-gray-200/80 shadow-sm rounded-2xl flex items-center justify-center group hover:border-theme-primary/60 transition-all"
+                className="w-36 h-36 sm:w-40 sm:h-40 aspect-square shrink-0 p-3 bg-white border border-gray-200/80 shadow-sm rounded-none sm:rounded-[4px] flex items-center justify-center group hover:border-theme-primary/60 transition-all"
               >
                 <img
                   src={logo}
@@ -262,6 +262,7 @@ export default function Portfolio() {
                 />
               </WebliixCard>
             ))}
+
           </div>
         </div>
       </section>

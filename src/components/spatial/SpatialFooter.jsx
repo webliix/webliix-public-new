@@ -92,16 +92,20 @@ export default function SpatialFooter() {
         
         {/* Brand Overview, Social Handles & Subscribe Input */}
         <div className="lg:col-span-2 space-y-4">
-          <Link to="/" className="inline-block group">
+          <Link to="/" className="inline-block group space-y-1">
             <img
               src={logoSrc}
               alt={siteConfig.brand.name}
               className="h-12 sm:h-14 w-auto object-contain transition-transform group-hover:scale-105"
             />
+            <span className="block font-mono text-xs font-bold text-theme-primary tracking-wide">
+              {siteConfig.brand.tagline}
+            </span>
           </Link>
           <p className="text-theme-muted text-xs sm:text-sm max-w-sm leading-relaxed">
             WEBLIIX is your trusted digital technology partner for custom web engineering, local SEO engines, branding, and software development.
           </p>
+
 
           {/* Udyam MSME Compliance Badge */}
           <Link to="/business-information" className="inline-flex items-center gap-2 px-3 py-1.5 rounded-none sm:rounded-[4px] bg-theme-primary/15 text-theme-primary border border-theme-primary/30 text-xs font-mono font-semibold hover:bg-theme-primary hover:text-white transition">

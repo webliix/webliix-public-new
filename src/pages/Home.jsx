@@ -109,16 +109,17 @@ export default function Home() {
         <SpatialHeroCanvas />
 
         <div className="relative z-10 max-w-4xl mx-auto space-y-6">
-          {/* Eyebrow Badge */}
+          {/* Eyebrow Tagline Badge */}
           <motion.div
             initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-spatial border border-theme-primary/40 text-[11px] font-mono text-theme-primary font-semibold uppercase tracking-widest shadow-sm"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-none sm:rounded-[4px] glass-spatial border border-theme-primary/50 text-xs font-mono text-theme-primary font-bold tracking-wider shadow-sm"
           >
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-            {siteConfig.brand.heroTag}
+            <span className="w-2 h-2 rounded-none sm:rounded-[1px] bg-theme-primary animate-pulse" />
+            <span>{siteConfig.brand.tagline}</span>
           </motion.div>
+
 
           {/* Main Headline */}
           <motion.h1
@@ -202,7 +203,7 @@ export default function Home() {
               <WebliixCard
                 key={idx}
                 variant="panel"
-                className="p-2 sm:p-3 h-16 sm:h-20 lg:h-24 bg-white border border-gray-200/80 shadow-sm rounded-2xl group hover:border-theme-primary/60 transition-all flex items-center justify-center overflow-hidden"
+                className="p-2 sm:p-3 h-16 sm:h-20 lg:h-24 bg-white border border-gray-200/80 shadow-sm rounded-none sm:rounded-[4px] group hover:border-theme-primary/60 transition-all flex items-center justify-center overflow-hidden"
               >
                 <img
                   src={client.logo}
@@ -213,6 +214,9 @@ export default function Home() {
             ))}
           </div>
         </div>
+
+
+
       </section>
 
 

@@ -92,9 +92,16 @@ export default function About() {
 
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
-        <span className="px-4 py-1.5 rounded-full glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-semibold uppercase tracking-widest inline-flex items-center gap-1.5">
-          <Sparkles className="w-3.5 h-3.5" /> Founded April 2025 · Naugachia, Bihar, India
-        </span>
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          <span className="px-3.5 py-1.5 rounded-none sm:rounded-[4px] glass-spatial border border-theme-primary/50 text-xs font-mono text-theme-primary font-bold tracking-wider inline-flex items-center gap-1.5 shadow-sm">
+            <Code className="w-3.5 h-3.5 text-theme-primary" />
+            <span>{siteConfig.brand.tagline}</span>
+          </span>
+          <span className="px-3.5 py-1.5 rounded-none sm:rounded-[4px] glass-spatial border border-theme-border text-xs font-mono text-theme-muted tracking-wider inline-flex items-center gap-1.5 shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-theme-primary" />
+            <span>Est. 2025</span>
+          </span>
+        </div>
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">
           We Are <span className="text-shimmer">Webliix</span>
         </h1>
@@ -102,6 +109,7 @@ export default function About() {
           A global digital growth agency built by two founders who believe every business — regardless of size — deserves world-class web engineering, branding, and search dominance.
         </p>
       </div>
+
 
       {/* Stats Summary Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

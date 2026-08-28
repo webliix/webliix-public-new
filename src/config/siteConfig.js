@@ -26,7 +26,8 @@ import client8 from '../assets/logos/client8.png';
 export const siteConfig = {
   brand: {
     name: 'Webliix',
-    tagline: 'Website Design, GMB, SEO & Software Development',
+    tagline: '< Your Success is our Code />',
+    serviceSummary: 'Website Design, GMB, SEO & Software Development',
     logoDark,
     logoLight,
     iconMark,
@@ -34,11 +35,12 @@ export const siteConfig = {
     headline: 'Empower Your Digital Journey',
     heroTag: 'FULL-SERVICE • GLOBAL REACH',
     heroTyping: [
-      '< Your Success is Our Code />',
+      '< Your Success is our Code />',
       '< Web Development & Branding />',
       '< Local SEO & GMB Optimization />',
       '< E-Commerce & Custom Software />'
     ],
+
     heroSubtext: 'Building immersive digital experiences, brands that resonate, and SEO engines that dominate — tailored for NCR India, USA, Canada & Germany.',
     contactEmail: 'contact@webliix.com',
     contactPhone: '+91 93101 81569',
