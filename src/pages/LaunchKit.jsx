@@ -46,10 +46,12 @@ const PACKAGES = {
     highlights: [
       '5-page business website',
       'Logo, brand colors & typography',
+      'Business card design',
       'Google Business Profile setup',
       'Basic on-page SEO',
       '1 professional email',
     ],
+
     groups: [
       {
         title: 'Professional Website',
@@ -213,7 +215,8 @@ const COMPARISON_ROWS = [
   { label: 'WhatsApp integration', values: ['✓', '✓', '✓'] },
   { label: 'Google Business Profile', values: ['Setup', 'Setup + optimization', 'Optimization + local SEO'] },
   { label: 'Analytics', values: ['Basic', 'GA4 + Search Console', 'GA4 + Search Console'] },
-  { label: 'Business card design', values: ['—', '✓', '✓'] },
+  { label: 'Business card design', values: ['✓', '✓', '✓'] },
+
   { label: 'Professional email', values: ['1', '3', '5'] },
   { label: 'Blog system', values: ['—', '✓', '✓'] },
   { label: 'Lead automation', values: ['—', '✓', '✓'] },
@@ -537,10 +540,11 @@ export default function LaunchKit() {
       </section>
 
       {/* ═══════════════════════════════════════
-          FULL COMPARISON TABLE
+          FULL COMPARISON TABLE (Hidden on Mobile)
           ═══════════════════════════════════════ */}
-      <section id="launchkit-compare" className="space-y-6">
+      <section id="launchkit-compare" className="hidden md:block space-y-6">
         <div className="text-center max-w-xl mx-auto space-y-2">
+
           <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-bold">
             Full breakdown
           </span>

@@ -106,9 +106,33 @@ export default function SpatialFooter() {
             WEBLIIX is your trusted digital technology partner for custom web engineering, local SEO engines, branding, and software development.
           </p>
 
+          {/* Contact & Support Email Details */}
+          <div className="space-y-1.5 text-xs">
+            <div className="flex items-center gap-2 text-theme-muted">
+              <Mail className="w-3.5 h-3.5 text-theme-primary shrink-0" />
+              <span>Customer Support:</span>
+              <a
+                href="mailto:support@webliix.com"
+                className="text-theme-text font-mono font-medium hover:text-theme-primary transition"
+              >
+                support@webliix.com
+              </a>
+            </div>
+            <div className="flex items-center gap-2 text-theme-muted">
+              <Mail className="w-3.5 h-3.5 text-theme-primary shrink-0" />
+              <span>Inquiries:</span>
+              <a
+                href={`mailto:${siteConfig.brand.contactEmail}`}
+                className="text-theme-text font-mono font-medium hover:text-theme-primary transition"
+              >
+                {siteConfig.brand.contactEmail}
+              </a>
+            </div>
+          </div>
 
           {/* Udyam MSME Compliance Badge */}
           <Link to="/business-information" className="inline-flex items-center gap-2 px-3 py-1.5 rounded-none sm:rounded-[4px] bg-theme-primary/15 text-theme-primary border border-theme-primary/30 text-xs font-mono font-semibold hover:bg-theme-primary hover:text-white transition">
+
             <Award className="w-4 h-4 shrink-0" />
             <span>Udyam Reg. No. {businessConfig.udyamNumber}</span>
           </Link>
