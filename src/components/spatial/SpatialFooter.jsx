@@ -131,8 +131,7 @@ export default function SpatialFooter() {
           </div>
 
           {/* Udyam MSME Compliance Badge */}
-          <Link to="/business-information" className="inline-flex items-center gap-2 px-3 py-1.5 rounded-none sm:rounded-[4px] bg-theme-primary/15 text-theme-primary border border-theme-primary/30 text-xs font-mono font-semibold hover:bg-theme-primary hover:text-white transition">
-
+          <Link to="/business-information" className="inline-flex items-center gap-2 px-3 py-1.5 theme-rounded-btn bg-theme-primary/15 text-theme-primary border border-theme-primary/30 text-xs font-mono font-semibold hover:bg-theme-primary hover:text-white transition">
             <Award className="w-4 h-4 shrink-0" />
             <span>Udyam Reg. No. {businessConfig.udyamNumber}</span>
           </Link>
@@ -150,7 +149,7 @@ export default function SpatialFooter() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.name}
-                  className="p-2.5 rounded-none sm:rounded-[4px] glass-spatial border border-theme-border/80 hover:border-theme-primary hover:text-theme-primary text-theme-muted transition group"
+                  className="p-2.5 theme-rounded-btn glass-spatial border border-theme-border/80 hover:border-theme-primary hover:text-theme-primary text-theme-muted transition group"
                 >
                   <span className="group-hover:scale-110 transition-transform block">
                     {social.svg}
@@ -164,10 +163,11 @@ export default function SpatialFooter() {
           {/* Compact Subscribe Input & Button */}
           <div className="pt-2 max-w-sm">
             {subscribed ? (
-              <div className="flex items-center gap-2 py-2 px-3 rounded-none sm:rounded-[4px] bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono">
+              <div className="flex items-center gap-2 py-2 px-3 theme-rounded-btn bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono">
                 <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-400" />
                 <span>Thank you for subscribing!</span>
               </div>
+
             ) : (
               <form
                 name="newsletter-subscribe"

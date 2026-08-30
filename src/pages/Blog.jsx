@@ -47,7 +47,7 @@ export default function Blog() {
             placeholder="Search articles by keyword..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full px-5 py-3.5 pl-11 rounded-2xl glass-spatial border border-theme-border text-theme-text text-sm focus:outline-none focus:border-theme-primary"
+            className="w-full px-5 py-3.5 pl-11 theme-rounded-input glass-spatial border border-theme-border text-theme-text text-sm focus:outline-none focus:border-theme-primary"
           />
           <Search className="w-4 h-4 text-theme-muted absolute left-4 top-6" />
         </div>
@@ -66,9 +66,10 @@ export default function Blog() {
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between text-xs text-theme-muted font-mono">
-                  <span className="px-3 py-1 rounded-full bg-theme-primary/15 text-theme-primary font-semibold border border-theme-primary/30">
+                  <span className="px-3 py-1 theme-rounded-badge bg-theme-primary/15 text-theme-primary font-semibold border border-theme-primary/30">
                     {blog.category}
                   </span>
+
                   <span className="flex items-center gap-1">
                     <Clock className="w-3.5 h-3.5" /> {blog.readTime}
                   </span>

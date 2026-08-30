@@ -204,7 +204,7 @@ export default function BlogPost() {
                   alert('Link copied to clipboard!');
                 }
               }}
-              className="p-2 rounded-xl glass-spatial border border-theme-border/60 hover:border-theme-primary text-theme-muted hover:text-theme-primary transition flex items-center gap-1.5 text-xs font-mono"
+              className="p-2 theme-rounded-btn glass-spatial border border-theme-border/60 hover:border-theme-primary text-theme-muted hover:text-theme-primary transition flex items-center gap-1.5 text-xs font-mono"
             >
               <Share2 className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">Share</span>
@@ -232,8 +232,9 @@ export default function BlogPost() {
                 {sec.points.map((pt, pIdx) => {
                   const [title, ...rest] = pt.split(':');
                   return (
-                    <li key={pIdx} className="flex items-start gap-3 p-3.5 rounded-xl glass-spatial border border-theme-border/60">
+                    <li key={pIdx} className="flex items-start gap-3 p-3.5 theme-rounded-card glass-spatial border border-theme-border/60">
                       <CheckCircle2 className="w-4 h-4 text-theme-primary shrink-0 mt-0.5" />
+
                       <div className="text-xs sm:text-sm">
                         {rest.length > 0 ? (
                           <>

@@ -60,7 +60,7 @@ function BulletList({ items }) {
 
 function InfoBox({ children }) {
   return (
-    <div className="p-4 rounded-2xl glass-spatial border border-theme-primary/30 text-xs text-theme-muted font-mono space-y-1">
+    <div className="p-4 theme-rounded-card glass-spatial border border-theme-primary/30 text-xs text-theme-muted font-mono space-y-1">
       {children}
     </div>
   );
@@ -68,7 +68,7 @@ function InfoBox({ children }) {
 
 function NoteBox({ children }) {
   return (
-    <div className="p-4 rounded-2xl glass-spatial border border-theme-border text-xs text-theme-muted leading-relaxed">
+    <div className="p-4 theme-rounded-card glass-spatial border border-theme-border text-xs text-theme-muted leading-relaxed">
       {children}
     </div>
   );
@@ -76,7 +76,8 @@ function NoteBox({ children }) {
 
 function DataTable({ headers, rows }) {
   return (
-    <div className="overflow-x-auto rounded-2xl border border-theme-border">
+    <div className="overflow-x-auto theme-rounded-card border border-theme-border">
+
       <table className="w-full text-[11px] text-theme-muted">
         <thead>
           <tr className="border-b border-theme-border">
@@ -639,8 +640,9 @@ export default function PrivacyPolicy() {
         </Para>
 
         {/* Legal disclaimer */}
-        <div className="mt-6 p-4 rounded-2xl border border-theme-border/60 bg-theme-border/5 text-[11px] text-theme-muted leading-relaxed space-y-2">
+        <div className="mt-6 p-4 theme-rounded-card border border-theme-border/60 bg-theme-border/5 text-[11px] text-theme-muted leading-relaxed space-y-2">
           <p className="font-semibold text-theme-text text-xs">Important Notice</p>
+
           <p>
             This Privacy Policy represents Webliix's good-faith implementation of privacy best practices
             based on the current webliix.com website implementation. It is not a complete substitute for

@@ -216,19 +216,19 @@ export default function Services() {
                   <div
                     key={opt.id}
                     onClick={() => setSelectedWebsiteType(opt.id)}
-                    className={`p-6 rounded-2xl cursor-pointer transition-all duration-300 border flex flex-col justify-between space-y-4 relative ${
+                    className={`p-6 theme-rounded-card cursor-pointer transition-all duration-300 border flex flex-col justify-between space-y-4 relative ${
                       isSelected
                         ? 'bg-theme-primary/20 border-theme-primary shadow-spatial ring-2 ring-theme-primary/50'
                         : 'glass-spatial border-theme-border/60 hover:border-theme-border hover:bg-theme-card/60'
                     }`}
                   >
                     {isSelected && (
-                      <span className="absolute top-3 right-3 bg-theme-primary text-white text-[10px] font-mono font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+                      <span className="absolute top-3 right-3 bg-theme-primary text-white text-[10px] font-mono font-bold px-2 py-0.5 theme-rounded-badge flex items-center gap-1">
                         <CheckCircle2 className="w-3 h-3" /> Selected
                       </span>
                     )}
                     <div className="space-y-1">
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-theme-primary px-2 py-0.5 rounded bg-theme-primary/10 border border-theme-primary/20 inline-block">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-theme-primary px-2 py-0.5 theme-rounded-badge bg-theme-primary/10 border border-theme-primary/20 inline-block">
                         {opt.tag}
                       </span>
                       <h4 className="text-base font-display font-bold text-theme-text pt-1">{opt.label}</h4>
@@ -246,7 +246,7 @@ export default function Services() {
                       ))}
                     </ul>
 
-                    <div className="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-[11px] text-emerald-400 font-mono">
+                    <div className="p-2.5 theme-rounded-card bg-emerald-500/10 border border-emerald-500/30 text-[11px] text-emerald-400 font-mono">
                       🎁 {opt.bonus}
                     </div>
                   </div>
@@ -259,7 +259,7 @@ export default function Services() {
           <div className="space-y-4">
             <div className="flex items-center justify-between border-b border-theme-border/60 pb-2">
               <span className="text-sm font-mono font-bold text-theme-primary uppercase tracking-wider flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-theme-primary text-white text-xs flex items-center justify-center">2</span>
+                <span className="w-6 h-6 theme-rounded-badge bg-theme-primary text-white text-xs flex items-center justify-center">2</span>
                 Select Included Services ({selectedServices.length} Selected)
               </span>
               <span className="text-xs font-mono text-theme-muted">Toggle services on/off</span>
@@ -272,7 +272,7 @@ export default function Services() {
                   <div
                     key={srv.id}
                     onClick={() => toggleLaunchkitService(srv.id)}
-                    className={`p-4 rounded-2xl cursor-pointer transition-all duration-300 border flex flex-col justify-between ${
+                    className={`p-4 theme-rounded-card cursor-pointer transition-all duration-300 border flex flex-col justify-between ${
                       isChecked
                         ? 'bg-theme-primary/15 border-theme-primary/70 shadow-sm'
                         : 'glass-spatial border-theme-border/40 opacity-70 hover:opacity-100'
@@ -283,7 +283,7 @@ export default function Services() {
                         type="checkbox"
                         checked={isChecked}
                         onChange={() => toggleLaunchkitService(srv.id)}
-                        className="mt-0.5 rounded border-theme-border text-theme-primary focus:ring-theme-primary w-4 h-4"
+                        className="mt-0.5 theme-rounded-input border-theme-border text-theme-primary focus:ring-theme-primary w-4 h-4"
                       />
                       <div>
                         <span className="text-xs font-display font-bold text-theme-text block leading-snug">
@@ -294,7 +294,7 @@ export default function Services() {
                         </span>
                       </div>
                     </div>
-                    <p className="text-[10px] text-emerald-400 mt-2 font-mono bg-emerald-500/10 p-1.5 rounded border border-emerald-500/20">
+                    <p className="text-[10px] text-emerald-400 mt-2 font-mono bg-emerald-500/10 p-1.5 theme-rounded-card border border-emerald-500/20">
                       🎁 {srv.bonus}
                     </p>
                   </div>
@@ -304,7 +304,7 @@ export default function Services() {
           </div>
 
           {/* Price Calculation Summary */}
-          <div className="pt-6 border-t border-theme-border flex flex-col sm:flex-row items-center justify-between gap-6 bg-theme-card/40 p-6 rounded-2xl">
+          <div className="pt-6 border-t border-theme-border flex flex-col sm:flex-row items-center justify-between gap-6 bg-theme-card/40 p-6 theme-rounded-card">
             <div>
               <span className="text-xs font-mono text-theme-muted uppercase block font-semibold">Total Custom LaunchKit Investment</span>
               <div className="text-4xl font-mono font-extrabold text-theme-primary">
@@ -328,7 +328,7 @@ export default function Services() {
                 href="https://wa.me/919310181569?text=Hi%20Webliix!%20I'm%20interested%20in%20customizing%20my%20LaunchKit."
                 target="_blank"
                 rel="noreferrer"
-                className="p-3.5 rounded-xl bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/25 transition-colors flex items-center justify-center shrink-0"
+                className="p-3.5 theme-rounded-btn bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/25 transition-colors flex items-center justify-center shrink-0"
                 title="Chat on WhatsApp"
               >
                 <MessageCircle className="w-5 h-5" />
@@ -352,11 +352,12 @@ export default function Services() {
             <GlassCard key={service.id} className="p-6 sm:p-8 flex flex-col justify-between space-y-6 border border-theme-border/80 hover:border-theme-primary/60 transition-all duration-300">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-4xl p-2 rounded-2xl bg-theme-primary/10 border border-theme-primary/20">{service.icon}</span>
-                  <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-theme-primary/15 text-theme-primary border border-theme-primary/30">
+                  <span className="text-4xl p-2 theme-rounded-card bg-theme-primary/10 border border-theme-primary/20">{service.icon}</span>
+                  <span className="px-3 py-1 theme-rounded-badge text-xs font-mono font-bold bg-theme-primary/15 text-theme-primary border border-theme-primary/30">
                     {service.tag}
                   </span>
                 </div>
+
                 <h3 className="text-2xl font-display font-bold text-theme-text">
                   {service.title}
                 </h3>

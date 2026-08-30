@@ -1,98 +1,122 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { themePresets, defaultTheme } from '../config/themeConfig';
+import {
+  themePresets,
+  defaultTheme,
+  fontPresets,
+  defaultFont,
+  cornerStylePresets,
+  defaultCornerStyle,
+  blurPresets,
+  defaultBlur
+} from '../config/themeConfig';
 
 const ThemeContext = createContext();
 
-export const fontPresets = [
-  {
-    id: 'modern-agency',
-    name: '⚡ Modern Agency (Space Grotesk + Jakarta)',
-    display: "'Space Grotesk', sans-serif",
-    sans: "'Plus Jakarta Sans', sans-serif"
-  },
-  {
-    id: 'futuristic-minimal',
-    name: '🔮 Futuristic Minimal (Outfit + Inter)',
-    display: "'Outfit', sans-serif",
-    sans: "'Inter', sans-serif"
-  },
-  {
-    id: 'tech-developer',
-    name: '💻 Tech Developer (JetBrains Mono + Jakarta)',
-    display: "'JetBrains Mono', monospace",
-    sans: "'Plus Jakarta Sans', sans-serif"
-  },
-  {
-    id: 'clean-product',
-    name: '✨ Clean Product (Inter + Inter)',
-    display: "'Inter', sans-serif",
-    sans: "'Inter', sans-serif"
-  },
-  {
-    id: 'unified-agency',
-    name: '🌟 Unified Agency (Plus Jakarta Sans)',
-    display: "'Plus Jakarta Sans', sans-serif",
-    sans: "'Plus Jakarta Sans', sans-serif"
-  },
-  {
-    id: 'full-terminal',
-    name: '📟 Full Terminal (JetBrains Mono)',
-    display: "'JetBrains Mono', monospace",
-    sans: "'JetBrains Mono', monospace"
-  }
-];
+export { fontPresets, cornerStylePresets, blurPresets };
 
 export const ThemeProvider = ({ children }) => {
   const [currentTheme, setCurrentTheme] = useState(() => {
-    const saved = localStorage.getItem('spatial_theme_id');
-    return themePresets.find(t => t.id === saved) || defaultTheme;
+    try {
+      const saved = localStorage.getItem('spatial_theme_id');
+      const found = themePresets.find(t => t.id === saved);
+      return found || defaultTheme || themePresets[0];
+    } catch {
+      return defaultTheme || themePresets[0];
+    }
   });
 
   const [customPrimary, setCustomPrimary] = useState(() => {
-    return localStorage.getItem('spatial_custom_primary') || null;
+    try {
+      return localStorage.getItem('spatial_custom_primary') || null;
+    } catch {
+      return null;
+    }
   });
 
   const [glassBlur, setGlassBlur] = useState(() => {
-    return localStorage.getItem('spatial_glass_blur') || '28px';
+    try {
+      return localStorage.getItem('spatial_glass_blur') || defaultBlur || '12px';
+    } catch {
+      return defaultBlur || '12px';
+    }
   });
 
   const [currentFont, setCurrentFont] = useState(() => {
-    const saved = localStorage.getItem('spatial_font_id');
-    return fontPresets.find(f => f.id === saved) || fontPresets[0];
+    try {
+      const saved = localStorage.getItem('spatial_font_id');
+      const found = fontPresets.find(f => f.id === saved);
+      return found || defaultFont || fontPresets[0];
+    } catch {
+      return defaultFont || fontPresets[0];
+    }
+  });
+
+  const [cornerStyle, setCornerStyle] = useState(() => {
+    try {
+      const saved = localStorage.getItem('spatial_corner_style');
+      return saved === 'rounded' ? 'rounded' : (defaultCornerStyle || 'edgy');
+    } catch {
+      return defaultCornerStyle || 'edgy';
+    }
   });
 
   const [canvasParticles, setCanvasParticles] = useState(() => {
-    return localStorage.getItem('spatial_canvas_particles') !== 'false';
+    try {
+      return localStorage.getItem('spatial_canvas_particles') !== 'false';
+    } catch {
+      return true;
+    }
   });
 
   useEffect(() => {
     const root = document.documentElement;
-    const colors = { ...currentTheme.colors };
+    const activeTheme = currentTheme || defaultTheme || themePresets[0];
+    const activeFont = currentFont || defaultFont || fontPresets[0];
+    const activeBlur = glassBlur || defaultBlur || '12px';
+    const activeCorner = cornerStyle || defaultCornerStyle || 'edgy';
 
-    if (customPrimary) {
-      colors.primary = customPrimary;
-      colors.glow = `${customPrimary}55`;
+    if (activeTheme && activeTheme.colors) {
+      const colors = { ...activeTheme.colors };
+      if (customPrimary) {
+        colors.primary = customPrimary;
+        colors.glow = `${customPrimary}55`;
+      }
+      Object.entries(colors).forEach(([key, val]) => {
+        root.style.setProperty(`--color-${key}`, val);
+      });
+      try {
+        localStorage.setItem('spatial_theme_id', activeTheme.id);
+      } catch {}
     }
 
-    Object.entries(colors).forEach(([key, val]) => {
-      root.style.setProperty(`--color-${key}`, val);
-    });
+    root.style.setProperty('--glass-blur', activeBlur);
 
-    root.style.setProperty('--glass-blur', glassBlur);
-    root.style.setProperty('--font-sans', currentFont.sans);
-    root.style.setProperty('--font-display', currentFont.display);
-    document.body.style.fontFamily = currentFont.sans;
-
-    localStorage.setItem('spatial_theme_id', currentTheme.id);
-    if (customPrimary) {
-      localStorage.setItem('spatial_custom_primary', customPrimary);
-    } else {
-      localStorage.removeItem('spatial_custom_primary');
+    if (activeFont) {
+      if (activeFont.sans) {
+        root.style.setProperty('--font-sans', activeFont.sans);
+        document.body.style.fontFamily = activeFont.sans;
+      }
+      if (activeFont.display) {
+        root.style.setProperty('--font-display', activeFont.display);
+      }
+      try {
+        localStorage.setItem('spatial_font_id', activeFont.id);
+      } catch {}
     }
-    localStorage.setItem('spatial_glass_blur', glassBlur);
-    localStorage.setItem('spatial_font_id', currentFont.id);
-    localStorage.setItem('spatial_canvas_particles', String(canvasParticles));
-  }, [currentTheme, customPrimary, glassBlur, currentFont, canvasParticles]);
+
+    root.setAttribute('data-corner-style', activeCorner);
+
+    try {
+      localStorage.setItem('spatial_corner_style', activeCorner);
+      localStorage.setItem('spatial_glass_blur', activeBlur);
+      localStorage.setItem('spatial_canvas_particles', String(canvasParticles));
+      if (customPrimary) {
+        localStorage.setItem('spatial_custom_primary', customPrimary);
+      } else {
+        localStorage.removeItem('spatial_custom_primary');
+      }
+    } catch {}
+  }, [currentTheme, customPrimary, glassBlur, currentFont, cornerStyle, canvasParticles]);
 
   const selectTheme = (themeId) => {
     const found = themePresets.find(t => t.id === themeId);
@@ -111,13 +135,21 @@ export const ThemeProvider = ({ children }) => {
     if (found) setCurrentFont(found);
   };
 
+  const selectCornerStyle = (styleId) => {
+    if (styleId === 'edgy' || styleId === 'rounded') {
+      setCornerStyle(styleId);
+    }
+  };
+
   const resetTheme = () => {
-    setCurrentTheme(defaultTheme);
+    setCurrentTheme(defaultTheme || themePresets[0]);
     setCustomPrimary(null);
-    setGlassBlur('28px');
-    setCurrentFont(fontPresets[0]);
+    setGlassBlur(defaultBlur || '12px');
+    setCurrentFont(defaultFont || fontPresets[0]);
+    setCornerStyle(defaultCornerStyle || 'edgy');
     setCanvasParticles(true);
   };
+
 
   return (
     <ThemeContext.Provider value={{
@@ -128,9 +160,13 @@ export const ThemeProvider = ({ children }) => {
       setPrimaryColor,
       glassBlur,
       setGlassBlur,
+      blurPresets,
       fontPresets,
       currentFont,
       selectFont,
+      cornerStyle,
+      setCornerStyle: selectCornerStyle,
+      cornerStylePresets,
       canvasParticles,
       setCanvasParticles,
       resetTheme
@@ -138,7 +174,9 @@ export const ThemeProvider = ({ children }) => {
       {children}
     </ThemeContext.Provider>
   );
+
 };
+
 
 export const useTheme = () => {
   const context = useContext(ThemeContext);

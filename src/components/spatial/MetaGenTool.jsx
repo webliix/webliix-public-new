@@ -91,7 +91,7 @@ export default function MetaGenTool() {
                 name="title"
                 value={formData.title}
                 onChange={handleChange}
-                className="w-full px-4 py-2.5 rounded-xl glass-spatial border border-theme-border text-theme-text text-sm focus:outline-none focus:border-theme-primary"
+                className="w-full px-4 py-2.5 theme-rounded-input glass-spatial border border-theme-border text-theme-text text-sm focus:outline-none focus:border-theme-primary"
               />
             </div>
 
@@ -107,7 +107,7 @@ export default function MetaGenTool() {
                 rows="3"
                 value={formData.description}
                 onChange={handleChange}
-                className="w-full px-4 py-2.5 rounded-xl glass-spatial border border-theme-border text-theme-text text-sm focus:outline-none focus:border-theme-primary"
+                className="w-full px-4 py-2.5 theme-rounded-input glass-spatial border border-theme-border text-theme-text text-sm focus:outline-none focus:border-theme-primary"
               />
             </div>
 
@@ -119,7 +119,7 @@ export default function MetaGenTool() {
                   name="url"
                   value={formData.url}
                   onChange={handleChange}
-                  className="w-full px-4 py-2.5 rounded-xl glass-spatial border border-theme-border text-theme-text text-xs focus:outline-none focus:border-theme-primary"
+                  className="w-full px-4 py-2.5 theme-rounded-input glass-spatial border border-theme-border text-theme-text text-xs focus:outline-none focus:border-theme-primary"
                 />
               </div>
 
@@ -130,7 +130,7 @@ export default function MetaGenTool() {
                   name="ogImage"
                   value={formData.ogImage}
                   onChange={handleChange}
-                  className="w-full px-4 py-2.5 rounded-xl glass-spatial border border-theme-border text-theme-text text-xs focus:outline-none focus:border-theme-primary"
+                  className="w-full px-4 py-2.5 theme-rounded-input glass-spatial border border-theme-border text-theme-text text-xs focus:outline-none focus:border-theme-primary"
                 />
               </div>
             </div>
@@ -142,14 +142,14 @@ export default function MetaGenTool() {
                 name="keywords"
                 value={formData.keywords}
                 onChange={handleChange}
-                className="w-full px-4 py-2.5 rounded-xl glass-spatial border border-theme-border text-theme-text text-xs focus:outline-none focus:border-theme-primary"
+                className="w-full px-4 py-2.5 theme-rounded-input glass-spatial border border-theme-border text-theme-text text-xs focus:outline-none focus:border-theme-primary"
               />
             </div>
           </div>
         </div>
 
         {/* Live Code Output */}
-        <div className="flex-1 glass-spatial p-5 rounded-3xl border border-theme-primary/30 flex flex-col justify-between space-y-4">
+        <div className="flex-1 glass-spatial p-5 theme-rounded-card border border-theme-primary/30 flex flex-col justify-between space-y-4">
           <div className="flex items-center justify-between pb-3 border-b border-theme-border">
             <span className="text-xs font-semibold text-theme-muted uppercase tracking-wider flex items-center gap-1.5">
               <Code className="w-4 h-4 text-theme-primary" /> Generated Meta Tags
@@ -159,7 +159,7 @@ export default function MetaGenTool() {
             </span>
           </div>
 
-          <pre className="p-4 rounded-2xl bg-black/40 border border-theme-border text-theme-text text-[11px] font-mono overflow-x-auto max-h-80 leading-relaxed whitespace-pre-wrap">
+          <pre className="p-4 theme-rounded-card bg-black/40 border border-theme-border text-theme-text text-[11px] font-mono overflow-x-auto max-h-80 leading-relaxed whitespace-pre-wrap">
             {generatedTags}
           </pre>
 

@@ -36,7 +36,7 @@ export default function AuraDrishtiCaseStudy() {
       {/* Main Showcase Card */}
       <GlassCard className="p-6 sm:p-10 border border-theme-border space-y-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div className="rounded-2xl overflow-hidden border border-theme-border bg-theme-bg h-56 sm:h-64 relative group">
+          <div className="theme-rounded-card overflow-hidden border border-theme-border bg-theme-bg h-56 sm:h-64 relative group">
             <img src={auradrishtiImg} alt="AuraDrishti Platform" className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
           </div>
           <div className="space-y-4">
@@ -50,21 +50,22 @@ export default function AuraDrishtiCaseStudy() {
 
         {/* Deliverables Breakdown */}
         <div className="pt-6 border-t border-theme-border/60 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          <div className="p-5 rounded-2xl glass-spatial border border-theme-border space-y-2">
+          <WebliixCard variant="feature" className="p-5 space-y-2">
             <h4 className="text-sm font-display font-bold text-theme-text">01. Vector Brand Identity</h4>
             <p className="text-xs text-theme-muted leading-relaxed">Tech-forward logo reflecting trust, surveillance security, and custom business collateral with scannable QR codes.</p>
-          </div>
+          </WebliixCard>
 
-          <div className="p-5 rounded-2xl glass-spatial border border-theme-border space-y-2">
+          <WebliixCard variant="feature" className="p-5 space-y-2">
             <h4 className="text-sm font-display font-bold text-theme-text">02. Responsive Web Storefront</h4>
             <p className="text-xs text-theme-muted leading-relaxed">Custom mobile & desktop Web application featuring CCTV product catalogs, WhatsApp booking, and quote calculators.</p>
-          </div>
+          </WebliixCard>
 
-          <div className="p-5 rounded-2xl glass-spatial border border-theme-border space-y-2">
+          <WebliixCard variant="feature" className="p-5 space-y-2">
             <h4 className="text-sm font-display font-bold text-theme-text">03. Local SEO & GMB Rank #1</h4>
             <p className="text-xs text-theme-muted leading-relaxed">Noida-specific keyword optimization on Google Maps for CCTV, DVR, NVR, and smart doorbell queries.</p>
-          </div>
+          </WebliixCard>
         </div>
+
       </GlassCard>
 
       {/* Measured Results */}

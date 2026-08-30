@@ -16,7 +16,8 @@ export default function SpatialModal() {
             initial={{ opacity: 0, y: -50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.9 }}
-            className="fixed top-6 right-6 z-50 flex items-center gap-3 px-5 py-3.5 rounded-2xl glass-spatial border border-theme-primary shadow-spatial text-sm font-medium text-theme-text"
+            className="fixed top-6 right-6 z-50 flex items-center gap-3 px-5 py-3.5 theme-rounded-card glass-spatial border border-theme-primary shadow-spatial text-sm font-medium text-theme-text"
+
           >
             {toast.type === 'success' ? (
               <WebliixIcon icon={CheckCircle} variant="inline" size="lg" color="success" />
@@ -49,7 +50,7 @@ export default function SpatialModal() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-              className="relative w-full max-w-2xl glass-spatial rounded-3xl p-6 sm:p-8 z-10 border border-theme-border shadow-spatial-lg max-h-[90vh] overflow-y-auto"
+              className="relative w-full max-w-2xl glass-spatial theme-rounded-card p-6 sm:p-8 z-10 border border-theme-border shadow-spatial-lg max-h-[90vh] overflow-y-auto"
             >
               {/* Modal Header */}
               <div className="flex items-center justify-between pb-4 mb-6 border-b border-theme-border">
@@ -58,12 +59,13 @@ export default function SpatialModal() {
                 </h3>
                 <button
                   onClick={closeModal}
-                  className="p-2 rounded-xl text-theme-muted hover:text-theme-text hover:bg-theme-border/30 transition"
+                  className="p-2 theme-rounded-btn text-theme-muted hover:text-theme-text hover:bg-theme-border/30 transition"
                   aria-label="Close modal"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
+
 
               {/* Modal Content */}
               <div className="text-theme-text text-sm sm:text-base leading-relaxed">

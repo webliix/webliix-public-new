@@ -114,11 +114,12 @@ export default function Home() {
             initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-none sm:rounded-[4px] glass-spatial border border-theme-primary/50 text-xs font-mono text-theme-primary font-bold tracking-wider shadow-sm"
+            className="inline-flex items-center gap-2 px-4 py-1.5 theme-rounded-badge glass-spatial border border-theme-primary/50 text-xs font-mono text-theme-primary font-bold tracking-wider shadow-sm"
           >
-            <span className="w-2 h-2 rounded-none sm:rounded-[1px] bg-theme-primary animate-pulse" />
+            <span className="w-2 h-2 theme-rounded-badge bg-theme-primary animate-pulse" />
             <span>{siteConfig.brand.tagline}</span>
           </motion.div>
+
 
 
           {/* Main Headline */}
@@ -203,7 +204,7 @@ export default function Home() {
               <WebliixCard
                 key={idx}
                 variant="panel"
-                className="p-2 sm:p-3 h-16 sm:h-20 lg:h-24 bg-white border border-gray-200/80 shadow-sm rounded-none sm:rounded-[4px] group hover:border-theme-primary/60 transition-all flex items-center justify-center overflow-hidden"
+                className="p-2 sm:p-3 h-16 sm:h-20 lg:h-24 bg-white border border-gray-200/80 shadow-sm theme-rounded-card group hover:border-theme-primary/60 transition-all flex items-center justify-center overflow-hidden"
               >
                 <img
                   src={client.logo}
@@ -212,6 +213,7 @@ export default function Home() {
                 />
               </WebliixCard>
             ))}
+
           </div>
         </div>
 
@@ -415,8 +417,9 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {siteConfig.portfolio.slice(0, 6).map((item) => (
             <GlassCard key={item.id} className="p-4 space-y-3 group">
-              <div className="rounded-xl overflow-hidden border border-theme-border bg-theme-bg/60">
+              <div className="theme-rounded-card overflow-hidden border border-theme-border bg-theme-bg/60">
                 <div className="px-2.5 py-1.5 border-b border-theme-border/60 flex items-center justify-between text-[10px] font-mono text-theme-muted">
+
                   <div className="flex items-center gap-1">
                     <span className="w-2 h-2 rounded-full bg-rose-500/80 inline-block" />
                     <span className="w-2 h-2 rounded-full bg-amber-500/80 inline-block" />

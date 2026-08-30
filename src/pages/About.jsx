@@ -145,7 +145,7 @@ export default function About() {
               <div className="space-y-5">
                 {/* Profile Header */}
                 <div className="flex flex-col sm:flex-row items-center gap-5">
-                  <div className="w-28 h-32 rounded-2xl overflow-hidden shrink-0 border-2 border-theme-primary/50 shadow-spatial relative">
+                  <div className="w-28 h-32 theme-rounded-card overflow-hidden shrink-0 border-2 border-theme-primary/50 shadow-spatial relative">
                     <img src={f.photoUrl} alt={f.name} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
                   </div>
 
@@ -158,7 +158,7 @@ export default function About() {
                       href={f.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#0a66c2]/20 text-[#0a66c2] border border-[#0a66c2]/40 text-xs font-mono font-semibold hover:bg-[#0a66c2] hover:text-white transition-all duration-300"
+                      className="inline-flex items-center gap-2 px-3 py-1.5 theme-rounded-btn bg-[#0a66c2]/20 text-[#0a66c2] border border-[#0a66c2]/40 text-xs font-mono font-semibold hover:bg-[#0a66c2] hover:text-white transition-all duration-300"
                     >
                       <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
@@ -169,7 +169,7 @@ export default function About() {
                 </div>
 
                 {/* Highlights Bar */}
-                <div className="grid grid-cols-3 gap-2 p-3 rounded-2xl glass-spatial border border-theme-border/60 text-center">
+                <div className="grid grid-cols-3 gap-2 p-3 theme-rounded-card glass-spatial border border-theme-border/60 text-center">
                   {f.highlights.map((h, j) => (
                     <div key={j}>
                       <span className="text-[10px] font-mono text-theme-muted uppercase block">{h.label}</span>
@@ -179,7 +179,7 @@ export default function About() {
                 </div>
 
                 {/* Short Bio Quote */}
-                <div className="p-3.5 rounded-2xl bg-theme-primary/10 border border-theme-primary/20 text-xs font-mono text-theme-text italic">
+                <div className="p-3.5 theme-rounded-card bg-theme-primary/10 border border-theme-primary/20 text-xs font-mono text-theme-text italic">
                   "{f.shortBio}"
                 </div>
 
@@ -193,12 +193,13 @@ export default function About() {
                   <span className="text-xs font-mono text-theme-primary uppercase font-semibold block">Core Technical Skills</span>
                   <div className="flex flex-wrap gap-1.5">
                     {f.skills.map((skill, j) => (
-                      <span key={j} className="px-2.5 py-1 rounded-lg glass-spatial text-xs font-mono text-theme-text border border-theme-border">
+                      <span key={j} className="px-2.5 py-1 theme-rounded-badge glass-spatial text-xs font-mono text-theme-text border border-theme-border">
                         {skill}
                       </span>
                     ))}
                   </div>
                 </div>
+
               </div>
             </GlassCard>
           ))}
@@ -304,13 +305,14 @@ export default function About() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           {globalReach.map((loc, i) => (
-            <div key={i} className="p-5 rounded-2xl glass-spatial border border-theme-border/60 space-y-2">
+            <WebliixCard key={i} variant="feature" className="p-5 space-y-2">
               <span className="text-4xl block mb-1">{loc.flag}</span>
               <h4 className="text-base font-display font-bold text-theme-text">{loc.country}</h4>
               <p className="text-[11px] text-theme-muted leading-relaxed">{loc.desc}</p>
-            </div>
+            </WebliixCard>
           ))}
         </div>
+
       </GlassCard>
 
       {/* CTA BANNER */}

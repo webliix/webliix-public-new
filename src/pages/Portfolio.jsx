@@ -177,7 +177,7 @@ export default function Portfolio() {
             >
               <div className="space-y-5">
                 {/* Browser Container Frame */}
-                <div className="rounded-2xl overflow-hidden border border-theme-border/80 bg-theme-bg/60 shadow-inner">
+                <div className="theme-rounded-card overflow-hidden border border-theme-border/80 bg-theme-bg/60 shadow-inner">
                   <div className="px-3.5 py-2 border-b border-theme-border/60 flex items-center justify-between text-xs font-mono text-theme-muted">
                     <div className="flex items-center gap-1.5">
                       <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block" />
@@ -202,7 +202,7 @@ export default function Portfolio() {
                     <h3 className="text-2xl font-display font-bold text-theme-text group-hover:text-theme-primary transition-colors">
                       {item.title}
                     </h3>
-                    <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                    <span className="px-3 py-1 theme-rounded-badge text-xs font-mono font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
                       {item.metrics}
                     </span>
                   </div>
@@ -253,7 +253,7 @@ export default function Portfolio() {
               <WebliixCard
                 key={index}
                 variant="panel"
-                className="w-36 h-36 sm:w-40 sm:h-40 aspect-square shrink-0 p-3 bg-white border border-gray-200/80 shadow-sm rounded-none sm:rounded-[4px] flex items-center justify-center group hover:border-theme-primary/60 transition-all"
+                className="w-36 h-36 sm:w-40 sm:h-40 aspect-square shrink-0 p-3 bg-white border border-gray-200/80 shadow-sm theme-rounded-card flex items-center justify-center group hover:border-theme-primary/60 transition-all"
               >
                 <img
                   src={logo}
@@ -289,13 +289,14 @@ export default function Portfolio() {
             >
               <div className="space-y-3">
                 {/* Logo Container — white bg, perfectly proportioned */}
-                <div className="w-full h-20 sm:h-24 bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-3 border border-gray-200/80 shadow-sm flex items-center justify-center">
+                <div className="w-full h-20 sm:h-24 bg-white theme-rounded-card p-2.5 sm:p-3 border border-gray-200/80 shadow-sm flex items-center justify-center">
                   <img
                     src={client.logo}
                     alt={`${client.name} logo`}
                     className="max-h-12 sm:max-h-14 max-w-[85%] object-contain"
                   />
                 </div>
+
 
                 <h3 className="text-xs sm:text-sm font-display font-bold text-center text-theme-text line-clamp-1">
                   {client.name}

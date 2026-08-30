@@ -38,6 +38,7 @@ const VARIANTS = {
     'bg-theme-primary',
     'text-white',
     'border border-theme-primary',
+    'theme-rounded-btn',
     'shadow-[0_5px_18px_rgba(0,0,0,0.16)]',
     'focus-visible:outline-none',
     'focus-visible:ring-2',
@@ -53,6 +54,7 @@ const VARIANTS = {
     'bg-transparent',
     'text-theme-text',
     'border border-theme-border',
+    'theme-rounded-btn',
     'focus-visible:outline-none',
     'focus-visible:ring-2',
     'focus-visible:ring-theme-primary/35',
@@ -67,6 +69,7 @@ const VARIANTS = {
     'bg-theme-card',
     'text-theme-muted',
     'border border-theme-border',
+    'theme-rounded-btn',
     'focus-visible:outline-none',
     'focus-visible:ring-2',
     'focus-visible:ring-theme-primary/30',
@@ -110,8 +113,8 @@ const BASE_SHADOW = {
  * CORNER BRACKETS
  * Signature "targeting" accent — shared visual
  * language with WebliixCard. Two opposite
- * corners draw themselves in on hover. Sits
- * flush against the square edge now.
+ * corners draw themselves in on hover.
+ * Auto-hidden in rounded mode.
  * ───────────────────────────────────────────── */
 
 function CornerBrackets({ reduceMotion }) {
@@ -126,20 +129,21 @@ function CornerBrackets({ reduceMotion }) {
   };
 
   return (
-    <>
+    <div className="corner-bracket pointer-events-none">
       <motion.span
         aria-hidden="true"
         variants={armVariants}
-        className="pointer-events-none absolute left-1.5 top-1.5 h-2.5 w-2.5 border-l-[1.5px] border-t-[1.5px] border-white/70 [.group_&]:border-theme-primary/70"
+        className="pointer-events-none absolute left-1.5 top-1.5 h-2.5 w-2.5 border-l-[1.5px] border-t-[1.5px] border-white/70 [.group_&]:border-theme-primary/70 corner-bracket"
       />
       <motion.span
         aria-hidden="true"
         variants={armVariants}
-        className="pointer-events-none absolute right-1.5 bottom-1.5 h-2.5 w-2.5 border-r-[1.5px] border-b-[1.5px] border-white/70 [.group_&]:border-theme-primary/70"
+        className="pointer-events-none absolute right-1.5 bottom-1.5 h-2.5 w-2.5 border-r-[1.5px] border-b-[1.5px] border-white/70 [.group_&]:border-theme-primary/70 corner-bracket"
       />
-    </>
+    </div>
   );
 }
+
 
 export default function WebliixButton({
   children,

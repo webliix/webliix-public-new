@@ -357,16 +357,18 @@ export default function Feedback() {
               { icon: '⭐', title: 'Helps Others', desc: 'Honest reviews guide future clients' },
               { icon: '📈', title: 'Drives Improvement', desc: 'Every response shapes our work' },
             ].map((item) => (
-              <div
+              <WebliixCard
                 key={item.title}
-                className="p-4 rounded-2xl glass-spatial border border-theme-border/60 text-center space-y-1"
+                variant="feature"
+                className="p-4 text-center space-y-1"
               >
                 <div className="text-2xl">{item.icon}</div>
                 <p className="text-sm font-semibold text-theme-text">{item.title}</p>
                 <p className="text-xs text-theme-muted">{item.desc}</p>
-              </div>
+              </WebliixCard>
             ))}
           </div>
+
         </>
       )}
     </div>

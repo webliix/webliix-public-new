@@ -22,12 +22,11 @@ import React, { forwardRef } from 'react';
 import { ChevronDown, AlertCircle, CheckCircle2 } from 'lucide-react';
 import WebliixCard from './WebliixCard';
 
-// ─── Shared Edgy Base Classes ───────────────────────────────────────────────
-// Sharp, square edges throughout to match WebliixCard and WebliixButton
+// ─── Shared Base Classes with Dynamic Theme Corner Styles ─────────────────────
 const BASE_INPUT = [
   'w-full',
   'px-4 py-3',
-  'rounded-none sm:rounded-[4px]',
+  'theme-rounded-input',
   'glass-spatial',
   'border border-theme-border/80',
   'text-theme-text text-sm',
@@ -41,6 +40,7 @@ const BASE_INPUT = [
   'transition-all duration-150',
   'disabled:opacity-50 disabled:cursor-not-allowed',
 ].join(' ');
+
 
 // State modifiers
 const STATE_CLASSES = {

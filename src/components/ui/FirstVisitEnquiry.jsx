@@ -132,7 +132,7 @@ export default function FirstVisitEnquiry() {
               transition={{ type: 'spring', stiffness: 320, damping: 30 }}
               className={[
                 'relative w-full sm:max-w-lg pointer-events-auto',
-                'rounded-t-3xl sm:rounded-3xl',
+                'theme-rounded-container',
                 'glass-spatial border border-theme-primary/35',
                 'shadow-[0_-8px_60px_rgba(0,0,0,0.5)] sm:shadow-[0_24px_80px_rgba(0,0,0,0.55)]',
                 'max-h-[92dvh] sm:max-h-[88vh]',
@@ -142,11 +142,11 @@ export default function FirstVisitEnquiry() {
               onClick={(e) => e.stopPropagation()}
             >
               {/* gradient accent bar */}
-              <div className="h-[3px] w-full rounded-t-3xl sm:rounded-t-3xl bg-gradient-to-r from-theme-primary via-violet-500 to-theme-primary" />
+              <div className="h-[3px] w-full theme-rounded-container bg-gradient-to-r from-theme-primary via-violet-500 to-theme-primary" />
 
               {/* mobile drag handle pill */}
               <div className="flex sm:hidden justify-center pt-2.5 pb-0">
-                <div className="w-10 h-1 rounded-full bg-theme-border/60" />
+                <div className="w-10 h-1 theme-rounded-badge bg-theme-border/60" />
               </div>
 
               {/* close ✕ */}
@@ -154,7 +154,7 @@ export default function FirstVisitEnquiry() {
                 onClick={dismiss}
                 aria-label="Close enquiry"
                 className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10
-                           w-8 h-8 rounded-full
+                           w-8 h-8 theme-rounded-btn
                            glass-spatial border border-theme-border
                            flex items-center justify-center
                            text-theme-muted hover:text-theme-text hover:border-theme-primary
@@ -162,6 +162,7 @@ export default function FirstVisitEnquiry() {
               >
                 <X className="w-3.5 h-3.5" />
               </button>
+
 
               {/* ── scrollable content ─────────────────── */}
               <div
@@ -186,8 +187,9 @@ export default function FirstVisitEnquiry() {
                       <div className="flex flex-col items-center text-center gap-2.5 mb-5">
                         <img src={logoSrc} alt={siteConfig.brand.name} className="h-9 sm:h-11 w-auto object-contain" draggable={false} />
                         <div className="space-y-1.5">
-                          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-theme-primary/15 border border-theme-primary/30 text-theme-primary text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-widest">
+                          <span className="inline-flex items-center gap-1.5 px-3 py-1 theme-rounded-badge bg-theme-primary/15 border border-theme-primary/30 text-theme-primary text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-widest">
                             <Sparkles className="w-3 h-3 shrink-0" />
+
                             Free Consultation — No Obligation
                           </span>
                           <h2 className="text-[1.3rem] sm:text-2xl font-display font-extrabold text-theme-text leading-snug">

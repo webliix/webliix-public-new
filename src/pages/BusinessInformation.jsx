@@ -89,9 +89,10 @@ export default function BusinessInformation() {
             </div>
 
             {/* Official Badge */}
-            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-2xl bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 text-xs font-mono font-bold shrink-0">
+            <div className="flex items-center gap-2 px-3.5 py-1.5 theme-rounded-badge bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 text-xs font-mono font-bold shrink-0">
               <CheckCircle2 className="w-4 h-4" /> Official MSME Registration
             </div>
+
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

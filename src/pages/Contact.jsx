@@ -120,28 +120,27 @@ export default function Contact() {
                 <h3 className="text-xl font-display font-bold text-theme-text">Direct Channels</h3>
                 <span className="text-xs font-mono font-bold text-theme-primary block mt-0.5">{siteConfig.brand.tagline}</span>
               </div>
-              <span className="px-3 py-1 rounded-none sm:rounded-[4px] text-[11px] font-mono font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center gap-1 self-start sm:self-auto">
+              <span className="px-3 py-1 theme-rounded-badge text-[11px] font-mono font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center gap-1 self-start sm:self-auto">
                 <Clock className="w-3 h-3" /> SLA &lt; 2 Hrs
               </span>
             </div>
 
-
             <div className="space-y-4 text-sm text-theme-text">
-              <a href={`tel:${siteConfig.brand.contactPhone.replace(/\s+/g, '')}`} className="flex items-center gap-4 p-4 rounded-none sm:rounded-[4px] glass-spatial border border-theme-border/60 hover:border-theme-primary transition group">
+              <a href={`tel:${siteConfig.brand.contactPhone.replace(/\s+/g, '')}`} className="flex items-center gap-4 p-4 theme-rounded-card glass-spatial border border-theme-border/60 hover:border-theme-primary transition group">
                 <WebliixIcon icon={Phone} variant="badge" size="md" className="group-hover:scale-110" />
                 <div>
                   <span className="text-xs text-theme-muted block">Call Direct / WhatsApp</span>
                   <span className="font-mono font-bold text-base">{siteConfig.brand.contactPhone}</span>
                 </div>
               </a>
-              <a href={`mailto:${siteConfig.brand.contactEmail}`} className="flex items-center gap-4 p-4 rounded-none sm:rounded-[4px] glass-spatial border border-theme-border/60 hover:border-theme-primary transition group">
+              <a href={`mailto:${siteConfig.brand.contactEmail}`} className="flex items-center gap-4 p-4 theme-rounded-card glass-spatial border border-theme-border/60 hover:border-theme-primary transition group">
                 <WebliixIcon icon={Mail} variant="badge" size="md" className="group-hover:scale-110" />
                 <div>
                   <span className="text-xs text-theme-muted block">Email Inquiry</span>
                   <span className="font-mono font-bold text-base">{siteConfig.brand.contactEmail}</span>
                 </div>
               </a>
-              <div className="flex items-center gap-4 p-4 rounded-none sm:rounded-[4px] glass-spatial border border-theme-border/60">
+              <div className="flex items-center gap-4 p-4 theme-rounded-card glass-spatial border border-theme-border/60">
                 <WebliixIcon icon={MapPin} variant="badge" size="md" />
                 <div>
                   <span className="text-xs text-theme-muted block">Headquarters</span>
@@ -156,13 +155,14 @@ export default function Contact() {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {socialLinks.map((social) => (
                   <a key={social.name} href={social.href} target="_blank" rel="noopener noreferrer"
-                    className="p-3 rounded-none sm:rounded-[4px] glass-spatial border border-theme-border/80 hover:border-theme-primary hover:text-theme-primary text-theme-text text-xs font-semibold flex items-center justify-center gap-2 transition group">
+                    className="p-3 theme-rounded-btn glass-spatial border border-theme-border/80 hover:border-theme-primary hover:text-theme-primary text-theme-text text-xs font-semibold flex items-center justify-center gap-2 transition group">
                     <span className="group-hover:scale-110 transition-transform">{social.svg}</span>
                     <span>{social.name}</span>
                   </a>
                 ))}
               </div>
             </div>
+
 
           </GlassCard>
 
