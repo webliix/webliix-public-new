@@ -216,18 +216,39 @@ export default function SpatialFooter() {
             Solutions
           </h4>
           <ul className="space-y-2 text-xs text-theme-muted">
-            {siteConfig.services.map((s) => (
-              <li key={s.id}>
-                <Link
-                  to={s.id === 'brand-launchkit' ? '/launch-kit' : '/services'}
-                  className="hover:text-theme-primary transition-colors flex items-center gap-1 group"
-                >
-                  <span className="group-hover:translate-x-1 transition-transform">{s.title}</span>
-                </Link>
-              </li>
-            ))}
+            <li>
+              <Link to="/launch-kit" className="hover:text-theme-primary transition-colors flex items-center gap-1 group">
+                <span className="group-hover:translate-x-1 transition-transform">Webliix LaunchKit</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/seo" className="hover:text-theme-primary transition-colors flex items-center gap-1 group">
+                <span className="group-hover:translate-x-1 transition-transform">SEO &amp; Search Dominance</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/portfolio-website" className="hover:text-theme-primary transition-colors flex items-center gap-1 group">
+                <span className="group-hover:translate-x-1 transition-transform">Portfolio Website Builds</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/services" className="hover:text-theme-primary transition-colors flex items-center gap-1 group">
+                <span className="group-hover:translate-x-1 transition-transform">Website Development</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/services" className="hover:text-theme-primary transition-colors flex items-center gap-1 group">
+                <span className="group-hover:translate-x-1 transition-transform">E-Commerce Store Launch</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/services" className="hover:text-theme-primary transition-colors flex items-center gap-1 group">
+                <span className="group-hover:translate-x-1 transition-transform">Branding &amp; Identity</span>
+              </Link>
+            </li>
           </ul>
         </div>
+
 
         {/* Quick Navigation */}
         <div className="space-y-3">

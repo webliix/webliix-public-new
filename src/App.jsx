@@ -24,6 +24,8 @@ import Contact from './pages/Contact';
 import LaunchKit from './pages/LaunchKit';
 import BlogPost from './pages/BlogPost';
 import Feedback from './pages/Feedback';
+import SeoServices from './pages/SeoServices';
+import PortfolioWebsite from './pages/PortfolioWebsite';
 
 import BusinessInformation from './pages/BusinessInformation';
 import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -50,6 +52,11 @@ export default function App() {
                     <Route path="/about" element={<About />} />
                     <Route path="/services" element={<Services />} />
                     <Route path="/portfolio" element={<Portfolio />} />
+                    <Route path="/portfolio-website" element={<PortfolioWebsite />} />
+                    <Route path="/portfolio-site" element={<PortfolioWebsite />} />
+                    <Route path="/seo" element={<SeoServices />} />
+                    <Route path="/seo-services" element={<SeoServices />} />
+                    <Route path="/seo-packages" element={<SeoServices />} />
                     <Route path="/case-studies/auradrishti" element={<AuraDrishtiCaseStudy />} />
                     <Route path="/blog" element={<Blog />} />
                     <Route path="/blog/:id" element={<BlogPost />} />
@@ -58,6 +65,7 @@ export default function App() {
                     <Route path="/launch-kit" element={<LaunchKit />} />
                     <Route path="/launchkit" element={<LaunchKit />} />
                     <Route path="/feedback" element={<Feedback />} />
+
 
 
 

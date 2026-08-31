@@ -1,8 +1,10 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { ExternalLink, Sparkles, Laptop, ShieldCheck, Megaphone, Palette, Wrench, Users, Tag, CheckCircle2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ExternalLink, Sparkles, Laptop, ShieldCheck, Megaphone, Palette, Wrench, Users, Tag, CheckCircle2, ArrowUpRight } from 'lucide-react';
 import GlassCard from '../components/spatial/GlassCard';
 import WebliixCard from '../components/ui/WebliixCard';
+
 import WebliixButton from '../components/ui/WebliixButton';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
 
@@ -319,7 +321,39 @@ export default function Portfolio() {
         </div>
       </section>
 
+      {/* PORTFOLIO WEBSITE BUILD PROMOTION */}
+      <WebliixCard
+        variant="accent"
+        accentColor="primary"
+        className="p-8 sm:p-12 text-center space-y-6 theme-rounded-card border border-theme-primary/50 shadow-spatial-lg"
+      >
+        <span className="px-3 py-1 theme-rounded-badge bg-theme-primary/20 text-theme-primary text-xs font-mono font-bold uppercase tracking-wider inline-flex items-center gap-1.5">
+          <Sparkles className="w-3.5 h-3.5" /> Stand Out From the Crowd
+        </span>
+
+        <h2 className="text-2xl sm:text-4xl font-display font-extrabold text-theme-text max-w-2xl mx-auto">
+          Need a Bespoke Portfolio Website Like These For Your Personal Brand?
+        </h2>
+
+        <p className="text-sm sm:text-base text-theme-muted max-w-xl mx-auto">
+          We engineer custom, spatial portfolio showcases with interactive case studies, 95+ PageSpeed scores, and clear scope transparency.
+        </p>
+
+        <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+          <Link to="/portfolio-website">
+            <WebliixButton variant="primary" size="lg" icon={ArrowUpRight}>
+              Explore Portfolio Website Builds
+            </WebliixButton>
+          </Link>
+          <Link to="/contact">
+            <WebliixButton variant="secondary" size="lg" icon={ArrowUpRight}>
+              Book Free Consultation
+            </WebliixButton>
+          </Link>
+        </div>
+      </WebliixCard>
 
     </div>
   );
+
 }
