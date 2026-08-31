@@ -19,13 +19,13 @@ import Services from './pages/Services';
 import Portfolio from './pages/Portfolio';
 import AuraDrishtiCaseStudy from './pages/AuraDrishtiCaseStudy';
 import Blog from './pages/Blog';
-import Tools from './pages/Tools';
 import Contact from './pages/Contact';
 import LaunchKit from './pages/LaunchKit';
 import BlogPost from './pages/BlogPost';
 import Feedback from './pages/Feedback';
 import SeoServices from './pages/SeoServices';
 import PortfolioWebsite from './pages/PortfolioWebsite';
+import Careers from './pages/Careers';
 
 import BusinessInformation from './pages/BusinessInformation';
 import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -57,14 +57,19 @@ export default function App() {
                     <Route path="/seo" element={<SeoServices />} />
                     <Route path="/seo-services" element={<SeoServices />} />
                     <Route path="/seo-packages" element={<SeoServices />} />
+                    <Route path="/careers" element={<Careers />} />
+                    <Route path="/career" element={<Careers />} />
+                    <Route path="/partner-program" element={<Careers />} />
+                    <Route path="/marketing-partner" element={<Careers />} />
                     <Route path="/case-studies/auradrishti" element={<AuraDrishtiCaseStudy />} />
                     <Route path="/blog" element={<Blog />} />
                     <Route path="/blog/:id" element={<BlogPost />} />
-                    <Route path="/tools" element={<Tools />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/launch-kit" element={<LaunchKit />} />
                     <Route path="/launchkit" element={<LaunchKit />} />
                     <Route path="/feedback" element={<Feedback />} />
+
+
 
 
 

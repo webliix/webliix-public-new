@@ -200,43 +200,22 @@ export default function SeoServices() {
       {/* Dynamic Breadcrumbs */}
       <Breadcrumbs />
 
-      {/* HERO SECTION */}
-      <section className="text-center max-w-4xl mx-auto space-y-6 pt-4">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 theme-rounded-badge bg-theme-primary/10 border border-theme-primary/30 text-theme-primary text-xs font-mono font-bold uppercase tracking-wider">
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>Search Engine Dominance</span>
-        </div>
+      {/* Hero Header */}
+      <div className="text-center max-w-3xl mx-auto space-y-4">
+        <span className="px-4 py-1.5 rounded-full glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-bold uppercase tracking-widest inline-flex items-center gap-1.5 shadow-sm">
+          <Sparkles className="w-3.5 h-3.5" /> Search Engine Dominance
+        </span>
 
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-theme-text leading-tight">
-          Specialized <span className="text-theme-primary">SEO &amp; GMB</span> Modules
+        <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">
+          Specialized <span className="text-shimmer">SEO &amp; GMB</span> Modules
         </h1>
 
-        <p className="text-base sm:text-xl text-theme-muted max-w-2xl mx-auto leading-relaxed">
+        <p className="text-theme-muted text-base sm:text-lg leading-relaxed">
           Data-driven search engine optimization designed to generate organic phone calls and qualified leads.
         </p>
 
-        {/* Highlight Stats */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-4">
-          <div className="p-4 theme-rounded-card glass-spatial border border-theme-border/60 text-center">
-            <div className="text-2xl sm:text-3xl font-display font-extrabold text-theme-primary">100+</div>
-            <div className="text-[11px] font-mono text-theme-muted mt-1 uppercase">Audit Checkpoints</div>
-          </div>
-          <div className="p-4 theme-rounded-card glass-spatial border border-theme-border/60 text-center">
-            <div className="text-2xl sm:text-3xl font-display font-extrabold text-theme-primary">95+</div>
-            <div className="text-[11px] font-mono text-theme-muted mt-1 uppercase">PageSpeed Score</div>
-          </div>
-          <div className="p-4 theme-rounded-card glass-spatial border border-theme-border/60 text-center">
-            <div className="text-2xl sm:text-3xl font-display font-extrabold text-theme-primary">#1</div>
-            <div className="text-[11px] font-mono text-theme-muted mt-1 uppercase">Google Maps Goal</div>
-          </div>
-          <div className="p-4 theme-rounded-card glass-spatial border border-theme-border/60 text-center">
-            <div className="text-2xl sm:text-3xl font-display font-extrabold text-theme-primary">100%</div>
-            <div className="text-[11px] font-mono text-theme-muted mt-1 uppercase">White-Hat Quality</div>
-          </div>
-        </div>
-
         {/* Hero CTAs */}
-        <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
+        <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
           <Link to="/contact">
             <WebliixButton variant="primary" size="lg" icon={ArrowUpRight}>
               Book an SEO Module
@@ -252,7 +231,47 @@ export default function SeoServices() {
             </WebliixButton>
           </a>
         </div>
-      </section>
+      </div>
+
+      {/* Stats Summary Grid */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <WebliixCard variant="stat" className="p-5 sm:p-6 text-center border border-theme-border">
+          <div className="text-3xl sm:text-5xl font-display font-extrabold text-theme-primary mb-1">
+            100+
+          </div>
+          <div className="text-xs uppercase tracking-wider font-semibold text-theme-muted">
+            Audit Checkpoints
+          </div>
+        </WebliixCard>
+
+        <WebliixCard variant="stat" className="p-5 sm:p-6 text-center border border-theme-border">
+          <div className="text-3xl sm:text-5xl font-display font-extrabold text-theme-primary mb-1">
+            95+
+          </div>
+          <div className="text-xs uppercase tracking-wider font-semibold text-theme-muted">
+            PageSpeed Score
+          </div>
+        </WebliixCard>
+
+        <WebliixCard variant="stat" className="p-5 sm:p-6 text-center border border-theme-border">
+          <div className="text-3xl sm:text-5xl font-display font-extrabold text-theme-primary mb-1">
+            #1
+          </div>
+          <div className="text-xs uppercase tracking-wider font-semibold text-theme-muted">
+            Google Maps Goal
+          </div>
+        </WebliixCard>
+
+        <WebliixCard variant="stat" className="p-5 sm:p-6 text-center border border-theme-border">
+          <div className="text-3xl sm:text-5xl font-display font-extrabold text-theme-primary mb-1">
+            100%
+          </div>
+          <div className="text-xs uppercase tracking-wider font-semibold text-theme-muted">
+            White-Hat Quality
+          </div>
+        </WebliixCard>
+      </div>
+
 
       {/* FILTER TABS */}
       <section className="space-y-6">

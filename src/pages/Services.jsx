@@ -249,9 +249,23 @@ export default function Services() {
                     <div className="p-2.5 theme-rounded-card bg-emerald-500/10 border border-emerald-500/30 text-[11px] text-emerald-400 font-mono">
                       🎁 {opt.bonus}
                     </div>
+
+                    {opt.id === 'portfolio' && (
+                      <div className="pt-2 border-t border-theme-border/40 flex justify-end">
+                        <Link
+                          to="/portfolio-website"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <WebliixButton variant="secondary" size="sm" icon={ArrowUpRight}>
+                            Learn More
+                          </WebliixButton>
+                        </Link>
+                      </div>
+                    )}
                   </div>
                 );
               })}
+
             </div>
           </div>
 
@@ -380,18 +394,34 @@ export default function Services() {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-theme-border flex items-center justify-between gap-2">
+              <div className="pt-4 border-t border-theme-border flex items-center justify-between gap-2 flex-wrap">
                 <div>
                   <span className="text-[10px] font-mono text-theme-muted block uppercase">Pricing</span>
                   <span className="text-base font-mono font-extrabold text-theme-primary">
                     {service.startingPrice}
                   </span>
                 </div>
-                <Link to={service.link || "/contact"}>
-                  <WebliixButton variant="primary" icon={ArrowUpRight} size="sm">
-                    {service.id === 'brand-launchkit' ? 'Explore LaunchKit' : 'Book Service'}
-                  </WebliixButton>
-                </Link>
+                <div className="flex items-center gap-2">
+                  {service.id === 'website-dev' && (
+                    <Link to="/portfolio-website">
+                      <WebliixButton variant="secondary" icon={ArrowUpRight} size="sm">
+                        Learn More
+                      </WebliixButton>
+                    </Link>
+                  )}
+                  {service.id === 'seo-gmb' && (
+                    <Link to="/seo">
+                      <WebliixButton variant="secondary" icon={ArrowUpRight} size="sm">
+                        Learn More
+                      </WebliixButton>
+                    </Link>
+                  )}
+                  <Link to={service.link || "/contact"}>
+                    <WebliixButton variant="primary" icon={ArrowUpRight} size="sm">
+                      {service.id === 'brand-launchkit' ? 'Explore LaunchKit' : 'Book Service'}
+                    </WebliixButton>
+                  </Link>
+                </div>
               </div>
             </GlassCard>
           ))}
@@ -400,7 +430,7 @@ export default function Services() {
 
       {/* DETAILED SEO & MARKETING MATRIX */}
       <section className="space-y-8 pt-4">
-        <div className="text-center max-w-xl mx-auto space-y-2">
+        <div className="text-center max-w-xl mx-auto space-y-3">
           <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-bold">
             Search Engine Dominance
           </span>
@@ -410,6 +440,13 @@ export default function Services() {
           <p className="text-theme-muted text-xs sm:text-sm">
             Data-driven search engine optimization designed to generate organic phone calls and qualified leads.
           </p>
+          <div className="pt-2 flex justify-center">
+            <Link to="/seo">
+              <WebliixButton variant="secondary" icon={ArrowUpRight} size="sm">
+                Learn More &amp; View All SEO Packages
+              </WebliixButton>
+            </Link>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -446,7 +483,12 @@ export default function Services() {
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-theme-border flex justify-end">
+              <div className="pt-3 border-t border-theme-border flex items-center justify-between gap-2">
+                <Link to="/seo">
+                  <WebliixButton variant="secondary" icon={ArrowUpRight} size="sm">
+                    Learn More
+                  </WebliixButton>
+                </Link>
                 <Link to="/contact">
                   <WebliixButton variant="ghost" icon={ArrowUpRight} size="sm">
                     Book SEO Module
@@ -457,6 +499,8 @@ export default function Services() {
           ))}
         </div>
       </section>
+
+
 
     </div>
   );

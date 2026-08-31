@@ -45,9 +45,9 @@ export default function SpatialNavbar() {
     { name: 'Portfolio', path: '/portfolio' },
     { name: 'Blog', path: '/blog' },
     { name: 'About Us', path: '/about' },
-    { name: 'Free SEO Tool', path: '/tools' },
     { name: 'Contact', path: '/contact' }
   ];
+
 
   const socialLinks = [
     {
@@ -93,8 +93,9 @@ export default function SpatialNavbar() {
 
   const isActive = (path) => {
     if (path === '/') return location.pathname === '/';
-    return location.pathname.startsWith(path);
+    return location.pathname === path || location.pathname.startsWith(path + '/');
   };
+
 
   const logoSrc = currentTheme?.isDark === false
     ? siteConfig.brand.logoLight

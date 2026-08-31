@@ -187,23 +187,22 @@ export default function PortfolioWebsite() {
       {/* Dynamic Breadcrumbs */}
       <Breadcrumbs />
 
-      {/* HERO SECTION */}
-      <section className="text-center max-w-4xl mx-auto space-y-6 pt-4">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 theme-rounded-badge bg-theme-primary/10 border border-theme-primary/30 text-theme-primary text-xs font-mono font-bold uppercase tracking-wider">
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>Professional Web Solutions</span>
-        </div>
+      {/* Hero Header */}
+      <div className="text-center max-w-3xl mx-auto space-y-4">
+        <span className="px-4 py-1.5 rounded-full glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-bold uppercase tracking-widest inline-flex items-center gap-1.5 shadow-sm">
+          <Sparkles className="w-3.5 h-3.5" /> Professional Web Solutions
+        </span>
 
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-theme-text leading-tight">
-          Business &amp; <span className="text-theme-primary">Portfolio Websites</span>
+        <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">
+          Business &amp; <span className="text-shimmer">Portfolio Websites</span>
         </h1>
 
-        <p className="text-base sm:text-xl text-theme-muted max-w-2xl mx-auto leading-relaxed">
+        <p className="text-theme-muted text-base sm:text-lg leading-relaxed">
           Create a stunning online presence with Webliix's professional, responsive websites tailored for freelancers, startups, and small businesses.
         </p>
 
         {/* Hero CTAs */}
-        <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
+        <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
           <Link to="/contact">
             <WebliixButton variant="primary" size="lg" icon={ArrowUpRight}>
               Build Your Website
@@ -219,7 +218,8 @@ export default function PortfolioWebsite() {
             </WebliixButton>
           </a>
         </div>
-      </section>
+      </div>
+
 
       {/* CORE FEATURES SECTION */}
       <section className="space-y-8 pt-4">
