@@ -13,6 +13,8 @@ import ghomesImg from '../assets/logos/ghomes.png';
 import janaushadiImg from '../assets/logos/janaushadi.jpg';
 import sunsdustImg from '../assets/logos/sunsdust.png';
 
+import peoriaLogo from '../assets/logos/peoria.svg';
+
 import client1 from '../assets/logos/client1.jpg';
 import client2 from '../assets/logos/client2.png';
 import client3 from '../assets/logos/client3.png';
@@ -21,6 +23,7 @@ import client5 from '../assets/logos/client5.jpg';
 import client6 from '../assets/logos/client6.png';
 import client7 from '../assets/logos/client7.png';
 import client8 from '../assets/logos/client8.png';
+
 
 // Single Source of Truth for ALL Website Content & Data
 export const siteConfig = {
@@ -96,6 +99,7 @@ export const siteConfig = {
   ],
 
   clients: [
+    { name: 'Peoria Home Cleaning', logo: 'https://res.cloudinary.com/vhth8clt/image/upload/v1788985903/peoria.png' },
     { name: 'Client 1', logo: client1 },
     { name: 'Client 2', logo: client2 },
     { name: 'Client 3', logo: client3 },
@@ -105,6 +109,9 @@ export const siteConfig = {
     { name: 'Client 7', logo: client7 },
     { name: 'Client 8', logo: client8 },
   ],
+
+
+
 
   stats: [
     { value: 120, suffix: '+', label: 'Projects Delivered' },
@@ -411,6 +418,20 @@ services: [
 
   portfolio: [
     {
+      id: 'peoria-home-cleaning',
+      title: 'Peoria Home Cleaning Services',
+      category: 'Home Cleaning & Service Portal',
+      tag: 'Service Portal',
+      metrics: 'Online Booking & Local SEO',
+      image: 'https://res.cloudinary.com/vhth8clt/image/upload/v1788985903/peoria.png',
+      description: 'Professional residential and commercial cleaning website engineered with online booking inquiries, local SEO architecture, and targeted search ad campaigns.',
+      deliveredServices: ['Website Development', 'Search Engine Optimization', 'Advertising'],
+      liveUrl: 'https://peoria-webliix.netlify.app/'
+    },
+
+
+
+    {
       id: 'sunsdust',
       title: 'Sunsdust Commercial Pvt. Ltd.',
       category: 'Industrial & E-Commerce',
@@ -419,19 +440,21 @@ services: [
       image: sunsdustImg,
       description: 'Manufacturer & Supplier of ESE Lightning Arresters, Surge Protection Devices, GI & Copper Bonded Earth Electrodes across 28+ states in India.',
       deliveredServices: ['Advertising', 'Web Development', 'Social Media Management', 'Branding', 'Graphic Design'],
-      liveUrl: 'https://sunsdust-webliix.netlify.app'
+      liveUrl: 'https://sunsdust-webliix-2.netlify.app/'
     },
+
     {
       id: 'auradrishti',
-      title: 'Aura Drishti Eye Care & Surveillance',
-      category: 'Healthcare & Security',
+      title: 'Aura Drishti CCTV & Surveillance',
+      category: 'CCTV Installation & Security Services',
       tag: 'Case Study',
       metrics: '4.9★ Rating • 3x GMB Visits',
       image: auradrishtiImg,
-      description: 'A CCTV camera installation, surveillance accessories, and spiritual optical venture built with custom web UI, GMB verification, and lead campaigns.',
+      description: 'A CCTV camera installation, servicing, and surveillance equipment sales company built with custom web UI, GMB verification, and lead generation campaigns.',
       deliveredServices: ['Advertising', 'Web Development', 'Social Media Management', 'Branding', 'Graphic Design'],
-      liveUrl: 'https://auradrishti-webliix.netlify.app'
+      liveUrl: 'https://auradrishti-webliix.netlify.app/'
     },
+
     {
       id: 'kitchen9village',
       title: 'Kitchen 9 Village',

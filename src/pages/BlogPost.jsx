@@ -1,155 +1,321 @@
-import React from 'react';
-import { useParams, Link, Navigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { Clock, User, Calendar, ArrowLeft, ArrowRight, Share2, Sparkles, CheckCircle2, Rocket, HelpCircle } from 'lucide-react';
+import {
+  Clock,
+  User,
+  Calendar,
+  ArrowLeft,
+  ArrowRight,
+  Share2,
+  Sparkles,
+  Heart,
+  Eye,
+  MessageSquare,
+  CheckCircle2,
+  Rocket,
+  CornerDownRight,
+  Send,
+  ShieldCheck,
+  Tag,
+  Check,
+  AlertCircle
+} from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
 import WebliixCard from '../components/ui/WebliixCard';
 import WebliixButton from '../components/ui/WebliixButton';
-import WebliixIcon from '../components/ui/WebliixIcon';
+import {
+  WebliixInput,
+  WebliixTextarea,
+  WebliixFieldGroup
+} from '../components/ui/WebliixInput';
+import {
+  getBlogBySlug,
+  getRelatedBlogs,
+  likeBlogPost,
+  recordArticleView,
+  getBlogComments,
+  postBlogComment
+} from '../services/blogService';
 
-// Extended blog article content details
-const BLOG_DETAILS = {
-  'free-meta-tag-generator-for-seo-2026': {
-    tags: ['SEO', 'OpenGraph', 'Meta Tags', 'Schema Markup', 'Web Development'],
-    sections: [
-      {
-        heading: 'Why Meta Tags Are Non-Negotiable in 2026',
-        body: `Meta tags are the invisible foundation of search engine visibility. When a Google crawler indexes your webpage or a user shares your link on WhatsApp, LinkedIn, or Twitter/X, they rely entirely on metadata to understand what your page is about and how to display it. Without proper tags, your search snippet looks broken, your click-through rates plummet, and search algorithms penalize your ranking potential.`
-      },
-      {
-        heading: 'The Critical Meta Tags Every Modern Website Needs',
-        points: [
-          'Primary SEO Title & Meta Description: The baseline title and summary shown on Google search results pages.',
-          'Open Graph (OG) Tags: Dictate the preview image, title, and description when your URL is shared across Facebook, LinkedIn, Discord, and WhatsApp.',
-          'Twitter Cards: Specifically formatted tags (summary_large_image) required for high-engagement link previews on X/Twitter.',
-          'JSON-LD Structured Data: Schema.org markup that helps search engines parse your business address, phone number, services, reviews, and organization hierarchy.',
-          'Robots & Canonical Directives: Ensure search engines index the primary canonical URL and avoid duplicate content penalties.'
-        ]
-      },
-      {
-        heading: 'How MetaGen Solves the Metadata Problem in Seconds',
-        body: `Manually writing 50+ lines of HTML meta tags and formatting complex JSON-LD script blocks is tedious and error-prone. One misplaced bracket can invalidate your entire rich snippet. That's why Webliix engineered MetaGen — a 100% free, browser-based meta tag and schema generator. You simply input your webpage details, upload your social banner, and copy verified, production-ready tags directly into your code.`
-      },
-      {
-        heading: 'Step-by-Step Guide to Implementing MetaGen Tags',
-        body: `1. Visit the Free MetaGen Tool on Webliix.\n2. Enter your Page Title (keep under 60 characters for optimal Google display).\n3. Write an engaging Meta Description (150-160 characters with clear call to action).\n4. Specify your Canonical URL and OpenGraph preview image URL.\n5. Select your Business Schema type and copy the generated markup into your <head> section.`
-      }
-    ]
-  },
-  'digital-marketing-small-business-india-2026-complete-guide': {
-    tags: ['Digital Marketing', 'Local SEO', 'Small Business', 'Google Maps', 'Growth Strategy'],
-    sections: [
-      {
-        heading: 'The Shift in Indian Consumer Search Behaviour',
-        body: `India has witnessed an unprecedented surge in digital discovery. Today, over 82% of consumers in Tier-1, Tier-2, and Tier-3 cities search for local service providers, doctors, restaurants, manufacturers, and retailers on Google Maps and WhatsApp before making any purchase decision. If your business is not visible at the exact moment a prospect searches, you are handing customers directly to your competitors.`
-      },
-      {
-        heading: 'Core Pillars of a Winning Digital Marketing Engine',
-        points: [
-          'High-Converting Business Website: A modern, mobile-first website that loads in under 2 seconds and features clear WhatsApp & Call CTAs.',
-          'Google Business Profile (GMB) Mastery: Proper category tagging, weekly posts, geotagged photos, and verified customer reviews that push your listing to the Top 3 Map Pack.',
-          'Hyper-Local SEO Citations: Consistent Name, Address, and Phone (NAP) citations across trusted Indian business directories.',
-          'Targeted Paid Ad Campaigns: High-intent Google Search ads for instant lead capture paired with Meta Retargeting campaigns.',
-          'Direct Messaging Automation: Instant WhatsApp Business auto-replies and lead capture forms that respond to inquiries in under 2 minutes.'
-        ]
-      },
-      {
-        heading: 'Why Social Media Alone Is Not Enough',
-        body: `Many small business owners make the mistake of relying entirely on Instagram or Facebook pages. While social media is great for top-of-funnel brand awareness, organic social reach changes with every algorithm update. Building your brand solely on rented social channels means you never own your customer database. A dedicated website with local SEO gives you complete ownership and continuous organic lead flow.`
-      },
-      {
-        heading: 'Actionable 30-Day Blueprint for Business Owners',
-        body: `Start with an audit of your digital presence. Ensure your Google Business Profile is 100% verified and optimized with accurate business hours. Next, deploy a fast, professional website with clear service packages. Finally, launch a local review collection campaign to build social proof and authority.`
-      }
-    ]
-  },
-  'why-every-small-business-in-india-needs-a-website-in-2025': {
-    tags: ['Web Design', 'Business Strategy', 'Branding', 'Trust & Credibility'],
-    sections: [
-      {
-        heading: 'Your Website is Your 24/7 Digital Flagship Store',
-        body: `In the modern business landscape, your website is the very first impression potential clients, corporate partners, and investors have of your enterprise. A business without an official website looks unverified, temporary, and risky to deal with. A professionally engineered website instantly conveys legitimacy, trust, and enterprise-grade capability.`
-      },
-      {
-        heading: '5 Tangible Reasons Your Business Needs a Website Now',
-        points: [
-          'Credibility & Trust: 75% of consumers judge a company’s credibility based solely on its website design.',
-          'Zero Commission Lead Generation: Unlike aggregator platforms that charge high commissions on every order or lead, your own website delivers direct, zero-commission customer acquisition.',
-          'Search Engine Discoverability: Rank for valuable keywords like "best service near me" and capture high-intent commercial buyers.',
-          'Showcase Portfolio & Social Proof: Display client case studies, verified reviews, certifications, and product catalogs with zero layout restrictions.',
-          'Round-the-Clock Automation: Capture customer inquiries, bookings, and payments 24 hours a day, even while your physical office is closed.'
-        ]
-      },
-      {
-        heading: 'How Modern Web Tech Has Made Websites Ultra-Fast and Affordable',
-        body: `Gone are the days when building a business website cost lakhs of rupees and took 6 months to complete. With modern component frameworks, lightning-fast cloud hosting, and pre-engineered packages like Webliix LaunchKit, Indian small businesses can go live with a custom, high-speed website, domain, and SEO foundation in just 5 to 7 days starting from ₹14,999.`
-      }
-    ]
-  }
-};
+import { useAudio } from '../context/AudioContext';
 
 export default function BlogPost() {
-  const { id } = useParams();
-  const blog = siteConfig.blogs.find((b) => b.id === id);
+  const { slug, id } = useParams();
+  const articleSlugOrId = slug || id;
+  const navigate = useNavigate();
+  const { playSound } = useAudio();
 
-  if (!blog) {
-    return <Navigate to="/blog" replace />;
-  }
+  const [post, setPost] = useState(null);
+  const [relatedPosts, setRelatedPosts] = useState([]);
+  const [comments, setComments] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const details = BLOG_DETAILS[blog.id] || {
-    tags: [blog.category, 'Webliix'],
-    sections: [
-      {
-        heading: 'Overview & Analysis',
-        body: blog.content
+  // Like interaction state
+  const [likes, setLikes] = useState(0);
+  const [hasLiked, setHasLiked] = useState(false);
+
+  // Share state
+  const [copied, setCopied] = useState(false);
+
+  // Comment Form state
+  const [commentForm, setCommentForm] = useState({
+    authorName: '',
+    authorEmail: '',
+    content: ''
+  });
+  const [replyingToId, setReplyingToId] = useState(null);
+  const [commentStatus, setCommentStatus] = useState('idle'); // idle | submitting | success | error
+  const [commentError, setCommentError] = useState('');
+
+  // Fetch article data on mount or slug change
+  useEffect(() => {
+    let isCancelled = false;
+    async function loadPost() {
+      setLoading(true);
+      setError(null);
+      try {
+        const data = await getBlogBySlug(articleSlugOrId);
+        if (!isCancelled) {
+          setPost(data);
+          setLikes(data.likesCount || 0);
+
+          const identifier = data.slug || data.id;
+
+          // Record article view in backend
+          recordArticleView(identifier);
+
+          // Check localStorage if already liked
+          const likedKey = `webliix_liked_${identifier}`;
+          const likedIdKey = `webliix_liked_${data.id}`;
+          setHasLiked(Boolean(localStorage.getItem(likedKey) || localStorage.getItem(likedIdKey)));
+
+          // Fetch related posts and comments
+          try {
+            const [rel, comms] = await Promise.all([
+              getRelatedBlogs(identifier, 3),
+              getBlogComments(identifier)
+            ]);
+            if (!isCancelled) {
+              setRelatedPosts(rel || []);
+              setComments(comms || []);
+            }
+          } catch (e) {
+            console.warn('Could not load related posts or comments:', e);
+          }
+        }
+      } catch (err) {
+        console.error('Failed to load article:', err);
+        if (!isCancelled) setError('Article could not be found.');
+      } finally {
+        if (!isCancelled) setLoading(false);
       }
-    ]
+    }
+
+    loadPost();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return () => {
+      isCancelled = true;
+    };
+  }, [articleSlugOrId]);
+
+  // Handle Like Post (Optimistic + Backend Sync)
+  const handleLike = async () => {
+    if (hasLiked || !post) return;
+    const identifier = post.slug || post.id;
+    setLikes(prev => prev + 1);
+    setHasLiked(true);
+    playSound('success');
+
+    try {
+      localStorage.setItem(`webliix_liked_${identifier}`, 'true');
+      localStorage.setItem(`webliix_liked_${post.id}`, 'true');
+      const res = await likeBlogPost(identifier);
+      if (res && typeof res.likesCount === 'number') {
+        setLikes(res.likesCount);
+      }
+    } catch (err) {
+      console.warn('Like submission failed:', err);
+    }
   };
 
-  const otherBlogs = siteConfig.blogs.filter((b) => b.id !== blog.id);
+
+  // Handle Share Link
+  const handleShare = async () => {
+    playSound('click');
+    const shareUrl = window.location.href;
+    const shareData = {
+      title: post?.title || 'Webliix Insights',
+      text: post?.summary || '',
+      url: shareUrl
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        // Share dismissed
+      }
+    } else {
+      navigator.clipboard.writeText(shareUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    }
+  };
+
+  // Handle Comment Submission
+  const handleCommentSubmit = async (e) => {
+    e.preventDefault();
+    if (!commentForm.authorName.trim() || !commentForm.content.trim()) {
+      setCommentError('Please fill in your name and comment.');
+      playSound('error');
+      return;
+    }
+
+    setCommentStatus('submitting');
+    setCommentError('');
+    playSound('click');
+
+    try {
+      const identifier = post.slug || post.id;
+      const newComment = await postBlogComment(identifier, {
+        parentId: replyingToId,
+        authorName: commentForm.authorName.trim(),
+        authorEmail: commentForm.authorEmail.trim(),
+        content: commentForm.content.trim()
+      });
+
+
+      // Optimistically update comments list
+      if (replyingToId) {
+        setComments(prev =>
+          prev.map(c => {
+            if (c.id === replyingToId) {
+              return {
+                ...c,
+                replies: [...(c.replies || []), newComment]
+              };
+            }
+            return c;
+          })
+        );
+      } else {
+        setComments(prev => [newComment, ...prev]);
+      }
+
+      setCommentForm({ authorName: '', authorEmail: '', content: '' });
+      setReplyingToId(null);
+      setCommentStatus('success');
+      playSound('success');
+
+      // Update local comments count on post
+      setPost(prev => prev ? ({ ...prev, commentsCount: (prev.commentsCount || 0) + 1 }) : prev);
+
+      // Re-enable comment form after 3.5s
+      setTimeout(() => {
+        setCommentStatus('idle');
+      }, 3500);
+    } catch (err) {
+      console.error('Comment error:', err);
+      setCommentError('Failed to post comment. Please try again.');
+      setCommentStatus('error');
+      playSound('error');
+    }
+  };
+
+
+  // Parse tags list
+  const tagsList = post?.tags
+    ? (Array.isArray(post.tags) ? post.tags : post.tags.split(',').map(t => t.trim()))
+    : [post?.category || 'Technology'];
+
+  if (loading) {
+    return (
+      <div className="min-h-screen pt-28 pb-20 px-4 sm:px-6 max-w-4xl mx-auto space-y-8 animate-pulse">
+        <div className="h-6 w-32 bg-theme-border/60 rounded-full" />
+        <div className="h-12 w-3/4 bg-theme-border/80 rounded-xl" />
+        <div className="h-4 w-1/2 bg-theme-border/40 rounded" />
+        <div className="h-72 w-full bg-theme-border/50 rounded-2xl" />
+        <div className="space-y-3 pt-4">
+          <div className="h-4 bg-theme-border/60 rounded w-full" />
+          <div className="h-4 bg-theme-border/60 rounded w-5/6" />
+          <div className="h-4 bg-theme-border/60 rounded w-4/6" />
+        </div>
+      </div>
+    );
+  }
+
+  if (error || !post) {
+    return (
+      <div className="min-h-screen pt-36 pb-20 px-4 max-w-lg mx-auto text-center space-y-6">
+        <div className="p-8 theme-rounded-card glass-spatial border border-theme-border/80 space-y-4">
+          <AlertCircle className="w-12 h-12 text-rose-400 mx-auto" />
+          <h2 className="text-2xl font-display font-bold text-theme-text">Article Not Found</h2>
+          <p className="text-sm text-theme-muted">
+            The article you are looking for might have been moved or is no longer published.
+          </p>
+          <div className="pt-2">
+            <Link to="/blog">
+              <WebliixButton variant="primary" size="md" icon={ArrowLeft}>
+                Back to Knowledge Hub
+              </WebliixButton>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Structured Data JSON-LD for Google Rich Snippets
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.seoTitle || post.title,
+    description: post.seoDescription || post.summary,
+    image: post.ogImageUrl || post.coverImageUrl || 'https://webliix.com/og-image.jpg',
+    author: {
+      '@type': 'Organization',
+      name: post.authorName || 'Webliix Engineering'
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: siteConfig.brand.name,
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://webliix.com/og-image.jpg'
+      }
+    },
+    datePublished: post.publishedAt || post.createdAt,
+    dateModified: post.publishedAt || post.createdAt,
+    mainEntityOfPage: post.canonicalUrl || `https://webliix.com/blog/${post.slug || post.id}`
+  };
 
   return (
-    <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-4xl mx-auto space-y-12">
+    <div className="relative min-h-screen pt-28 pb-20 px-4 sm:px-6 max-w-4xl mx-auto space-y-12">
       <Helmet>
-        <title>{blog.title} | {siteConfig.brand.name} Knowledge Hub</title>
-        <meta name="description" content={blog.excerpt} />
-        <link rel="canonical" href={`https://webliix.com/blog/${blog.id}`} />
-        <meta property="og:title" content={blog.title} />
-        <meta property="og:description" content={blog.excerpt} />
+        <title>{post.seoTitle || `${post.title} | ${siteConfig.brand.name} Knowledge Hub`}</title>
+        <meta name="description" content={post.seoDescription || post.summary} />
+        <link rel="canonical" href={post.canonicalUrl || `https://webliix.com/blog/${post.slug || post.id}`} />
+        <meta property="og:title" content={post.seoTitle || post.title} />
+        <meta property="og:description" content={post.seoDescription || post.summary} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://webliix.com/blog/${blog.id}`} />
+        <meta property="og:url" content={`https://webliix.com/blog/${post.slug || post.id}`} />
+        <meta property="og:image" content={post.ogImageUrl || post.coverImageUrl || 'https://webliix.com/og-image.jpg'} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={blog.title} />
-        <meta name="twitter:description" content={blog.excerpt} />
+        <meta name="twitter:title" content={post.seoTitle || post.title} />
+        <meta name="twitter:description" content={post.seoDescription || post.summary} />
+        <meta name="twitter:image" content={post.ogImageUrl || post.coverImageUrl || 'https://webliix.com/og-image.jpg'} />
         <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": blog.title,
-            "description": blog.excerpt,
-            "author": {
-              "@type": "Person",
-              "name": blog.author
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": siteConfig.brand.name,
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://webliix.com/og-image.jpg"
-              }
-            },
-            "datePublished": blog.date,
-            "mainEntityOfPage": `https://webliix.com/blog/${blog.id}`
-          })}
+          {JSON.stringify(jsonLd)}
         </script>
       </Helmet>
 
       {/* Dynamic Breadcrumbs */}
       <Breadcrumbs />
 
-      {/* Back Link */}
+      {/* Back to Blog Navigation */}
       <div>
         <Link
           to="/blog"
@@ -160,114 +326,141 @@ export default function BlogPost() {
         </Link>
       </div>
 
-      {/* Article Header */}
-      <div className="space-y-6">
+      {/* ARTICLE HEADER */}
+      <header className="space-y-6">
         <div className="flex flex-wrap items-center gap-2.5">
-          <span className="px-3 py-1 rounded-full bg-theme-primary/15 border border-theme-primary/30 text-theme-primary text-xs font-mono font-bold uppercase tracking-wider">
-            {blog.category}
+          <span className="px-3.5 py-1 rounded-full bg-theme-primary/15 border border-theme-primary/30 text-theme-primary text-xs font-mono font-bold uppercase tracking-wider">
+            {post.category}
           </span>
           <span className="text-xs font-mono text-theme-muted flex items-center gap-1">
-            <Clock className="w-3.5 h-3.5" /> {blog.readTime}
+            <Clock className="w-3.5 h-3.5 text-theme-primary" /> {post.readingTimeMinutes || 4} min read
           </span>
-          <span className="text-xs font-mono text-theme-muted flex items-center gap-1">
-            <Calendar className="w-3.5 h-3.5" /> {blog.date}
-          </span>
+          {post.publishedAt && (
+            <span className="text-xs font-mono text-theme-muted flex items-center gap-1">
+              <Calendar className="w-3.5 h-3.5 text-theme-primary" /> {new Date(post.publishedAt).toLocaleDateString()}
+            </span>
+          )}
+          {post.viewsCount > 0 && (
+            <span className="text-xs font-mono text-theme-muted flex items-center gap-1">
+              <Eye className="w-3.5 h-3.5 text-theme-primary" /> {post.viewsCount} views
+            </span>
+          )}
         </div>
 
         <h1 className="text-3xl sm:text-5xl font-display font-extrabold text-theme-text leading-tight">
-          {blog.title}
+          {post.title}
         </h1>
 
-        <p className="text-theme-muted text-base sm:text-lg leading-relaxed border-l-2 border-theme-primary/60 pl-4 italic">
-          {blog.excerpt}
-        </p>
+        {post.summary && (
+          <p className="text-theme-muted text-base sm:text-lg leading-relaxed border-l-2 border-theme-primary/60 pl-4 italic">
+            {post.summary}
+          </p>
+        )}
 
-        {/* Author Byline */}
-        <div className="flex items-center justify-between pt-4 border-t border-theme-border/60">
+        {/* Author Byline & Social Actions */}
+        <div className="flex items-center justify-between pt-4 border-t border-theme-border/60 flex-wrap gap-4">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-theme-primary/20 border border-theme-primary/40 flex items-center justify-center font-bold font-mono text-theme-primary text-sm">
-              {blog.author.charAt(0)}
+              {(post.authorName || 'W').charAt(0)}
             </div>
             <div>
-              <span className="text-sm font-bold text-theme-text block">{blog.author}</span>
-              <span className="text-xs text-theme-muted">Digital Strategy Engineer, Webliix</span>
+              <span className="text-sm font-bold text-theme-text block">{post.authorName || 'Webliix Engineering'}</span>
+              <span className="text-xs text-theme-muted">Digital Strategy &amp; Core Systems</span>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
+            {/* Interactive Like Button */}
             <button
-              onClick={() => {
-                if (navigator.share) {
-                  navigator.share({ title: blog.title, url: window.location.href });
-                } else {
-                  navigator.clipboard.writeText(window.location.href);
-                  alert('Link copied to clipboard!');
-                }
-              }}
-              className="p-2 theme-rounded-btn glass-spatial border border-theme-border/60 hover:border-theme-primary text-theme-muted hover:text-theme-primary transition flex items-center gap-1.5 text-xs font-mono"
+              onClick={handleLike}
+              className={`p-2.5 theme-rounded-btn flex items-center gap-1.5 text-xs font-mono font-bold transition-all border ${
+                hasLiked
+                  ? 'bg-rose-500/20 text-rose-400 border-rose-500/40'
+                  : 'glass-spatial text-theme-muted hover:text-rose-400 border-theme-border/60 hover:border-rose-500/40'
+              }`}
             >
-              <Share2 className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Share</span>
+              <Heart className={`w-4 h-4 ${hasLiked ? 'fill-current text-rose-400' : ''}`} />
+              <span>{likes}</span>
+            </button>
+
+            {/* Share Button */}
+            <button
+              onClick={handleShare}
+              className="p-2.5 theme-rounded-btn glass-spatial border border-theme-border/60 hover:border-theme-primary text-theme-muted hover:text-theme-primary transition flex items-center gap-1.5 text-xs font-mono"
+            >
+              {copied ? (
+                <>
+                  <Check className="w-4 h-4 text-emerald-400" />
+                  <span className="text-emerald-400">Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Share2 className="w-4 h-4" />
+                  <span className="hidden sm:inline">Share</span>
+                </>
+              )}
             </button>
           </div>
         </div>
-      </div>
+      </header>
 
-      {/* Article Body Content */}
-      <article className="space-y-10 text-theme-text text-sm sm:text-base leading-relaxed">
-        {details.sections.map((sec, idx) => (
-          <div key={idx} className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-display font-bold text-theme-text flex items-center gap-2">
-              <span className="text-theme-primary font-mono text-base">0{idx + 1}.</span> {sec.heading}
-            </h2>
-
-            {sec.body && (
-              <p className="text-theme-muted leading-relaxed whitespace-pre-line">
-                {sec.body}
-              </p>
-            )}
-
-            {sec.points && (
-              <ul className="space-y-3 pt-2">
-                {sec.points.map((pt, pIdx) => {
-                  const [title, ...rest] = pt.split(':');
-                  return (
-                    <li key={pIdx} className="flex items-start gap-3 p-3.5 theme-rounded-card glass-spatial border border-theme-border/60">
-                      <CheckCircle2 className="w-4 h-4 text-theme-primary shrink-0 mt-0.5" />
-
-                      <div className="text-xs sm:text-sm">
-                        {rest.length > 0 ? (
-                          <>
-                            <strong className="text-theme-text">{title}:</strong>
-                            <span className="text-theme-muted">{rest.join(':')}</span>
-                          </>
-                        ) : (
-                          <span className="text-theme-text">{pt}</span>
-                        )}
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-            )}
+      {/* COVER IMAGE */}
+      {post.coverImageUrl && (
+        <div className="space-y-2">
+          <div className="theme-rounded-card overflow-hidden border border-theme-border/80 bg-theme-bg/60 max-h-[480px]">
+            <img
+              src={post.coverImageUrl}
+              alt={post.coverImageAlt || post.title}
+              className="w-full h-full object-cover"
+            />
           </div>
-        ))}
+          {post.coverImageCaption && (
+            <p className="text-[11px] font-mono text-theme-muted text-center italic">
+              {post.coverImageCaption}
+            </p>
+          )}
+        </div>
+      )}
 
-        {/* Tags */}
+      {/* ARTICLE BODY */}
+      <article className="space-y-8 text-theme-text text-sm sm:text-base leading-relaxed">
+        {/* Render HTML content safely */}
+        {post.content ? (
+          <div
+            className="webliix-article-content prose prose-invert max-w-none space-y-6 text-theme-text/90 leading-relaxed [&>h2]:text-2xl [&>h2]:font-display [&>h2]:font-bold [&>h2]:text-theme-text [&>h2]:mt-8 [&>h2]:mb-4 [&>h3]:text-xl [&>h3]:font-display [&>h3]:font-bold [&>h3]:text-theme-text [&>h3]:mt-6 [&>h3]:mb-3 [&>p]:leading-relaxed [&>p]:text-theme-muted [&>ul]:space-y-2 [&>ul]:list-disc [&>ul]:pl-5 [&>ol]:space-y-2 [&>ol]:list-decimal [&>ol]:pl-5 [&>pre]:p-4 [&>pre]:theme-rounded-card [&>pre]:bg-black/50 [&>pre]:border [&>pre]:border-theme-border [&>code]:text-theme-primary [&>code]:font-mono [&>a]:text-theme-primary [&>a]:underline [&>blockquote]:border-l-2 [&>blockquote]:border-theme-primary [&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:text-theme-muted"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
+
+        ) : (
+          <p className="text-theme-muted leading-relaxed">
+            {post.summary}
+          </p>
+        )}
+
+        {/* Topic Tags */}
         <div className="pt-6 border-t border-theme-border/60 flex flex-wrap items-center gap-2">
-          <span className="text-xs font-mono font-bold text-theme-muted uppercase tracking-wider mr-2">Topic Tags:</span>
-          {details.tags.map((tag, tIdx) => (
-            <span key={tIdx} className="px-3 py-1 rounded-lg glass-spatial border border-theme-border/80 text-xs font-mono text-theme-muted">
+          <span className="text-xs font-mono font-bold text-theme-primary uppercase tracking-wider mr-2 flex items-center gap-1">
+            <Tag className="w-3.5 h-3.5" /> Topic Tags:
+          </span>
+          {tagsList.map((tag, tIdx) => (
+            <span
+              key={tIdx}
+              className="px-3 py-1 rounded-lg glass-spatial border border-theme-border/80 text-xs font-mono text-theme-muted"
+            >
               #{tag}
             </span>
           ))}
         </div>
       </article>
 
-      {/* LaunchKit / Implementation CTA Card */}
-      <WebliixCard variant="featured" className="p-8 sm:p-10 border border-theme-primary/50 space-y-5">
+      {/* LAUNCHKIT CTA BANNER */}
+      <WebliixCard
+        variant="accent"
+        accentColor="primary"
+        className="p-8 sm:p-10 border border-theme-primary/50 space-y-5"
+      >
         <div className="flex items-center gap-2 text-theme-primary font-mono text-xs font-bold uppercase tracking-widest">
-          <Rocket className="w-4 h-4" /> Ready to Upgrade Your Business?
+          <Rocket className="w-4 h-4" /> Transform Your Business Online
         </div>
         <h3 className="text-2xl sm:text-3xl font-display font-bold text-theme-text">
           Launch Your Website &amp; Local SEO in 5–7 Days
@@ -276,49 +469,219 @@ export default function BlogPost() {
           Don't wait months to grow online. Webliix delivers full custom website design, Google Maps setup, SEO tags, and branding in one complete turnkey package.
         </p>
         <div className="pt-2 flex flex-wrap items-center gap-4">
-          <Link to="/launch-kit">
+          <Link to="/contact">
             <WebliixButton variant="primary" icon={ArrowRight} size="md">
-              Explore LaunchKit Packages
+              Start Your Project
             </WebliixButton>
           </Link>
-          <Link to="/contact">
-            <WebliixButton variant="ghost" size="md">
-              Request Free Consultation
+          <Link to="/portfolio-website">
+            <WebliixButton variant="secondary" size="md">
+              View Portfolio Websites
             </WebliixButton>
           </Link>
         </div>
       </WebliixCard>
 
-      {/* Read Next / Related Articles */}
-      <div className="space-y-6 pt-6 border-t border-theme-border/60">
-        <h3 className="text-xl font-display font-bold text-theme-text">
-          More Articles &amp; Strategies
-        </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {otherBlogs.map((item) => (
-            <Link key={item.id} to={`/blog/${item.id}`} className="group">
-              <WebliixCard variant="panel" className="p-5 space-y-3 h-full flex flex-col justify-between group-hover:border-theme-primary/60 transition-colors">
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between text-xs font-mono text-theme-muted">
-                    <span className="px-2 py-0.5 rounded-full bg-theme-primary/10 text-theme-primary border border-theme-primary/20">{item.category}</span>
-                    <span>{item.readTime}</span>
-                  </div>
-                  <h4 className="text-base font-display font-bold text-theme-text group-hover:text-theme-primary transition-colors line-clamp-2">
-                    {item.title}
-                  </h4>
-                  <p className="text-xs text-theme-muted line-clamp-2">
-                    {item.excerpt}
-                  </p>
-                </div>
-                <div className="pt-3 border-t border-theme-border/40 flex items-center justify-between text-xs font-semibold text-theme-primary">
-                  <span>Read Article</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </WebliixCard>
-            </Link>
-          ))}
+      {/* COMMENTS & DISCUSSION SECTION */}
+      <section className="space-y-8 pt-6 border-t border-theme-border/60">
+        <div className="flex items-center justify-between">
+          <h3 className="text-xl sm:text-2xl font-display font-bold text-theme-text flex items-center gap-2">
+            <MessageSquare className="w-5 h-5 text-theme-primary" />
+            <span>Discussion &amp; Comments ({comments.length})</span>
+          </h3>
         </div>
-      </div>
+
+        {/* Post a Comment Form */}
+        <WebliixCard variant="panel" className="p-6 sm:p-8 space-y-4 border border-theme-border/80">
+          <h4 className="text-base font-display font-bold text-theme-text">
+            {replyingToId ? 'Leave a Reply' : 'Join the Discussion'}
+          </h4>
+
+          {replyingToId && (
+            <div className="p-2.5 theme-rounded-card bg-theme-primary/10 border border-theme-primary/30 text-xs font-mono text-theme-primary flex items-center justify-between">
+              <span>Replying to comment #{replyingToId}</span>
+              <button
+                onClick={() => setReplyingToId(null)}
+                className="text-xs text-rose-400 hover:underline"
+              >
+                Cancel Reply
+              </button>
+            </div>
+          )}
+
+          {commentStatus === 'success' ? (
+            <div className="p-4 theme-rounded-card bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 shrink-0" />
+              <span>Thank you! Your comment has been posted.</span>
+            </div>
+          ) : (
+            <form onSubmit={handleCommentSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <WebliixFieldGroup label="Your Name" required htmlFor="comment-name">
+                  <WebliixInput
+                    id="comment-name"
+                    type="text"
+                    required
+                    placeholder="e.g. Alex Johnson"
+                    value={commentForm.authorName}
+                    onChange={(e) => setCommentForm(prev => ({ ...prev, authorName: e.target.value }))}
+                  />
+                </WebliixFieldGroup>
+
+                <WebliixFieldGroup label="Email Address" required htmlFor="comment-email">
+                  <WebliixInput
+                    id="comment-email"
+                    type="email"
+                    required
+                    placeholder="alex@example.com"
+                    value={commentForm.authorEmail}
+                    onChange={(e) => setCommentForm(prev => ({ ...prev, authorEmail: e.target.value }))}
+                  />
+                </WebliixFieldGroup>
+              </div>
+
+              <WebliixFieldGroup label="Your Comment" required htmlFor="comment-content">
+                <WebliixTextarea
+                  id="comment-content"
+                  required
+                  rows={3}
+                  placeholder="Share your thoughts, architectural feedback, or questions..."
+                  value={commentForm.content}
+                  onChange={(e) => setCommentForm(prev => ({ ...prev, content: e.target.value }))}
+                />
+              </WebliixFieldGroup>
+
+              {commentError && (
+                <div className="p-3 theme-rounded-card bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-mono">
+                  {commentError}
+                </div>
+              )}
+
+              <div className="flex justify-end">
+                <WebliixButton
+                  type="submit"
+                  variant="primary"
+                  size="sm"
+                  loading={commentStatus === 'submitting'}
+                  icon={Send}
+                >
+                  Post Comment
+                </WebliixButton>
+              </div>
+            </form>
+          )}
+        </WebliixCard>
+
+        {/* Render Threaded Comments List */}
+        {comments.length > 0 ? (
+          <div className="space-y-4">
+            {comments.map((comment) => (
+              <div
+                key={comment.id}
+                className="p-4 sm:p-5 theme-rounded-card glass-spatial border border-theme-border/60 space-y-3"
+              >
+                <div className="flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-2">
+                    <div className="w-7 h-7 rounded-full bg-theme-primary/20 text-theme-primary font-mono font-bold flex items-center justify-center text-xs">
+                      {(comment.authorName || 'U').charAt(0)}
+                    </div>
+                    <span className="font-bold text-theme-text">{comment.authorName}</span>
+                  </div>
+                  {comment.createdAt && (
+                    <span className="font-mono text-theme-muted text-[11px]">
+                      {new Date(comment.createdAt).toLocaleDateString()}
+                    </span>
+                  )}
+                </div>
+
+                <p className="text-xs sm:text-sm text-theme-muted leading-relaxed pl-9">
+                  {comment.content}
+                </p>
+
+                <div className="pl-9 pt-1 flex justify-end">
+                  <button
+                    onClick={() => {
+                      setReplyingToId(comment.id);
+                      playSound('click');
+                    }}
+                    className="text-xs font-mono text-theme-primary hover:underline flex items-center gap-1"
+                  >
+                    <CornerDownRight className="w-3 h-3" /> Reply
+                  </button>
+                </div>
+
+                {/* Nested Replies */}
+                {comment.replies && comment.replies.length > 0 && (
+                  <div className="pl-9 pt-3 space-y-3 border-t border-theme-border/40 mt-3">
+                    {comment.replies.map((reply) => (
+                      <div
+                        key={reply.id}
+                        className="p-3.5 theme-rounded-card bg-theme-bg/60 border border-theme-border/50 space-y-2"
+                      >
+                        <div className="flex items-center justify-between text-xs">
+                          <div className="flex items-center gap-2">
+                            <div className="w-6 h-6 rounded-full bg-theme-primary/30 text-theme-primary font-mono font-bold flex items-center justify-center text-[10px]">
+                              {(reply.authorName || 'U').charAt(0)}
+                            </div>
+                            <span className="font-bold text-theme-text">{reply.authorName}</span>
+                          </div>
+                          {reply.createdAt && (
+                            <span className="font-mono text-theme-muted text-[10px]">
+                              {new Date(reply.createdAt).toLocaleDateString()}
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-xs text-theme-muted pl-8 leading-relaxed">
+                          {reply.content}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="p-6 text-center text-xs font-mono text-theme-muted theme-rounded-card glass-spatial border border-theme-border/40">
+            No comments yet. Be the first to start the discussion!
+          </div>
+        )}
+      </section>
+
+      {/* RELATED ARTICLES */}
+      {relatedPosts.length > 0 && (
+        <section className="space-y-6 pt-6 border-t border-theme-border/60">
+          <h3 className="text-xl font-display font-bold text-theme-text">
+            Related Insights &amp; Articles
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {relatedPosts.map((item) => (
+              <Link key={item.id} to={`/blog/${item.slug || item.id}`} className="group block h-full">
+                <WebliixCard
+                  variant="featured"
+                  className="p-4 sm:p-5 space-y-3 h-full flex flex-col justify-between group-hover:border-theme-primary/60 transition-colors"
+                >
+                  <div className="space-y-2">
+                    <span className="px-2 py-0.5 rounded-full bg-theme-primary/10 text-theme-primary text-[10px] font-mono border border-theme-primary/20">
+                      {item.category}
+                    </span>
+                    <h4 className="text-sm sm:text-base font-display font-bold text-theme-text group-hover:text-theme-primary transition-colors line-clamp-2">
+                      {item.title}
+                    </h4>
+                    <p className="text-xs text-theme-muted line-clamp-2">
+                      {item.summary}
+                    </p>
+                  </div>
+                  <div className="pt-2 border-t border-theme-border/40 flex items-center justify-between text-xs font-semibold text-theme-primary">
+                    <span>Read Article</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </WebliixCard>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 }

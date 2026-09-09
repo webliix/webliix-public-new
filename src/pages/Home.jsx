@@ -416,51 +416,62 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {siteConfig.portfolio.slice(0, 6).map((item) => (
-            <GlassCard key={item.id} className="p-4 space-y-3 group">
-              <div className="theme-rounded-card overflow-hidden border border-theme-border bg-theme-bg/60">
-                <div className="px-2.5 py-1.5 border-b border-theme-border/60 flex items-center justify-between text-[10px] font-mono text-theme-muted">
-
-                  <div className="flex items-center gap-1">
-                    <span className="w-2 h-2 rounded-full bg-rose-500/80 inline-block" />
-                    <span className="w-2 h-2 rounded-full bg-amber-500/80 inline-block" />
-                    <span className="w-2 h-2 rounded-full bg-emerald-500/80 inline-block" />
+            <a
+              key={item.id}
+              href={item.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group h-full"
+            >
+              <GlassCard className="p-4 space-y-3 h-full flex flex-col justify-between border border-theme-border/80 hover:border-theme-primary/60 transition-all duration-300 hover:shadow-spatial">
+                <div className="space-y-3">
+                  <div className="theme-rounded-card overflow-hidden border border-theme-border/60 bg-white p-3 sm:p-4 shadow-sm flex items-center justify-center">
+                    <div className="aspect-[16/9] sm:aspect-video w-full flex items-center justify-center relative">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="max-h-20 sm:max-h-24 max-w-[85%] object-contain mx-auto group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
-                  <span className="text-theme-primary font-semibold">{item.category}</span>
+
+                  <div className="space-y-1.5">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-theme-primary px-2 py-0.5 rounded-full bg-theme-primary/10 border border-theme-primary/20">
+                        {item.category}
+                      </span>
+                      <span className="text-[10px] font-mono text-emerald-400 font-bold">
+                        {item.metrics}
+                      </span>
+                    </div>
+
+                    <h3 className="text-base font-display font-bold text-theme-text group-hover:text-theme-primary transition-colors line-clamp-1">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-theme-muted text-xs line-clamp-2 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
 
-                <div className="aspect-[16/10] sm:aspect-video w-full overflow-hidden relative bg-theme-bg">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-theme-bg/80 via-transparent to-transparent opacity-60 pointer-events-none" />
-                  
-                  <div className="absolute bottom-2 left-2 right-2">
-                    <span className="px-2.5 py-0.5 rounded-lg glass-spatial text-emerald-400 font-bold text-[10px] font-mono border border-emerald-500/30">
-                      {item.metrics}
+                <div className="pt-2 border-t border-theme-border/40 flex flex-wrap gap-1">
+                  {item.deliveredServices?.slice(0, 3).map((srv, sIdx) => (
+                    <span
+                      key={sIdx}
+                      className="text-[9px] font-mono text-theme-muted px-1.5 py-0.5 rounded bg-theme-card/60 border border-theme-border/40"
+                    >
+                      {srv}
                     </span>
-                  </div>
+                  ))}
                 </div>
-              </div>
-
-              <div className="space-y-1">
-                <h3 className="text-base font-display font-bold text-theme-text group-hover:text-theme-primary transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-theme-muted text-xs line-clamp-2 leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-
-              <div className="pt-1 flex items-center justify-between text-[11px] font-semibold text-theme-primary">
-                <span>View Case Study</span>
-                <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </div>
-            </GlassCard>
+              </GlassCard>
+            </a>
           ))}
         </div>
       </section>
+
 
 
       {/* INTERACTIVE FAQ ACCORDION SECTION */}

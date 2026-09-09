@@ -31,26 +31,37 @@ import loanheavenLogo from '../assets/logos/loanheaven.png';
 import connectifyLogo from '../assets/logos/connectify.png';
 import janaushadiLogo from '../assets/logos/janaushadi.jpg';
 import thehubLogo from '../assets/logos/thehub.png';
+import peoriaLogo from '../assets/logos/peoria.svg';
+
 
 export default function Portfolio() {
   // Primary Portfolio Items (Preserved exact data & links from old site)
   const portfolioItems = [
     {
+      category: 'Home Cleaning Service Website',
+      title: 'Peoria Home Cleaning Services',
+      description: 'A modern, high-converting service booking website engineered for residential and commercial cleaning with local SEO optimization and targeted search ad campaigns.',
+      image: 'https://res.cloudinary.com/vhth8clt/image/upload/v1788985054/Peoria-Home-Cleaning-Services-Professional-Residential-Commercial-Cleaners-09-10-2026_01_46_AM.png',
+      link: 'https://peoria-webliix.netlify.app/',
+      metrics: 'Online Booking & Local SEO'
+    },
+    {
       category: 'Portfolio Website',
       title: 'Sunsdust Commercial pvt. ltd.',
       description: 'Manufacturer & Supplier of ESE Lightning Arresters, Surge Protection Devices, GI & Copper Bonded Earth Electrodes. Trusted across 28+ states in India.',
       image: sunsdustImg,
-      link: 'https://sunsdust-webliix.netlify.app',
+      link: 'https://sunsdust-webliix-2.netlify.app/',
       metrics: 'Trusted Across 28+ States'
     },
     {
-      category: 'Security Product Portfolio Website',
-      title: 'Aura Dristi',
-      description: 'A visually elegant website built for a spiritual venture. Designed with seamless navigation and branding.',
+      category: 'CCTV & Security Solutions',
+      title: 'Aura Drishti',
+      description: 'A professional CCTV camera installation, servicing, and surveillance equipment sales company with custom responsive web design, local SEO, and lead campaigns.',
       image: auraDrishtiImg,
-      link: 'https://auradrishti-webliix.netlify.app',
+      link: 'https://auradrishti-webliix.netlify.app/',
       metrics: '4.9★ Rating • 3x GMB Visits'
     },
+
     {
       category: 'Cloud Kitchen Portfolio',
       title: 'Kitchen 9 Village',
@@ -71,6 +82,7 @@ export default function Portfolio() {
 
   // Client Logos Array for Branding Marquee
   const clientLogos = [
+    'https://res.cloudinary.com/vhth8clt/image/upload/v1788985903/peoria.png',
     client1,
     client2,
     client3,
@@ -87,6 +99,13 @@ export default function Portfolio() {
 
   // Trusted Partner Showcase Matrix (Preserved exact service breakdown from old site)
   const clients = [
+    {
+      name: 'Peoria Home Cleaning',
+      logo: 'https://res.cloudinary.com/vhth8clt/image/upload/v1788985903/peoria.png',
+      services: ['Web Development', 'Search Engine Optimization', 'Advertising']
+    },
+
+
     {
       name: 'Aura Drishti',
       logo: auradrishtiLogo,
@@ -128,6 +147,7 @@ export default function Portfolio() {
       services: ['Advertising', 'Social Media Management']
     }
   ];
+
 
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-20">
