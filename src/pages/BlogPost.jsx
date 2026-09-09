@@ -474,9 +474,9 @@ export default function BlogPost() {
               Start Your Project
             </WebliixButton>
           </Link>
-          <Link to="/portfolio-website">
+          <Link to="/portfolio">
             <WebliixButton variant="secondary" size="md">
-              View Portfolio Websites
+              View Portfolio
             </WebliixButton>
           </Link>
         </div>

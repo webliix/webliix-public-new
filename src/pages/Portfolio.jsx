@@ -275,14 +275,15 @@ export default function Portfolio() {
               <WebliixCard
                 key={index}
                 variant="panel"
-                className="w-36 h-36 sm:w-40 sm:h-40 aspect-square shrink-0 p-3 bg-white border border-gray-200/80 shadow-sm theme-rounded-card flex items-center justify-center group hover:border-theme-primary/60 transition-all"
+                className="w-36 h-36 sm:w-44 sm:h-44 aspect-square shrink-0 p-3 bg-white border border-gray-200/80 shadow-sm theme-rounded-card flex items-center justify-center group hover:border-theme-primary/60 transition-all"
               >
                 <img
                   src={logo}
                   alt={`Branding Logo ${index + 1}`}
-                  className="max-h-20 max-w-[85%] object-contain mx-auto group-hover:scale-105 transition-transform duration-300"
+                  className="h-24 sm:h-28 max-h-[88%] max-w-[88%] object-contain mx-auto group-hover:scale-105 transition-transform duration-300"
                 />
               </WebliixCard>
+
             ))}
 
           </div>
@@ -310,14 +311,18 @@ export default function Portfolio() {
               className="p-3.5 sm:p-5 space-y-3 sm:space-y-4 border border-theme-border/80 hover:border-theme-primary/50 transition-all duration-300 flex flex-col justify-between"
             >
               <div className="space-y-3">
-                {/* Logo Container — white bg, perfectly proportioned */}
-                <div className="w-full h-20 sm:h-24 bg-white theme-rounded-card p-2.5 sm:p-3 border border-gray-200/80 shadow-sm flex items-center justify-center">
-                  <img
-                    src={client.logo}
-                    alt={`${client.name} logo`}
-                    className="max-h-12 sm:max-h-14 max-w-[85%] object-contain"
-                  />
+                {/* Logo Container — matching homepage aspect ratio and sizing */}
+                <div className="theme-rounded-card overflow-hidden border border-theme-border/60 bg-white p-2 shadow-sm flex items-center justify-center">
+                  <div className="aspect-[16/9] sm:aspect-video w-full flex items-center justify-center relative">
+                    <img
+                      src={client.logo}
+                      alt={`${client.name} logo`}
+                      className="h-32 sm:h-36 max-h-[96%] max-w-[96%] object-contain mx-auto group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
+
 
 
                 <h3 className="text-xs sm:text-sm font-display font-bold text-center text-theme-text line-clamp-1">
@@ -360,14 +365,14 @@ export default function Portfolio() {
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-          <Link to="/portfolio-website">
+          <Link to="/contact">
             <WebliixButton variant="primary" size="lg" icon={ArrowUpRight}>
-              Explore Portfolio Website Builds
+              Start Your Project
             </WebliixButton>
           </Link>
-          <Link to="/contact">
+          <Link to="/services">
             <WebliixButton variant="secondary" size="lg" icon={ArrowUpRight}>
-              Book Free Consultation
+              Explore Services
             </WebliixButton>
           </Link>
         </div>

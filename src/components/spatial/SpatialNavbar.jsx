@@ -1,7 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowUpRight, Phone } from 'lucide-react';
+import {
+  Menu,
+  X,
+  ArrowUpRight,
+  Phone,
+  ChevronDown,
+  Layout,
+  ShoppingBag,
+  Cpu,
+  Smartphone,
+  Search,
+  Sparkles,
+  Palette,
+  Wrench,
+  ArrowRight,
+  Layers,
+  Zap,
+  CheckCircle2
+} from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
 import { useTheme } from '../../context/ThemeContext';
 import SpatialButton from '../ui/SpatialButton';
@@ -11,9 +29,70 @@ import WebliixIcon from '../ui/WebliixIcon';
 export default function SpatialNavbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const location = useLocation();
   const { currentTheme, glassBlur } = useTheme();
+  const dropdownTimeoutRef = useRef(null);
 
+  const servicesList = [
+    {
+      name: 'Webliix LaunchKit',
+      path: '/launch-kit',
+      tag: 'All-In-One',
+      icon: Sparkles,
+      desc: 'Complete turnkey brand, website, email & GMB package'
+    },
+    {
+      name: 'Website Development',
+      path: '/website-development',
+      tag: 'Core Service',
+      icon: Layout,
+      desc: 'High-speed React & Next.js business platforms'
+    },
+    {
+      name: 'Fast E-Commerce Store',
+      path: '/ecommerce-store',
+      tag: '5–7 Days',
+      icon: ShoppingBag,
+      desc: 'Shopify, WooCommerce & custom online stores'
+    },
+    {
+      name: 'Web App & SaaS Development',
+      path: '/web-app-development',
+      tag: 'Full-Stack',
+      icon: Cpu,
+      desc: 'Scalable SaaS platforms, CRM/ERP & dashboards'
+    },
+    {
+      name: 'Mobile App Development',
+      path: '/mobile-app-development',
+      tag: 'iOS & Android',
+      icon: Smartphone,
+      desc: 'Cross-platform Flutter & React Native apps'
+    },
+    {
+      name: 'SEO & Local Search',
+      path: '/seo',
+      tag: 'Rank #1',
+      icon: Search,
+      desc: 'Google Maps verification, local SEO & organic growth'
+    },
+    {
+      name: 'Branding & UI/UX Design',
+      path: '/branding-design',
+      tag: 'Creative',
+      icon: Palette,
+      desc: 'Original vector logos, brand books & Figma UI/UX'
+    },
+    {
+      name: 'Website Maintenance',
+      path: '/website-maintenance',
+      tag: '24/7 Care',
+      icon: Wrench,
+      desc: 'Proactive security scans, daily backups & speed tuning'
+    }
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +104,8 @@ export default function SpatialNavbar() {
 
   useEffect(() => {
     setMobileOpen(false);
+    setServicesDropdownOpen(false);
+    setMobileServicesOpen(false);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -38,16 +119,26 @@ export default function SpatialNavbar() {
     };
   }, [mobileOpen]);
 
+  const handleMouseEnterServices = () => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+    }
+    setServicesDropdownOpen(true);
+  };
+
+  const handleMouseLeaveServices = () => {
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setServicesDropdownOpen(false);
+    }, 150);
+  };
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Services', path: '/services' },
     { name: 'Portfolio', path: '/portfolio' },
     { name: 'Blog', path: '/blog' },
     { name: 'About Us', path: '/about' },
     { name: 'Contact', path: '/contact' }
   ];
-
 
   const socialLinks = [
     {
@@ -96,11 +187,16 @@ export default function SpatialNavbar() {
     return location.pathname === path || location.pathname.startsWith(path + '/');
   };
 
+  const isServicesActive = () => {
+    return (
+      location.pathname === '/services' ||
+      servicesList.some((s) => location.pathname === s.path || location.pathname.startsWith(s.path + '/'))
+    );
+  };
 
   const logoSrc = currentTheme?.isDark === false
     ? siteConfig.brand.logoLight
     : siteConfig.brand.logoDark;
-
 
   return (
     <header
@@ -109,7 +205,6 @@ export default function SpatialNavbar() {
           ? 'glass-spatial border-b border-theme-border/80 shadow-spatial-lg'
           : 'bg-transparent border-b border-transparent shadow-none'
       }`}
-
       style={{
         backdropFilter: scrolled ? 'blur(var(--glass-blur, 28px))' : 'none',
         WebkitBackdropFilter: scrolled ? 'blur(var(--glass-blur, 28px))' : 'none'
@@ -126,11 +221,153 @@ export default function SpatialNavbar() {
           />
         </Link>
 
-
-
         {/* Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-7">
-          {navLinks.map((link) => (
+          {/* Home Link */}
+          <Link
+            to="/"
+            className={`text-xs sm:text-sm font-medium tracking-tight transition-all relative py-1.5 ${
+              isActive('/')
+                ? 'text-theme-primary font-bold'
+                : 'text-theme-muted hover:text-theme-text'
+            }`}
+          >
+            Home
+            {isActive('/') && (
+              <motion.div
+                layoutId="activeNavIndicator"
+                className="absolute bottom-0 left-0 right-0 h-0.5 bg-theme-primary rounded-full shadow-[0_0_8px_var(--color-primary)]"
+              />
+            )}
+          </Link>
+
+          {/* Services Dropdown Trigger */}
+          <div
+            className="relative py-2"
+            onMouseEnter={handleMouseEnterServices}
+            onMouseLeave={handleMouseLeaveServices}
+          >
+            <div className="flex items-center gap-1 cursor-pointer">
+              <Link
+                to="/services"
+                className={`text-xs sm:text-sm font-medium tracking-tight transition-all relative py-1.5 flex items-center gap-1 ${
+                  isServicesActive()
+                    ? 'text-theme-primary font-bold'
+                    : 'text-theme-muted hover:text-theme-text'
+                }`}
+              >
+                <span>Services</span>
+                <ChevronDown
+                  className={`w-3.5 h-3.5 transition-transform duration-300 ${
+                    servicesDropdownOpen ? 'rotate-180 text-theme-primary' : ''
+                  }`}
+                />
+                {isServicesActive() && (
+                  <motion.div
+                    layoutId="activeNavIndicator"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-theme-primary rounded-full shadow-[0_0_8px_var(--color-primary)]"
+                  />
+                )}
+              </Link>
+            </div>
+
+            {/* Desktop Mega Dropdown Menu */}
+            <AnimatePresence>
+              {servicesDropdownOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                  transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute top-full -left-20 lg:-left-28 xl:left-1/2 xl:-translate-x-1/2 w-[92vw] max-w-[680px] lg:max-w-[700px] xl:max-w-[720px] pt-2 z-50 pointer-events-auto"
+                >
+                  <WebliixCard
+                    variant="panel"
+                    className="p-5 space-y-4 border border-theme-primary/50 shadow-spatial-xl overflow-hidden bg-theme-card/90"
+                    style={{
+                      backdropFilter: `blur(var(--glass-blur, ${glassBlur || '24px'}))`,
+                      WebkitBackdropFilter: `blur(var(--glass-blur, ${glassBlur || '24px'}))`
+                    }}
+                  >
+                    {/* Header bar of dropdown */}
+                    <div className="flex items-center justify-between pb-3 border-b border-theme-border/60">
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                        <span className="text-xs font-mono font-bold uppercase tracking-wider text-theme-primary">
+                          Webliix Digital Solutions
+                        </span>
+                      </div>
+                      <Link
+                        to="/services"
+                        className="text-xs font-mono font-semibold text-theme-muted hover:text-theme-primary transition flex items-center gap-1 group px-2 py-1 theme-rounded-btn hover:bg-theme-primary/10"
+                      >
+                        <span>View All Services</span>
+                        <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </div>
+
+                    {/* 2-Column Grid of Services */}
+                    <div className="grid grid-cols-2 gap-2.5">
+                      {servicesList.map((service) => {
+                        const Icon = service.icon;
+                        const isCurrent = location.pathname === service.path;
+                        return (
+                          <Link
+                            key={service.path}
+                            to={service.path}
+                            className={`p-3 theme-rounded-card border transition-all duration-200 group flex items-start gap-3 ${
+                              isCurrent
+                                ? 'bg-theme-primary/15 border-theme-primary/60 shadow-sm'
+                                : 'glass-spatial border-theme-border/50 hover:border-theme-primary/60 hover:bg-theme-primary/5'
+                            }`}
+                            style={{
+                              backdropFilter: `blur(var(--glass-blur, ${glassBlur || '20px'}))`,
+                              WebkitBackdropFilter: `blur(var(--glass-blur, ${glassBlur || '20px'}))`
+                            }}
+                          >
+                            <div className="p-2 theme-rounded-btn bg-theme-primary/10 text-theme-primary border border-theme-primary/20 group-hover:scale-105 group-hover:bg-theme-primary group-hover:text-white transition-all shrink-0">
+                              <Icon className="w-4 h-4" />
+                            </div>
+
+                            <div className="space-y-0.5 flex-1 min-w-0">
+                              <div className="flex items-center justify-between gap-1.5">
+                                <h4 className="text-xs font-display font-bold text-theme-text group-hover:text-theme-primary transition-colors truncate">
+                                  {service.name}
+                                </h4>
+                                <span className="text-[9px] font-mono font-bold px-1.5 py-0.5 theme-rounded-btn bg-theme-primary/10 text-theme-primary border border-theme-primary/20 shrink-0">
+                                  {service.tag}
+                                </span>
+                              </div>
+                              <p className="text-[11px] text-theme-muted line-clamp-1 leading-snug">
+                                {service.desc}
+                              </p>
+                            </div>
+                          </Link>
+                        );
+                      })}
+                    </div>
+
+                    {/* Bottom Promo Strip */}
+                    <div className="pt-3 border-t border-theme-border/60 flex items-center justify-between text-xs font-mono bg-theme-primary/5 -mx-5 -mb-5 px-5 py-3 rounded-b-[inherit]">
+                      <div className="flex items-center gap-2 text-theme-muted text-[11px]">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                        <span>5–7 Day Turnkey Delivery • 100% Code Ownership</span>
+                      </div>
+                      <Link
+                        to="/launch-kit"
+                        className="text-xs font-bold text-theme-primary hover:underline flex items-center gap-1"
+                      >
+                        <span>Webliix LaunchKit →</span>
+                      </Link>
+                    </div>
+                  </WebliixCard>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* Other Nav Links */}
+          {navLinks.slice(1).map((link) => (
             <Link
               key={link.path}
               to={link.path}
@@ -220,14 +457,84 @@ export default function SpatialNavbar() {
           >
             <WebliixCard
               variant="spatial"
-              className="p-5 space-y-4 max-h-[80vh] overflow-y-auto border border-theme-primary/50 shadow-spatial-lg"
+              className="p-4 sm:p-5 space-y-4 max-h-[82vh] overflow-y-auto border border-theme-primary/50 shadow-spatial-xl bg-theme-card/90"
               style={{
-                backdropFilter: `blur(${glassBlur || '28px'})`,
-                WebkitBackdropFilter: `blur(${glassBlur || '28px'})`
+                backdropFilter: `blur(var(--glass-blur, ${glassBlur || '28px'}))`,
+                WebkitBackdropFilter: `blur(var(--glass-blur, ${glassBlur || '28px'}))`
               }}
             >
               <nav className="flex flex-col space-y-1.5">
-                {navLinks.map((link) => (
+                {/* Home */}
+                <Link
+                  to="/"
+                  className={`px-4 py-2.5 theme-rounded-btn text-sm font-semibold transition-all border ${
+                    isActive('/')
+                      ? 'bg-theme-primary text-white border-theme-primary shadow-sm font-bold'
+                      : 'text-theme-text hover:bg-theme-primary/10 hover:border-theme-primary/40 border-transparent glass-spatial'
+                  }`}
+                >
+                  Home
+                </Link>
+
+                {/* Mobile Services Accordion */}
+                <div className="border border-theme-border/60 theme-rounded-card overflow-hidden">
+                  <button
+                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                    className={`w-full px-4 py-2.5 text-sm font-semibold flex items-center justify-between transition-colors ${
+                      isServicesActive()
+                        ? 'bg-theme-primary/15 text-theme-primary font-bold'
+                        : 'text-theme-text bg-theme-bg/40'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2">
+                      <Layers className="w-4 h-4 text-theme-primary" />
+                      <span>Services</span>
+                    </span>
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform duration-300 ${
+                        mobileServicesOpen ? 'rotate-180 text-theme-primary' : ''
+                      }`}
+                    />
+                  </button>
+
+                  {mobileServicesOpen && (
+                    <div className="p-2 space-y-1 bg-theme-bg/80 border-t border-theme-border/40">
+                      <Link
+                        to="/services"
+                        className="px-3 py-2 text-xs font-mono font-bold text-theme-primary hover:bg-theme-primary/10 theme-rounded-btn flex items-center justify-between"
+                      >
+                        <span>All Services Overview</span>
+                        <ArrowRight className="w-3 h-3" />
+                      </Link>
+                      {servicesList.map((srv) => {
+                        const Icon = srv.icon;
+                        const isSrvActive = location.pathname === srv.path;
+                        return (
+                          <Link
+                            key={srv.path}
+                            to={srv.path}
+                            className={`px-3 py-2 theme-rounded-btn text-xs font-medium flex items-center justify-between transition ${
+                              isSrvActive
+                                ? 'bg-theme-primary text-white font-bold'
+                                : 'text-theme-text hover:bg-theme-primary/10 hover:text-theme-primary'
+                            }`}
+                          >
+                            <div className="flex items-center gap-2">
+                              <Icon className="w-3.5 h-3.5 shrink-0 text-theme-primary" />
+                              <span className="truncate">{srv.name}</span>
+                            </div>
+                            <span className="text-[10px] font-mono opacity-80 shrink-0">
+                              {srv.tag}
+                            </span>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+
+                {/* Other Navigation Links */}
+                {navLinks.slice(1).map((link) => (
                   <Link
                     key={link.path}
                     to={link.path}
@@ -287,4 +594,3 @@ export default function SpatialNavbar() {
     </header>
   );
 }
-

@@ -253,10 +253,10 @@ export default function Services() {
                     {opt.id === 'portfolio' && (
                       <div className="pt-2 border-t border-theme-border/40 flex justify-end">
                         <Link
-                          to="/portfolio-website"
+                          to="/portfolio"
                           onClick={(e) => e.stopPropagation()}
                         >
-                          <WebliixButton variant="secondary" size="sm" icon={ArrowUpRight}>
+                          <WebliixButton variant="ghost" size="sm" icon={ArrowUpRight}>
                             Learn More
                           </WebliixButton>
                         </Link>
@@ -402,23 +402,22 @@ export default function Services() {
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  {service.id === 'website-dev' && (
-                    <Link to="/portfolio-website">
-                      <WebliixButton variant="secondary" icon={ArrowUpRight} size="sm">
+                  {service.link && (
+                    <Link to={service.link}>
+                      <WebliixButton variant="ghost" icon={ArrowUpRight} size="sm">
                         Learn More
                       </WebliixButton>
                     </Link>
                   )}
-                  {service.id === 'seo-gmb' && (
-                    <Link to="/seo">
-                      <WebliixButton variant="secondary" icon={ArrowUpRight} size="sm">
-                        Learn More
-                      </WebliixButton>
-                    </Link>
-                  )}
-                  <Link to={service.link || "/contact"}>
+                  <Link to="/contact">
                     <WebliixButton variant="primary" icon={ArrowUpRight} size="sm">
-                      {service.id === 'brand-launchkit' ? 'Explore LaunchKit' : 'Book Service'}
+                      {service.id === 'brand-launchkit'
+                        ? 'Explore LaunchKit'
+                        : service.id === 'quick-ecommerce'
+                        ? 'Book Store Launch'
+                        : service.startingPrice === 'Custom Quote'
+                        ? 'Get Free Quote & Estimate'
+                        : 'Book Service'}
                     </WebliixButton>
                   </Link>
                 </div>
@@ -442,7 +441,7 @@ export default function Services() {
           </p>
           <div className="pt-2 flex justify-center">
             <Link to="/seo">
-              <WebliixButton variant="secondary" icon={ArrowUpRight} size="sm">
+              <WebliixButton variant="ghost" icon={ArrowUpRight} size="sm">
                 Learn More &amp; View All SEO Packages
               </WebliixButton>
             </Link>
@@ -485,12 +484,12 @@ export default function Services() {
 
               <div className="pt-3 border-t border-theme-border flex items-center justify-between gap-2">
                 <Link to="/seo">
-                  <WebliixButton variant="secondary" icon={ArrowUpRight} size="sm">
+                  <WebliixButton variant="ghost" icon={ArrowUpRight} size="sm">
                     Learn More
                   </WebliixButton>
                 </Link>
                 <Link to="/contact">
-                  <WebliixButton variant="ghost" icon={ArrowUpRight} size="sm">
+                  <WebliixButton variant="primary" icon={ArrowUpRight} size="sm">
                     Book SEO Module
                   </WebliixButton>
                 </Link>

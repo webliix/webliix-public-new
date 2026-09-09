@@ -222,28 +222,38 @@ export default function SpatialFooter() {
               </Link>
             </li>
             <li>
-              <Link to="/seo" className="hover:text-theme-primary transition-colors flex items-center gap-1 group">
-                <span className="group-hover:translate-x-1 transition-transform">SEO &amp; Search Dominance</span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/portfolio-website" className="hover:text-theme-primary transition-colors flex items-center gap-1 group">
-                <span className="group-hover:translate-x-1 transition-transform">Portfolio Website Builds</span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/services" className="hover:text-theme-primary transition-colors flex items-center gap-1 group">
+              <Link to="/website-development" className="hover:text-theme-primary transition-colors flex items-center gap-1 group">
                 <span className="group-hover:translate-x-1 transition-transform">Website Development</span>
               </Link>
             </li>
             <li>
-              <Link to="/services" className="hover:text-theme-primary transition-colors flex items-center gap-1 group">
+              <Link to="/ecommerce-store" className="hover:text-theme-primary transition-colors flex items-center gap-1 group">
                 <span className="group-hover:translate-x-1 transition-transform">E-Commerce Store Launch</span>
               </Link>
             </li>
             <li>
-              <Link to="/services" className="hover:text-theme-primary transition-colors flex items-center gap-1 group">
-                <span className="group-hover:translate-x-1 transition-transform">Branding &amp; Identity</span>
+              <Link to="/web-app-development" className="hover:text-theme-primary transition-colors flex items-center gap-1 group">
+                <span className="group-hover:translate-x-1 transition-transform">Custom Web Applications</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/mobile-app-development" className="hover:text-theme-primary transition-colors flex items-center gap-1 group">
+                <span className="group-hover:translate-x-1 transition-transform">Mobile App Development</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/seo" className="hover:text-theme-primary transition-colors flex items-center gap-1 group">
+                <span className="group-hover:translate-x-1 transition-transform">SEO &amp; Local Dominance</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/branding-design" className="hover:text-theme-primary transition-colors flex items-center gap-1 group">
+                <span className="group-hover:translate-x-1 transition-transform">Branding &amp; UI/UX Design</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/website-maintenance" className="hover:text-theme-primary transition-colors flex items-center gap-1 group">
+                <span className="group-hover:translate-x-1 transition-transform">Website Maintenance</span>
               </Link>
             </li>
           </ul>

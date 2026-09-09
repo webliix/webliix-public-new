@@ -164,7 +164,7 @@ services: [
       'Mobile-Responsive Store Design',
       'Basic SEO & Analytics Tracking'
     ],
-    link: '/services'
+    link: '/ecommerce-store'
   },
 
   {
@@ -187,7 +187,7 @@ services: [
       'Performance & Technical SEO Foundation',
       'SSL, Security & Deployment Setup'
     ],
-    link: '/services'
+    link: '/website-development'
   },
 
   {
@@ -210,7 +210,7 @@ services: [
       'Database Design & Integration',
       'Cloud Deployment & Scalable Architecture'
     ],
-    link: '/services'
+    link: '/web-app-development'
   },
 
   {
@@ -237,7 +237,7 @@ services: [
       'Google Play Store Deployment Support',
       'Apple App Store Deployment Support'
     ],
-    link: '/services'
+    link: '/mobile-app-development'
   },
 
   {
@@ -262,7 +262,7 @@ services: [
       'Cloud & Database Integration',
       'Scalable Software Architecture'
     ],
-    link: '/services'
+    link: '/web-app-development'
   },
 
   {
@@ -287,7 +287,7 @@ services: [
       'Notifications & Email Workflows',
       'Scalable Backend Architecture'
     ],
-    link: '/services'
+    link: '/web-app-development'
   },
 
   {
@@ -314,7 +314,7 @@ services: [
       'Role-Based Access Control',
       'API & Third-Party Integrations'
     ],
-    link: '/services'
+    link: '/web-app-development'
   },
 
   {
@@ -341,7 +341,7 @@ services: [
       'Schema Markup',
       'SEO Performance Reporting'
     ],
-    link: '/services'
+    link: '/seo'
   },
 
   {
@@ -364,7 +364,7 @@ services: [
       'Digital Brand Guidelines',
       'Print-Ready Brand Assets'
     ],
-    link: '/services'
+    link: '/branding-design'
   },
 
   {
@@ -387,7 +387,7 @@ services: [
       'Responsive Design Systems',
       'Conversion-Focused Interfaces'
     ],
-    link: '/services'
+    link: '/branding-design'
   },
 
   {
@@ -412,7 +412,7 @@ services: [
       'Software & Dependency Updates',
       'Office-Time Technical Support'
     ],
-    link: '/services'
+    link: '/website-maintenance'
   }
 ],
 

@@ -425,16 +425,18 @@ export default function Home() {
             >
               <GlassCard className="p-4 space-y-3 h-full flex flex-col justify-between border border-theme-border/80 hover:border-theme-primary/60 transition-all duration-300 hover:shadow-spatial">
                 <div className="space-y-3">
-                  <div className="theme-rounded-card overflow-hidden border border-theme-border/60 bg-white p-3 sm:p-4 shadow-sm flex items-center justify-center">
+                  <div className="theme-rounded-card overflow-hidden border border-theme-border/60 bg-white p-2 shadow-sm flex items-center justify-center">
                     <div className="aspect-[16/9] sm:aspect-video w-full flex items-center justify-center relative">
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="max-h-20 sm:max-h-24 max-w-[85%] object-contain mx-auto group-hover:scale-105 transition-transform duration-300"
+                        className="h-32 sm:h-36 max-h-[96%] max-w-[96%] object-contain mx-auto group-hover:scale-105 transition-transform duration-300"
                         loading="lazy"
                       />
                     </div>
                   </div>
+
+
 
                   <div className="space-y-1.5">
                     <div className="flex items-center justify-between gap-2">

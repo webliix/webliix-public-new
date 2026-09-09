@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from './context/ThemeContext';
 import { ModalProvider } from './context/ModalContext';
@@ -24,7 +24,12 @@ import LaunchKit from './pages/LaunchKit';
 import BlogPost from './pages/BlogPost';
 import Feedback from './pages/Feedback';
 import SeoServices from './pages/SeoServices';
-import PortfolioWebsite from './pages/PortfolioWebsite';
+import EcommerceStore from './pages/EcommerceStore';
+import WebsiteDevelopment from './pages/WebsiteDevelopment';
+import WebAppDevelopment from './pages/WebAppDevelopment';
+import MobileAppDevelopment from './pages/MobileAppDevelopment';
+import BrandingDesign from './pages/BrandingDesign';
+import WebsiteMaintenance from './pages/WebsiteMaintenance';
 import Careers from './pages/Careers';
 
 import BusinessInformation from './pages/BusinessInformation';
@@ -52,11 +57,30 @@ export default function App() {
                     <Route path="/about" element={<About />} />
                     <Route path="/services" element={<Services />} />
                     <Route path="/portfolio" element={<Portfolio />} />
-                    <Route path="/portfolio-website" element={<PortfolioWebsite />} />
-                    <Route path="/portfolio-site" element={<PortfolioWebsite />} />
+                    <Route path="/portfolio-website" element={<Navigate to="/portfolio" replace />} />
+                    <Route path="/portfolio-site" element={<Navigate to="/portfolio" replace />} />
+                    <Route path="/portfolio.com" element={<Navigate to="/portfolio" replace />} />
                     <Route path="/seo" element={<SeoServices />} />
                     <Route path="/seo-services" element={<SeoServices />} />
                     <Route path="/seo-packages" element={<SeoServices />} />
+                    <Route path="/ecommerce-store" element={<EcommerceStore />} />
+                    <Route path="/ecommerce" element={<EcommerceStore />} />
+                    <Route path="/fast-ecommerce" element={<EcommerceStore />} />
+                    <Route path="/website-development" element={<WebsiteDevelopment />} />
+                    <Route path="/web-development" element={<WebsiteDevelopment />} />
+                    <Route path="/website-design" element={<WebsiteDevelopment />} />
+                    <Route path="/web-app-development" element={<WebAppDevelopment />} />
+                    <Route path="/custom-software" element={<WebAppDevelopment />} />
+                    <Route path="/saas-development" element={<WebAppDevelopment />} />
+                    <Route path="/mobile-app-development" element={<MobileAppDevelopment />} />
+                    <Route path="/mobile-apps" element={<MobileAppDevelopment />} />
+                    <Route path="/app-development" element={<MobileAppDevelopment />} />
+                    <Route path="/branding-design" element={<BrandingDesign />} />
+                    <Route path="/ui-ux-design" element={<BrandingDesign />} />
+                    <Route path="/branding" element={<BrandingDesign />} />
+                    <Route path="/website-maintenance" element={<WebsiteMaintenance />} />
+                    <Route path="/maintenance" element={<WebsiteMaintenance />} />
+                    <Route path="/website-support" element={<WebsiteMaintenance />} />
                     <Route path="/careers" element={<Careers />} />
                     <Route path="/career" element={<Careers />} />
                     <Route path="/partner-program" element={<Careers />} />
