@@ -101,6 +101,27 @@
   </url>
 
   <url>
+    <loc>https://webliix.com/paid-advertising</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://webliix.com/google-ads</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://webliix.com/meta-ads</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
     <loc>https://webliix.com/portfolio</loc>
     <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>

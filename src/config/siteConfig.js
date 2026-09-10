@@ -391,6 +391,73 @@ services: [
   },
 
   {
+    id: 'paid-advertising',
+    title: 'Paid Advertising Management',
+    tag: 'Controlled Budget',
+    icon: '🎯',
+    shortDesc:
+      'Transparent Google, Facebook and Instagram ad management for small businesses with separate ad spend and clear reporting.',
+    fullDesc:
+      'We plan, launch, monitor and optimize targeted Google Ads and Meta Ads campaigns designed for measurable business inquiries with controlled budgets and 100% cost transparency.',
+    startingPrice: 'Starting at ₹5,999 / mo',
+    features: [
+      'Separate Advertising Budget & Management Fee',
+      'Google Search & High-Intent Keyword Targeting',
+      'Facebook & Instagram Feed/Reels Ads',
+      'Instant WhatsApp & Call Lead Tracking',
+      'Continuous Negative Keyword & Bid Tuning',
+      'Targeted Audience & Creative Testing',
+      '100% Client Ownership of Ad Accounts',
+      'Transparent Monthly Performance Reports'
+    ],
+    link: '/paid-advertising'
+  },
+
+  {
+    id: 'google-ads',
+    title: 'Google Ads (Search & Maps)',
+    tag: 'High Intent',
+    icon: '🔍',
+    shortDesc:
+      'Capture ready-to-buy customers actively searching for your services on Google Search and Google Maps.',
+    fullDesc:
+      'Reach local buyers at the exact moment they search for your services with targeted search campaigns, negative keyword filters, and conversion tracking.',
+    startingPrice: 'Starting at ₹5,999 / mo',
+    features: [
+      'Google Search Campaign Setup',
+      'High-Intent Buyer Keyword Research',
+      'Negative Keyword Budget Protection',
+      'Geo-Radius & City-Level Targeting',
+      'Call & WhatsApp Conversion Tracking',
+      'Continuous Bid & Quality Score Optimization',
+      'Transparent Monthly Reporting'
+    ],
+    link: '/google-ads'
+  },
+
+  {
+    id: 'meta-ads',
+    title: 'Facebook & Instagram (Meta) Ads',
+    tag: 'Social Leads',
+    icon: '📱',
+    shortDesc:
+      'Turn social media scrollers into direct customer inquiries with Instagram Reels, Feed ads and WhatsApp click-to-chat campaigns.',
+    fullDesc:
+      'Engage local buyers on Facebook and Instagram with eye-catching visual ads, promotional offers, instant lead forms, and direct WhatsApp chat campaigns.',
+    startingPrice: 'Starting at ₹5,999 / mo',
+    features: [
+      'Facebook Feed & Instagram Reels Ads',
+      'Local Geo-Radius & Demographic Targeting',
+      'Click-to-WhatsApp Campaign Setup',
+      'Multi-Variant Creative & Copy Testing',
+      'Warm Audience Retargeting Funnel',
+      'Meta Pixel & Conversion Setup',
+      'Transparent Monthly Reporting'
+    ],
+    link: '/meta-ads'
+  },
+
+  {
     id: 'website-maintenance',
     title: 'Website & Software Maintenance',
     tag: 'Support',

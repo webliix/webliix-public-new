@@ -222,6 +222,21 @@ export default function SpatialFooter() {
               </Link>
             </li>
             <li>
+              <Link to="/paid-advertising" className="hover:text-theme-primary transition-colors flex items-center gap-1 group">
+                <span className="group-hover:translate-x-1 transition-transform">Paid Advertising Overview</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/google-ads" className="hover:text-theme-primary transition-colors flex items-center gap-1 group">
+                <span className="group-hover:translate-x-1 transition-transform">Google Ads Management</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/meta-ads" className="hover:text-theme-primary transition-colors flex items-center gap-1 group">
+                <span className="group-hover:translate-x-1 transition-transform">Meta (FB &amp; IG) Ads</span>
+              </Link>
+            </li>
+            <li>
               <Link to="/website-development" className="hover:text-theme-primary transition-colors flex items-center gap-1 group">
                 <span className="group-hover:translate-x-1 transition-transform">Website Development</span>
               </Link>

@@ -7,7 +7,8 @@ import GlassCard from '../components/spatial/GlassCard';
 import WebliixCard from '../components/ui/WebliixCard';
 import WebliixButton from '../components/ui/WebliixButton';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
-import auradrishtiImg from '../assets/logos/auradrishti.png';
+
+const auradrishtiImg = 'https://res.cloudinary.com/vhth8clt/image/upload/v1789080768/Auradrishti.png';
 
 export default function AuraDrishtiCaseStudy() {
   return (

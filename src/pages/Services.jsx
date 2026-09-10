@@ -71,14 +71,15 @@ export default function Services() {
 
   const totalLaunchkitPrice = currentWebsitePrice + currentServicesPrice;
 
-  const categories = ['All', 'Webliix LaunchKit', 'Web Development', 'E-Commerce', 'SEO & Maps', 'Branding', 'Maintenance'];
+  const categories = ['All', 'Webliix LaunchKit', 'Paid Advertising', 'Web Development', 'E-Commerce', 'SEO & Maps', 'Branding', 'Maintenance'];
 
   const filterServiceMap = {
     'Webliix LaunchKit': ['brand-launchkit'],
-    'Web Development': ['website-dev'],
+    'Paid Advertising': ['paid-advertising', 'google-ads', 'meta-ads'],
+    'Web Development': ['website-dev', 'web-app-development', 'mobile-app-development', 'software-development', 'saas-development', 'crm-erp-development'],
     'E-Commerce': ['quick-ecommerce'],
     'SEO & Maps': ['seo-gmb'],
-    'Branding': ['branding-design'],
+    'Branding': ['branding-design', 'ui-ux-design'],
     'Maintenance': ['website-maintenance']
   };
 

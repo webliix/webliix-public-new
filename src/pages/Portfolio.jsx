@@ -8,11 +8,12 @@ import WebliixCard from '../components/ui/WebliixCard';
 import WebliixButton from '../components/ui/WebliixButton';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
 
-// Project Images from old website
-import sarswatiImg from '../assets/project_image/sarswati.png';
-import auraDrishtiImg from '../assets/project_image/Auradrishti.png';
-import kitchen9Img from '../assets/project_image/kitchen9village.png';
-import sunsdustImg from '../assets/project_image/sunsdust.png';
+// Project Images (Cloudinary CDN URLs)
+const peoriaImg = 'https://res.cloudinary.com/vhth8clt/image/upload/v1788985054/Peoria-Home-Cleaning-Services-Professional-Residential-Commercial-Cleaners-09-10-2026_01_46_AM.png';
+const sunsdustImg = 'https://res.cloudinary.com/vhth8clt/image/upload/v1789080714/sunsdust-website-image.png';
+const auraDrishtiImg = 'https://res.cloudinary.com/vhth8clt/image/upload/v1789080768/Auradrishti.png';
+const kitchen9Img = 'https://res.cloudinary.com/vhth8clt/image/upload/v1789080760/kitchen9village.png';
+const sarswatiImg = 'https://res.cloudinary.com/vhth8clt/image/upload/v1789080786/sarswati.png';
 
 // Client Logos from old website
 import client1 from '../assets/logos/client1.jpg';

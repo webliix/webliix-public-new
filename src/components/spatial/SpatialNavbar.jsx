@@ -18,7 +18,14 @@ import {
   ArrowRight,
   Layers,
   Zap,
-  CheckCircle2
+  CheckCircle2,
+  Target,
+  Share2,
+  ShieldCheck,
+  Clock,
+  Calculator,
+  Globe2,
+  Compass
 } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
 import { useTheme } from '../../context/ThemeContext';
@@ -35,7 +42,113 @@ export default function SpatialNavbar() {
   const { currentTheme, glassBlur } = useTheme();
   const dropdownTimeoutRef = useRef(null);
 
-  const servicesList = [
+  // Categorized services data for the Mega Menu
+  const serviceCategories = [
+    {
+      id: 'engineering',
+      title: 'Web & App Engineering',
+      badge: 'Custom Architecture',
+      items: [
+        {
+          name: 'Website Development',
+          path: '/website-development',
+          tag: 'Core Service',
+          icon: Layout,
+          desc: 'High-speed React & Next.js platforms with 95+ PageSpeed scores',
+          meta: 'Custom UI • 95+ PageSpeed'
+        },
+        {
+          name: 'Fast E-Commerce Store',
+          path: '/ecommerce-store',
+          tag: '5–7 Days',
+          icon: ShoppingBag,
+          desc: 'High-converting Shopify, WooCommerce & custom online stores',
+          meta: 'Shopify / Custom • Payments'
+        },
+        {
+          name: 'Web Apps & SaaS',
+          path: '/web-app-development',
+          tag: 'Full-Stack',
+          icon: Cpu,
+          desc: 'Scalable SaaS platforms, custom CRM/ERP & cloud portals',
+          meta: 'Custom APIs • Cloud Backends'
+        },
+        {
+          name: 'Mobile App Development',
+          path: '/mobile-app-development',
+          tag: 'iOS & Android',
+          icon: Smartphone,
+          desc: 'Cross-platform Flutter & React Native native mobile apps',
+          meta: 'App Store • Play Store'
+        }
+      ]
+    },
+    {
+      id: 'advertising',
+      title: 'Growth & Advertising',
+      badge: 'ROI Focused',
+      items: [
+        {
+          name: 'Paid Advertising',
+          path: '/paid-advertising',
+          tag: 'Controlled Budget',
+          icon: Target,
+          desc: 'Transparent Google & Meta ad management for small businesses',
+          meta: 'Flat Mgmt Fee • Direct Billing'
+        },
+        {
+          name: 'Google Ads',
+          path: '/google-ads',
+          tag: 'High Intent',
+          icon: Search,
+          desc: 'Targeted Search, Maps & local call lead generation campaigns',
+          meta: 'Search Ads • Maps • Calls'
+        },
+        {
+          name: 'Meta (FB & IG) Ads',
+          path: '/meta-ads',
+          tag: 'Social Leads',
+          icon: Share2,
+          desc: 'Feed, Reels & WhatsApp click-to-chat campaigns that convert',
+          meta: 'Instagram • Facebook • WhatsApp'
+        },
+        {
+          name: 'SEO & Local Search',
+          path: '/seo',
+          tag: 'Rank #1',
+          icon: Compass,
+          desc: 'Google Maps verification, local SEO ranking & organic search',
+          meta: 'GMB Setup • Local Citations'
+        }
+      ]
+    },
+    {
+      id: 'creative',
+      title: 'Creative & Care',
+      badge: 'Full Lifecycle',
+      items: [
+        {
+          name: 'Branding & UI/UX Design',
+          path: '/branding-design',
+          tag: 'Design System',
+          icon: Palette,
+          desc: 'Vector logos, brand books, typography & Figma UI/UX designs',
+          meta: 'Original Logos • Figma Files'
+        },
+        {
+          name: 'Website Maintenance',
+          path: '/website-maintenance',
+          tag: '24/7 Care',
+          icon: Wrench,
+          desc: 'Proactive security scans, daily backups, speed & bug fixes',
+          meta: 'Daily Backups • 99.9% Uptime'
+        }
+      ]
+    }
+  ];
+
+  // Flat list for active checks and search
+  const allServices = [
     {
       name: 'Webliix LaunchKit',
       path: '/launch-kit',
@@ -43,55 +156,7 @@ export default function SpatialNavbar() {
       icon: Sparkles,
       desc: 'Complete turnkey brand, website, email & GMB package'
     },
-    {
-      name: 'Website Development',
-      path: '/website-development',
-      tag: 'Core Service',
-      icon: Layout,
-      desc: 'High-speed React & Next.js business platforms'
-    },
-    {
-      name: 'Fast E-Commerce Store',
-      path: '/ecommerce-store',
-      tag: '5–7 Days',
-      icon: ShoppingBag,
-      desc: 'Shopify, WooCommerce & custom online stores'
-    },
-    {
-      name: 'Web App & SaaS Development',
-      path: '/web-app-development',
-      tag: 'Full-Stack',
-      icon: Cpu,
-      desc: 'Scalable SaaS platforms, CRM/ERP & dashboards'
-    },
-    {
-      name: 'Mobile App Development',
-      path: '/mobile-app-development',
-      tag: 'iOS & Android',
-      icon: Smartphone,
-      desc: 'Cross-platform Flutter & React Native apps'
-    },
-    {
-      name: 'SEO & Local Search',
-      path: '/seo',
-      tag: 'Rank #1',
-      icon: Search,
-      desc: 'Google Maps verification, local SEO & organic growth'
-    },
-    {
-      name: 'Branding & UI/UX Design',
-      path: '/branding-design',
-      tag: 'Creative',
-      icon: Palette,
-      desc: 'Original vector logos, brand books & Figma UI/UX'
-    },
-    {
-      name: 'Website Maintenance',
-      path: '/website-maintenance',
-      tag: '24/7 Care',
-      icon: Wrench,
-      desc: 'Proactive security scans, daily backups & speed tuning'
-    }
+    ...serviceCategories.flatMap((category) => category.items)
   ];
 
   useEffect(() => {
@@ -129,7 +194,7 @@ export default function SpatialNavbar() {
   const handleMouseLeaveServices = () => {
     dropdownTimeoutRef.current = setTimeout(() => {
       setServicesDropdownOpen(false);
-    }, 150);
+    }, 180);
   };
 
   const navLinks = [
@@ -190,7 +255,7 @@ export default function SpatialNavbar() {
   const isServicesActive = () => {
     return (
       location.pathname === '/services' ||
-      servicesList.some((s) => location.pathname === s.path || location.pathname.startsWith(s.path + '/'))
+      allServices.some((s) => location.pathname === s.path || location.pathname.startsWith(s.path + '/'))
     );
   };
 
@@ -206,11 +271,11 @@ export default function SpatialNavbar() {
           : 'bg-transparent border-b border-transparent shadow-none'
       }`}
       style={{
-        backdropFilter: scrolled ? 'blur(var(--glass-blur, 28px))' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(var(--glass-blur, 28px))' : 'none'
+        backdropFilter: scrolled ? 'blur(var(--glass-blur, 12px))' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(var(--glass-blur, 12px))' : 'none'
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 h-16 sm:h-[68px] flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-[68px] flex items-center justify-between">
         
         {/* Brand Logo */}
         <Link to="/" className="flex items-center gap-2.5 shrink-0 group">
@@ -241,7 +306,7 @@ export default function SpatialNavbar() {
             )}
           </Link>
 
-          {/* Services Dropdown Trigger */}
+          {/* Mega Services Trigger */}
           <div
             className="relative py-2"
             onMouseEnter={handleMouseEnterServices}
@@ -250,7 +315,7 @@ export default function SpatialNavbar() {
             <div className="flex items-center gap-1 cursor-pointer">
               <Link
                 to="/services"
-                className={`text-xs sm:text-sm font-medium tracking-tight transition-all relative py-1.5 flex items-center gap-1 ${
+                className={`text-xs sm:text-sm font-medium tracking-tight transition-all relative py-1.5 flex items-center gap-1.5 ${
                   isServicesActive()
                     ? 'text-theme-primary font-bold'
                     : 'text-theme-muted hover:text-theme-text'
@@ -271,93 +336,327 @@ export default function SpatialNavbar() {
               </Link>
             </div>
 
-            {/* Desktop Mega Dropdown Menu */}
+            {/* Desktop Full Mega Dropdown Menu - Viewport-centered & theme-glass reactive */}
             <AnimatePresence>
               {servicesDropdownOpen && (
                 <motion.div
-                  initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                  initial={{ opacity: 0, y: 12, scale: 0.985 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                  exit={{ opacity: 0, y: 8, scale: 0.985 }}
                   transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute top-full -left-20 lg:-left-28 xl:left-1/2 xl:-translate-x-1/2 w-[92vw] max-w-[680px] lg:max-w-[700px] xl:max-w-[720px] pt-2 z-50 pointer-events-auto"
+                  onMouseEnter={handleMouseEnterServices}
+                  onMouseLeave={handleMouseLeaveServices}
+                  className="fixed top-16 sm:top-[66px] left-1/2 -translate-x-1/2 w-[95vw] max-w-[1140px] xl:max-w-[1200px] pt-2 z-50 pointer-events-auto"
                 >
                   <WebliixCard
                     variant="panel"
-                    className="p-5 space-y-4 border border-theme-primary/50 shadow-spatial-xl overflow-hidden bg-theme-card/90"
+                    tilt={false}
+                    hoverable={false}
+                    className="p-5 sm:p-6 space-y-4 sm:space-y-5 border border-theme-primary/40 shadow-[0_24px_70px_rgba(0,0,0,0.35)] overflow-hidden glass-spatial max-h-[calc(100vh-84px)] overflow-y-auto transition-[background-color,border-color,backdrop-filter,border-radius] duration-300"
                     style={{
-                      backdropFilter: `blur(var(--glass-blur, ${glassBlur || '24px'}))`,
-                      WebkitBackdropFilter: `blur(var(--glass-blur, ${glassBlur || '24px'}))`
+                      backdropFilter: 'blur(var(--glass-blur, 12px))',
+                      WebkitBackdropFilter: 'blur(var(--glass-blur, 12px))'
                     }}
                   >
-                    {/* Header bar of dropdown */}
-                    <div className="flex items-center justify-between pb-3 border-b border-theme-border/60">
-                      <div className="flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                        <span className="text-xs font-mono font-bold uppercase tracking-wider text-theme-primary">
-                          Webliix Digital Solutions
+                    {/* Header bar */}
+                    <div className="flex items-center justify-between pb-3.5 border-b border-theme-border/60">
+                      <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                          <span className="text-xs font-mono font-bold uppercase tracking-wider text-theme-primary">
+                            Webliix Engineering & Growth Ecosystem
+                          </span>
+                        </div>
+                        <span className="hidden sm:inline-block text-[11px] font-mono text-theme-muted/80 border-l border-theme-border/60 pl-3">
+                          11+ Dedicated Solutions for Ambitious Businesses
                         </span>
                       </div>
-                      <Link
-                        to="/services"
-                        className="text-xs font-mono font-semibold text-theme-muted hover:text-theme-primary transition flex items-center gap-1 group px-2 py-1 theme-rounded-btn hover:bg-theme-primary/10"
-                      >
-                        <span>View All Services</span>
-                        <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                      </Link>
-                    </div>
 
-                    {/* 2-Column Grid of Services */}
-                    <div className="grid grid-cols-2 gap-2.5">
-                      {servicesList.map((service) => {
-                        const Icon = service.icon;
-                        const isCurrent = location.pathname === service.path;
-                        return (
-                          <Link
-                            key={service.path}
-                            to={service.path}
-                            className={`p-3 theme-rounded-card border transition-all duration-200 group flex items-start gap-3 ${
-                              isCurrent
-                                ? 'bg-theme-primary/15 border-theme-primary/60 shadow-sm'
-                                : 'glass-spatial border-theme-border/50 hover:border-theme-primary/60 hover:bg-theme-primary/5'
-                            }`}
-                            style={{
-                              backdropFilter: `blur(var(--glass-blur, ${glassBlur || '20px'}))`,
-                              WebkitBackdropFilter: `blur(var(--glass-blur, ${glassBlur || '20px'}))`
-                            }}
-                          >
-                            <div className="p-2 theme-rounded-btn bg-theme-primary/10 text-theme-primary border border-theme-primary/20 group-hover:scale-105 group-hover:bg-theme-primary group-hover:text-white transition-all shrink-0">
-                              <Icon className="w-4 h-4" />
-                            </div>
-
-                            <div className="space-y-0.5 flex-1 min-w-0">
-                              <div className="flex items-center justify-between gap-1.5">
-                                <h4 className="text-xs font-display font-bold text-theme-text group-hover:text-theme-primary transition-colors truncate">
-                                  {service.name}
-                                </h4>
-                                <span className="text-[9px] font-mono font-bold px-1.5 py-0.5 theme-rounded-btn bg-theme-primary/10 text-theme-primary border border-theme-primary/20 shrink-0">
-                                  {service.tag}
-                                </span>
-                              </div>
-                              <p className="text-[11px] text-theme-muted line-clamp-1 leading-snug">
-                                {service.desc}
-                              </p>
-                            </div>
-                          </Link>
-                        );
-                      })}
-                    </div>
-
-                    {/* Bottom Promo Strip */}
-                    <div className="pt-3 border-t border-theme-border/60 flex items-center justify-between text-xs font-mono bg-theme-primary/5 -mx-5 -mb-5 px-5 py-3 rounded-b-[inherit]">
-                      <div className="flex items-center gap-2 text-theme-muted text-[11px]">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                        <span>5–7 Day Turnkey Delivery • 100% Code Ownership</span>
+                      <div className="flex items-center gap-3">
+                        <Link
+                          to="/services"
+                          className="text-xs font-mono font-semibold text-theme-muted hover:text-theme-primary transition flex items-center gap-1.5 group px-2.5 py-1 theme-rounded-btn hover:bg-theme-primary/10 hover:shadow-[0_2px_10px_var(--color-glow)]"
+                        >
+                          <span>Explore All Services</span>
+                          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-theme-primary" />
+                        </Link>
                       </div>
+                    </div>
+
+                    {/* Main Mega Grid: 3 Service Columns + 1 LaunchKit Spotlight Rail */}
+                    <div className="grid grid-cols-12 gap-5">
+                      
+                      {/* Left: 3 Categorized Service Columns (9 cols) */}
+                      <div className="col-span-12 lg:col-span-9 grid grid-cols-1 md:grid-cols-3 gap-4">
+                        
+                        {/* Column 1: Web & App Engineering */}
+                        <div className="space-y-2.5">
+                          <div className="flex items-center justify-between px-1">
+                            <span className="text-xs font-mono font-bold text-theme-text uppercase tracking-wider flex items-center gap-1.5">
+                              <Layout className="w-3.5 h-3.5 text-theme-primary" />
+                              <span>Engineering</span>
+                            </span>
+                            <span className="text-[10px] font-mono text-theme-muted px-1.5 py-0.5 theme-rounded-btn bg-theme-bg/60 border border-theme-border/40">
+                              Full-Stack
+                            </span>
+                          </div>
+
+                          <div className="space-y-2">
+                            {serviceCategories[0].items.map((service) => {
+                              const Icon = service.icon;
+                              const isCurrent = location.pathname === service.path;
+                              return (
+                                <Link
+                                  key={service.path}
+                                  to={service.path}
+                                  className={`p-2.5 theme-rounded-card border transition-all duration-300 group flex items-start gap-2.5 ${
+                                    isCurrent
+                                      ? 'bg-theme-primary/20 border-theme-primary text-theme-primary shadow-[0_4px_16px_var(--color-glow)]'
+                                      : 'border-theme-border/50 bg-theme-bg/30 hover:bg-theme-primary/10 hover:border-theme-primary hover:shadow-[0_4px_16px_var(--color-glow)]'
+                                  }`}
+                                  style={{
+                                    backdropFilter: 'blur(var(--glass-blur, 12px))',
+                                    WebkitBackdropFilter: 'blur(var(--glass-blur, 12px))'
+                                  }}
+                                >
+                                  <div className="p-1.5 theme-rounded-btn bg-theme-primary/10 text-theme-primary border border-theme-primary/20 group-hover:scale-110 group-hover:bg-theme-primary group-hover:text-white transition-all duration-300 shrink-0 mt-0.5 shadow-sm">
+                                    <Icon className="w-3.5 h-3.5" />
+                                  </div>
+                                  <div className="space-y-0.5 flex-1 min-w-0">
+                                    <div className="flex items-center justify-between gap-1">
+                                      <h4 className="text-xs font-display font-bold text-theme-text group-hover:text-theme-primary transition-colors truncate">
+                                        {service.name}
+                                      </h4>
+                                    </div>
+                                    <p className="text-[11px] text-theme-muted line-clamp-1 leading-snug">
+                                      {service.desc}
+                                    </p>
+                                    <div className="text-[9px] font-mono text-theme-primary font-semibold pt-0.5 truncate">
+                                      {service.meta}
+                                    </div>
+                                  </div>
+                                </Link>
+                              );
+                            })}
+                          </div>
+                        </div>
+
+                        {/* Column 2: Growth & Advertising */}
+                        <div className="space-y-2.5">
+                          <div className="flex items-center justify-between px-1">
+                            <span className="text-xs font-mono font-bold text-theme-text uppercase tracking-wider flex items-center gap-1.5">
+                              <Target className="w-3.5 h-3.5 text-theme-primary" />
+                              <span>Growth & Ads</span>
+                            </span>
+                            <span className="text-[10px] font-mono text-theme-muted px-1.5 py-0.5 theme-rounded-btn bg-theme-bg/60 border border-theme-border/40">
+                              ROI Driven
+                            </span>
+                          </div>
+
+                          <div className="space-y-2">
+                            {serviceCategories[1].items.map((service) => {
+                              const Icon = service.icon;
+                              const isCurrent = location.pathname === service.path;
+                              return (
+                                <Link
+                                  key={service.path}
+                                  to={service.path}
+                                  className={`p-2.5 theme-rounded-card border transition-all duration-300 group flex items-start gap-2.5 ${
+                                    isCurrent
+                                      ? 'bg-theme-primary/20 border-theme-primary text-theme-primary shadow-[0_4px_16px_var(--color-glow)]'
+                                      : 'border-theme-border/50 bg-theme-bg/30 hover:bg-theme-primary/10 hover:border-theme-primary hover:shadow-[0_4px_16px_var(--color-glow)]'
+                                  }`}
+                                  style={{
+                                    backdropFilter: 'blur(var(--glass-blur, 12px))',
+                                    WebkitBackdropFilter: 'blur(var(--glass-blur, 12px))'
+                                  }}
+                                >
+                                  <div className="p-1.5 theme-rounded-btn bg-theme-primary/10 text-theme-primary border border-theme-primary/20 group-hover:scale-110 group-hover:bg-theme-primary group-hover:text-white transition-all duration-300 shrink-0 mt-0.5 shadow-sm">
+                                    <Icon className="w-3.5 h-3.5" />
+                                  </div>
+                                  <div className="space-y-0.5 flex-1 min-w-0">
+                                    <div className="flex items-center justify-between gap-1">
+                                      <h4 className="text-xs font-display font-bold text-theme-text group-hover:text-theme-primary transition-colors truncate">
+                                        {service.name}
+                                      </h4>
+                                    </div>
+                                    <p className="text-[11px] text-theme-muted line-clamp-1 leading-snug">
+                                      {service.desc}
+                                    </p>
+                                    <div className="text-[9px] font-mono text-theme-primary font-semibold pt-0.5 truncate">
+                                      {service.meta}
+                                    </div>
+                                  </div>
+                                </Link>
+                              );
+                            })}
+                          </div>
+                        </div>
+
+                        {/* Column 3: Creative & Care + Interactive Cost Estimator CTA */}
+                        <div className="space-y-2.5">
+                          <div className="flex items-center justify-between px-1">
+                            <span className="text-xs font-mono font-bold text-theme-text uppercase tracking-wider flex items-center gap-1.5">
+                              <Palette className="w-3.5 h-3.5 text-theme-primary" />
+                              <span>Design & Care</span>
+                            </span>
+                            <span className="text-[10px] font-mono text-theme-muted px-1.5 py-0.5 theme-rounded-btn bg-theme-bg/60 border border-theme-border/40">
+                              24/7 Support
+                            </span>
+                          </div>
+
+                          <div className="space-y-2">
+                            {serviceCategories[2].items.map((service) => {
+                              const Icon = service.icon;
+                              const isCurrent = location.pathname === service.path;
+                              return (
+                                <Link
+                                  key={service.path}
+                                  to={service.path}
+                                  className={`p-2.5 theme-rounded-card border transition-all duration-300 group flex items-start gap-2.5 ${
+                                    isCurrent
+                                      ? 'bg-theme-primary/20 border-theme-primary text-theme-primary shadow-[0_4px_16px_var(--color-glow)]'
+                                      : 'border-theme-border/50 bg-theme-bg/30 hover:bg-theme-primary/10 hover:border-theme-primary hover:shadow-[0_4px_16px_var(--color-glow)]'
+                                  }`}
+                                  style={{
+                                    backdropFilter: 'blur(var(--glass-blur, 12px))',
+                                    WebkitBackdropFilter: 'blur(var(--glass-blur, 12px))'
+                                  }}
+                                >
+                                  <div className="p-1.5 theme-rounded-btn bg-theme-primary/10 text-theme-primary border border-theme-primary/20 group-hover:scale-110 group-hover:bg-theme-primary group-hover:text-white transition-all duration-300 shrink-0 mt-0.5 shadow-sm">
+                                    <Icon className="w-3.5 h-3.5" />
+                                  </div>
+                                  <div className="space-y-0.5 flex-1 min-w-0">
+                                    <div className="flex items-center justify-between gap-1">
+                                      <h4 className="text-xs font-display font-bold text-theme-text group-hover:text-theme-primary transition-colors truncate">
+                                        {service.name}
+                                      </h4>
+                                    </div>
+                                    <p className="text-[11px] text-theme-muted line-clamp-1 leading-snug">
+                                      {service.desc}
+                                    </p>
+                                    <div className="text-[9px] font-mono text-theme-primary font-semibold pt-0.5 truncate">
+                                      {service.meta}
+                                    </div>
+                                  </div>
+                                </Link>
+                              );
+                            })}
+
+                            {/* Interactive Instant Estimate Card */}
+                            <Link
+                              to="/services"
+                              className="p-3 theme-rounded-card border border-theme-primary/30 bg-theme-primary/10 hover:bg-theme-primary/20 hover:border-theme-primary hover:shadow-[0_4px_16px_var(--color-glow)] transition-all duration-300 group block space-y-1"
+                              style={{
+                                backdropFilter: 'blur(var(--glass-blur, 12px))',
+                                WebkitBackdropFilter: 'blur(var(--glass-blur, 12px))'
+                              }}
+                            >
+                              <div className="flex items-center gap-2 text-theme-primary font-bold text-xs">
+                                <Calculator className="w-3.5 h-3.5" />
+                                <span>Instant Quote Estimator</span>
+                              </div>
+                              <p className="text-[11px] text-theme-muted leading-tight">
+                                Calculate instant custom project scopes & turnaround timelines.
+                              </p>
+                              <span className="text-[10px] font-mono font-bold text-theme-primary group-hover:underline inline-flex items-center gap-1 pt-1">
+                                Calculate Scope <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                              </span>
+                            </Link>
+                          </div>
+                        </div>
+
+                      </div>
+
+                      {/* Right: Featured Showcase Rail (3 cols) */}
+                      <div className="col-span-12 lg:col-span-3 flex flex-col">
+                        <div
+                          className="p-4 sm:p-4.5 theme-rounded-card border border-theme-primary/40 bg-gradient-to-br from-theme-primary/15 via-theme-bg/60 to-theme-primary/5 relative overflow-hidden flex flex-col justify-between h-full shadow-[0_8px_32px_var(--color-glow)] space-y-3.5 transition-[background-color,border-color,border-radius] duration-300"
+                          style={{
+                            backdropFilter: 'blur(var(--glass-blur, 12px))',
+                            WebkitBackdropFilter: 'blur(var(--glass-blur, 12px))'
+                          }}
+                        >
+                          {/* Ambient glow accent */}
+                          <div className="absolute -top-12 -right-12 w-28 h-28 bg-theme-primary/20 rounded-full blur-2xl pointer-events-none" />
+
+                          <div className="space-y-2.5 relative z-10">
+                            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 theme-rounded-btn bg-theme-primary/20 text-theme-primary border border-theme-primary/40 text-[10px] font-mono font-bold">
+                              <Sparkles className="w-3 h-3" />
+                              <span>FLAGSHIP ALL-IN-ONE</span>
+                            </div>
+
+                            <h3 className="text-sm font-display font-black text-theme-text tracking-tight">
+                              Webliix LaunchKit™
+                            </h3>
+
+                            <p className="text-[11px] text-theme-muted leading-relaxed">
+                              Turnkey digital launch package for new and growing businesses worldwide.
+                            </p>
+
+                            <div className="space-y-1.5 pt-1">
+                              <div className="flex items-center gap-1.5 text-[11px] text-theme-text/90 font-medium">
+                                <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />
+                                <span>Turnkey Logo & Brand Kit</span>
+                              </div>
+                              <div className="flex items-center gap-1.5 text-[11px] text-theme-text/90 font-medium">
+                                <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />
+                                <span>5-Page Fast React Website</span>
+                              </div>
+                              <div className="flex items-center gap-1.5 text-[11px] text-theme-text/90 font-medium">
+                                <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />
+                                <span>Domain, SSL & Work Email</span>
+                              </div>
+                              <div className="flex items-center gap-1.5 text-[11px] text-theme-text/90 font-medium">
+                                <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />
+                                <span>Google Maps & WhatsApp Chat</span>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="pt-2 border-t border-theme-border/60 relative z-10 space-y-2">
+                            <div className="flex items-baseline justify-between">
+                              <span className="text-[10px] font-mono text-theme-muted uppercase">Starting From</span>
+                              <span className="text-xs font-mono font-bold text-theme-primary">₹14,999 / $199</span>
+                            </div>
+
+                            <Link to="/launch-kit" className="block w-full">
+                              <SpatialButton
+                                variant="primary"
+                                className="w-full py-2 text-xs font-bold justify-center shadow-sm"
+                                icon={ArrowRight}
+                              >
+                                Explore LaunchKit
+                              </SpatialButton>
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    {/* Bottom Trust & Guarantee Strip */}
+                    <div className="pt-3 border-t border-theme-border/60 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono bg-theme-primary/5 -mx-5 -mb-5 sm:-mx-6 sm:-mb-6 px-5 py-3 sm:px-6 rounded-b-[inherit]">
+                      <div className="flex flex-wrap items-center gap-4 text-theme-muted text-[11px]">
+                        <div className="flex items-center gap-1.5">
+                          <Clock className="w-3.5 h-3.5 text-theme-primary shrink-0" />
+                          <span>5–7 Days Turnkey Delivery</span>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                          <span>100% Code & Asset Ownership</span>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <Globe2 className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                          <span>Global Delivery Across 12+ Countries</span>
+                        </div>
+                      </div>
+
                       <Link
-                        to="/launch-kit"
-                        className="text-xs font-bold text-theme-primary hover:underline flex items-center gap-1"
+                        to="/contact"
+                        className="text-xs font-bold text-theme-primary hover:underline flex items-center gap-1 self-end sm:self-auto"
                       >
-                        <span>Webliix LaunchKit →</span>
+                        <span>Need Custom Engineering? Talk to Architects →</span>
                       </Link>
                     </div>
                   </WebliixCard>
@@ -457,10 +756,12 @@ export default function SpatialNavbar() {
           >
             <WebliixCard
               variant="spatial"
-              className="p-4 sm:p-5 space-y-4 max-h-[82vh] overflow-y-auto border border-theme-primary/50 shadow-spatial-xl bg-theme-card/90"
+              tilt={false}
+              hoverable={false}
+              className="p-4 sm:p-5 space-y-4 max-h-[82vh] overflow-y-auto border border-theme-primary/40 shadow-spatial-2xl glass-spatial transition-[background-color,border-color,backdrop-filter,border-radius] duration-300"
               style={{
-                backdropFilter: `blur(var(--glass-blur, ${glassBlur || '28px'}))`,
-                WebkitBackdropFilter: `blur(var(--glass-blur, ${glassBlur || '28px'}))`
+                backdropFilter: 'blur(var(--glass-blur, 12px))',
+                WebkitBackdropFilter: 'blur(var(--glass-blur, 12px))'
               }}
             >
               <nav className="flex flex-col space-y-1.5">
@@ -470,25 +771,25 @@ export default function SpatialNavbar() {
                   className={`px-4 py-2.5 theme-rounded-btn text-sm font-semibold transition-all border ${
                     isActive('/')
                       ? 'bg-theme-primary text-white border-theme-primary shadow-sm font-bold'
-                      : 'text-theme-text hover:bg-theme-primary/10 hover:border-theme-primary/40 border-transparent glass-spatial'
+                      : 'text-theme-text hover:bg-theme-primary/10 hover:border-theme-primary/40 border-transparent bg-theme-bg/30'
                   }`}
                 >
                   Home
                 </Link>
 
-                {/* Mobile Services Accordion */}
-                <div className="border border-theme-border/60 theme-rounded-card overflow-hidden">
+                {/* Mobile Services Accordion with Categories */}
+                <div className="border border-theme-border/60 theme-rounded-card overflow-hidden bg-theme-bg/30">
                   <button
                     onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                     className={`w-full px-4 py-2.5 text-sm font-semibold flex items-center justify-between transition-colors ${
                       isServicesActive()
                         ? 'bg-theme-primary/15 text-theme-primary font-bold'
-                        : 'text-theme-text bg-theme-bg/40'
+                        : 'text-theme-text hover:bg-theme-primary/5'
                     }`}
                   >
                     <span className="flex items-center gap-2">
                       <Layers className="w-4 h-4 text-theme-primary" />
-                      <span>Services</span>
+                      <span>Services & Solutions</span>
                     </span>
                     <ChevronDown
                       className={`w-4 h-4 transition-transform duration-300 ${
@@ -498,37 +799,70 @@ export default function SpatialNavbar() {
                   </button>
 
                   {mobileServicesOpen && (
-                    <div className="p-2 space-y-1 bg-theme-bg/80 border-t border-theme-border/40">
+                    <div className="p-3 space-y-3 bg-theme-bg/60 border-t border-theme-border/40">
+                      
+                      {/* Featured LaunchKit banner */}
+                      <Link
+                        to="/launch-kit"
+                        className="p-3 theme-rounded-card border border-theme-primary/50 bg-theme-primary/15 flex items-center justify-between group shadow-sm hover:shadow-[0_4px_16px_var(--color-glow)] transition-all duration-300"
+                      >
+                        <div className="flex items-center gap-2.5">
+                          <div className="p-1.5 theme-rounded-btn bg-theme-primary text-white">
+                            <Sparkles className="w-4 h-4" />
+                          </div>
+                          <div>
+                            <div className="text-xs font-bold text-theme-text group-hover:text-theme-primary">
+                              Webliix LaunchKit™
+                            </div>
+                            <div className="text-[10px] text-theme-muted">
+                              Turnkey 5–7 Day Launch • From ₹14,999
+                            </div>
+                          </div>
+                        </div>
+                        <ArrowRight className="w-3.5 h-3.5 text-theme-primary group-hover:translate-x-1 transition-transform" />
+                      </Link>
+
+                      {/* Categorized List */}
+                      {serviceCategories.map((category) => (
+                        <div key={category.id} className="space-y-1.5 pt-1">
+                          <div className="text-[10px] font-mono uppercase font-bold text-theme-primary tracking-wider px-1">
+                            {category.title}
+                          </div>
+                          <div className="space-y-1">
+                            {category.items.map((srv) => {
+                              const Icon = srv.icon;
+                              const isSrvActive = location.pathname === srv.path;
+                              return (
+                                <Link
+                                  key={srv.path}
+                                  to={srv.path}
+                                  className={`px-3 py-2 theme-rounded-btn text-xs font-medium flex items-center justify-between transition-all duration-200 ${
+                                    isSrvActive
+                                      ? 'bg-theme-primary text-white font-bold shadow-sm'
+                                      : 'text-theme-text hover:bg-theme-primary/10 hover:text-theme-primary bg-theme-bg/40 border border-theme-border/30 hover:border-theme-primary/50'
+                                  }`}
+                                >
+                                  <div className="flex items-center gap-2 min-w-0">
+                                    <Icon className="w-3.5 h-3.5 shrink-0 text-theme-primary" />
+                                    <span className="truncate">{srv.name}</span>
+                                  </div>
+                                  <span className="text-[10px] font-mono opacity-80 shrink-0 ml-2">
+                                    {srv.tag}
+                                  </span>
+                                </Link>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      ))}
+
                       <Link
                         to="/services"
-                        className="px-3 py-2 text-xs font-mono font-bold text-theme-primary hover:bg-theme-primary/10 theme-rounded-btn flex items-center justify-between"
+                        className="px-3 py-2 text-xs font-mono font-bold text-theme-primary hover:bg-theme-primary/10 theme-rounded-btn flex items-center justify-between border border-theme-primary/30 mt-2 hover:shadow-[0_2px_10px_var(--color-glow)] transition-all"
                       >
-                        <span>All Services Overview</span>
-                        <ArrowRight className="w-3 h-3" />
+                        <span>View Full Services Hub</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
-                      {servicesList.map((srv) => {
-                        const Icon = srv.icon;
-                        const isSrvActive = location.pathname === srv.path;
-                        return (
-                          <Link
-                            key={srv.path}
-                            to={srv.path}
-                            className={`px-3 py-2 theme-rounded-btn text-xs font-medium flex items-center justify-between transition ${
-                              isSrvActive
-                                ? 'bg-theme-primary text-white font-bold'
-                                : 'text-theme-text hover:bg-theme-primary/10 hover:text-theme-primary'
-                            }`}
-                          >
-                            <div className="flex items-center gap-2">
-                              <Icon className="w-3.5 h-3.5 shrink-0 text-theme-primary" />
-                              <span className="truncate">{srv.name}</span>
-                            </div>
-                            <span className="text-[10px] font-mono opacity-80 shrink-0">
-                              {srv.tag}
-                            </span>
-                          </Link>
-                        );
-                      })}
                     </div>
                   )}
                 </div>
@@ -541,7 +875,7 @@ export default function SpatialNavbar() {
                     className={`px-4 py-2.5 theme-rounded-btn text-sm font-semibold transition-all border ${
                       isActive(link.path)
                         ? 'bg-theme-primary text-white border-theme-primary shadow-sm font-bold'
-                        : 'text-theme-text hover:bg-theme-primary/10 hover:border-theme-primary/40 border-transparent glass-spatial'
+                        : 'text-theme-text hover:bg-theme-primary/10 hover:border-theme-primary/40 border-transparent bg-theme-bg/30'
                     }`}
                   >
                     {link.name}
@@ -594,3 +928,4 @@ export default function SpatialNavbar() {
     </header>
   );
 }
+

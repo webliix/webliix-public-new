@@ -30,6 +30,9 @@ import WebAppDevelopment from './pages/WebAppDevelopment';
 import MobileAppDevelopment from './pages/MobileAppDevelopment';
 import BrandingDesign from './pages/BrandingDesign';
 import WebsiteMaintenance from './pages/WebsiteMaintenance';
+import PaidAdvertising from './pages/PaidAdvertising';
+import GoogleAds from './pages/GoogleAds';
+import MetaAds from './pages/MetaAds';
 import Careers from './pages/Careers';
 
 import BusinessInformation from './pages/BusinessInformation';
@@ -81,6 +84,18 @@ export default function App() {
                     <Route path="/website-maintenance" element={<WebsiteMaintenance />} />
                     <Route path="/maintenance" element={<WebsiteMaintenance />} />
                     <Route path="/website-support" element={<WebsiteMaintenance />} />
+                    <Route path="/paid-advertising" element={<PaidAdvertising />} />
+                    <Route path="/ads" element={<PaidAdvertising />} />
+                    <Route path="/paid-ads" element={<PaidAdvertising />} />
+                    <Route path="/advertising" element={<PaidAdvertising />} />
+                    <Route path="/ads-management" element={<PaidAdvertising />} />
+                    <Route path="/google-ads" element={<GoogleAds />} />
+                    <Route path="/google-advertising" element={<GoogleAds />} />
+                    <Route path="/google-ppc" element={<GoogleAds />} />
+                    <Route path="/meta-ads" element={<MetaAds />} />
+                    <Route path="/facebook-ads" element={<MetaAds />} />
+                    <Route path="/instagram-ads" element={<MetaAds />} />
+                    <Route path="/social-ads" element={<MetaAds />} />
                     <Route path="/careers" element={<Careers />} />
                     <Route path="/career" element={<Careers />} />
                     <Route path="/partner-program" element={<Careers />} />

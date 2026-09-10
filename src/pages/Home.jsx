@@ -10,7 +10,7 @@ import GlassCard from '../components/spatial/GlassCard';
 import WebliixCard from '../components/ui/WebliixCard';
 import WebliixIcon from '../components/ui/WebliixIcon';
 import WebliixButton from '../components/ui/WebliixButton';
-import InteractiveEcosystemHub from '../components/spatial/InteractiveEcosystemHub';
+import WebliixSpotlight from '../components/WebliixSpotlight';
 import { useModal } from '../context/ModalContext';
 
 
@@ -162,13 +162,14 @@ export default function Home() {
             </Link>
           </motion.div>
 
-          {/* 3D INTERACTIVE ECOSYSTEM HUB */}
+          {/* WEBLIIX SPOTLIGHT (DYNAMIC EDITORIAL HIGHLIGHT) */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            className="w-full"
           >
-            <InteractiveEcosystemHub />
+            <WebliixSpotlight />
           </motion.div>
 
           {/* Trust Badges + Subtle Udyam Compliance Badge */}

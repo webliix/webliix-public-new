@@ -2,4 +2,9 @@
 /portfolio-site       /portfolio    301!
 /portfolio.com        /portfolio    301!
 /portfolio.html       /portfolio    301!
+/paid-ads             /paid-advertising 301!
+/ads                  /paid-advertising 301!
+/google-ppc           /google-ads   301!
+/facebook-ads         /meta-ads     301!
+/instagram-ads        /meta-ads     301!
 /*                    /index.html   200
