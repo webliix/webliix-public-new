@@ -118,6 +118,43 @@ export default function Services() {
     }
   ];
 
+  const handleCategoryClick = (cat) => {
+    setActiveCategory(cat);
+
+    setTimeout(() => {
+      let targetId = null;
+      if (cat === 'Webliix LaunchKit') {
+        targetId = 'launchkit-configurator';
+      } else if (cat === 'Paid Advertising') {
+        targetId = 'service-paid-advertising';
+      } else if (cat === 'Web Development') {
+        targetId = 'service-website-dev';
+      } else if (cat === 'E-Commerce') {
+        targetId = 'service-quick-ecommerce';
+      } else if (cat === 'SEO & Maps') {
+        targetId = 'service-seo-gmb';
+      } else if (cat === 'Branding') {
+        targetId = 'service-branding-design';
+      } else if (cat === 'Maintenance') {
+        targetId = 'service-website-maintenance';
+      } else {
+        targetId = 'services-catalog';
+      }
+
+      const targetElement = document.getElementById(targetId) || document.getElementById('services-catalog');
+      if (targetElement) {
+        const navOffset = 90;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 60);
+  };
+
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-16">
       <Helmet>
@@ -162,7 +199,7 @@ export default function Services() {
         </WebliixCard>
       </div>
 
-      {/* Category Filter Tabs for Quick Clarity */}
+      {/* Category Filter Tabs for Quick Clarity & Direct Scrolling */}
       <div className="flex items-center justify-center flex-wrap gap-2 pt-2">
         {categories.map((cat) => (
           <WebliixButton
@@ -170,7 +207,7 @@ export default function Services() {
             variant="utility"
             size="sm"
             active={activeCategory === cat}
-            onClick={() => setActiveCategory(cat)}
+            onClick={() => handleCategoryClick(cat)}
           >
             {cat}
           </WebliixButton>
@@ -178,7 +215,7 @@ export default function Services() {
       </div>
 
       {/* 🚀 FEATURED LAUNCHKIT INTERACTIVE CONFIGURATOR */}
-      <section className="space-y-8 pt-4">
+      <section id="launchkit-configurator" className="space-y-8 pt-4 scroll-mt-24">
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <span className="px-3.5 py-1 rounded-full bg-emerald-500/15 text-emerald-400 text-xs font-mono font-bold border border-emerald-500/40 inline-flex items-center gap-1.5">
             <Award className="w-4 h-4" /> All-In-One Brand Package
@@ -355,7 +392,7 @@ export default function Services() {
       </section>
 
       {/* FULL SERVICES CATALOG GRID */}
-      <section className="space-y-8 pt-4">
+      <section id="services-catalog" className="space-y-8 pt-4 scroll-mt-24">
         <div className="text-center max-w-xl mx-auto space-y-2">
           <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-bold">Comprehensive Modules</span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-theme-text">Core Service Offerings</h2>
@@ -364,7 +401,7 @@ export default function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredServices.map((service) => (
-            <GlassCard key={service.id} className="p-6 sm:p-8 flex flex-col justify-between space-y-6 border border-theme-border/80 hover:border-theme-primary/60 transition-all duration-300">
+            <GlassCard id={`service-${service.id}`} key={service.id} className="p-6 sm:p-8 flex flex-col justify-between space-y-6 border border-theme-border/80 hover:border-theme-primary/60 transition-all duration-300 scroll-mt-24">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <span className="text-4xl p-2 theme-rounded-card bg-theme-primary/10 border border-theme-primary/20">{service.icon}</span>
@@ -429,7 +466,7 @@ export default function Services() {
       </section>
 
       {/* DETAILED SEO & MARKETING MATRIX */}
-      <section className="space-y-8 pt-4">
+      <section id="seo-modules" className="space-y-8 pt-4 scroll-mt-24">
         <div className="text-center max-w-xl mx-auto space-y-3">
           <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-bold">
             Search Engine Dominance
