@@ -10,6 +10,7 @@ import Breadcrumbs from '../components/ui/Breadcrumbs';
 
 // Project Images (Cloudinary CDN URLs)
 const peoriaImg = 'https://res.cloudinary.com/vhth8clt/image/upload/v1788985054/Peoria-Home-Cleaning-Services-Professional-Residential-Commercial-Cleaners-09-10-2026_01_46_AM.png';
+const ramjiEventsImg = 'https://res.cloudinary.com/vhth8clt/image/upload/v1789332530/Best-Wedding-Planners-Luxury-Caterers-in-Greater-Noida-Ramji-Events-09-14-2026_02_17_AM.png';
 const sunsdustImg = 'https://res.cloudinary.com/vhth8clt/image/upload/v1789080714/sunsdust-website-image.png';
 const auraDrishtiImg = 'https://res.cloudinary.com/vhth8clt/image/upload/v1789080768/Auradrishti.png';
 const kitchen9Img = 'https://res.cloudinary.com/vhth8clt/image/upload/v1789080760/kitchen9village.png';
@@ -45,6 +46,14 @@ export default function Portfolio() {
       image: 'https://res.cloudinary.com/vhth8clt/image/upload/v1788985054/Peoria-Home-Cleaning-Services-Professional-Residential-Commercial-Cleaners-09-10-2026_01_46_AM.png',
       link: 'https://peoria-webliix.netlify.app/',
       metrics: 'Online Booking & Local SEO'
+    },
+    {
+      category: 'Wedding & Event Planning',
+      title: 'Ramji Events & Luxury Caterers',
+      description: 'A premier event and wedding planning website featuring end-to-end luxury event coordination, bespoke catering menus, decor galleries, and direct booking inquiries.',
+      image: ramjiEventsImg,
+      link: 'https://ramji-events.netlify.app/',
+      metrics: 'Wedding & Luxury Catering'
     },
     {
       category: 'Portfolio Website',

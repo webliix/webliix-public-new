@@ -556,6 +556,17 @@ services: [
       liveUrl: 'https://webliix.com/portfolio'
     },
     {
+      id: 'ramji-events',
+      title: 'Ramji Events & Luxury Caterers',
+      category: 'Wedding & Event Planning',
+      tag: 'Event & Catering Portal',
+      metrics: 'Wedding & Luxury Catering',
+      image: 'https://res.cloudinary.com/vhth8clt/image/upload/v1789332530/Best-Wedding-Planners-Luxury-Caterers-in-Greater-Noida-Ramji-Events-09-14-2026_02_17_AM.png',
+      description: 'Wedding and event planning portal engineered for luxury event management, catering coordination, decor portfolio showcase, and instant client inquiries.',
+      deliveredServices: ['Web Development', 'UI/UX Design', 'Lead Capture', 'Branding'],
+      liveUrl: 'https://ramji-events.netlify.app/'
+    },
+    {
       id: 'loanheaven',
       title: 'Loan Heaven Financial Portal',
       category: 'Fintech & Lead System',
