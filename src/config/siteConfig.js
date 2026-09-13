@@ -130,7 +130,7 @@ services: [
       'All-in-one business launch package — branding, website, business email, Google Business Profile, SEO foundations and launch support.',
     fullDesc:
       'Launch your business professionally with a coordinated digital setup covering brand identity, a high-performance responsive website, business email, Google Business Profile support, SEO foundations, analytics and lead-generation essentials.',
-    startingPrice: 'Starting at ₹14,999',
+    startingPrice: 'Starting at ₹9,999',
     features: [
       'Professional Logo & Brand Identity',
       'Business Website Development',

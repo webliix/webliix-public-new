@@ -617,7 +617,7 @@ export default function SpatialNavbar() {
                           <div className="pt-2 border-t border-theme-border/60 relative z-10 space-y-2">
                             <div className="flex items-baseline justify-between">
                               <span className="text-[10px] font-mono text-theme-muted uppercase">Starting From</span>
-                              <span className="text-xs font-mono font-bold text-theme-primary">₹14,999 / $199</span>
+                              <span className="text-xs font-mono font-bold text-theme-primary">₹9,999</span>
                             </div>
 
                             <Link to="/launch-kit" className="block w-full">
@@ -815,7 +815,7 @@ export default function SpatialNavbar() {
                               Webliix LaunchKit™
                             </div>
                             <div className="text-[10px] text-theme-muted">
-                              Turnkey 5–7 Day Launch • From ₹14,999
+                              Turnkey 5–7 Day Launch • From ₹9,999
                             </div>
                           </div>
                         </div>
