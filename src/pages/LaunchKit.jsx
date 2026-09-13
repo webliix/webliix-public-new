@@ -1274,6 +1274,7 @@ export default function LaunchKit() {
             ) : (
               <form
                 name={FORM_NAME}
+                method="POST"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
                 onSubmit={handleSubmit}
