@@ -11,7 +11,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8082',
+        target: 'https://webliix-crm-backend.onrender.com',
         changeOrigin: true,
         secure: false,
       }

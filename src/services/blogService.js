@@ -1,239 +1,203 @@
-// blogService.js
 // ─────────────────────────────────────────────────────────────────────────────
-// Public REST API Client for Webliix Hub Blog Backend
-// Zero-Auth public endpoints with seamless fallback articles if backend is offline.
+// Webliix Public Blog REST API Service
+// ─────────────────────────────────────────────────────────────────────────────
+// Zero-Auth public endpoints for Webliix knowledge hub & blog system.
+// Connects to Spring Boot backend: /api/v1/public/blogs
 // ─────────────────────────────────────────────────────────────────────────────
 
-const isLocal =
-  typeof window !== 'undefined' &&
-  (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
-
-const DEFAULT_BASE = isLocal
-  ? 'http://localhost:8082/api/v1/public/blogs'
-  : 'https://webliix.com/api/v1/public/blogs';
-
-const BLOG_API = import.meta.env.VITE_API_BASE_URL
-  ? `${import.meta.env.VITE_API_BASE_URL}/api/v1/public/blogs`
-  : DEFAULT_BASE;
-
-// ─── Default Fallback Articles (Rendered when backend server is offline) ─────
-export const DEFAULT_ARTICLES = [
-  {
-    id: 1,
-    title: 'Scaling Distributed Enterprise Systems with Cloudinary & Redis',
-    slug: 'scaling-distributed-systems',
-    summary: 'Key architectural insights on building resilient, high-speed distributed web platforms with CDN offloading, Redis multi-tier caching, and asynchronous job queues.',
-    content: `
-      <h2>1. The Challenge of Global Latency & Media Load</h2>
-      <p>Modern web applications face unprecedented demands for rapid response times. When assets and dynamic data are served without an intelligent caching and CDN layer, database bottlenecks quickly degrade user experience and Core Web Vitals.</p>
-      
-      <div class="info-box">
-        <strong>Architectural Rule:</strong> Never serve raw uncompressed media directly from your core application server. Always offload transformation and edge caching to a dedicated media CDN.
-      </div>
-
-      <h2>2. Multi-Tiered Redis Caching Layer</h2>
-      <p>By positioning an in-memory Redis cluster between your REST APIs and primary database, high-frequency read queries achieve sub-5ms response times. Entity serialization and TTL eviction policies prevent stale cache states.</p>
-
-      <pre><code>// Redis Cache Configuration Example
-@Bean
-public RedisCacheManager cacheManager(RedisConnectionFactory factory) {
-    RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig()
-        .entryTtl(Duration.ofMinutes(30))
-        .disableCachingNullValues();
-    return RedisCacheManager.builder(factory).cacheDefaults(config).build();
-}</code></pre>
-
-      <div class="warning-box">
-        <strong>Cache Invalidation Notice:</strong> Always execute flush or eviction triggers upon update operations to prevent first-level persistence cache desynchronization.
-      </div>
-
-      <h2>3. Performance Benchmark Summary</h2>
-      <table class="blog-table">
-        <thead>
-          <tr>
-            <th>Architecture Pattern</th>
-            <th>Avg Response Time</th>
-            <th>Throughput (RPS)</th>
-            <th>DB CPU Load</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Direct Database Query</td>
-            <td>185ms</td>
-            <td>450 RPS</td>
-            <td>82%</td>
-          </tr>
-          <tr>
-            <td>Redis Layer + Edge CDN</td>
-            <td>12ms</td>
-            <td>8,200 RPS</td>
-            <td>9%</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <blockquote class="blog-quote">
-        "Speed is not just a feature; it is the fundamental prerequisite of user retention and conversion on the modern web."
-      </blockquote>
-
-      <h2>4. Key Takeaways</h2>
-      <p>Implementing CDN offloading combined with distributed memory caching reduces cloud infrastructure costs by up to 60% while guaranteeing 99.99% availability during peak global traffic spikes.</p>
-    `,
-    coverImageUrl: 'https://res.cloudinary.com/vhth8clt/image/upload/v1788985054/Peoria-Home-Cleaning-Services-Professional-Residential-Commercial-Cleaners-09-10-2026_01_46_AM.png',
-    coverImageAlt: 'Distributed Architecture System',
-    coverImageCaption: 'Figure 1: High-Performance Architecture Blueprint',
-    authorName: 'Webliix Engineering',
-    category: 'Engineering & Technology',
-    tags: 'Architecture, Cloudinary, Redis, Spring Boot, Performance',
-    status: 'PUBLISHED',
-    isFeatured: true,
-    readingTimeMinutes: 5,
-    viewsCount: 1420,
-    likesCount: 186,
-    commentsCount: 3,
-    publishedAt: '2026-09-01T10:00:00',
-    updatedAt: '2026-09-08T14:30:00',
-    seoTitle: 'Scaling Distributed Enterprise Systems | Webliix Insights',
-    seoDescription: 'Learn how Webliix scales distributed backend systems with Cloudinary CDN media delivery and Redis in-memory caching.',
-    canonicalUrl: 'https://webliix.com/blog/scaling-distributed-systems',
-    ogImageUrl: 'https://res.cloudinary.com/vhth8clt/image/upload/v1788985054/Peoria-Home-Cleaning-Services-Professional-Residential-Commercial-Cleaners-09-10-2026_01_46_AM.png'
-  },
-  {
-    id: 2,
-    title: 'Digital Marketing in 2026: The Complete Strategy for Modern Businesses',
-    slug: 'digital-marketing-small-business-india-2026-complete-guide',
-    summary: 'A step-by-step roadmap covering local SEO, Meta Ads targeting, Google Business Profile optimization, and conversion-focused web design.',
-    content: `
-      <h2>1. The Shift to High-Intent Search & Local Dominance</h2>
-      <p>In 2026, consumer discovery happens across fragmented touchpoints. Businesses that rely exclusively on single-channel social media marketing forfeit over 60% of high-intent purchase conversions.</p>
-
-      <div class="info-box">
-        <strong>Strategic Insight:</strong> A verified and optimized Google Business Profile coupled with local citation schema outperforms generic paid ads for local inbound phone calls.
-      </div>
-
-      <h2>2. Conversion Architecture Blueprint</h2>
-      <p>Every digital campaign must lead to a dedicated, speed-optimized landing page engineered with clear call-to-actions, trust signals, and direct WhatsApp lead flows.</p>
-
-      <blockquote class="blog-quote">
-        "Traffic without conversion optimization is merely an expense. Strategic UI/UX turns passive visitors into measurable business revenue."
-      </blockquote>
-    `,
-    coverImageUrl: 'https://res.cloudinary.com/vhth8clt/image/upload/v1788985054/Peoria-Home-Cleaning-Services-Professional-Residential-Commercial-Cleaners-09-10-2026_01_46_AM.png',
-    coverImageAlt: 'Digital Marketing Strategy 2026',
-    coverImageCaption: 'Figure 2: Multi-Channel Growth Funnel',
-    authorName: 'Abdul Malik',
-    category: 'Marketing & Strategy',
-    tags: 'SEO, Google Business, Marketing, Conversion, Webliix',
-    status: 'PUBLISHED',
-    isFeatured: false,
-    readingTimeMinutes: 7,
-    viewsCount: 980,
-    likesCount: 142,
-    commentsCount: 1,
-    publishedAt: '2026-08-25T11:00:00',
-    updatedAt: '2026-09-02T16:00:00',
-    seoTitle: 'Digital Marketing in 2026 Strategy Guide | Webliix',
-    seoDescription: 'Complete digital marketing and SEO blueprint for small and medium enterprises.',
-    canonicalUrl: 'https://webliix.com/blog/digital-marketing-small-business-india-2026-complete-guide',
-    ogImageUrl: 'https://res.cloudinary.com/vhth8clt/image/upload/v1788985054/Peoria-Home-Cleaning-Services-Professional-Residential-Commercial-Cleaners-09-10-2026_01_46_AM.png'
-  },
-  {
-    id: 3,
-    title: 'Why Every Business Needs a Custom High-Performance Website',
-    slug: 'why-every-small-business-needs-custom-website',
-    summary: 'Social media algorithms change daily. Owning your custom digital domain guarantees 100% control over customer acquisition and brand equity.',
-    content: `
-      <h2>1. The Risk of Building on Rented Platforms</h2>
-      <p>Relying solely on third-party marketplaces or social platforms exposes your brand to sudden algorithmic shifts and account policy restrictions. A bespoke web platform establishes enduring digital ownership.</p>
-
-      <h2>2. Core Web Vitals as a Ranking Signal</h2>
-      <p>Google prioritizes websites that deliver instant interaction and zero visual layout shifts. Custom-engineered React and Vite platforms load in under 800ms, driving higher search positioning.</p>
-    `,
-    coverImageUrl: 'https://res.cloudinary.com/vhth8clt/image/upload/v1788985054/Peoria-Home-Cleaning-Services-Professional-Residential-Commercial-Cleaners-09-10-2026_01_46_AM.png',
-    coverImageAlt: 'Custom Web Engineering',
-    coverImageCaption: 'Figure 3: Clean Performance Architecture',
-    authorName: 'Himanshu Sharma',
-    category: 'Web Development',
-    tags: 'Web Design, Performance, Core Web Vitals, Branding',
-    status: 'PUBLISHED',
-    isFeatured: false,
-    readingTimeMinutes: 4,
-    viewsCount: 1150,
-    likesCount: 165,
-    commentsCount: 2,
-    publishedAt: '2026-08-15T09:30:00',
-    updatedAt: '2026-08-20T12:00:00',
-    seoTitle: 'Why Every Business Needs a Custom Website | Webliix',
-    seoDescription: 'Discover why custom web architecture delivers superior search rankings and conversion rates.',
-    canonicalUrl: 'https://webliix.com/blog/why-every-small-business-needs-custom-website',
-    ogImageUrl: 'https://res.cloudinary.com/vhth8clt/image/upload/v1788985054/Peoria-Home-Cleaning-Services-Professional-Residential-Commercial-Cleaners-09-10-2026_01_46_AM.png'
-  }
-];
+const isBrowser = typeof window !== 'undefined';
+const isLocal = isBrowser && (
+  window.location.hostname === 'localhost' ||
+  window.location.hostname === '127.0.0.1' ||
+  window.location.hostname.endsWith('.localhost') ||
+  window.location.hostname.startsWith('192.168.') ||
+  window.location.hostname.startsWith('10.') ||
+  window.location.hostname === ''
+);
 
 /**
- * Helper to fetch with JSON parsing and error handling.
+ * URL resolver supporting local dev proxy, direct port 8082, and production.
  */
-async function fetchApi(endpoint, options = {}) {
-  const res = await fetch(endpoint, {
-    ...options,
-    headers: {
-      'Accept': 'application/json',
-      ...(options.headers || {})
-    }
-  });
-
-  if (!res.ok) {
-    let errorDetail = `HTTP Error ${res.status}: ${res.statusText}`;
-    try {
-      const errJson = await res.json();
-      if (errJson.message) errorDetail = errJson.message;
-    } catch (_) {}
-    throw new Error(errorDetail);
+export function resolveUrl(path) {
+  if (!path) return '';
+  if (path.startsWith('http://') || path.startsWith('https://')) {
+    return path;
   }
-
-  const json = await res.json();
-  return json.data !== undefined ? json.data : json;
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  if (typeof import.meta !== 'undefined' && import.meta.env?.VITE_API_BASE_URL) {
+    return `${import.meta.env.VITE_API_BASE_URL.replace(/\/$/, '')}${cleanPath}`;
+  }
+  return `https://webliix-crm-backend.onrender.com${cleanPath}`;
 }
 
 /**
- * 1. Fetch published articles (paginated & filterable by category)
- * GET /api/v1/public/blogs?category={cat}&page={p}&size={s}
+ * Standard lightweight HTTP client
  */
-export async function getPublishedBlogs({ category = '', page = 0, size = 10 } = {}) {
+export const http = {
+  async get(url, options = {}) {
+    const fullUrl = resolveUrl(url);
+    const res = await fetch(fullUrl, {
+      ...options,
+      headers: {
+        'Accept': 'application/json',
+        ...(options.headers || {})
+      }
+    });
+    if (!res.ok) {
+      let errMsg = `HTTP Error ${res.status}`;
+      try {
+        const errJson = await res.json();
+        errMsg = errJson.message || errJson.error || errMsg;
+      } catch (_) {}
+      throw new Error(errMsg);
+    }
+    const data = await res.json();
+    return { data, status: res.status };
+  },
+
+  async post(url, body = {}, options = {}) {
+    const fullUrl = resolveUrl(url);
+    const res = await fetch(fullUrl, {
+      method: 'POST',
+      ...options,
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        ...(options.headers || {})
+      },
+      body: JSON.stringify(body)
+    });
+    if (!res.ok) {
+      let errMsg = `HTTP Error ${res.status}`;
+      try {
+        const errJson = await res.json();
+        errMsg = errJson.message || errJson.error || errMsg;
+      } catch (_) {}
+      throw new Error(errMsg);
+    }
+    const data = await res.json();
+    return { data, status: res.status };
+  }
+};
+
+export const BLOG_API_BASE = resolveUrl('/api/v1/public/blogs');
+
+/**
+ * Generic fetch wrapper with JSON unwrapping and error handling.
+ */
+async function apiRequest(endpoint = '', options = {}) {
+  let path = endpoint;
+  if (!path.startsWith('http')) {
+    if (!path) {
+      path = '/api/v1/public/blogs';
+    } else if (path.startsWith('?') || path.startsWith('/')) {
+      path = `/api/v1/public/blogs${path}`;
+    } else {
+      path = `/api/v1/public/blogs/${path}`;
+    }
+  }
+  const res = await http.get(path, options);
+  const json = res.data;
+  if (json && typeof json === 'object' && json.data !== undefined) {
+    return json.data;
+  }
+  return json;
+}
+
+/**
+ * Normalize an article object so strings like category, authorName, and tags are safe primitives.
+ */
+export function normalizeArticle(article) {
+  if (!article || typeof article !== 'object') return article;
+
+  const normalized = { ...article };
+
+  // Category normalization
+  if (normalized.category && typeof normalized.category === 'object') {
+    normalized.category = normalized.category.name || normalized.category.slug || 'General';
+  }
+
+  // Author normalization
+  if (normalized.author && typeof normalized.author === 'object') {
+    normalized.authorName = normalized.author.name || normalized.author.username || normalized.authorName || 'Webliix';
+  } else if (!normalized.authorName && normalized.author) {
+    normalized.authorName = String(normalized.author);
+  }
+
+  // Tags normalization
+  if (Array.isArray(normalized.tags)) {
+    normalized.tags = normalized.tags.map(t => (typeof t === 'object' ? (t.name || t.slug || String(t.id)) : String(t))).filter(Boolean);
+  } else if (typeof normalized.tags === 'string') {
+    normalized.tags = normalized.tags.split(',').map(t => t.trim()).filter(Boolean);
+  } else {
+    normalized.tags = normalized.category ? [normalized.category] : [];
+  }
+
+  // Metrics safe numbers
+  normalized.likesCount = typeof normalized.likesCount === 'number' ? normalized.likesCount : (Number(normalized.likes) || 0);
+  normalized.viewsCount = typeof normalized.viewsCount === 'number' ? normalized.viewsCount : (Number(normalized.views) || 0);
+  normalized.commentsCount = typeof normalized.commentsCount === 'number' ? normalized.commentsCount : (Array.isArray(normalized.comments) ? normalized.comments.length : 0);
+
+  // URL rewrite to ensure all images and inline links point to Render deployed backend
+  if (typeof normalized.featuredImage === 'string') {
+    normalized.featuredImage = normalized.featuredImage.replace(/http:\/\/localhost:(8082|8080|5173)/g, 'https://webliix-crm-backend.onrender.com');
+  }
+  if (typeof normalized.coverImage === 'string') {
+    normalized.coverImage = normalized.coverImage.replace(/http:\/\/localhost:(8082|8080|5173)/g, 'https://webliix-crm-backend.onrender.com');
+  }
+  if (typeof normalized.content === 'string') {
+    normalized.content = normalized.content.replace(/http:\/\/localhost:(8082|8080|5173)/g, 'https://webliix-crm-backend.onrender.com');
+  }
+
+  return normalized;
+}
+
+/**
+ * Normalize threaded comments ensuring replies is always an array.
+ */
+export function normalizeComments(comments) {
+  if (!Array.isArray(comments)) return [];
+  return comments.map(c => ({
+    ...c,
+    id: c.id,
+    authorName: c.authorName || c.name || c.author || 'Anonymous',
+    content: c.content || c.comment || c.text || '',
+    createdAt: c.createdAt || new Date().toISOString(),
+    replies: Array.isArray(c.replies) ? normalizeComments(c.replies) : []
+  }));
+}
+
+/**
+ * 1. Fetch published articles (paginated with optional category & tag filters)
+ * GET /api/v1/public/blogs?category={cat}&tag={tag}&page={page}&size={size}
+ */
+export async function getPublishedBlogs({ category = '', tag = '', page = 0, size = 9 } = {}) {
   try {
     const params = new URLSearchParams();
     if (category && category !== 'All') params.append('category', category);
+    if (tag) params.append('tag', tag);
     params.append('page', page);
     params.append('size', size);
 
-    const data = await fetchApi(`${BLOG_API}?${params.toString()}`);
-    const items = data?.content || (Array.isArray(data) ? data : []);
-    if (items.length > 0) {
+    const data = await apiRequest(`?${params.toString()}`);
+    
+    // Normalize Spring Page or Array response
+    if (data && typeof data === 'object') {
+      const rawItems = Array.isArray(data.content) ? data.content : (Array.isArray(data) ? data : []);
+      const items = rawItems.map(normalizeArticle);
       return {
         content: items,
-        totalPages: data?.totalPages || 1,
-        totalElements: data?.totalElements || items.length,
-        number: data?.pageable?.pageNumber ?? data?.number ?? page,
-        size: data?.pageable?.pageSize ?? data?.size ?? size
+        totalPages: typeof data.totalPages === 'number' ? data.totalPages : (items.length > 0 ? 1 : 0),
+        totalElements: typeof data.totalElements === 'number' ? data.totalElements : items.length,
+        number: typeof data.number === 'number' ? data.number : page,
+        size: typeof data.size === 'number' ? data.size : size
       };
     }
+    return { content: [], totalPages: 0, totalElements: 0, number: page, size };
   } catch (err) {
-    console.warn('Backend unavailable, loading default articles:', err.message);
+    console.error('Failed to fetch published blogs from backend:', err);
+    throw err;
   }
-
-  // Fallback to default articles
-  let filtered = DEFAULT_ARTICLES;
-  if (category && category !== 'All') {
-    filtered = filtered.filter(a => a.category.toLowerCase() === category.toLowerCase());
-  }
-  return {
-    content: filtered,
-    totalPages: 1,
-    totalElements: filtered.length,
-    number: 0,
-    size: size
-  };
 }
 
 /**
@@ -242,13 +206,14 @@ export async function getPublishedBlogs({ category = '', page = 0, size = 10 } =
  */
 export async function getFeaturedBlogs() {
   try {
-    const data = await fetchApi(`${BLOG_API}/featured`);
-    const items = Array.isArray(data) ? data : (data?.content || []);
-    if (items.length > 0) return items;
+    const data = await apiRequest('/featured');
+    if (Array.isArray(data)) return data.map(normalizeArticle);
+    if (data && Array.isArray(data.content)) return data.content.map(normalizeArticle);
+    return [];
   } catch (err) {
-    console.warn('Backend unavailable for featured blogs, using default.');
+    console.warn('Featured blogs request notice:', err.message);
+    return [];
   }
-  return DEFAULT_ARTICLES.filter(a => a.isFeatured);
 }
 
 /**
@@ -256,237 +221,227 @@ export async function getFeaturedBlogs() {
  * GET /api/v1/public/blogs/{slugOrId}
  */
 export async function getBlogBySlug(slugOrId) {
-  if (!slugOrId) throw new Error('Article identifier is required');
+  if (!slugOrId) throw new Error('Article slug or ID is required');
   try {
-    const data = await fetchApi(`${BLOG_API}/${encodeURIComponent(slugOrId)}`);
-    if (data && data.title) return data;
+    const data = await apiRequest(`/${encodeURIComponent(slugOrId)}`);
+    if (data && (data.title || data.id)) {
+      return normalizeArticle(data);
+    }
+    throw new Error('Article not found');
   } catch (err) {
-    console.warn('Backend unavailable for article, searching default collection:', err.message);
+    console.error(`Failed to load article "${slugOrId}":`, err);
+    throw err;
   }
-
-  // Fallback match in DEFAULT_ARTICLES
-  const strId = String(slugOrId).toLowerCase();
-  const found = DEFAULT_ARTICLES.find(
-    a => String(a.id) === strId || a.slug.toLowerCase() === strId
-  );
-  if (found) return found;
-  throw new Error('Article not found');
 }
 
 /**
  * 4. Search articles by keyword
- * GET /api/v1/public/blogs/search?keyword={query}
+ * GET /api/v1/public/blogs/search?keyword={keyword}&page={page}&size={size}
  */
-export async function searchBlogs(keyword) {
+export async function searchBlogs(keyword, { page = 0, size = 9 } = {}) {
   if (!keyword || !keyword.trim()) {
-    return getPublishedBlogs();
+    return getPublishedBlogs({ page, size });
   }
-  const q = keyword.trim().toLowerCase();
+  const q = keyword.trim();
   try {
-    const data = await fetchApi(`${BLOG_API}/search?keyword=${encodeURIComponent(q)}`);
-    const content = Array.isArray(data) ? data : (data?.content || []);
-    if (content.length > 0) {
+    const params = new URLSearchParams({
+      keyword: q,
+      page,
+      size
+    });
+    const data = await apiRequest(`/search?${params.toString()}`);
+    if (data && typeof data === 'object') {
+      const rawItems = Array.isArray(data.content) ? data.content : (Array.isArray(data) ? data : []);
+      const items = rawItems.map(normalizeArticle);
       return {
-        content,
-        totalPages: data?.totalPages || 1,
-        totalElements: data?.totalElements || content.length,
-        number: 0,
-        size: content.length
+        content: items,
+        totalPages: typeof data.totalPages === 'number' ? data.totalPages : (items.length > 0 ? 1 : 0),
+        totalElements: typeof data.totalElements === 'number' ? data.totalElements : items.length,
+        number: typeof data.number === 'number' ? data.number : page,
+        size: typeof data.size === 'number' ? data.size : size
       };
     }
+    return { content: [], totalPages: 0, totalElements: 0, number: page, size };
   } catch (err) {
-    console.warn('Backend search unavailable, searching default articles:', err.message);
+    console.error('Search blogs error:', err);
+    throw err;
   }
-
-  const matches = DEFAULT_ARTICLES.filter(
-    a =>
-      a.title.toLowerCase().includes(q) ||
-      a.summary.toLowerCase().includes(q) ||
-      a.category.toLowerCase().includes(q) ||
-      (a.tags && a.tags.toLowerCase().includes(q))
-  );
-
-  return {
-    content: matches,
-    totalPages: 1,
-    totalElements: matches.length,
-    number: 0,
-    size: matches.length
-  };
 }
 
 /**
- * 5. Fetch all active categories
+ * 5. Fetch all active categories with counts
  * GET /api/v1/public/blogs/categories
  */
 export async function getBlogCategories() {
   try {
-    const data = await fetchApi(`${BLOG_API}/categories`);
-    const items = Array.isArray(data) ? data : (data?.content || []);
-    if (items.length > 0) return items;
+    const data = await apiRequest('/categories');
+    if (Array.isArray(data)) {
+      return data.map((item, idx) => {
+        if (typeof item === 'string') {
+          return { id: item, name: item, slug: item.toLowerCase().replace(/\s+/g, '-'), postCount: null };
+        }
+        return {
+          id: item.id || item.slug || item.name || idx,
+          name: typeof item.name === 'string' ? item.name : (item.category || item.slug || 'General'),
+          slug: typeof item.slug === 'string' ? item.slug : (item.name ? String(item.name).toLowerCase().replace(/\s+/g, '-') : 'general'),
+          postCount: typeof item.postCount === 'number' ? item.postCount : (typeof item.count === 'number' ? item.count : null)
+        };
+      }).filter(c => c.name);
+    }
+    return [];
   } catch (err) {
-    console.warn('Backend categories unavailable, calculating from defaults.');
+    console.warn('Categories fetch notice:', err.message);
+    return [];
   }
-
-  // Calculate distinct categories from DEFAULT_ARTICLES
-  const categoryMap = {};
-  DEFAULT_ARTICLES.forEach(a => {
-    categoryMap[a.category] = (categoryMap[a.category] || 0) + 1;
-  });
-  return Object.keys(categoryMap).map(cat => ({
-    name: cat,
-    slug: cat.toLowerCase().replace(/\s+/g, '-'),
-    postCount: categoryMap[cat]
-  }));
 }
 
 /**
- * 6. Fetch all tags
+ * 6. Fetch all tags (Normalized into Array of Strings)
  * GET /api/v1/public/blogs/tags
  */
 export async function getBlogTags() {
   try {
-    const data = await fetchApi(`${BLOG_API}/tags`);
-    if (Array.isArray(data) && data.length > 0) return data;
-  } catch (_) {}
-  return ['Architecture', 'Cloudinary', 'Redis', 'Spring Boot', 'SEO', 'Performance', 'Web Development'];
-}
-
-/**
- * 7. Get related articles
- * GET /api/v1/public/blogs/{identifier}/related?limit=3
- */
-export async function getRelatedBlogs(identifier, limit = 3) {
-  if (!identifier) return [];
-  try {
-    const data = await fetchApi(`${BLOG_API}/${encodeURIComponent(identifier)}/related?limit=${limit}`);
-    const items = Array.isArray(data) ? data : (data?.content || []);
-    if (items.length > 0) return items;
-  } catch (_) {}
-
-  const strId = String(identifier).toLowerCase();
-  return DEFAULT_ARTICLES.filter(
-    a => String(a.id) !== strId && a.slug.toLowerCase() !== strId
-  ).slice(0, limit);
-}
-
-/**
- * 8. Like an article (Accepts Slug or ID)
- * POST /api/v1/public/blogs/{identifier}/like
- */
-export async function likeBlogPost(identifier) {
-  if (!identifier) return { recorded: false, likesCount: 0 };
-  try {
-    const res = await fetch(`${BLOG_API}/${encodeURIComponent(identifier)}/like`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-    });
-    if (res.ok) {
-      const json = await res.json();
-      return json.data || json;
+    const data = await apiRequest('/tags');
+    if (Array.isArray(data)) {
+      return data.map((item, idx) => {
+        if (typeof item === 'string') return item;
+        if (item && typeof item === 'object') {
+          return item.name || item.tag || item.slug || String(item.id || idx);
+        }
+        return String(item);
+      }).filter(Boolean);
     }
-  } catch (_) {}
-
-  return {
-    postId: identifier,
-    slug: identifier,
-    likesCount: 187,
-    recorded: true,
-    message: 'Blog liked successfully'
-  };
-}
-
-/**
- * 9. Record article view
- * POST /api/v1/public/blogs/{identifier}/view
- */
-export async function recordArticleView(identifier) {
-  if (!identifier) return;
-  try {
-    await fetch(`${BLOG_API}/${encodeURIComponent(identifier)}/view`, {
-      method: 'POST',
-      headers: { 'Accept': 'application/json' }
-    });
-  } catch (_) {
-    // Non-blocking view recording
+    return [];
+  } catch (err) {
+    console.warn('Tags fetch notice:', err.message);
+    return [];
   }
 }
 
 /**
- * 10. Get comments for an article (Accepts Slug or ID)
- * GET /api/v1/public/blogs/{identifier}/comments
+ * 7. Get related articles
+ * GET /api/v1/public/blogs/{identifier}/related?limit={limit}
  */
-export async function getBlogComments(identifier) {
+export async function getRelatedBlogs(identifier, limit = 3) {
   if (!identifier) return [];
   try {
-    const data = await fetchApi(`${BLOG_API}/${encodeURIComponent(identifier)}/comments`);
-    if (Array.isArray(data) && data.length > 0) return data;
-  } catch (_) {}
-
-  return [
-    {
-      id: 101,
-      postId: 1,
-      parentId: null,
-      authorName: 'Alex Rivera',
-      content: 'Great architectural breakdown on CDN offloading and Redis cache management!',
-      status: 'APPROVED',
-      createdAt: '2026-09-05T14:20:00',
-      replies: [
-        {
-          id: 102,
-          postId: 1,
-          parentId: 101,
-          authorName: 'Webliix Engineering',
-          content: 'Thank you Alex! Multi-tier caching ensures optimal server load distribution during high traffic surges.',
-          status: 'APPROVED',
-          createdAt: '2026-09-05T15:00:00'
-        }
-      ]
-    }
-  ];
+    const data = await apiRequest(`/${encodeURIComponent(identifier)}/related?limit=${limit}`);
+    if (Array.isArray(data)) return data.map(normalizeArticle);
+    if (data && Array.isArray(data.content)) return data.content.map(normalizeArticle);
+    return [];
+  } catch (err) {
+    console.warn('Related blogs fetch notice:', err.message);
+    return [];
+  }
 }
 
 /**
- * 11. Post a new comment or reply
- * POST /api/v1/public/blogs/{identifier}/comments
+ * 8. Like an article (supports ID or Slug)
+ * POST /api/v1/public/blogs/{id}/like
  */
-export async function postBlogComment(identifier, { parentId = null, authorName, authorEmail, content }) {
-  if (!identifier) throw new Error('Identifier is required');
+export async function likeBlogPost(id) {
+  if (!id) return { success: false, likesCount: null };
   try {
-    const res = await fetch(`${BLOG_API}/${encodeURIComponent(identifier)}/comments`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        parentId,
-        authorName,
-        authorEmail,
-        content
-      })
-    });
-    if (res.ok) {
-      const json = await res.json();
-      return json.data || json;
-    }
-  } catch (_) {}
-
-  // Fallback returned comment object for seamless UX when backend is offline
-  return {
-    id: Date.now(),
-    postId: identifier,
-    parentId,
-    authorName,
-    content,
-    status: 'APPROVED',
-    createdAt: new Date().toISOString(),
-    replies: []
-  };
+    const res = await http.post(`/api/v1/public/blogs/${encodeURIComponent(id)}/like`);
+    const data = res.data?.data || res.data;
+    const count = typeof data?.likesCount === 'number'
+      ? data.likesCount
+      : (typeof res.data?.likesCount === 'number' ? res.data.likesCount : null);
+    return {
+      success: true,
+      likesCount: count,
+      data
+    };
+  } catch (err) {
+    console.error(`Like article ${id} failed:`, err);
+    return { success: false, likesCount: null };
+  }
 }
 
+/**
+ * 9. Record article view
+ * POST /api/v1/public/blogs/{id}/view
+ */
+export async function recordArticleView(id) {
+  if (!id) return;
+  try {
+    await http.post(`/api/v1/public/blogs/${encodeURIComponent(id)}/view`);
+  } catch (_) {
+    // Non-blocking telemetry
+  }
+}
 
+/**
+ * 10. Fetch approved threaded comments
+ * GET /api/v1/public/blogs/{id}/comments
+ */
+export async function getBlogComments(id) {
+  if (!id) return [];
+  try {
+    const res = await http.get(`/api/v1/public/blogs/${encodeURIComponent(id)}/comments`);
+    const data = res.data?.data !== undefined ? res.data.data : res.data;
+    if (Array.isArray(data)) return normalizeComments(data);
+    if (data && Array.isArray(data.content)) return normalizeComments(data.content);
+  } catch (err) {
+    console.warn(`Comments fetch for ${id} notice:`, err.message);
+  }
+  return [];
+}
+
+/**
+ * 11. Post a new comment or threaded reply
+ * Matches standard approach:
+ * async addComment(id: number, comment: CreateBlogCommentRequest): Promise<BlogComment> {
+ *   const res = await http.post(`/api/v1/public/blogs/${id}/comments`, comment);
+ *   return res.data?.data;
+ * }
+ */
+export async function addComment(id, comment) {
+  if (!id) throw new Error('Blog post ID is required');
+  try {
+    const payload = {
+      authorName: (comment.authorName || comment.name || '').trim(),
+      authorEmail: comment.authorEmail ? comment.authorEmail.trim() : null,
+      content: (comment.content || comment.comment || comment.text || '').trim(),
+      parentId: comment.parentId ? Number(comment.parentId) || comment.parentId : null
+    };
+
+    const res = await http.post(`/api/v1/public/blogs/${encodeURIComponent(id)}/comments`, payload);
+    const commentData = res.data?.data || res.data;
+    return {
+      id: commentData?.id || Date.now(),
+      postId: commentData?.postId || Number(id),
+      parentId: commentData?.parentId || payload.parentId,
+      authorName: commentData?.authorName || payload.authorName,
+      authorEmail: commentData?.authorEmail || payload.authorEmail,
+      content: commentData?.content || payload.content,
+      status: commentData?.status || 'APPROVED',
+      createdAt: commentData?.createdAt || new Date().toISOString(),
+      replies: Array.isArray(commentData?.replies) ? commentData.replies : []
+    };
+  } catch (err) {
+    console.error('Add comment error:', err);
+    throw err;
+  }
+}
+
+// Alias for compatibility
+export const postBlogComment = addComment;
+
+// ─── Attach Global Helper for Interoperability ──────────────────────────────
+if (typeof window !== 'undefined') {
+  window.WebliixBlog = {
+    apiBase: BLOG_API_BASE,
+    http,
+    addComment,
+    likeArticle: likeBlogPost,
+    submitComment: addComment,
+    fetchComments: getBlogComments,
+    getPublishedBlogs,
+    getFeaturedBlogs,
+    getBlogBySlug,
+    searchBlogs,
+    getBlogCategories,
+    getBlogTags
+  };
+}

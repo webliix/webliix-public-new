@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useRef } from 'react';
 
-const AudioContextState = createContext();
+const AudioContextState = createContext(null);
 
 export const AudioProvider = ({ children }) => {
   const [soundEnabled, setSoundEnabled] = useState(() => {
@@ -83,12 +83,59 @@ export const AudioProvider = ({ children }) => {
     }
   };
 
+  // Generic playSound dispatcher supporting hover, click, success, and error tones
+  const playSound = (type = 'click') => {
+    if (!soundEnabled) return;
+    try {
+      if (type === 'hover') {
+        playHoverSound();
+      } else if (type === 'click') {
+        playClickSound();
+      } else if (type === 'success') {
+        initAudio();
+        const ctx = audioCtxRef.current;
+        if (!ctx) return;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(523.25, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(659.25, ctx.currentTime + 0.15);
+        gain.gain.setValueAtTime(0.05, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.15);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.15);
+      } else if (type === 'error') {
+        initAudio();
+        const ctx = audioCtxRef.current;
+        if (!ctx) return;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(300, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(150, ctx.currentTime + 0.18);
+        gain.gain.setValueAtTime(0.04, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.18);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.18);
+      } else {
+        playClickSound();
+      }
+    } catch {
+      // Ignore audio policy errors
+    }
+  };
+
   return (
     <AudioContextState.Provider value={{
       soundEnabled,
       toggleSound,
       playHoverSound,
-      playClickSound
+      playClickSound,
+      playSound
     }}>
       {children}
     </AudioContextState.Provider>
@@ -98,7 +145,14 @@ export const AudioProvider = ({ children }) => {
 export const useAudio = () => {
   const context = useContext(AudioContextState);
   if (!context) {
-    throw new Error('useAudio must be used within an AudioProvider');
+    const noop = () => {};
+    return {
+      soundEnabled: false,
+      toggleSound: noop,
+      playHoverSound: noop,
+      playClickSound: noop,
+      playSound: noop
+    };
   }
   return context;
 };

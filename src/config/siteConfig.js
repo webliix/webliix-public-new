@@ -612,38 +612,7 @@ services: [
     }
   ],
 
-  blogs: [
-    {
-      id: 'free-meta-tag-generator-for-seo-2026',
-      title: 'MetaGen: Free Meta Tag Generator (Review & Tutorial)',
-      category: 'SEO Tools',
-      date: 'April 18, 2026',
-      readTime: '8 min read',
-      excerpt: 'Missing meta tags keep 70% of websites invisible. Learn how MetaGen generates 60+ SEO-optimized tags, OpenGraph, and JSON-LD schema in seconds.',
-      author: 'Himanshu Sharma',
-      content: `Meta tags are the invisible blueprint of search engine optimization. In 2026, search algorithms require explicit Open Graph tags, Twitter Card metadata, and JSON-LD structured data to index content accurately.`
-    },
-    {
-      id: 'digital-marketing-small-business-india-2026-complete-guide',
-      title: 'Digital Marketing in 2026: Complete Strategy for Small Businesses',
-      category: 'Marketing',
-      date: 'March 28, 2026',
-      readTime: '12 min read',
-      excerpt: 'A step-by-step roadmap covering local SEO, Meta Ads targeting, Google Business profile optimization, and conversion-focused web design.',
-      author: 'Abdul Malik',
-      content: `Modern digital marketing requires a multi-touchpoint strategy. A standalone social media account without a high-converting website leaves 60% of potential leads behind.`
-    },
-    {
-      id: 'why-every-small-business-in-india-needs-a-website-in-2025',
-      title: 'Why Every Business Needs a Custom Website in 2026',
-      category: 'Web Development',
-      date: 'February 15, 2026',
-      readTime: '6 min read',
-      excerpt: 'Social media algorithms change daily. Owning your custom digital domain guarantees 100% control over customer acquisition and brand equity.',
-      author: 'Himanshu Sharma',
-      content: `Relying solely on social media for client acquisition is like building on rented land. A custom website provides round-the-clock credibility and direct conversions.`
-    }
-  ],
+  blogs: [],
 
   pricingModules: [
     { id: 'design', name: 'UI/UX Design & Branding', price: 4999 },

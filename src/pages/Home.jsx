@@ -2,17 +2,39 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import { ArrowRight, CheckCircle2, ShieldCheck, Zap, Globe, ArrowUpRight, ExternalLink, HelpCircle, ChevronDown, Check, Star, Award, Clock, Code, Target, Sparkles, Layers, Rocket } from 'lucide-react';
+import {
+  ArrowRight,
+  CheckCircle2,
+  ShieldCheck,
+  Zap,
+  Globe,
+  ArrowUpRight,
+  ExternalLink,
+  HelpCircle,
+  ChevronDown,
+  Check,
+  Star,
+  Award,
+  Clock,
+  Code,
+  Target,
+  Sparkles,
+  Layers,
+  Rocket,
+  Search,
+  MapPin,
+  TrendingUp,
+  Cpu,
+  Smartphone
+} from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import { businessConfig } from '../config/businessConfig';
 import SpatialHeroCanvas from '../components/spatial/SpatialHeroCanvas';
-import GlassCard from '../components/spatial/GlassCard';
 import WebliixCard from '../components/ui/WebliixCard';
 import WebliixIcon from '../components/ui/WebliixIcon';
 import WebliixButton from '../components/ui/WebliixButton';
 import WebliixSpotlight from '../components/WebliixSpotlight';
 import { useModal } from '../context/ModalContext';
-
 
 export default function Home() {
   const [activeProcessStep, setActiveProcessStep] = useState(0);
@@ -93,15 +115,236 @@ export default function Home() {
     {
       iconComponent: ShieldCheck,
       title: 'Transparent Pricing & Zero Lock-In',
-      desc: 'Clear upfront pricing starting from ₹15,999 with 100% client code and domain ownership upon completion.'
+      desc: 'Clear upfront pricing starting from ₹9,999 with 100% client code and domain ownership upon completion.'
     }
   ];
 
+  const industryCapabilities = [
+    { name: 'Startups & SMEs', desc: 'Turnkey online foundation with high-conversion landing pages' },
+    { name: 'Local Showrooms & Retail', desc: 'Google Map #1 ranking, WhatsApp catalog & lead generation' },
+    { name: 'Real Estate & Builders', desc: 'High-speed property showcase platforms & virtual tours' },
+    { name: 'Clinics & Healthcare', desc: 'Local appointment booking, doctor profiles & medical SEO' },
+    { name: 'Education & Coaching', desc: 'Course management, student registration & inquiry funnels' },
+    { name: 'Restaurants & Cafes', desc: 'Interactive digital QR menus, Google Maps SEO & table booking' }
+  ];
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // Comprehensive SEO Structured Data JSON-LD Schemas (Google Rich Snippets)
+  // ─────────────────────────────────────────────────────────────────────────
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': 'https://webliix.com/#organization',
+    name: siteConfig.brand.name,
+    alternateName: 'Webliix Digital Agency',
+    url: 'https://webliix.com',
+    logo: 'https://webliix.com/logo.png',
+    description: 'Webliix is a full-service web development, custom software engineering, and Local SEO agency empowering businesses across India and globally.',
+    foundingDate: siteConfig.brand.founded || '2025',
+    founders: [
+      {
+        '@type': 'Person',
+        name: 'Himanshu Sharma',
+        jobTitle: 'Managing Director'
+      },
+      {
+        '@type': 'Person',
+        name: 'Abdul Malik',
+        jobTitle: 'Technical Lead'
+      }
+    ],
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '1st Floor, Hotel Raj Inn, Tetri, Naugachia Road',
+      addressLocality: 'Naugachia',
+      addressRegion: 'Bihar',
+      postalCode: '853204',
+      addressCountry: 'IN'
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: siteConfig.brand.contactPhone,
+      contactType: 'customer service',
+      areaServed: ['IN', 'US', 'CA', 'DE'],
+      availableLanguage: ['English', 'Hindi']
+    },
+    sameAs: [
+      siteConfig.brand.socials.linkedin,
+      siteConfig.brand.socials.instagram,
+      siteConfig.brand.socials.facebook,
+      siteConfig.brand.socials.github
+    ]
+  };
+
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': 'https://webliix.com/#website',
+    url: 'https://webliix.com',
+    name: siteConfig.brand.name,
+    description: 'Leading Web Development, Local SEO & Custom Software Engineering Agency in India',
+    publisher: {
+      '@id': 'https://webliix.com/#organization'
+    },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: 'https://webliix.com/blog?keyword={search_term_string}',
+      'query-input': 'required name=search_term_string'
+    }
+  };
+
+  const professionalServiceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    '@id': 'https://webliix.com/#localservice',
+    name: 'Webliix - Web Development & Local SEO Company',
+    image: 'https://webliix.com/logo.png',
+    url: 'https://webliix.com',
+    telephone: siteConfig.brand.contactPhone,
+    priceRange: '₹9,999 - ₹49,999',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '1st Floor, Hotel Raj Inn, Tetri, Naugachia Road',
+      addressLocality: 'Naugachia',
+      addressRegion: 'Bihar',
+      postalCode: '853204',
+      addressCountry: 'IN'
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: '25.3900',
+      longitude: '87.0989'
+    },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        opens: '09:00',
+        closes: '20:00'
+      }
+    ],
+    areaServed: [
+      { '@type': 'Country', name: 'India' },
+      { '@type': 'City', name: 'Delhi' },
+      { '@type': 'City', name: 'Noida' },
+      { '@type': 'City', name: 'Greater Noida' },
+      { '@type': 'City', name: 'Gurgaon' },
+      { '@type': 'City', name: 'Mumbai' },
+      { '@type': 'City', name: 'Bangalore' },
+      { '@type': 'Country', name: 'United States' },
+      { '@type': 'Country', name: 'Canada' },
+      { '@type': 'Country', name: 'Germany' }
+    ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '128',
+      bestRating: '5',
+      worstRating: '1'
+    },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Webliix Core Digital Services',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Webliix LaunchKit (Turnkey Business Website & Branding)',
+            description: 'Complete 5-7 day business launch package including custom responsive website, logo, Google Business profile, and local SEO foundation.'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Custom Web & Application Development',
+            description: 'Full-stack React, Next.js, and Spring Boot web applications built for speed, scale, and 99/100 Google PageSpeed scores.'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Google Business Profile (GMB) & Local SEO Optimization',
+            description: 'Rank #1 on Google Maps and local search to capture high-intent inbound customer phone calls and store visits.'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Shopify & WooCommerce E-Commerce Development',
+            description: 'High-converting online stores with automated UPI payment gateways, mobile optimization, and inventory management.'
+          }
+        }
+      ]
+    }
+  };
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a
+      }
+    }))
+  };
+
   return (
     <div className="relative min-h-screen pt-28 pb-16">
+      {/* ADVANCED SEO METADATA & SCHEMA.ORG INJECTION */}
       <Helmet>
-        <title>{siteConfig.brand.name} | {siteConfig.brand.tagline}</title>
-        <meta name="description" content={siteConfig.brand.heroSubtext} />
+        <title>Webliix | Best Web Development, Local SEO & Digital Growth Agency in India</title>
+        <meta
+          name="description"
+          content="Webliix is India's leading web development and digital growth agency. We engineer lightning-fast websites, custom web apps, Shopify e-commerce, and rank #1 Local SEO (GMB) for startups & growing brands. Starting from ₹9,999."
+        />
+        <meta
+          name="keywords"
+          content="web development company India, website design Noida, web development company Delhi NCR, local SEO services India, Google Business Profile optimization, Shopify developer India, custom web application, affordable website design for small business, Webliix LaunchKit"
+        />
+        <link rel="canonical" href="https://webliix.com/" />
+        
+        {/* Open Graph / Facebook / LinkedIn */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://webliix.com/" />
+        <meta property="og:title" content="Webliix | Best Web Development & Digital Growth Agency in India" />
+        <meta property="og:description" content="High-speed custom websites, Local SEO, and brand growth systems starting from ₹9,999. Launch in 5-7 days." />
+        <meta property="og:image" content="https://webliix.com/og-image.jpg" />
+        <meta property="og:site_name" content="Webliix" />
+        <meta property="og:locale" content="en_IN" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://webliix.com/" />
+        <meta name="twitter:title" content="Webliix | Best Web Development & Digital Growth Agency in India" />
+        <meta name="twitter:description" content="High-speed custom websites, Local SEO, and brand growth systems starting from ₹9,999. Launch in 5-7 days." />
+        <meta name="twitter:image" content="https://webliix.com/og-image.jpg" />
+
+        {/* Local Business Geo Meta Tags */}
+        <meta name="geo.region" content="IN-UP" />
+        <meta name="geo.placename" content="Greater Noida, Delhi NCR, India" />
+        <meta name="geo.position" content="25.3900;87.0989" />
+        <meta name="ICBM" content="25.3900, 87.0989" />
+
+        {/* Google Structured Data JSON-LD Injections */}
+        <script type="application/ld+json">
+          {JSON.stringify(organizationSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(websiteSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(professionalServiceSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchema)}
+        </script>
       </Helmet>
 
       {/* HERO SECTION WITH 3D CANVAS & INTERACTIVE CAPABILITY HUB */}
@@ -117,10 +360,8 @@ export default function Home() {
             className="inline-flex items-center gap-2 px-4 py-1.5 theme-rounded-badge glass-spatial border border-theme-primary/50 text-xs font-mono text-theme-primary font-bold tracking-wider shadow-sm"
           >
             <span className="w-2 h-2 theme-rounded-badge bg-theme-primary animate-pulse" />
-            <span>{siteConfig.brand.tagline}</span>
+            <span>India&apos;s Leading Web Development &amp; Digital Growth Agency</span>
           </motion.div>
-
-
 
           {/* Main Headline */}
           <motion.h1
@@ -138,9 +379,9 @@ export default function Home() {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="text-theme-muted text-sm sm:text-base max-w-xl mx-auto leading-relaxed"
+            className="text-theme-muted text-sm sm:text-base max-w-2xl mx-auto leading-relaxed"
           >
-            {siteConfig.brand.heroSubtext}
+            We build lightning-fast custom websites, custom web applications, high-converting Shopify stores, and rank #1 Local SEO (GMB) engines tailored for startups, local businesses, and growing brands across NCR India, USA, Canada &amp; Germany.
           </motion.p>
 
           {/* Action CTAs */}
@@ -177,7 +418,7 @@ export default function Home() {
             <div className="flex flex-wrap justify-center gap-6 sm:gap-8 text-[11px] font-mono text-theme-muted uppercase tracking-widest">
               <span className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-theme-primary" /> 5-Day Launch</span>
               <span className="flex items-center gap-1.5"><Globe className="w-3.5 h-3.5 text-theme-primary" /> 4 Continents</span>
-              <span className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-theme-primary" /> Enterprise Grade</span>
+              <span className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-theme-primary" /> 100% Code Ownership</span>
             </div>
 
             {/* Subtle Premium Compliance Link */}
@@ -193,10 +434,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CLIENT LOGOS SHOWCASE TICKER WITH SOLID WHITE BADGES */}
+      {/* CLIENT LOGOS SHOWCASE TICKER */}
       <section className="relative z-10 py-10 border-y border-theme-border/40 bg-theme-bg/40 backdrop-blur-md overflow-hidden">
         <div className="text-center mb-6 text-[11px] font-mono text-theme-muted uppercase tracking-widest font-semibold">
-          Trusted by Businesses &amp; Innovative Brands Worldwide
+          Trusted by 120+ Businesses &amp; High-Growth Brands Worldwide
         </div>
         
         <div className="max-w-6xl mx-auto px-6">
@@ -209,19 +450,14 @@ export default function Home() {
               >
                 <img
                   src={client.logo}
-                  alt={client.name}
+                  alt={`${client.name} - Webliix Client`}
                   className="w-auto h-auto max-h-11 sm:max-h-14 max-w-[85%] object-contain mx-auto group-hover:scale-105 transition-all duration-300"
                 />
               </WebliixCard>
             ))}
-
           </div>
         </div>
-
-
-
       </section>
-
 
       {/* STATS METRICS SECTION */}
       <section className="relative z-10 max-w-6xl mx-auto px-6 py-12">
@@ -249,7 +485,7 @@ export default function Home() {
             Why 120+ Businesses Choose Webliix
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
-            We combine high-speed web engineering with strategic local SEO to deliver real business growth.
+            We combine high-speed web engineering with strategic local SEO to deliver real business growth and top Google rankings.
           </p>
         </div>
 
@@ -270,22 +506,23 @@ export default function Home() {
       <section className="relative z-10 max-w-6xl mx-auto px-6 py-12">
         <div className="text-center max-w-xl mx-auto mb-10 space-y-2">
           <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-semibold">
-            Services & Solutions
+            Services &amp; Solutions
           </span>
           <h2 className="text-2xl sm:text-4xl font-display font-bold text-theme-text">
             High-Performance Digital Solutions
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
-            Engineered for high performance, clean responsive design, and maximum client conversion.
+            Engineered for 99/100 Core Web Vitals, mobile responsiveness, and maximum lead conversion.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {siteConfig.services.map((service) => (
-            <GlassCard
+            <WebliixCard
               key={service.id}
+              variant="featured"
               onClick={() => handleOpenServiceModal(service)}
-              className="p-5 sm:p-6 flex flex-col justify-between space-y-4 group"
+              className="p-5 sm:p-6 flex flex-col justify-between space-y-4 group cursor-pointer hover:border-theme-primary/60 transition-all duration-300"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
@@ -310,23 +547,23 @@ export default function Home() {
                   Details <ArrowRight className="w-3 h-3" />
                 </span>
               </div>
-            </GlassCard>
+            </WebliixCard>
           ))}
         </div>
       </section>
 
       {/* WEBLIIX LAUNCHKIT SHOWCASE BANNER */}
       <section className="relative z-10 max-w-6xl mx-auto px-6 py-6">
-        <WebliixCard variant="featured" className="p-8 sm:p-10 border border-theme-primary/40 flex flex-col md:flex-row items-center justify-between gap-6">
+        <WebliixCard variant="accent" accentColor="primary" className="p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 border border-theme-primary/50 shadow-spatial">
           <div className="space-y-3 max-w-2xl text-center md:text-left">
             <span className="px-3 py-1 rounded-full bg-theme-primary/15 text-theme-primary text-xs font-mono font-bold border border-theme-primary/30 inline-flex items-center gap-1.5">
-              <WebliixIcon icon={Rocket} variant="inline" size="xs" color="primary" /> Turnkey Digital Launch
+              <WebliixIcon icon={Rocket} variant="inline" size="xs" color="primary" /> Turnkey Business Launch Kit
             </span>
             <h3 className="text-2xl sm:text-3xl font-display font-bold text-theme-text">
               Webliix LaunchKit — All-In-One Business Package
             </h3>
             <p className="text-theme-muted text-xs sm:text-sm leading-relaxed">
-              Complete website engineering, brand identity, Google Business setup, and local SEO foundation starting from ₹14,999. Launch your business online in 5–7 days.
+              Complete professional website engineering, brand logo, Google Business Profile setup, WhatsApp integration, and local SEO foundation starting from ₹9,999. Fully live in 5–7 days.
             </p>
           </div>
           <div className="shrink-0">
@@ -339,6 +576,35 @@ export default function Home() {
         </WebliixCard>
       </section>
 
+      {/* INDUSTRY CAPABILITIES & SEO KEYWORD COVERAGE */}
+      <section className="relative z-10 max-w-6xl mx-auto px-6 py-12">
+        <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
+          <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-semibold">
+            Industry Solutions
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-display font-bold text-theme-text">
+            Tailored Web Systems for Every Sector
+          </h2>
+          <p className="text-theme-muted text-xs sm:text-sm">
+            Proven architectures and local search strategies designed for industry-specific conversion flows.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {industryCapabilities.map((ind, idx) => (
+            <WebliixCard key={idx} variant="panel" className="p-5 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-theme-primary" />
+                <h3 className="text-sm font-display font-bold text-theme-text">{ind.name}</h3>
+              </div>
+              <p className="text-xs text-theme-muted leading-relaxed pl-4">
+                {ind.desc}
+              </p>
+            </WebliixCard>
+          ))}
+        </div>
+      </section>
+
       {/* INTERACTIVE 4-STEP BLUEPRINT WORKFLOW */}
       <section className="relative z-10 max-w-6xl mx-auto px-6 py-12">
         <div className="text-center max-w-xl mx-auto mb-10 space-y-2">
@@ -349,11 +615,11 @@ export default function Home() {
             Our 4-Step Launch Blueprint
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
-            Click each step below to inspect how we take your project from strategy to launch.
+            Click each step below to inspect how we take your project from discovery to deployment.
           </p>
         </div>
 
-        <GlassCard className="p-6 sm:p-8 border border-theme-border space-y-6">
+        <WebliixCard variant="panel" className="p-6 sm:p-8 border border-theme-border space-y-6">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 border-b border-theme-border/60 pb-4">
             {siteConfig.about.process.map((proc, index) => {
               const isActive = activeProcessStep === index;
@@ -394,7 +660,7 @@ export default function Home() {
               </p>
             </motion.div>
           </AnimatePresence>
-        </GlassCard>
+        </WebliixCard>
       </section>
 
       {/* FEATURED CLIENT PROJECTS */}
@@ -424,20 +690,18 @@ export default function Home() {
               rel="noopener noreferrer"
               className="block group h-full"
             >
-              <GlassCard className="p-4 space-y-3 h-full flex flex-col justify-between border border-theme-border/80 hover:border-theme-primary/60 transition-all duration-300 hover:shadow-spatial">
+              <WebliixCard variant="featured" className="p-4 space-y-3 h-full flex flex-col justify-between border border-theme-border/80 hover:border-theme-primary/60 transition-all duration-300 hover:shadow-spatial">
                 <div className="space-y-3">
                   <div className="theme-rounded-card overflow-hidden border border-theme-border/60 bg-white p-2 shadow-sm flex items-center justify-center">
                     <div className="aspect-[16/9] sm:aspect-video w-full flex items-center justify-center relative">
                       <img
                         src={item.image}
-                        alt={item.title}
+                        alt={`${item.title} - Website Project by Webliix`}
                         className="h-32 sm:h-36 max-h-[96%] max-w-[96%] object-contain mx-auto group-hover:scale-105 transition-transform duration-300"
                         loading="lazy"
                       />
                     </div>
                   </div>
-
-
 
                   <div className="space-y-1.5">
                     <div className="flex items-center justify-between gap-2">
@@ -469,13 +733,11 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
-              </GlassCard>
+              </WebliixCard>
             </a>
           ))}
         </div>
       </section>
-
-
 
       {/* INTERACTIVE FAQ ACCORDION SECTION */}
       <section className="relative z-10 max-w-4xl mx-auto px-6 py-12 space-y-8">
@@ -492,7 +754,7 @@ export default function Home() {
           {faqs.map((faq, idx) => {
             const isOpen = expandedFaq === idx;
             return (
-              <GlassCard key={idx} className="p-5 border border-theme-border">
+              <WebliixCard key={idx} variant="panel" className="p-5 border border-theme-border">
                 <button
                   onClick={() => setExpandedFaq(isOpen ? null : idx)}
                   className="w-full flex items-center justify-between text-left gap-4"
@@ -513,7 +775,7 @@ export default function Home() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </GlassCard>
+              </WebliixCard>
             );
           })}
         </div>
@@ -521,12 +783,12 @@ export default function Home() {
 
       {/* FINAL CTA BANNER */}
       <section className="relative z-10 max-w-6xl mx-auto px-6 py-12">
-        <WebliixCard variant="accent" accentColor="primary" className="p-8 sm:p-12 text-center space-y-5">
+        <WebliixCard variant="accent" accentColor="primary" className="p-8 sm:p-12 text-center space-y-5 border border-theme-primary/50 shadow-spatial-lg">
           <h2 className="text-2xl sm:text-5xl font-display font-bold text-theme-text max-w-2xl mx-auto leading-tight">
             Transform Your Vision into <span className="text-shimmer">Digital Reality</span>
           </h2>
           <p className="text-theme-muted text-sm max-w-md mx-auto">
-            Book a free consultation with Webliix digital specialists today. Packages starting from ₹15,999.
+            Book a free consultation with Webliix digital architects today. Turnkey business packages starting from ₹9,999.
           </p>
           <div className="pt-2 flex justify-center">
             <Link to="/contact">
