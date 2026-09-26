@@ -14,7 +14,19 @@ const ThemeContext = createContext();
 
 export { fontPresets, cornerStylePresets, blurPresets };
 
+const detectDeviceOS = () => {
+  if (typeof navigator === 'undefined') return 'desktop';
+  const ua = navigator.userAgent || navigator.vendor || (typeof window !== 'undefined' && window.opera ? window.opera.toString() : '');
+  const isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const isAndroid = /Android/i.test(ua);
+  if (isIOS) return 'ios';
+  if (isAndroid) return 'android';
+  return 'desktop';
+};
+
 export const ThemeProvider = ({ children }) => {
+  const [deviceOS] = useState(() => detectDeviceOS());
+
   const [currentTheme, setCurrentTheme] = useState(() => {
     try {
       const saved = localStorage.getItem('spatial_theme_id');
@@ -54,10 +66,17 @@ export const ThemeProvider = ({ children }) => {
   const [cornerStyle, setCornerStyle] = useState(() => {
     try {
       const saved = localStorage.getItem('spatial_corner_style');
-      return saved === 'rounded' ? 'rounded' : (defaultCornerStyle || 'edgy');
-    } catch {
-      return defaultCornerStyle || 'edgy';
-    }
+      if (saved === 'rounded' || saved === 'edgy') return saved;
+    } catch {}
+    
+    // Auto-detect Mobile Device OS:
+    // iPhones (iOS) -> rounded
+    // Android -> rectangular (edgy)
+    const os = detectDeviceOS();
+    if (os === 'ios') return 'rounded';
+    if (os === 'android') return 'edgy';
+
+    return defaultCornerStyle || 'edgy';
   });
 
   const [canvasParticles, setCanvasParticles] = useState(() => {
@@ -66,6 +85,14 @@ export const ThemeProvider = ({ children }) => {
     } catch {
       return true;
     }
+  });
+
+  const [desktopTilt, setDesktopTilt] = useState(() => {
+    try {
+      const saved = localStorage.getItem('spatial_desktop_tilt');
+      if (saved !== null) return saved !== 'false';
+    } catch {}
+    return true;
   });
 
   useEffect(() => {
@@ -105,18 +132,20 @@ export const ThemeProvider = ({ children }) => {
     }
 
     root.setAttribute('data-corner-style', activeCorner);
+    root.setAttribute('data-device-os', deviceOS);
 
     try {
       localStorage.setItem('spatial_corner_style', activeCorner);
       localStorage.setItem('spatial_glass_blur', activeBlur);
       localStorage.setItem('spatial_canvas_particles', String(canvasParticles));
+      localStorage.setItem('spatial_desktop_tilt', String(desktopTilt));
       if (customPrimary) {
         localStorage.setItem('spatial_custom_primary', customPrimary);
       } else {
         localStorage.removeItem('spatial_custom_primary');
       }
     } catch {}
-  }, [currentTheme, customPrimary, glassBlur, currentFont, cornerStyle, canvasParticles]);
+  }, [currentTheme, customPrimary, glassBlur, currentFont, cornerStyle, canvasParticles, desktopTilt, deviceOS]);
 
   const selectTheme = (themeId) => {
     const found = themePresets.find(t => t.id === themeId);
@@ -146,10 +175,11 @@ export const ThemeProvider = ({ children }) => {
     setCustomPrimary(null);
     setGlassBlur(defaultBlur || '12px');
     setCurrentFont(defaultFont || fontPresets[0]);
-    setCornerStyle(defaultCornerStyle || 'edgy');
+    const os = detectDeviceOS();
+    setCornerStyle(os === 'ios' ? 'rounded' : (os === 'android' ? 'edgy' : (defaultCornerStyle || 'edgy')));
     setCanvasParticles(true);
+    setDesktopTilt(true);
   };
-
 
   return (
     <ThemeContext.Provider value={{
@@ -169,6 +199,9 @@ export const ThemeProvider = ({ children }) => {
       cornerStylePresets,
       canvasParticles,
       setCanvasParticles,
+      desktopTilt,
+      setDesktopTilt,
+      deviceOS,
       resetTheme
     }}>
       {children}

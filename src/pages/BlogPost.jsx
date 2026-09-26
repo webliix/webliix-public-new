@@ -330,6 +330,14 @@ export default function BlogPost() {
     }
   };
 
+  const scrollToComments = () => {
+    playSound('click');
+    const commentsEl = document.getElementById('comments-section') || document.getElementById('comment-form-section');
+    if (commentsEl) {
+      commentsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   // Safe Category & Tags String Resolution
   const postCategory = typeof post?.category === 'string' ? post.category : (post?.category?.name || 'Insights');
   const postAuthor = typeof post?.authorName === 'string' ? post.authorName : (post?.author?.name || 'Webliix Engineering');
@@ -456,6 +464,13 @@ export default function BlogPost() {
               <Eye className="w-3.5 h-3.5 text-theme-primary" /> {post.viewsCount} views
             </span>
           )}
+          <button
+            onClick={scrollToComments}
+            className="text-xs font-mono text-theme-muted hover:text-theme-primary transition flex items-center gap-1 cursor-pointer"
+            title="Jump to Discussion & Comments"
+          >
+            <MessageSquare className="w-3.5 h-3.5 text-theme-primary" /> {comments.length || post.commentsCount || 0} comments
+          </button>
         </div>
 
         <h1 className="text-3xl sm:text-5xl font-display font-extrabold text-theme-text leading-tight">
@@ -497,6 +512,16 @@ export default function BlogPost() {
               <span id={`like-count-${post.slug || post.id}`}>{likes}</span>
             </button>
 
+            {/* Top Comments Scroll Button */}
+            <button
+              onClick={scrollToComments}
+              className="px-3 py-2 theme-rounded-btn glass-spatial border border-theme-border/60 hover:border-theme-primary text-theme-muted hover:text-theme-primary transition flex items-center gap-1.5 text-xs font-mono"
+              title="Jump to Comments"
+            >
+              <MessageSquare className="w-4 h-4 text-theme-primary" />
+              <span className="hidden sm:inline">Comments ({comments.length})</span>
+            </button>
+
             {/* Quick Share Trigger */}
             <button
               onClick={handleShare}
@@ -505,15 +530,6 @@ export default function BlogPost() {
             >
               <Share2 className="w-4 h-4" />
               <span className="hidden sm:inline">Share</span>
-            </button>
-
-            {/* WhatsApp Share */}
-            <button
-              onClick={shareWhatsApp}
-              className="p-2.5 theme-rounded-btn bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 transition"
-              title="Share on WhatsApp"
-            >
-              <MessageSquare className="w-4 h-4" />
             </button>
 
             {/* Copy Link */}
@@ -647,7 +663,7 @@ export default function BlogPost() {
       </WebliixCard>
 
       {/* COMMENTS & DISCUSSION SECTION */}
-      <section className="space-y-8 pt-6 border-t border-theme-border/60">
+      <section id="comments-section" className="space-y-8 pt-6 border-t border-theme-border/60">
         <div className="flex items-center justify-between">
           <h3 className="text-xl sm:text-2xl font-display font-bold text-theme-text flex items-center gap-2">
             <MessageSquare className="w-5 h-5 text-theme-primary" />

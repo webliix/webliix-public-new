@@ -7,6 +7,7 @@ import {
   useReducedMotion,
 } from 'framer-motion';
 import { useAudio } from '../../context/AudioContext';
+import { useTheme } from '../../context/ThemeContext';
 
 /**
  * WebliixCard — Modern Spatial Card System
@@ -141,8 +142,16 @@ export default function WebliixCard({
 
   const [glarePos, setGlarePos] = useState({ x: 50, y: 50 });
   const { playClickSound } = useAudio();
+  const { desktopTilt = true } = useTheme();
   const shouldReduceMotion = useReducedMotion();
   const cardRef = useRef(null);
+
+  /* Detect mobile view / touch screen (tilt disabled on mobile view) */
+  const isMobileView = typeof window !== 'undefined' && (
+    window.innerWidth < 768 ||
+    ('ontouchstart' in window) ||
+    (navigator.maxTouchPoints > 0 && /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent))
+  );
 
   const cfg = VARIANTS[variant] ?? VARIANTS.standard;
   const isFeatured = variant === 'featured' || variant === 'accent';
@@ -159,6 +168,8 @@ export default function WebliixCard({
   const rotateX = useSpring(0, { stiffness: 260, damping: 24, mass: 0.7 });
   const rotateY = useSpring(0, { stiffness: 260, damping: 24, mass: 0.7 });
 
+  const isTiltAllowed = tilt && desktopTilt && !isMobileView && cfg.tiltDeg > 0 && !shouldReduceMotion;
+
   const handleMouseMove = useCallback(
     (e) => {
       const rect = e.currentTarget.getBoundingClientRect();
@@ -170,14 +181,17 @@ export default function WebliixCard({
         });
       }
 
-      if (tilt && cfg.tiltDeg > 0 && !shouldReduceMotion) {
+      if (isTiltAllowed) {
         const px = (e.clientX - rect.left) / rect.width - 0.5;
         const py = (e.clientY - rect.top) / rect.height - 0.5;
         rotateY.set(px * cfg.tiltDeg * 2);
         rotateX.set(py * -cfg.tiltDeg * 2);
+      } else {
+        rotateX.set(0);
+        rotateY.set(0);
       }
     },
-    [hoverGlare, tilt, cfg.tiltDeg, shouldReduceMotion, rotateX, rotateY]
+    [hoverGlare, isTiltAllowed, cfg.tiltDeg, rotateX, rotateY]
   );
 
   const handleMouseLeave = useCallback(() => {

@@ -58,6 +58,18 @@ export const siteConfig = {
     }
   },
 
+  pricing: {
+    launchKitBasePrice: '₹12,999',
+    launchKitBasePriceNum: 12999,
+    websiteDevBasePrice: '₹12,999',
+    packages: {
+      essential: '₹12,999',
+      professional: '₹19,999',
+      businessPro: '₹34,999',
+      ecommerce: '₹29,999'
+    }
+  },
+
   about: {
     mission: 'Every business deserves a commanding digital presence. We craft immersive, high-converting digital experiences that don’t just look beautiful — they perform.',
     vision: 'To empower 1,000+ businesses globally with state-of-the-art websites, organic search dominance, and seamless brand identities under one roof.',

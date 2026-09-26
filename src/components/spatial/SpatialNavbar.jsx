@@ -282,7 +282,7 @@ export default function SpatialNavbar() {
           <img
             src={logoSrc}
             alt={siteConfig.brand.name}
-            className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+            className="h-14 sm:h-[60px] lg:h-[62px] w-auto object-contain transition-transform group-hover:scale-105"
           />
         </Link>
 

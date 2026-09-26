@@ -96,7 +96,7 @@ export default function SpatialFooter() {
             <img
               src={logoSrc}
               alt={siteConfig.brand.name}
-              className="h-12 sm:h-14 w-auto object-contain transition-transform group-hover:scale-105"
+              className="h-16 sm:h-[78px] lg:h-[86px] w-auto object-contain transition-transform group-hover:scale-105"
             />
             <span className="block font-mono text-xs font-bold text-theme-primary tracking-wide">
               {siteConfig.brand.tagline}

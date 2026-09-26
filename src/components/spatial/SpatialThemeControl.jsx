@@ -41,6 +41,8 @@ export default function SpatialThemeControl() {
     cornerStylePresets,
     canvasParticles,
     setCanvasParticles,
+    desktopTilt,
+    setDesktopTilt,
     resetTheme
   } = useTheme();
 
@@ -308,6 +310,19 @@ export default function SpatialThemeControl() {
 
                     {/* Toggles */}
                     <div className="flex items-center gap-1.5">
+                      <button
+                        onClick={() => setDesktopTilt(!desktopTilt)}
+                        className={`px-2 py-0.5 theme-rounded-btn text-[9.5px] sm:text-[10px] font-mono font-semibold transition hidden sm:flex items-center gap-1 ${
+                          desktopTilt
+                            ? 'bg-theme-primary/20 text-theme-primary border border-theme-primary font-bold'
+                            : 'glass-spatial text-theme-muted border border-theme-border/60'
+                        }`}
+                        title="Toggle 3D Tilt Effect on Desktop"
+                      >
+                        <Sparkles className="w-2.5 h-2.5" />
+                        <span>Tilt:{desktopTilt ? 'ON' : 'OFF'}</span>
+                      </button>
+
                       <button
                         onClick={() => setCanvasParticles(!canvasParticles)}
                         className={`px-2 py-0.5 theme-rounded-btn text-[9.5px] sm:text-[10px] font-mono font-semibold transition flex items-center gap-1 ${
