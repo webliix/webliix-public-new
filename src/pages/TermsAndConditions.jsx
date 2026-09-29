@@ -21,7 +21,7 @@ export default function TermsAndConditions() {
       title="Terms & Conditions"
       subtitle="Please review these terms carefully before engaging Webliix for web development, branding, SEO, or software engineering contracts."
       categoryTag="Legal Framework"
-      lastUpdated="May 2, 2026"
+      lastUpdated="September 29, 2026"
       seoTitle="Terms & Conditions | Legal Service Agreement | WEBLIIX"
       seoDescription="Review Webliix Terms & Conditions governing digital service scope, revisions, intellectual property, payments, liability limits, and governance law."
       canonicalPath="/terms-and-conditions"

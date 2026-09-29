@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { businessConfig } from '../config/businessConfig';
 import LegalLayout from '../components/legal/LegalLayout';
 
-const EFFECTIVE_DATE = 'August 20, 2026';
-const REVIEW_DATE = 'August 2027';
+const EFFECTIVE_DATE = 'September 29, 2026';
+const REVIEW_DATE = 'September 2027';
 
 const tocItems = [
   { id: 'sec-1',  title: '1. Introduction' },

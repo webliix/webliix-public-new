@@ -13,11 +13,11 @@ export const themePresets = [
     colors: {
       bg: '#F8FAFC',
       card: 'rgba(255, 255, 255, 0.88)',
-      border: 'rgba(99, 102, 241, 0.20)',
-      primary: '#4F46E5',
-      secondary: '#7C3AED',
-      accent: '#EC4899',
-      glow: 'rgba(99, 102, 241, 0.20)',
+      border: 'rgba(37, 99, 235, 0.20)',
+      primary: '#2563EB',
+      secondary: '#4F46E5',
+      accent: '#38BDF8',
+      glow: 'rgba(56, 189, 248, 0.20)',
       text: '#0F172A',
       muted: '#64748B'
     }
