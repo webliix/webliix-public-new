@@ -1,8 +1,7 @@
 import logoDark from '../assets/lightlogo.png';
 import logoLight from '../assets/logo.png';
 import iconMark from '../assets/icon-png.png';
-import himanshuImg from '../assets/himanshu.jpg';
-import abdulImg from '../assets/abdul.jpg';
+
 
 import auradrishtiImg from '../assets/logos/auradrishti.png';
 import thehubImg from '../assets/logos/thehub.png';
@@ -100,13 +99,15 @@ export const siteConfig = {
       name: 'Himanshu Sharma',
       role: 'Founder & Managing Director',
       bio: 'Leading Webliix vision to deliver world-class websites, SEO, and digital growth systems for modern businesses.',
-      image: himanshuImg
+      image: 'https://res.cloudinary.com/vhth8clt/image/upload/v1790646499/a1daa858-8d72-4559-aef5-5a185c784891.png',
+      alt: 'Himanshu Sharma - Founder & Managing Director at Webliix'
     },
     {
-      name: 'Abdul Malik',
+      name: 'Abdul Latif',
       role: 'Co-Founder & Technical Lead',
       bio: 'Specializing in full-stack architecture, interactive web apps, and high-performance frontend solutions.',
-      image: abdulImg
+      image: 'https://res.cloudinary.com/vhth8clt/image/upload/v1788213053/webliix/blog/content/file_pzndtk.jpg',
+      alt: 'Abdul Latif - Co-Founder & Technical Lead at Webliix'
     }
   ],
 

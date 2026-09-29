@@ -149,7 +149,7 @@ export default function Home() {
       },
       {
         '@type': 'Person',
-        name: 'Abdul Malik',
+        name: 'Abdul Latif',
         jobTitle: 'Technical Lead'
       }
     ],
