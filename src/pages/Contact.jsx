@@ -16,6 +16,7 @@ import {
   WebliixFieldGroup,
   netlifyEncode,
 } from '../components/ui/WebliixInput';
+import { submitPublicLead } from '../services/leadService';
 
 const FORM_NAME = 'contact-inquiry';
 
@@ -78,15 +79,22 @@ export default function Contact() {
     e.preventDefault();
     setSubmitting(true);
     try {
-      await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: netlifyEncode({ 'form-name': FORM_NAME, ...formData }),
+      await submitPublicLead({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.mobile,
+        serviceRequested: formData.service,
+        requirements: formData.message,
+        source: 'CONTACT_PAGE',
+        page: '/contact',
       });
-    } catch { /* local dev — ignore */ }
-    setSubmitted(true);
-    setSubmitting(false);
-    showToast('Inquiry submitted! Our team will reach out within 2 hours.', 'success');
+      setSubmitted(true);
+      showToast('Inquiry submitted successfully! Our team will reach out within 2 hours.', 'success');
+    } catch (err) {
+      showToast(err.message || 'Failed to submit inquiry. Please try again.', 'error');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (

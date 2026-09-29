@@ -54,6 +54,7 @@ import {
   WebliixLabel,
   netlifyEncode
 } from '../components/ui/WebliixInput';
+import { submitPublicLead } from '../services/leadService';
 
 const FORM_NAME = 'launchkit-enquiry';
 
@@ -105,18 +106,27 @@ export default function LaunchKit() {
     e.preventDefault();
     setSubmitting(true);
     try {
-      await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: netlifyEncode({ 'form-name': FORM_NAME, ...formData })
+      const reqText = `[Country: ${formData.country || 'N/A'}] [Current Website: ${formData.website || 'None'}] [Target Market: ${formData.targetMarket || 'N/A'}] ${formData.message || ''}`;
+      await submitPublicLead({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        companyName: formData.businessName,
+        serviceRequested: formData.package || 'LaunchKit Tier',
+        requirements: reqText,
+        source: 'LAUNCHKIT_PAGE',
+        page: '/launchkit',
       });
-    } catch {
-      // dev fallback
-    }
-    setSubmitted(true);
-    setSubmitting(false);
-    if (showToast) {
-      showToast('LaunchKit enquiry submitted! Our project team will reach out within 2 hours.', 'success');
+      setSubmitted(true);
+      if (showToast) {
+        showToast('LaunchKit inquiry submitted! Our project team will review your requirements and contact you.', 'success');
+      }
+    } catch (err) {
+      if (showToast) {
+        showToast(err.message || 'Failed to submit LaunchKit inquiry. Please try again.', 'error');
+      }
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -125,32 +135,32 @@ export default function LaunchKit() {
     formData.package || 'LaunchKit'
   )}%20for%20my%20business%20${encodeURIComponent(formData.businessName || '')}.`;
 
-  // 1. What Every Webliix Business Launch Can Include (8 Core Pillars)
+  // 1. What Your Business Launch Can Include (8 Core Pillars)
   const whatEveryLaunchIncludes = [
     {
       icon: Palette,
       title: 'Brand Identity',
-      items: 'Logo • Colours • Fonts • Visual Style'
+      items: 'Logo • Colours • Fonts • Visual Direction'
     },
     {
       icon: Layout,
-      title: 'Website',
-      items: 'Modern • Responsive • Fast • Conversion-focused'
+      title: 'Business Website',
+      items: 'Responsive • Clear • Fast • Lead-focused'
     },
     {
       icon: MapPin,
-      title: 'Google Presence',
-      items: 'Google Business Profile • Maps • Search Console'
+      title: 'Google Business Presence',
+      items: 'Business Profile • Maps • Search Console'
     },
     {
       icon: Search,
       title: 'SEO Foundation',
-      items: 'Keywords • On-page SEO • Technical Structure'
+      items: 'Keyword Research • On-page SEO • Technical Structure'
     },
     {
       icon: PhoneCall,
-      title: 'Lead Generation',
-      items: 'WhatsApp • Calls • Forms • Enquiries'
+      title: 'Customer Enquiries',
+      items: 'WhatsApp • Calls • Forms • Contact Paths'
     },
     {
       icon: BarChart3,
@@ -159,8 +169,8 @@ export default function LaunchKit() {
     },
     {
       icon: Share2,
-      title: 'Social Presence',
-      items: 'Profiles • Covers • Brand Assets'
+      title: 'Business Social Profiles',
+      items: 'Profiles • Covers • Starter Brand Assets'
     },
     {
       icon: Rocket,
@@ -169,49 +179,49 @@ export default function LaunchKit() {
     }
   ];
 
-  // 2. High-Conversion "What Do You Actually Need?" Scenarios
+  // 2. High-Conversion "Which Business Launch Package Fits Your Needs?" Scenarios
   const whatDoYouNeedOptions = [
     {
       situation: 'Starting a new business?',
       recommendation: '01 — ESSENTIAL',
-      badge: 'Fastest Start',
+      badge: 'Get Online',
       pkgTarget: '01 — ESSENTIAL (Starting @ ₹9,999)',
-      desc: 'Get your logo, responsive website, Google Business Profile and business essentials ready in 5–10 days.'
+      desc: 'Start with the essentials: a professional website, basic brand setup, Google Business Profile setup and core contact options.'
     },
     {
-      situation: 'Already have a business but no professional identity?',
+      situation: 'Need a stronger brand and website?',
       recommendation: '02 — PROFESSIONAL ⭐',
-      badge: 'Brand Builder',
+      badge: 'Build Your Brand',
       pkgTarget: '02 — PROFESSIONAL ⭐ (Starting @ ₹19,999)',
-      desc: 'Complete brand starter kit, custom UI, testimonial & FAQ sections, and conversion-focused design.'
+      desc: 'Combine a more complete visual identity, multi-page website, stronger lead sections and a deeper local SEO foundation.'
     },
     {
-      situation: 'Want more enquiries from Google?',
-      recommendation: '02 — PROFESSIONAL + Local SEO',
-      badge: 'Local Ranking',
+      situation: 'Want to improve your Google visibility?',
+      recommendation: '02 — PROFESSIONAL + SEO',
+      badge: 'Search Visibility',
       pkgTarget: '02 — PROFESSIONAL ⭐ (Starting @ ₹19,999)',
-      desc: 'Structured schema markup, keyword mapping, GBP optimisation, and search-focused content architecture.'
+      desc: 'Add keyword research, page optimization, internal linking, Google Business Profile optimization and technical SEO work.'
     },
     {
-      situation: 'Need a complete online growth foundation?',
+      situation: 'Need a complete business website system?',
       recommendation: '03 — BUSINESS PRO',
-      badge: 'Complete System',
+      badge: 'Growth Setup',
       pkgTarget: '03 — BUSINESS PRO (Starting @ ₹34,999)',
-      desc: 'Advanced 12–15 page architecture, GA4 tracking, call tracking, Meta Pixel, and 180 days dedicated support.'
+      desc: 'A larger website structure with service and location content, blog setup, analytics, lead tracking and broader digital foundations.'
     },
     {
       situation: 'Want to sell products online?',
       recommendation: '04 — E-COMMERCE',
       badge: 'Online Store',
       pkgTarget: '04 — E-COMMERCE (Starting @ ₹29,999)',
-      desc: 'E-commerce website with product catalog, cart, checkout, payment gateway, and shipping setup for up to 25 products.'
+      desc: 'Launch an online store with product categories, shopping cart, checkout, payment integration and basic store SEO.'
     },
     {
       situation: 'Already have a website?',
-      recommendation: 'Choose Individual Add-Ons',
-      badge: 'À La Carte',
+      recommendation: 'Custom Add-Ons / Services',
+      badge: 'Improve Existing Site',
       pkgTarget: 'Custom Add-ons / Individual Services',
-      desc: 'Pick Branding, SEO, Website Redesign, Google Ads, or Website Care individually according to your needs.'
+      desc: 'Choose website redesign, SEO, branding, advertising, lead systems or website care according to the specific gaps in your current setup.'
     }
   ];
 
@@ -226,7 +236,7 @@ export default function LaunchKit() {
       priceLabel: 'Starting @',
       popular: false,
       badge: 'ESSENTIAL SETUP',
-      desc: 'For businesses that need a professional online presence without unnecessary complexity.',
+      desc: 'A practical business website package for startups, professionals and small businesses that need a credible online presence.',
       delivery: '5–10 working days',
       support: 'Basic website launch support',
       ctaText: 'Start My Business',
@@ -234,7 +244,7 @@ export default function LaunchKit() {
         {
           title: 'Brand Foundation',
           items: [
-            'Logo design / logo refinement',
+            'Logo design or logo refinement',
             'Brand colour palette',
             'Font / typography selection',
             'Light & dark logo versions',
@@ -242,27 +252,27 @@ export default function LaunchKit() {
           ]
         },
         {
-          title: 'Website',
+          title: 'Business Website',
           items: [
             'Professional responsive website',
             'Up to 3–5 pages',
-            'Mobile-first design',
-            'Modern business-focused UI',
-            'WhatsApp button & click-to-call button',
+            'Mobile-first page structure',
+            'Business-focused interface',
+            'WhatsApp & click-to-call buttons',
             'Contact / enquiry form',
             'Google Maps integration',
             'Social media links'
           ]
         },
         {
-          title: 'Google & SEO',
+          title: 'Google & SEO Foundation',
           items: [
             'Google Business Profile setup',
             'Basic keyword research',
             'SEO-friendly page structure',
-            'Meta titles & descriptions',
+            'Unique page titles & descriptions',
             'SEO-friendly URLs',
-            'Sitemap & Robots.txt',
+            'XML Sitemap & Robots.txt',
             'Google Search Console setup',
             'Google Analytics setup'
           ]
@@ -287,12 +297,12 @@ export default function LaunchKit() {
       priceLabel: 'Starting @',
       popular: true,
       badge: 'MOST POPULAR',
-      desc: 'For businesses that want a stronger brand identity and a website designed to generate enquiries.',
+      desc: 'For businesses that need a stronger brand identity, more detailed website content and a stronger foundation for customer enquiries and local search.',
       subnote: 'Everything in Essential, plus:',
       delivery: '10–15 working days',
       support: '90 days post-launch support',
       ctaText: 'Build My Business Brand',
-      seoHighlight: 'Google specifically supports structured data to help it understand business information and recommends sitemap submission and URL inspection as part of the search process.',
+      seoHighlight: 'The package includes practical SEO foundations such as structured page content, internal linking, metadata and relevant structured data where appropriate.',
       sections: [
         {
           title: 'Complete Brand Starter Kit',
@@ -308,37 +318,37 @@ export default function LaunchKit() {
           ]
         },
         {
-          title: 'Website',
+          title: 'Business Website',
           items: [
             'Up to 7–10 pages',
-            'Custom UI design & lead-focused CTA sections',
-            'Service / product sections',
+            'Custom UI design & clear CTA sections',
+            'Service / product content sections',
             'Client testimonials showcase',
-            'Interactive FAQ section',
+            'FAQ section',
             'Gallery / portfolio showcase',
             'WhatsApp enquiry flow & advanced contact forms',
             'Google Maps & social integrations'
           ]
         },
         {
-          title: 'Local SEO Setup',
+          title: 'Local SEO Foundation',
           items: [
-            'Local keyword research & service keyword mapping',
-            'Location keyword optimisation',
-            'On-page SEO & internal linking structure',
-            'LocalBusiness & Organization schema markup',
-            'FAQ schema where appropriate',
-            'Google Business Profile optimisation',
+            'Local keyword research & service mapping',
+            'Relevant location content optimization',
+            'On-page SEO & internal linking',
+            'LocalBusiness & Organization structured data where appropriate',
+            'FAQ structured data where applicable',
+            'Google Business Profile optimization',
             'Search Console setup & conversion tracking'
           ]
         },
         {
           title: 'Content & Copywriting',
           items: [
-            'SEO-focused website content structure',
-            'Homepage keyword optimisation',
-            'Service-page content optimisation',
-            'FAQ content & CTA copy optimisation'
+            'SEO-focused content structure',
+            'Homepage search-intent optimization',
+            'Service-page content optimization',
+            'FAQ and CTA copy improvement'
           ]
         }
       ]
@@ -352,7 +362,7 @@ export default function LaunchKit() {
       priceLabel: 'Starting @',
       popular: false,
       badge: 'GROWTH SYSTEM',
-      desc: 'For businesses that want their website, branding and local search presence built as one complete system.',
+      desc: 'For businesses that need a broader website architecture, richer content, stronger analytics and a connected digital launch foundation.',
       subnote: 'Everything in Professional, plus:',
       delivery: '15–25 working days',
       support: '180 days post-launch support',
@@ -375,34 +385,34 @@ export default function LaunchKit() {
             'Up to 12–15 pages',
             'Advanced custom UI/UX design',
             'Service / category architecture & multiple service pages',
-            'Location pages & portfolio / case studies',
-            'Testimonials & reviews system',
+            'Relevant location pages & portfolio / case studies',
+            'Testimonials & review content sections',
             'FAQ system & blog setup',
             'Lead-generation sections & WhatsApp conversion flow',
             'Advanced multi-step enquiry forms'
           ]
         },
         {
-          title: 'SEO & Google Dominance',
+          title: 'SEO & Search Visibility',
           items: [
-            'Competitor research & search-intent keyword research',
-            'Local SEO architecture & service+location mapping',
+            'Competitor and search-intent keyword research',
+            'Service + location content mapping where relevant',
             'Technical SEO setup & advanced on-page SEO',
-            'Advanced Schema implementation (JSON-LD)',
-            'Google Business Profile & local search optimisation',
+            'Relevant JSON-LD structured data',
+            'Google Business Profile & local search optimization',
             'Search Console, GA4 & event tracking configuration',
-            'Core Web Vitals optimisation & SEO-ready blog structure'
+            'Core Web Vitals review & SEO-ready content structure'
           ]
         },
         {
           title: 'Lead Generation & Growth Foundation',
           items: [
-            'WhatsApp CTA optimisation & call tracking setup',
-            'Form conversion tracking & lead source tracking',
-            'CRM-ready lead structure & email lead notifications',
+            'WhatsApp CTA & call tracking setup',
+            'Form conversion and lead source tracking',
+            'CRM-ready lead structure & email notifications',
             'Google Ads conversion tracking & Meta Pixel setup',
-            'Social sharing optimisation & AI-search/GEO-ready structure',
-            'Basic review & reputation framework'
+            'Social sharing optimization',
+            'Basic review and reputation workflow'
           ]
         }
       ]
@@ -416,7 +426,7 @@ export default function LaunchKit() {
       priceLabel: 'Starting @',
       popular: false,
       badge: 'ONLINE STORE',
-      desc: 'For businesses selling products online.',
+      desc: 'For businesses that want to sell products online with a professional storefront, checkout experience and basic search optimization.',
       delivery: '10–18 working days',
       support: '60 days post-launch support',
       ctaText: 'Start Selling Online',
@@ -426,34 +436,34 @@ export default function LaunchKit() {
           title: 'Store Features Included',
           items: [
             'Professional e-commerce website',
-            'Product / category architecture & mobile-first design',
-            'Product search & filtering capabilities',
-            'Shopping cart & seamless checkout flow',
-            'Razorpay / UPI / Stripe Payment Gateway Integration',
+            'Product & category architecture with mobile-first design',
+            'Product search & filtering capabilities where required',
+            'Shopping cart & checkout flow',
+            'Razorpay / UPI / Stripe payment integration',
             'WhatsApp support & direct product enquiry option',
             'Shipping configuration & tax setup',
-            'Basic product SEO & Product schema markup',
-            'Google Analytics, Search Console & Conversion tracking',
+            'Basic product SEO & relevant structured data',
+            'Google Analytics, Search Console & conversion tracking',
             'Social media integration & basic store branding',
             'Up to 25 products setup included'
           ]
         }
       ],
-      extraNote: 'Additional products, advanced filters, marketplaces, shipping APIs and custom functionality quoted separately.'
+      extraNote: 'Additional products, advanced filters, marketplace integrations, shipping APIs and custom functionality are quoted separately.'
     }
   ];
 
-  // 4. Detailed Add-On Services
+  // 4. Detailed Additional Website, SEO &amp; Marketing Services
   const addonCategories = [
     {
       category: 'Branding Add-Ons',
-      tagline: 'Establish a memorable identity',
+      tagline: 'Build a consistent visual identity',
       icon: Palette,
       items: [
         {
           name: 'Logo Design',
           price: 'Starting @ ₹2,999',
-          features: ['Logo concepts & revisions', 'Logo variations (Horizontal/Stacked)', 'PNG / JPG / SVG / PDF vector formats', 'Light & dark background versions']
+          features: ['Logo concepts & revisions', 'Logo variations', 'PNG / JPG / SVG / PDF formats', 'Light & dark background versions']
         },
         {
           name: 'Brand Identity',
@@ -463,38 +473,38 @@ export default function LaunchKit() {
         {
           name: 'Brand Kit',
           price: 'Starting @ ₹9,999',
-          features: ['Complete visual identity system', 'Full brand guidelines document', 'Business stationery mockups', '3 editable social post templates', 'Digital brand assets']
+          features: ['Complete visual identity system', 'Brand guidelines document', 'Business stationery mockups', 'Editable social post templates', 'Digital brand assets']
         }
       ]
     },
     {
       category: 'Website Add-Ons',
-      tagline: 'Expand pages and functional capabilities',
+      tagline: 'Add pages and website functionality',
       icon: Layout,
       items: [
-        { name: 'Additional Page', price: 'Starting @ ₹999', desc: 'Add extra custom service, landing or informational pages.' },
-        { name: 'High-Converting Landing Page', price: 'Starting @ ₹2,999', desc: 'Standalone targeted conversion page for specific campaigns.' },
-        { name: 'Blog / CMS System', price: 'Starting @ ₹4,999', desc: 'Publish SEO articles, news, and guides independently.' },
-        { name: 'Portfolio / Case Study Section', price: 'Starting @ ₹2,999', desc: 'Showcase client deliverables, metrics, and visual galleries.' },
-        { name: 'Advanced Form / Lead System', price: 'Starting @ ₹2,999', desc: 'Multi-step forms, file uploads, conditional logic, and webhooks.' },
-        { name: 'Payment Gateway Integration', price: 'Starting @ ₹2,999', desc: 'Razorpay, UPI QR, Paytm, or Stripe checkout setup.' },
-        { name: 'Additional Product Setup', price: 'Starting @ ₹499 / product', desc: 'Product imagery, variants, description, SKU, and SEO details.' },
-        { name: 'Website Redesign', price: 'Starting @ ₹7,999', desc: 'Modernize an outdated design while preserving existing SEO authority.' }
+        { name: 'Additional Page', price: 'Starting @ ₹999', desc: 'Add a custom service, landing or informational page to the website.' },
+        { name: 'High-Converting Landing Page', price: 'Starting @ ₹2,999', desc: 'Create a focused landing page for an advertising campaign, service or offer.' },
+        { name: 'Blog / CMS System', price: 'Starting @ ₹4,999', desc: 'Publish articles, guides, news or business updates through a content system.' },
+        { name: 'Portfolio / Case Study Section', price: 'Starting @ ₹2,999', desc: 'Showcase selected projects, services delivered, results and visual work.' },
+        { name: 'Advanced Form / Lead System', price: 'Starting @ ₹2,999', desc: 'Add multi-step forms, file uploads, conditional fields or webhook integrations.' },
+        { name: 'Payment Gateway Integration', price: 'Starting @ ₹2,999', desc: 'Set up supported payment options such as Razorpay, UPI or Stripe.' },
+        { name: 'Additional Product Setup', price: 'Starting @ ₹499 / product', desc: 'Add product images, variants, descriptions, SKUs and SEO details.' },
+        { name: 'Website Redesign', price: 'Starting @ ₹7,999', desc: 'Refresh an outdated website with a modern responsive structure while reviewing important existing URLs.' }
       ]
     },
     {
       category: 'Google & SEO',
-      tagline: 'Get Found on Google',
+      tagline: 'Improve organic and local search visibility',
       icon: Search,
-      note: "Don't promise rankings. Sell the work required to improve visibility.",
+      note: 'SEO services focus on the work that helps search engines understand and discover your website; rankings cannot be guaranteed.',
       items: [
         {
           name: 'Local SEO Package',
           price: 'Starting @ ₹7,999 / month',
           features: [
-            'Google Business Profile optimisation',
-            'Local keyword targeting & citation check',
-            'On-page SEO & location optimisation',
+            'Google Business Profile optimization',
+            'Local keyword research & service mapping',
+            'On-page SEO & location content optimization',
             'Local content & Search Console monitoring',
             'Monthly performance reporting'
           ]
@@ -503,42 +513,42 @@ export default function LaunchKit() {
           name: 'SEO Growth Package',
           price: 'Starting @ ₹14,999 / month',
           features: [
-            'Comprehensive technical & on-page SEO',
-            'Keyword strategy & content optimisation',
-            'Blog/content publishing & internal linking',
+            'Technical & on-page SEO',
+            'Keyword strategy & content optimization',
+            'Content publishing & internal linking',
             'Local SEO & Search Console monitoring',
-            'Monthly in-depth performance reporting'
+            'Monthly performance reporting'
           ]
         },
         {
           name: 'Google Business Profile Management',
           price: 'Starting @ ₹4,999 / month',
           features: [
-            'Weekly GBP profile updates & posts',
-            'Product & service listing updates',
-            'Review & reputation response guidance',
-            'Local visibility optimisation'
+            'Profile information & service updates',
+            'Business posts and profile activity',
+            'Review response guidance',
+            'Local search visibility improvements'
           ]
         }
       ]
     },
     {
       category: 'Marketing Add-Ons',
-      tagline: 'Drive immediate enquiries and automate operations',
+      tagline: 'Support customer acquisition and follow-up',
       icon: Target,
       items: [
-        { name: 'Google Ads Management', price: 'Starting @ ₹7,999/mo + Ad Spend', desc: 'High-intent search ads, conversion tracking, keyword negative lists.' },
-        { name: 'Meta Ads Management', price: 'Starting @ ₹7,999/mo + Ad Spend', desc: 'Facebook & Instagram lead generation, retargeting, and creative testing.' },
-        { name: 'Social Media Management', price: 'Starting @ ₹7,999/mo', desc: 'Curated monthly posts, brand consistency, hashtags, and scheduling.' },
-        { name: 'WhatsApp Business Setup', price: 'Starting @ ₹2,999', desc: 'Catalog setup, quick replies, automated greeting & away messages.' },
-        { name: 'WhatsApp Automation Flow', price: 'Starting @ ₹7,999', desc: 'Interactive chat flow, lead capture triggers, automated notifications.' },
-        { name: 'CRM / Lead Management', price: 'Starting @ ₹4,999', desc: 'Lead pipeline configuration, automatic email notifications, follow-up flow.' },
-        { name: 'AI Chatbot Integration', price: 'Starting @ ₹9,999', desc: 'Smart AI chatbot trained on your business FAQs to answer queries 24/7.' }
+        { name: 'Google Ads Management', price: 'Starting @ ₹7,999/mo + Ad Spend', desc: 'Search advertising, campaign structure, conversion tracking and negative keyword management.' },
+        { name: 'Meta Ads Management', price: 'Starting @ ₹7,999/mo + Ad Spend', desc: 'Facebook and Instagram campaigns, audience targeting, retargeting and creative testing.' },
+        { name: 'Social Media Management', price: 'Starting @ ₹7,999/mo', desc: 'Planned social media posts, basic brand consistency, scheduling and publishing support.' },
+        { name: 'WhatsApp Business Setup', price: 'Starting @ ₹2,999', desc: 'Catalog, business profile, quick replies, greeting and away-message setup.' },
+        { name: 'WhatsApp Automation Flow', price: 'Starting @ ₹7,999', desc: 'Automated chat steps, lead capture triggers and notification workflows.' },
+        { name: 'CRM / Lead Management', price: 'Starting @ ₹4,999', desc: 'Lead pipeline configuration, notifications and follow-up workflow setup.' },
+        { name: 'AI Chatbot Integration', price: 'Starting @ ₹9,999', desc: 'Business information chatbot integration for handling common customer questions.' }
       ]
     },
     {
       category: 'Website Care',
-      tagline: 'Keep Your Website Running Fast & Secure',
+      tagline: 'Keep your website maintained after launch',
       icon: Wrench,
       items: [
         {
@@ -546,11 +556,11 @@ export default function LaunchKit() {
           price: 'Starting @ ₹1,999 / month',
           features: [
             'Website updates & content changes',
-            'Continuous technical monitoring',
-            'Security checks & firewall protection',
-            'Automatic backup monitoring',
+            'Technical monitoring',
+            'Security checks',
+            'Backup monitoring',
             'Speed & performance checks',
-            'Minor design tweaks & dedicated support'
+            'Minor updates & technical support'
           ]
         }
       ]
@@ -560,61 +570,65 @@ export default function LaunchKit() {
   // 5. Package Comparison Table (All 4 Tiers)
   const comparisonTable = [
     { feature: 'Starting Price', essential: '₹9,999', professional: '₹19,999', businessPro: '₹34,999', ecommerce: '₹29,999' },
-    { feature: 'Core Pages Included', essential: '3–5 Pages', professional: '7–10 Pages', businessPro: '12–15 Pages', ecommerce: 'Custom Pages + Store' },
-    { feature: 'Turnkey Logo / Brand Design', essential: 'Basic Logo & Colors', professional: 'Complete Brand Starter Kit', businessPro: 'Full Brand System + 3 Posts', ecommerce: 'Basic Store Branding' },
-    { feature: 'Mobile-First Responsive UI', essential: '✓', professional: '✓ (Custom UI)', businessPro: '✓ (Advanced UX)', ecommerce: '✓ (Store Optimized)' },
-    { feature: 'Google Business Profile Setup', essential: 'Setup Included', professional: 'Optimised + Local Schema', businessPro: 'Full Local Dominance', ecommerce: 'Setup Included' },
-    { feature: 'Technical & On-Page SEO', essential: 'Basic Setup', professional: 'Structured Data + FAQ Schema', businessPro: 'Competitor Research + GEO', ecommerce: 'Product SEO & Schema' },
-    { feature: 'Lead Capture & WhatsApp CTA', essential: 'Standard Form + CTA', professional: 'Advanced Flow + Testimonials', businessPro: 'Call Tracking + CRM Ready', ecommerce: 'Cart + WhatsApp Orders' },
+    { feature: 'Core Pages Included', essential: '3–5 Pages', professional: '7–10 Pages', businessPro: '12–15 Pages', ecommerce: 'Store + Product Pages' },
+    { feature: 'Logo / Brand Design', essential: 'Basic Logo & Colors', professional: 'Brand Starter Kit', businessPro: 'Full Brand System + 3 Posts', ecommerce: 'Basic Store Branding' },
+    { feature: 'Mobile-First Responsive UI', essential: '✓', professional: '✓', businessPro: '✓', ecommerce: '✓' },
+    { feature: 'Google Business Profile', essential: 'Setup', professional: 'Optimization', businessPro: 'Expanded Optimization', ecommerce: 'Setup' },
+    { feature: 'Technical & On-Page SEO', essential: 'Basic Setup', professional: 'Expanded SEO Foundation', businessPro: 'Advanced SEO Foundation', ecommerce: 'Product SEO Foundation' },
+    { feature: 'Lead Capture & WhatsApp CTA', essential: 'Standard Form + CTA', professional: 'Advanced Forms + CTA', businessPro: 'Tracking + CRM Ready', ecommerce: 'Cart + Product Enquiries' },
     { feature: 'E-Commerce / Payment Gateway', essential: '—', professional: 'Optional Add-on', businessPro: 'Optional Add-on', ecommerce: 'Included (25 Products)' },
     { feature: 'Google Analytics & Search Console', essential: '✓', professional: '✓ + Conversion Tracking', businessPro: '✓ + Event / Pixel Tracking', ecommerce: '✓ + Purchase Tracking' },
     { feature: 'Professional Business Email', essential: '1 Account Setup', professional: 'Included', businessPro: 'Included', ecommerce: 'Included' },
-    { feature: 'Post-Launch Dedicated Support', essential: 'Launch Support', professional: '90 Days Included', businessPro: '180 Days Included', ecommerce: '60 Days Included' },
+    { feature: 'Post-Launch Support', essential: 'Launch Support', professional: '90 Days Included', businessPro: '180 Days Included', ecommerce: '60 Days Included' },
     { feature: 'Standard Delivery Time', essential: '5–10 Working Days', professional: '10–15 Working Days', businessPro: '15–25 Working Days', ecommerce: '10–18 Working Days' }
   ];
 
   // 6. FAQs (Exact 7 Questions)
   const faqs = [
     {
-      q: 'How much does a business website cost in India?',
-      a: 'Business website development in India varies according to design, pages, functionality, branding and SEO requirements. Webliix packages start from ₹9,999, with customised plans available for businesses with additional requirements.'
+      q: 'How much does a business website package cost?',
+      a: 'LaunchKit packages start at ₹9,999 for the Essential package. The final project cost depends on the number of pages, branding, e-commerce requirements, SEO scope, integrations and other custom functionality.'
     },
     {
-      q: 'Do you provide logo and website together?',
-      a: 'Yes. Webliix can provide logo design, brand colours, typography, business card, letterhead, email signature and website design as one complete business launch package.'
+      q: 'Can Webliix provide the website and branding together?',
+      a: 'Yes. LaunchKit can combine website development with logo design, brand colours, typography, business cards, social assets, business email and other launch requirements according to the selected package.'
     },
     {
-      q: 'Do your website packages include SEO?',
-      a: 'All packages include an SEO foundation. Advanced local SEO, content and ongoing search optimisation are available through higher packages and monthly SEO services.'
+      q: 'Do LaunchKit packages include SEO?',
+      a: 'Each package includes an SEO foundation appropriate to its scope. Additional local SEO, content optimization, technical SEO and ongoing search work can be added when required.'
     },
     {
       q: 'Can you help my business appear on Google?',
-      a: 'Webliix provides technical SEO, on-page SEO, Google Business Profile optimisation, local SEO and Search Console setup. Search rankings depend on competition, location, website quality, relevance and many external factors, so rankings cannot be guaranteed.'
+      a: 'Webliix can set up or optimize eligible Google Business Profiles and implement technical and on-page SEO foundations. Search visibility depends on relevance, competition, location, site quality and other factors, so specific rankings cannot be guaranteed.'
     },
     {
-      q: 'Can I customise a package?',
-      a: 'Yes. Every package is a starting point. You can add pages, branding, SEO, e-commerce, automation, advertising, CRM integrations and other features according to your business requirements.'
+      q: 'Can I customise a LaunchKit package?',
+      a: 'Yes. LaunchKit packages are starting scopes. Additional pages, website redesign, SEO, e-commerce features, advertising, lead systems, CRM integrations and other services can be added based on your requirements.'
     },
     {
       q: 'Do you provide Google Business Profile setup?',
-      a: 'Yes. Google Business Profile setup and optimisation are available depending on the selected package.'
+      a: 'Yes. Google Business Profile setup and optimization are available according to the selected package and the eligibility of the business.'
     },
     {
-      q: 'Do you provide website maintenance?',
-      a: 'Yes. Website care and maintenance plans start from ₹1,999/month and can be customised according to the website.'
+      q: 'Do you provide website maintenance after launch?',
+      a: 'Yes. Website care and maintenance can be added to a LaunchKit project or purchased separately according to the website platform and support requirements.'
+    },
+    {
+      q: 'Do you work with businesses outside India?',
+      a: 'Yes. Webliix can work with clients in India and international markets. Scope, communication, payment terms and delivery requirements are discussed for each project.'
     }
   ];
 
   // 7. Execution Process
   const processRoadmap = [
-    { num: '01', title: 'Discovery & Goals', desc: 'We understand your business, target customers, service list, and visual brand preferences.' },
-    { num: '02', title: 'Content & Brand Assets', desc: 'You provide your available business details, images, or we craft your brand foundation from scratch.' },
-    { num: '03', title: 'Design & Architecture', desc: 'We structure the website layout, UI sections, and conversion paths tailored to your audience.' },
-    { num: '04', title: 'Development & Build', desc: 'We engineer a lightning-fast responsive website and implement all agreed features and integrations.' },
-    { num: '05', title: 'SEO & Tracking Setup', desc: 'We configure structured schema, meta tags, Google Business Profile, Search Console, and GA4 analytics.' },
-    { num: '06', title: 'Review & Revisions', desc: 'You review the live development preview and share feedback within the agreed revision scope.' },
-    { num: '07', title: 'Live Launch', desc: 'We connect your custom domain, install SSL certificates, verify indexing, and take your website live.' },
-    { num: '08', title: 'Dedicated Support', desc: 'Your included 30, 90, or 180-day post-launch support period ensures smooth and worry-free operations.' }
+    { num: '01', title: 'Discovery & Goals', desc: 'We understand your business, services, target customers, website goals and preferred launch scope.' },
+    { num: '02', title: 'Content & Brand Assets', desc: 'You provide your business information and available assets, or we help structure the required brand and website content.' },
+    { num: '03', title: 'Design & Architecture', desc: 'We organize the page structure, user journey, content hierarchy and conversion paths around your audience.' },
+    { num: '04', title: 'Development & Build', desc: 'We develop the agreed responsive website and implement the selected integrations and functionality.' },
+    { num: '05', title: 'SEO & Tracking Setup', desc: 'We configure page metadata, internal linking, relevant structured data, Search Console, analytics and selected conversion tracking.' },
+    { num: '06', title: 'Review & Revisions', desc: 'You review the development preview and provide feedback within the agreed project revision scope.' },
+    { num: '07', title: 'Live Launch', desc: 'We connect the domain, configure HTTPS, publish the approved website and check the live implementation.' },
+    { num: '08', title: 'Dedicated Support', desc: 'Your included post-launch support period helps with agreed technical fixes and launch-related updates.' }
   ];
 
   const canonicalUrl = `${siteConfig.brand.website || 'https://webliix.com'}/launch-kit`;
@@ -622,7 +636,7 @@ export default function LaunchKit() {
   const serviceSchema = {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: 'Website Design, Branding & SEO Packages India | Webliix LaunchKit',
+    name: 'Website Design, Branding & SEO Launch Packages | Webliix',
     provider: {
       '@type': 'Organization',
       name: siteConfig.brand.name,
@@ -636,7 +650,7 @@ export default function LaunchKit() {
       }
     },
     serviceType: 'Business Website Design, Branding & SEO Launch Packages',
-    description: 'Website design, branding and SEO packages for Indian businesses. Get a professional business website, logo, brand identity, Google Business Profile, local SEO and lead-generation setup. Starting @ ₹9,999.',
+    description: 'Website design, branding and SEO launch packages for businesses, startups and professionals, including business websites, brand identity, Google Business Profile setup and SEO foundations.',
     offers: [
       {
         '@type': 'Offer',
@@ -681,16 +695,16 @@ export default function LaunchKit() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-16">
       <Helmet>
-        <title>Website Design, Branding & SEO Packages India | Webliix</title>
+        <title>Website Design, Branding & SEO Packages for Businesses | Webliix</title>
         <meta
           name="description"
-          content="Website design, branding and SEO packages for Indian businesses. Get a professional business website, logo, brand identity, Google Business Profile, local SEO and lead-generation setup. Starting @ ₹9,999."
+          content="Website design, branding and SEO packages for businesses, startups and professionals. Launch with a professional website, brand identity, Google Business Profile setup and SEO foundations from ₹9,999."
         />
         <link rel="canonical" href={canonicalUrl} />
-        <meta property="og:title" content="Website Design, Branding & SEO Packages India | Webliix" />
+        <meta property="og:title" content="Website Design, Branding & SEO Packages for Businesses | Webliix" />
         <meta
           property="og:description"
-          content="Website design, branding and SEO packages for Indian businesses. Get a professional business website, logo, brand identity, Google Business Profile, local SEO and lead-generation setup. Starting @ ₹9,999."
+          content="Website design, branding and SEO packages for businesses, startups and professionals. Launch with a professional website, brand identity, Google Business Profile setup and SEO foundations from ₹9,999."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalUrl} />
@@ -709,7 +723,7 @@ export default function LaunchKit() {
         </div>
 
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-theme-text leading-[1.15]">
-          Website Design, Branding & <span className="text-shimmer">Digital Growth Packages</span> for Businesses
+          Website Design, Branding & <span className="text-shimmer">SEO Packages</span> for Businesses
         </h1>
 
         <p className="text-base sm:text-lg text-theme-muted leading-relaxed max-w-3xl mx-auto">
@@ -764,7 +778,7 @@ export default function LaunchKit() {
             Comprehensive Foundation
           </span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-theme-text">
-            What Every Webliix Business Launch Can Include
+            What Your Business Launch Can Include
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
             Everything your business requires to establish authority, attract organic traffic, and convert visitors into leads.
@@ -800,7 +814,7 @@ export default function LaunchKit() {
             Transparent Starting Packages
           </span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-theme-text">
-            Choose Your Starting Package
+            Choose Your Website &amp; Business Launch Package
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm leading-relaxed">
             Select the package that fits your current business stage. Every tier is fully modular and can be customized with additional pages, SEO campaigns, or advertising as you grow.
@@ -937,14 +951,14 @@ export default function LaunchKit() {
         </div>
       </section>
 
-      {/* HIGH-CONVERSION SECTION: "What Do You Actually Need?" */}
+      {/* HIGH-CONVERSION SECTION: "Which Business Launch Package Fits Your Needs?" */}
       <section className="space-y-8 pt-6 border-t border-theme-border/60">
         <div className="text-center max-w-2xl mx-auto space-y-2">
           <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-bold">
             Decision Helper
           </span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-theme-text">
-            What Do You Actually Need?
+            Which Business Launch Package Fits Your Needs?
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
             Not sure where to begin? Match your current business situation to the recommended starting path below.
@@ -993,7 +1007,7 @@ export default function LaunchKit() {
         <div className="text-center pt-2">
           <a href="#launchkit-form-section">
             <WebliixButton variant="primary" size="lg" icon={ArrowRight}>
-              Talk to a Webliix Expert →
+              Discuss Your Business Launch →
             </WebliixButton>
           </a>
         </div>
@@ -1006,7 +1020,7 @@ export default function LaunchKit() {
             Modular Enhancements
           </span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-theme-text">
-            Add-On Services
+            Additional Website, SEO &amp; Marketing Services
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
             Scale your project with modular add-ons. "Starting @" pricing gives you room to expand features without overpaying.
@@ -1096,7 +1110,7 @@ export default function LaunchKit() {
             Side-By-Side Comparison
           </span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-theme-text">
-            Compare All 4 Packages
+            Compare LaunchKit Packages
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
             Quickly evaluate deliverables, SEO depth, timelines, and support durations side-by-side.
@@ -1138,10 +1152,10 @@ export default function LaunchKit() {
             Execution Flow
           </span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-theme-text">
-            From Initial Brief to Live Website
+            From Business Brief to Live Website
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
-            Our organized, structured workflow ensures transparent milestone updates with zero delays.
+            Our structured workflow keeps the project focused from requirements and content through development, review and launch.
           </p>
         </div>
 
@@ -1171,7 +1185,7 @@ export default function LaunchKit() {
             Frequently Asked Questions
           </span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-theme-text">
-            Clear Answers to Common Questions
+            LaunchKit FAQs
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
             Everything you need to know about pricing, branding, SEO inclusions, and customizations.
@@ -1223,10 +1237,10 @@ export default function LaunchKit() {
                 <Sparkles className="w-3.5 h-3.5" /> Start Your Business Launch
               </span>
               <h3 className="text-2xl sm:text-3xl font-display font-extrabold text-theme-text">
-                Ready to Launch Your Business Online?
+                Ready to Plan Your Business Website & Digital Launch?
               </h3>
               <p className="text-xs sm:text-sm text-theme-muted leading-relaxed">
-                Tell us about your business, your goals, and what you need. We will configure your LaunchKit proposal within 2 hours.
+                Tell us about your business, your goals and what you need. We will review the requirements and prepare the appropriate LaunchKit scope.
               </p>
             </div>
 
@@ -1239,7 +1253,7 @@ export default function LaunchKit() {
                   LaunchKit Enquiry Received!
                 </h4>
                 <p className="text-sm text-theme-muted max-w-md mx-auto">
-                  Thank you, <strong className="text-theme-text">{formData.name}</strong>. Our project strategist is reviewing your requirements and will reach out within 2 hours.
+                  Thank you, <strong className="text-theme-text">{formData.name}</strong>. Your LaunchKit enquiry has been received and our team will review the requirements.
                 </p>
                 <div className="pt-4 flex flex-wrap justify-center gap-3">
                   <a href={waUrl} target="_blank" rel="noopener noreferrer">
@@ -1430,13 +1444,13 @@ export default function LaunchKit() {
                   </WebliixFieldGroup>
 
                   <WebliixFieldGroup>
-                    <WebliixLabel htmlFor="lk-targetMarket" required>Target City / Market</WebliixLabel>
+                    <WebliixLabel htmlFor="lk-targetMarket" required>Target Market / Customer Location</WebliixLabel>
                     <WebliixInput
                       id="lk-targetMarket"
                       name="targetMarket"
                       type="text"
                       required
-                      placeholder="e.g. Delhi NCR, Mumbai, National India, International..."
+                      placeholder="e.g. Delhi NCR, California, London, Toronto, Dubai, International..."
                       value={formData.targetMarket}
                       onChange={handleChange}
                     />
@@ -1462,7 +1476,7 @@ export default function LaunchKit() {
                 <div className="flex items-start gap-2 p-3 theme-rounded-card bg-theme-primary/5 border border-theme-border/60 text-[11px] text-theme-muted">
                   <Globe className="w-4 h-4 text-theme-primary shrink-0 mt-0.5" />
                   <span>
-                    <strong>Serving businesses across India & Worldwide:</strong> Clear milestone roadmap, 100% source code ownership, and fast turnaround.
+                    <strong>Serving businesses in India & international markets:</strong> Clear scope, milestone-based delivery and agreed project assets provided at completion.
                   </span>
                 </div>
 
@@ -1496,7 +1510,7 @@ export default function LaunchKit() {
         </span>
 
         <h2 className="text-2xl sm:text-4xl font-display font-extrabold text-theme-text max-w-2xl mx-auto">
-          Ready to Launch Your Business with Everything You Need?
+          Ready to Launch Your Business Website &amp; Digital Presence?
         </h2>
 
         <p className="text-sm sm:text-base text-theme-muted max-w-xl mx-auto">

@@ -43,6 +43,7 @@ import {
   netlifyEncode
 } from '../components/ui/WebliixInput';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
+import { submitPublicLead } from '../services/leadService';
 import { useAudio } from '../context/AudioContext';
 
 export default function Careers() {
@@ -121,24 +122,22 @@ export default function Careers() {
     playSound('click');
 
     try {
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: netlifyEncode({
-          'form-name': 'careers-and-partner-application',
-          ...formData
-        })
+      const careerReq = `[Application Type: ${appType}] [Role: ${formData.roleApplied || 'N/A'}] [Portfolio/LinkedIn: ${formData.portfolioLink || 'None'}] [Experience: ${formData.experienceYears || 'N/A'}] ${formData.coverLetter || ''}`;
+      await submitPublicLead({
+        name: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        companyName: formData.companyName || (appType === 'partner' ? 'Strategic Partner' : 'Applicant'),
+        serviceRequested: `Career Application (${appType === 'partner' ? 'Strategic Partner' : formData.roleApplied || 'General Candidate'})`,
+        requirements: careerReq,
+        source: 'CAREERS_PAGE',
+        page: '/careers',
       });
-
-      if (response.ok) {
-        setFormStatus('success');
-        playSound('success');
-      } else {
-        throw new Error('Form submission failed. Please try again.');
-      }
+      setFormStatus('success');
+      playSound('success');
     } catch (err) {
       console.error('Application submission error:', err);
-      setErrorMessage('There was an issue submitting your application. Please reach out to us directly on WhatsApp or Email.');
+      setErrorMessage(err.message || 'There was an issue submitting your application. Please try again.');
       setFormStatus('error');
       playSound('error');
     }

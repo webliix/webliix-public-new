@@ -42,44 +42,44 @@ export default function WebAppDevelopment() {
   const appTypes = [
     {
       id: 'saas',
-      name: 'SaaS Platforms & Web Apps',
-      badge: 'Multi-Tenant',
+      name: 'SaaS Platforms & Web Applications',
+      badge: 'SaaS',
       icon: Cpu,
-      desc: 'Scalable software-as-a-service platforms with subscription billing, recurring payments, multi-user workspaces, and granular permissions.',
+      desc: 'Custom software delivered through the web, with user accounts, subscriptions, dashboards, permissions and workflows tailored to the product.',
       highlights: [
-        'Stripe & Razorpay automated subscription billing',
-        'JWT/OAuth2 secure authentication & role management',
-        'Real-time WebSocket notifications & event streams',
-        'Customer admin dashboard & metric analytics',
-        'Multi-tenant database isolation & security'
+        'Subscription and payment integration',
+        'Secure authentication & role management',
+        'Customer dashboards & account areas',
+        'Notifications, events & workflow automation',
+        'Multi-tenant application architecture'
       ]
     },
     {
       id: 'portals',
-      name: 'Custom CRM, ERP & Business Portals',
-      badge: 'Internal Systems',
+      name: 'CRM, ERP & Business Portals',
+      badge: 'Business Systems',
       icon: Database,
-      desc: 'Centralized operational software designed to automate sales pipelines, customer ticketing, inventory, invoices, and staff management.',
+      desc: 'Custom internal and customer-facing systems for managing leads, customers, projects, invoices, staff, support and operational workflows.',
       highlights: [
-        'Custom business workflow automation engine',
-        'Employee, lead & project management modules',
-        'Automated GST invoicing & PDF report generation',
-        'Role-based access control (Admin, Manager, Staff)',
-        'REST API & legacy database synchronization'
+        'Lead, customer & project management',
+        'Business workflow automation',
+        'Invoices, reports & operational data',
+        'Role-based access control',
+        'REST API & existing-system integration'
       ]
     },
     {
       id: 'booking',
-      name: 'Marketplaces & Booking Engines',
-      badge: 'Two-Sided Platforms',
+      name: 'Booking Platforms & Marketplaces',
+      badge: 'Platforms',
       icon: Globe,
-      desc: 'Complex interactive marketplaces connecting buyers and service providers with live scheduling, payments, and ratings.',
+      desc: 'Custom booking systems and marketplace platforms for businesses that need scheduling, user accounts, payments and structured provider or customer workflows.',
       highlights: [
-        'Interactive calendar scheduling & time slot booking',
-        'Split payment gateway distribution & escrow logic',
-        'Geolocation search & radius-based provider matching',
-        'Automated SMS/Email confirmation webhooks',
-        'Review, dispute resolution & moderation queues'
+        'Calendar and time-slot booking',
+        'Payment and transaction workflows',
+        'Location-based search where required',
+        'Email / SMS notification integrations',
+        'Reviews, moderation & administrative workflows'
       ]
     }
   ];
@@ -87,33 +87,33 @@ export default function WebAppDevelopment() {
   const coreCapabilities = [
     {
       icon: Server,
-      title: 'Enterprise Backend Engineering',
-      desc: 'High-throughput microservices and REST APIs built with Java Spring Boot and Node.js designed to handle thousands of concurrent requests.'
+      title: 'Backend & API Development',
+      desc: 'Business APIs and backend services built with technologies such as Java Spring Boot and Node.js, based on the application requirements and expected workload.'
     },
     {
       icon: Layers,
-      title: 'Modern Single-Page Frontends',
-      desc: 'Fluid, stateful user interfaces built with React and Next.js, featuring spatial glass aesthetics, instant transitions, and rich data tables.'
+      title: 'React & Next.js Application Interfaces',
+      desc: 'Responsive dashboards, portals and interactive application interfaces designed around user workflows, business operations and product requirements.'
     },
     {
       icon: Database,
-      title: 'Scalable Database Architecture',
-      desc: 'Relational (PostgreSQL, MySQL) and NoSQL (MongoDB, Redis) data models engineered with indexing, caching layers, and automated daily backups.'
+      title: 'Database & Data Architecture',
+      desc: 'Relational and supporting data technologies such as PostgreSQL, MySQL, MongoDB and Redis can be used where appropriate for the application architecture.'
     },
     {
       icon: Lock,
-      title: 'Zero-Trust Security & Auth',
-      desc: 'Role-based access control (RBAC), multi-factor authentication (MFA), OWASP Top 10 compliance, API rate-limiting, and 256-bit encryption.'
+      title: 'Authentication & Access Control',
+      desc: 'Role-based permissions, secure authentication, protected routes and appropriate API security controls are implemented according to the system requirements.'
     },
     {
       icon: Zap,
-      title: 'Cloud Deployment & CI/CD',
-      desc: 'Automated deployment pipelines across AWS, Google Cloud, Docker, and Vercel with auto-scaling infrastructure and 99.99% uptime SLAs.'
+      title: 'Cloud Deployment & Application Delivery',
+      desc: 'Deployment can be configured with Docker and cloud infrastructure suited to the application, including environment configuration, HTTPS and release workflows.'
     },
     {
       icon: BarChart3,
-      title: 'Live Dashboards & Data Analytics',
-      desc: 'Interactive visual charts, exportable CSV/PDF reports, audit logs, and actionable business intelligence metrics built natively.'
+      title: 'Dashboards, Reports & Business Data',
+      desc: 'Custom dashboards, reports, audit information and operational metrics can be built into the application to help teams work with their business data.'
     }
   ];
 
@@ -124,103 +124,104 @@ export default function WebAppDevelopment() {
       period: 'Scope & Feature Based',
       badge: 'Startup Ready',
       popular: false,
-      desc: 'Fast-track prototype development to validate your product concept with real users and initial investors.',
+      desc: 'A focused first version of a web application for validating a product idea, workflow or customer experience with the features that matter most.',
       timeline: '2–3 Weeks Delivery',
       features: [
-        'Custom React Frontend & Node.js/Java REST API',
-        'User Authentication & Role Management (Admin / User)',
-        'PostgreSQL or MongoDB Database Architecture',
-        'Responsive Web Application & Analytics Dashboard',
-        'Payment Gateway Integration (Razorpay / Stripe)',
-        'Cloud Server Setup & Automated SSL Deployment',
-        'Complete Source Code Handover & Documentation',
-        '45 Days Dedicated Technical Support'
+        'React Frontend & REST API Development',
+        'User Authentication & Basic Role Management',
+        'PostgreSQL or MongoDB Data Architecture',
+        'Responsive Application Interface & Dashboard',
+        'Payment Integration When Required',
+        'Cloud Deployment & HTTPS Configuration',
+        'Source Code Handover & Project Documentation',
+        '45 Days Technical Support'
       ]
     },
     {
       name: 'Full-Scale SaaS Platform',
       price: 'Custom Quote',
-      period: 'Milestone & User Tier Based',
+      period: 'Milestone & Feature Based',
       badge: 'Most Popular',
       popular: true,
-      desc: 'Comprehensive multi-tenant software system ready for customer onboarding, recurring subscriptions, and scale.',
+      desc: 'A complete SaaS application for products that need multiple users, account areas, subscriptions, dashboards and integrations.',
       timeline: '4–6 Weeks Delivery',
       features: [
-        'Advanced Next.js + Spring Boot Enterprise Architecture',
-        'Multi-Tenant Data Partitioning & Subscriptions Engine',
-        'Automated Invoice Generation & Usage-Based Billing',
-        'Real-Time WebSockets & In-App Notification Hub',
-        'Granular Role-Based Access Control (RBAC)',
-        'Comprehensive Admin Management & Audit Log Suite',
-        'Third-Party API & Webhook Ecosystem Integration',
-        '90 Days Priority SLA Maintenance & Support'
+        'Next.js + Spring Boot Application Architecture',
+        'Multi-Tenant Data & Account Management',
+        'Subscription & Billing Workflows',
+        'In-App Notifications & Application Events',
+        'Role-Based Access Control',
+        'Admin Dashboard & Audit Features',
+        'Third-Party APIs & Webhooks',
+        '90 Days Priority Technical Support'
       ]
     },
     {
       name: 'Custom Enterprise ERP / CRM',
       price: 'Custom Quote',
-      period: 'Enterprise Custom Architecture',
-      badge: 'Enterprise Architecture',
+      period: 'Enterprise Custom Scope',
+      badge: 'Enterprise',
       popular: false,
-      desc: 'Bespoke corporate management system designed to orchestrate complex internal operations across multiple departments.',
+      desc: 'Custom business software for organizations with multi-department workflows, existing systems, complex permissions and reporting requirements.',
       timeline: '6–10 Weeks Delivery',
       features: [
-        'Tailored Workflow Automation & Multi-Department Modules',
-        'Sales Pipelines, Task Kanban & Inventory Engine',
-        'Legacy Database Migration & High-Throughput APIs',
-        'Air-Gapped or Custom On-Premise / Cloud Deployment',
-        'SOC2 / GDPR / ISO-Ready Security Architecture',
-        'Dedicated Solutions Architect & Sprint Lead',
-        '180 Days Extended Enterprise Support & SLA'
+        'Custom CRM / ERP Modules',
+        'Sales, Projects, Tasks & Operations Workflows',
+        'Legacy Data Migration Where Required',
+        'REST APIs & Third-Party Integrations',
+        'Cloud or On-Premise Deployment Options',
+        'Security & Access-Control Architecture',
+        'Technical Architecture & Delivery Roadmap',
+        '180 Days Extended Support'
       ]
     }
   ];
 
   const techStack = [
-    { name: 'React / Next.js', role: 'Stateful Dynamic UI', tag: 'Frontend' },
-    { name: 'Java Spring Boot', role: 'Enterprise Microservices', tag: 'Backend' },
-    { name: 'Node.js / Express', role: 'High-Speed REST APIs', tag: 'API Engine' },
-    { name: 'PostgreSQL', role: 'Relational ACID Data', tag: 'Database' },
-    { name: 'Redis', role: 'In-Memory Caching & Queues', tag: 'Performance' },
-    { name: 'AWS / Docker', role: 'Containerized Infrastructure', tag: 'DevOps' }
+    { name: 'React / Next.js', role: 'Web Application Interface', tag: 'Frontend' },
+    { name: 'Java Spring Boot', role: 'Enterprise Backend & APIs', tag: 'Backend' },
+    { name: 'Node.js / Express', role: 'Application APIs & Services', tag: 'API' },
+    { name: 'PostgreSQL', role: 'Relational Application Database', tag: 'Database' },
+    { name: 'Redis', role: 'Caching & Fast Data Access', tag: 'Performance' },
+    { name: 'Docker / Cloud', role: 'Deployment & Infrastructure', tag: 'DevOps' }
   ];
 
   const faqs = [
     {
-      question: 'What is the difference between a standard website and a web application?',
-      answer: 'A standard website primarily displays information and captures leads. A custom web application operates like software in the browser — allowing users to log in, create accounts, process complex transactions, manipulate dynamic data in real time, generate custom reports, and automate business operations.'
+      question: 'What is custom web application development?',
+      answer: 'Custom web application development creates browser-based software for specific business or product workflows. Unlike a standard website, a web application can include user accounts, dashboards, permissions, dynamic data, transactions, automation and integrations.'
     },
     {
-      question: 'How do you ensure our customer data and code remain secure?',
-      answer: 'We implement industry standard enterprise security: salted bcrypt password hashing, JWT/OAuth2 tokens with short lifespans, parameterized SQL queries to prevent SQL injections, CSRF protections, strict CORS policies, SSL encryption in transit, and encrypted databases at rest.'
+      question: 'What types of web applications can Webliix build?',
+      answer: 'Webliix can build SaaS products, customer portals, CRM and ERP systems, dashboards, booking platforms, marketplaces, internal business tools and other custom web applications based on the required workflows and integrations.'
     },
     {
-      question: 'Do we own 100% of the source code and IP?',
-      answer: 'Yes. Webliix transfers complete intellectual property and source code repository rights to you upon project sign-off. We provide unencumbered, clean, documented code without proprietary runtime licenses.'
+      question: 'Can you integrate an existing CRM, ERP or third-party API?',
+      answer: 'Yes. We can plan REST APIs, webhooks and data integrations for existing systems and third-party services. The exact integration approach depends on the API documentation, authentication method and data requirements.'
     },
     {
-      question: 'Can you integrate with our existing CRM, ERP, or third-party APIs?',
-      answer: 'Yes. We specialize in building secure RESTful connectors and webhook handlers to synchronize data seamlessly with services like Salesforce, HubSpot, QuickBooks, Shiprocket, Twilio, WhatsApp Business API, and custom legacy databases.'
+      question: 'How is a custom web application project priced?',
+      answer: 'Custom application projects are quoted according to features, user roles, integrations, database requirements, design complexity, security requirements and delivery scope. We first review the requirements, then propose the architecture and project estimate.'
+    },
+    {
+      question: 'Do we receive the source code?',
+      answer: 'The agreed project source code and documentation can be handed over at completion according to the project agreement. Third-party services, libraries and hosting remain subject to their respective licenses and account terms.'
     }
   ];
 
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-20">
       <Helmet>
-        <title>Custom Web Application & SaaS Development | Webliix</title>
+        <title>Custom Web Application & SaaS Development Services | Webliix</title>
         <meta
           name="description"
-          content="Build scalable web applications, SaaS platforms, custom CRM/ERP portals, and enterprise dashboards with Webliix. React, Spring Boot, Node.js, and cloud architecture."
+          content="Custom web application and SaaS development for businesses and startups, including CRM, ERP, dashboards, portals, APIs and business software built with modern web technologies."
         />
-        <meta
-          name="keywords"
-          content="custom web application development, saas product development, spring boot react agency, custom erp crm development, enterprise software development, webliix software"
-        />
-        <link rel="canonical" href="https://webliix.com/web-app-development" />
+<link rel="canonical" href="https://webliix.com/web-app-development" />
 
         {/* Open Graph */}
-        <meta property="og:title" content="Custom Web Application & SaaS Development | Webliix" />
-        <meta property="og:description" content="Enterprise web applications, SaaS platforms, and custom business portals built with modern React and Java Spring Boot." />
+        <meta property="og:title" content="Custom Web Application & SaaS Development Services | Webliix" />
+        <meta property="og:description" content="Build custom web applications, SaaS products, CRM/ERP systems, portals, dashboards and business software with Webliix." />
         <meta property="og:url" content="https://webliix.com/web-app-development" />
         <meta property="og:type" content="website" />
 
@@ -236,14 +237,7 @@ export default function WebAppDevelopment() {
               "url": "https://webliix.com"
             },
             "serviceType": "Software Development",
-            "description": "Full-stack custom web application development, SaaS architectures, CRM/ERP systems, and scalable cloud integrations.",
-            "offers": {
-              "@type": "Offer",
-              "price": "39999",
-              "priceCurrency": "INR",
-              "availability": "https://schema.org/InStock",
-              "url": "https://webliix.com/web-app-development"
-            }
+            "description": "Custom web application development, SaaS product development, CRM and ERP systems, dashboards, portals and API integrations for businesses and software products."
           })}
         </script>
       </Helmet>
@@ -254,10 +248,10 @@ export default function WebAppDevelopment() {
       {/* Hero Section */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <span className="px-4 py-1.5 rounded-full glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-bold uppercase tracking-widest inline-flex items-center gap-1.5 shadow-sm">
-          <Cpu className="w-3.5 h-3.5" /> Full-Stack Software Engineering
+          <Cpu className="w-3.5 h-3.5" /> Custom Web Applications &amp; SaaS Development
         </span>
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">
-          Custom <span className="text-shimmer">Web Application</span> &amp; SaaS Development
+          Custom <span className="text-shimmer">Web Application</span> &amp; SaaS Development Services
         </h1>
         <p className="text-theme-muted text-base sm:text-lg leading-relaxed">
           Transform your complex business workflows into scalable, cloud-ready software platforms. We build high-throughput backends, stateful React dashboards, and robust multi-tenant SaaS products.
@@ -280,20 +274,20 @@ export default function WebAppDevelopment() {
       {/* Engineering Capabilities Badges */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
         <WebliixCard variant="stat" className="p-5 text-center space-y-1">
-          <div className="text-2xl sm:text-3xl font-display font-extrabold text-theme-primary">99.99%</div>
-          <div className="text-xs text-theme-muted font-medium">Uptime Architecture</div>
+          <div className="text-2xl sm:text-3xl font-display font-extrabold text-theme-primary">Scalable</div>
+          <div className="text-xs text-theme-muted font-medium">Application Architecture</div>
         </WebliixCard>
         <WebliixCard variant="stat" className="p-5 text-center space-y-1">
-          <div className="text-2xl sm:text-3xl font-display font-extrabold text-theme-primary">&lt; 100ms</div>
-          <div className="text-xs text-theme-muted font-medium">API Response Time</div>
+          <div className="text-2xl sm:text-3xl font-display font-extrabold text-theme-primary">API</div>
+          <div className="text-xs text-theme-muted font-medium">Integration Ready</div>
         </WebliixCard>
         <WebliixCard variant="stat" className="p-5 text-center space-y-1">
           <div className="text-2xl sm:text-3xl font-display font-extrabold text-emerald-400">100%</div>
           <div className="text-xs text-theme-muted font-medium">IP &amp; Code Ownership</div>
         </WebliixCard>
         <WebliixCard variant="stat" className="p-5 text-center space-y-1">
-          <div className="text-2xl sm:text-3xl font-display font-extrabold text-theme-primary">SOC2 Ready</div>
-          <div className="text-xs text-theme-muted font-medium">Security Compliant</div>
+          <div className="text-2xl sm:text-3xl font-display font-extrabold text-theme-primary">Security</div>
+          <div className="text-xs text-theme-muted font-medium">Security-Focused Build</div>
         </WebliixCard>
       </div>
 
@@ -304,7 +298,7 @@ export default function WebAppDevelopment() {
             Application Models
           </span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-theme-text">
-            Software Engineered for Your Business Scale
+            Custom Software for Your Business Requirements
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
             Explore our specialized development architectures designed for high performance and clean maintainability.
@@ -362,7 +356,7 @@ export default function WebAppDevelopment() {
                       fullWidth
                       icon={ArrowUpRight}
                     >
-                      Configure {type.name.split(' ')[0]}
+                      Discuss {type.name.split(' ')[0]}
                     </WebliixButton>
                   </Link>
                 </div>
@@ -379,7 +373,7 @@ export default function WebAppDevelopment() {
             Engineering Excellence
           </span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-theme-text">
-            Enterprise Quality in Every Module
+            Built Around Your Application Requirements
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
             We follow strict software engineering patterns, automated test suites, and clean architecture standards.
@@ -411,7 +405,7 @@ export default function WebAppDevelopment() {
             Robust Architecture
           </span>
           <h2 className="text-2xl sm:text-3xl font-display font-bold text-theme-text">
-            Battle-Tested Tech Ecosystem
+            Web Application Development Technologies
           </h2>
         </div>
 
@@ -435,7 +429,7 @@ export default function WebAppDevelopment() {
             Tailored Scopes
           </span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-theme-text">
-            Software Development Scopes
+            Custom Web Application Development
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
             Milestone-based delivery with full scope transparency, weekly sprint demos, and complete code repositories shared from Day 1.
@@ -505,7 +499,7 @@ export default function WebAppDevelopment() {
                     fullWidth
                     icon={ArrowUpRight}
                   >
-                    Get Free Quote &amp; Estimate
+                    Request Project Estimate
                   </WebliixButton>
                 </Link>
               </div>
@@ -569,7 +563,7 @@ export default function WebAppDevelopment() {
         </span>
 
         <h2 className="text-2xl sm:text-4xl font-display font-extrabold text-theme-text max-w-2xl mx-auto">
-          Have a Custom Web App or SaaS Idea?
+          Have a Custom Web Application or SaaS Idea?
         </h2>
 
         <p className="text-sm sm:text-base text-theme-muted max-w-xl mx-auto">
@@ -579,7 +573,7 @@ export default function WebAppDevelopment() {
         <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
           <Link to="/contact">
             <WebliixButton variant="primary" size="lg" icon={ArrowUpRight}>
-              Schedule Technical Consultation
+              Discuss Your Application
             </WebliixButton>
           </Link>
           <a

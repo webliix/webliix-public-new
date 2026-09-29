@@ -11,6 +11,7 @@ import {
   WebliixLabel,
   netlifyEncode,
 } from './WebliixInput';
+import { submitPublicLead } from '../../services/leadService';
 
 
 /* ─── constants ──────────────────────────────────────────────── */
@@ -94,10 +95,14 @@ export default function FirstVisitEnquiry() {
     if (!form.name.trim() || !form.phone.trim() || !form.service) return;
     setSubmitting(true);
     try {
-      await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': 'first-visit-enquiry', ...form }),
+      await submitPublicLead({
+        name: form.name,
+        phone: form.phone,
+        email: form.email || `${form.phone.replaceAll(/[^0-9]/g, '')}@lead.webliix.in`,
+        serviceRequested: form.service,
+        requirements: form.note || 'First Visit Popup Inquiry',
+        source: 'FIRST_VISIT_POPUP',
+        page: window.location.pathname,
       });
     } catch {/* local dev — ignore */}
     setStep(2);

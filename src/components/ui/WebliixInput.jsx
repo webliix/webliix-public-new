@@ -197,7 +197,7 @@ export const WebliixSelect = forwardRef(function WebliixSelect(
           : children}
       </select>
       <span className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-theme-muted/60 group-focus-within:text-theme-primary transition-colors">
-        <ChevronDown className="w-4 h-4" />
+        <ChevronDown className="w-4 h-4 transition-transform duration-200 group-focus-within:rotate-180" />
       </span>
     </div>
   );
@@ -208,26 +208,34 @@ export const WebliixSelect = forwardRef(function WebliixSelect(
  * Edgy custom checkbox with square theme primary indicator.
  */
 export const WebliixCheckbox = forwardRef(function WebliixCheckbox(
-  { label, id, className = '', ...props },
+  { label, id, className = '', disabled, ...props },
   ref
 ) {
   return (
-    <label htmlFor={id} className="flex items-start gap-3 cursor-pointer group select-none">
+    <label
+      htmlFor={id}
+      className={[
+        'flex items-start gap-3 group select-none',
+        disabled ? 'cursor-not-allowed opacity-60' : 'cursor-pointer',
+      ].join(' ')}
+    >
       <div className="relative flex-shrink-0 mt-0.5">
         <input
           ref={ref}
           id={id}
           type="checkbox"
+          disabled={disabled}
           className="sr-only peer"
           {...props}
         />
         {/* Edgy Square Checkbox Box */}
         <div
           className={[
-            'w-4.5 h-4.5 rounded-none sm:rounded-[2px] border border-theme-border/80',
+            'w-[18px] h-[18px] rounded-none sm:rounded-[2px] border border-theme-border/80',
             'glass-spatial transition-all duration-150',
             'peer-checked:bg-theme-primary peer-checked:border-theme-primary',
             'peer-focus:ring-2 peer-focus:ring-theme-primary/40',
+            'peer-disabled:opacity-50 peer-disabled:cursor-not-allowed',
             'group-hover:border-theme-primary/60',
             className,
           ].join(' ')}
@@ -307,6 +315,7 @@ export function WebliixFieldGroup({
 // ─── WebliixFormCard ─────────────────────────────────────────────────────────
 /**
  * A WebliixCard-wrapped form container.
+ * Inherits WebliixCard's scroll-triggered fade-in automatically.
  */
 export function WebliixFormCard({
   title,

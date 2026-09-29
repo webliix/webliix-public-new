@@ -13,15 +13,11 @@ import {
   Sparkles,
   HelpCircle,
   ChevronDown,
-  Package,
-  Layers,
   Store,
   Smartphone,
   Globe,
   Lock,
   Clock,
-  DollarSign,
-  Award,
   RefreshCw,
   BarChart3,
   MessageSquare,
@@ -29,8 +25,6 @@ import {
   Sliders,
   BellRing,
   Tag,
-  Share2,
-  FileText
 } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import WebliixCard from '../components/ui/WebliixCard';
@@ -52,13 +46,13 @@ export default function EcommerceStore() {
       name: 'Shopify Store Launch',
       badge: 'Best for D2C Brands',
       icon: Store,
-      desc: 'Industry-standard ecommerce platform with zero server headaches, built-in apps, and frictionless mobile checkouts.',
+      desc: 'Professional Shopify store setup for new and growing eCommerce brands, with custom storefront design, product organization, payments, shipping and conversion-focused mobile UX.',
       highlights: [
-        'Turnkey Shopify theme customization & setup',
-        'Official Shopify Payments / Razorpay / PhonePe integration',
-        'Built-in inventory tracking & multi-location stock management',
-        'Automated abandoned checkout recovery emails',
-        'Shopify Mobile App for real-time sales management'
+        'Shopify store setup, theme customization & branded storefront design',
+        'Shopify Payments, Razorpay, UPI and supported payment gateway setup',
+        'Product catalog, collections, variants, inventory and store settings setup',
+        'Conversion features including cart recovery and customer notifications',
+        'Analytics, Search Console and sales-management setup'
       ]
     },
     {
@@ -83,7 +77,7 @@ export default function EcommerceStore() {
       desc: 'High-performance React/Next.js storefront with sub-second page loads, custom checkout logic, and bespoke design systems.',
       highlights: [
         'Next.js / React single-page spatial shopping experience',
-        'Lightning-fast 98+ Google PageSpeed mobile score',
+        'Lightning-fast performance-focused storefront optimization',
         'Stripe / Razorpay direct custom API integration',
         'Headless CMS for effortless product & blog editing',
         'Bespoke product configurators & interactive 3D viewers'
@@ -100,7 +94,7 @@ export default function EcommerceStore() {
     {
       icon: Smartphone,
       title: 'Mobile-First Shopping Experience',
-      desc: 'Over 80% of online orders happen on mobile. We design fluid, lightning-fast touch layouts with 1-tap checkout.'
+      desc: 'We design fluid, lightning-fast touch layouts with 1-tap checkout.'
     },
     {
       icon: Truck,
@@ -125,12 +119,12 @@ export default function EcommerceStore() {
     {
       icon: RefreshCw,
       title: 'Abandoned Cart Recovery',
-      desc: 'Recover up to 25% of lost sales with automated reminder emails and SMS incentives sent to visitors who left items in their cart.'
+      desc: 'Help recover lost sales with automated reminder emails and customer follow-up tools.'
     },
     {
       icon: Lock,
       title: '256-Bit SSL & Bank-Grade Security',
-      desc: 'End-to-end HTTPS encryption, secure checkout sessions, and PCI-DSS compliance ensuring complete customer privacy.'
+      desc: 'End-to-end HTTPS encryption, secure checkout sessions, and secure checkout configuration; final compliance depends on the payment provider and store setup.'
     },
     {
       icon: BarChart3,
@@ -141,7 +135,7 @@ export default function EcommerceStore() {
 
   const packages = [
     {
-      name: 'Starter Store Launch',
+      name: 'Shopify Starter Store',
       price: '₹12,999',
       period: 'One-time setup',
       badge: 'Quick Launch',
@@ -150,7 +144,7 @@ export default function EcommerceStore() {
       timeline: '5–7 Days Delivery',
       features: [
         'Up to 25 Initial Product Listings with Variants',
-        'Shopify or WooCommerce Responsive Store Setup',
+        'Shopify store setup with responsive storefront customization',
         'UPI & Razorpay / PhonePe Payment Gateway Setup',
         'Mobile-Optimized Shopping Cart & Checkout',
         'Automated Customer Order Confirmation Email',
@@ -160,7 +154,7 @@ export default function EcommerceStore() {
       ]
     },
     {
-      name: 'Growth E-Commerce Store',
+      name: 'Shopify Growth Store',
       price: '₹24,999',
       period: 'One-time setup',
       badge: 'Most Popular',
@@ -174,7 +168,7 @@ export default function EcommerceStore() {
         'Automated WhatsApp Order Notification System',
         'Courier Shipping API Integration (Shiprocket / Delhivery)',
         'Discount Coupons & Abandoned Cart Recovery',
-        'Advanced Product Schema Markup for Google Shopping',
+        'Product SEO setup, structured data review and Google Merchant readiness',
         'Comprehensive Admin Training & 60 Days Support'
       ]
     },
@@ -233,7 +227,7 @@ export default function EcommerceStore() {
     },
     {
       question: 'Do I have to pay any monthly commission on my sales?',
-      answer: 'No! Unlike third-party marketplaces (Amazon, Flipkart, Swiggy) that charge 15% to 30% per sale, with Webliix you own your store 100%. You keep 100% of your retail margins with zero platform commissions to us.'
+      answer: 'Webliix does not charge a commission on your store sales. However, Shopify subscription charges, payment-provider fees, taxes and third-party app costs can apply depending on your setup.'
     },
     {
       question: 'Can I add or edit new products by myself after the launch?',
@@ -252,42 +246,39 @@ export default function EcommerceStore() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-20">
       <Helmet>
-        <title>Fast E-Commerce Store Launch in 5–7 Days | Webliix</title>
-        <meta
-          name="description"
-          content="Launch your high-converting online store in 5–7 days with Webliix. Full payment gateway setup (UPI, Cards, COD), product catalog, mobile checkout, SEO schema, and 1-year maintenance."
-        />
-        <meta
-          name="keywords"
-          content="ecommerce store launch, shopify developer india, woocommerce website development, online store setup, ecommerce website cost, razorpay upi integration, shiprocket ecommerce website, webliix ecommerce"
-        />
+        <title>Shopify Store Development & Setup | Webliix</title>
+        <meta name="description" content="Shopify store development and setup for eCommerce businesses. Webliix builds custom Shopify stores with theme design, payments, shipping, product SEO and conversion-focused setup." />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
         <link rel="canonical" href="https://webliix.com/ecommerce-store" />
-
-        {/* Open Graph */}
-        <meta property="og:title" content="Fast E-Commerce Store Launch in 5–7 Days | Webliix" />
-        <meta property="og:description" content="Turnkey online store setup with UPI/Card payments, courier tracking, and mobile-first speed. Launch your direct-to-consumer brand fast." />
+        <meta property="og:title" content="Shopify Store Development & Setup | Webliix" />
+        <meta property="og:description" content="Custom Shopify store setup, eCommerce design, payments, shipping and SEO for growing businesses." />
         <meta property="og:url" content="https://webliix.com/ecommerce-store" />
         <meta property="og:type" content="website" />
-
-        {/* Structured JSON-LD Schema */}
+        <meta property="og:image" content="https://webliix.com/meta-gen/og_image.jpg" />
+        <meta property="og:image:alt" content="Webliix Shopify store development and eCommerce services" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Shopify Store Development & Setup | Webliix" />
+        <meta name="twitter:description" content="Custom Shopify store setup, eCommerce design, payments, shipping and SEO for growing businesses." />
+        <meta name="twitter:image" content="https://webliix.com/meta-gen/og_image.jpg" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Fast E-Commerce Store Launch",
-            "provider": {
-              "@type": "Organization",
-              "name": "Webliix",
-              "url": "https://webliix.com"
-            },
-            "serviceType": "E-Commerce Website Development",
-            "description": "Full-service turnkey online store development with UPI & Card payment gateways, automated courier shipping, mobile responsiveness, and SEO product schema.",
-            "offers": {
-              "@type": "Offer",
-              "price": "12999",
-              "priceCurrency": "INR",
-              "availability": "https://schema.org/InStock",
-              "url": "https://webliix.com/ecommerce-store"
+            "@id": "https://webliix.com/ecommerce-store#service",
+            "name": "Shopify Store Development & eCommerce Website Services",
+            "url": "https://webliix.com/ecommerce-store",
+            "provider": {"@type":"Organization","name":"Webliix","url":"https://webliix.com"},
+            "serviceType": ["Shopify Store Setup","Shopify Store Development","Shopify Website Design","Shopify Theme Customization","eCommerce Website Development","WooCommerce Development","eCommerce SEO"],
+            "description": "Shopify store setup and eCommerce website development including storefront design, product catalog setup, payment gateways, shipping integrations, technical SEO and analytics.",
+            "areaServed": "Worldwide",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "eCommerce Store Development Packages",
+              "itemListElement": packages.map((pkg,index)=>({
+                "@type":"Offer","position":index+1,"name":pkg.name,"description":pkg.desc,
+                "url":"https://webliix.com/ecommerce-store#pricing-packages",
+                ...(pkg.price !== "Custom Quote" ? {"price":pkg.price.replace(/[^0-9]/g,""),"priceCurrency":"INR"}:{})
+              }))
             }
           })}
         </script>
@@ -302,10 +293,10 @@ export default function EcommerceStore() {
           <Zap className="w-3.5 h-3.5" /> 5–7 Day Turnkey Deployment
         </span>
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">
-          Fast <span className="text-shimmer">E-Commerce Store</span> Launch
+          <span className="text-shimmer">Shopify Store Development</span> & E-Commerce Setup
         </h1>
         <p className="text-theme-muted text-base sm:text-lg leading-relaxed">
-          Start selling online directly to your customers with zero marketplace commissions. Turnkey Shopify, WooCommerce, or custom React storefronts equipped with UPI/Card checkout, automated shipping, and mobile-first speed.
+          Launch a professional Shopify store built around your products, brand and customers. Webliix handles Shopify setup, custom theme design, product catalog, payment gateways, shipping, analytics and SEO-ready storefront configuration for eCommerce businesses worldwide.
         </p>
 
         <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
@@ -337,7 +328,7 @@ export default function EcommerceStore() {
           <div className="text-xs text-theme-muted font-medium">Direct Bank Settlement</div>
         </WebliixCard>
         <WebliixCard variant="stat" className="p-5 text-center space-y-1">
-          <div className="text-2xl sm:text-3xl font-display font-extrabold text-theme-primary">95+</div>
+          <div className="text-2xl sm:text-3xl font-display font-extrabold text-theme-primary">Performance-focused</div>
           <div className="text-xs text-theme-muted font-medium">Mobile PageSpeed</div>
         </WebliixCard>
       </div>
@@ -367,6 +358,8 @@ export default function EcommerceStore() {
                 accentColor="primary"
                 className="p-6 sm:p-8 space-y-5 flex flex-col justify-between cursor-pointer transition-all duration-300"
                 onClick={() => setSelectedPlatform(plat.id)}
+                role="button" tabIndex={0} aria-pressed={isSelected}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedPlatform(plat.id); } }}
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
@@ -545,7 +538,7 @@ export default function EcommerceStore() {
             How We Launch Your Store in 5 Days
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
-            A battle-tested deployment process ensuring quality, security, and sales readiness without delays.
+            A A structured launch process covering catalog setup, design, payments, shipping, SEO checks and final testing.
           </p>
         </div>
 
@@ -594,6 +587,8 @@ export default function EcommerceStore() {
                 variant="panel"
                 className="p-5 space-y-3 cursor-pointer transition-all duration-200"
                 onClick={() => toggleFaq(idx)}
+                role="button" tabIndex={0} aria-expanded={isOpen}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleFaq(idx); } }}
               >
                 <div className="flex items-center justify-between gap-4">
                   <h4 className="text-sm sm:text-base font-display font-bold text-theme-text flex items-center gap-2.5">

@@ -5,30 +5,8 @@
 // Connects to Spring Boot backend: /api/v1/public/blogs
 // ─────────────────────────────────────────────────────────────────────────────
 
-const isBrowser = typeof window !== 'undefined';
-const isLocal = isBrowser && (
-  window.location.hostname === 'localhost' ||
-  window.location.hostname === '127.0.0.1' ||
-  window.location.hostname.endsWith('.localhost') ||
-  window.location.hostname.startsWith('192.168.') ||
-  window.location.hostname.startsWith('10.') ||
-  window.location.hostname === ''
-);
-
-/**
- * URL resolver supporting local dev proxy, direct port 8082, and production.
- */
-export function resolveUrl(path) {
-  if (!path) return '';
-  if (path.startsWith('http://') || path.startsWith('https://')) {
-    return path;
-  }
-  const cleanPath = path.startsWith('/') ? path : `/${path}`;
-  if (typeof import.meta !== 'undefined' && import.meta.env?.VITE_API_BASE_URL) {
-    return `${import.meta.env.VITE_API_BASE_URL.replace(/\/$/, '')}${cleanPath}`;
-  }
-  return `https://webliix-crm-backend.onrender.com${cleanPath}`;
-}
+import { resolveUrl } from '../config/apiConfig';
+export { resolveUrl };
 
 /**
  * Standard lightweight HTTP client

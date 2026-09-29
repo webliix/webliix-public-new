@@ -7,6 +7,7 @@ import WebliixIcon from '../ui/WebliixIcon';
 import WebliixButton from '../ui/WebliixButton';
 import { useModal } from '../../context/ModalContext';
 import { WebliixInput, WebliixFieldGroup, netlifyEncode } from '../ui/WebliixInput';
+import { submitPublicLead } from '../../services/leadService';
 
 
 export default function QuoteEstimator() {
@@ -55,9 +56,25 @@ export default function QuoteEstimator() {
             <div><strong className="text-theme-primary">Timeline:</strong> {Math.ceil(estimatedDays)} Business Days ({deliverySpeed.toUpperCase()})</div>
           </div>
           <form
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
-              showToast('Inquiry sent successfully! Our project team will contact you shortly.', 'success');
+              const name = e.target.elements['qe-name']?.value || '';
+              const phone = e.target.elements['qe-phone']?.value || '';
+              try {
+                await submitPublicLead({
+                  name,
+                  phone,
+                  email: `${phone.replace(/[^0-9]/g, '')}@lead.webliix.in`,
+                  serviceRequested: 'Quote Estimator',
+                  estimatedBudget: totalCostINR,
+                  requirements: `[Modules: ${selectedNames}] [Speed: ${deliverySpeed}] [Days: ${Math.ceil(estimatedDays)}]`,
+                  source: 'QUOTE_ESTIMATOR',
+                  page: window.location.pathname,
+                });
+                showToast('Inquiry sent successfully! Our project team will contact you shortly.', 'success');
+              } catch (err) {
+                showToast(err.message || 'Failed to submit quote inquiry.', 'error');
+              }
             }}
             className="space-y-3 pt-2"
           >

@@ -7,6 +7,8 @@ import { useTheme } from '../../context/ThemeContext';
 import { WebliixInput, netlifyEncode } from '../ui/WebliixInput';
 import WebliixButton from '../ui/WebliixButton';
 
+import { resolveUrl } from '../../config/apiConfig';
+
 export default function SpatialFooter() {
   const { currentTheme } = useTheme();
   const [subscribeEmail, setSubscribeEmail] = useState('');
@@ -18,6 +20,18 @@ export default function SpatialFooter() {
     if (!subscribeEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(subscribeEmail)) return;
     setSubscribing(true);
     try {
+      const endpoint = resolveUrl('/api/v1/public/newsletter/subscribe');
+      await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          email: subscribeEmail,
+          name: 'Footer Subscriber',
+          sourcePage: window.location.pathname || '/',
+        }),
+      });
+
+      // Also trigger static form fallback for Netlify if running static build
       await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -28,8 +42,8 @@ export default function SpatialFooter() {
           name: 'Footer Subscriber',
           agree: 'true',
         }),
-      });
-    } catch { /* local dev - ignore */ }
+      }).catch(() => {});
+    } catch { /* ignore error in UI transition */ }
     setSubscribed(true);
     setSubscribing(false);
   };

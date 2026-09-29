@@ -6,7 +6,6 @@ import {
   Layout,
   Smartphone,
   Zap,
-  Globe,
   Lock,
   Search,
   CheckCircle2,
@@ -14,19 +13,10 @@ import {
   Sparkles,
   HelpCircle,
   ChevronDown,
-  Layers,
   Clock,
   ShieldCheck,
   Server,
-  FileCode,
-  Palette,
-  MessageSquare,
-  Award,
-  Terminal,
-  Cpu,
-  Monitor
 } from 'lucide-react';
-import { siteConfig } from '../config/siteConfig';
 import WebliixCard from '../components/ui/WebliixCard';
 import WebliixButton from '../components/ui/WebliixButton';
 import WebliixIcon from '../components/ui/WebliixIcon';
@@ -43,44 +33,44 @@ export default function WebsiteDevelopment() {
   const websiteTypes = [
     {
       id: 'business',
-      name: 'Business & Corporate Sites',
-      badge: 'High Conversion',
+      name: 'Business & Corporate Websites',
+      badge: 'Business Sites',
       icon: Layout,
-      desc: 'Bespoke corporate platforms designed to build authoritative trust, showcase offerings, and convert high-intent client leads.',
+      desc: 'Professional business and corporate websites that explain your services clearly, build trust, and make it easy for customers to contact you.',
       deliverables: [
-        '5–10 custom designed responsive pages',
-        'Direct WhatsApp & interactive lead generation forms',
-        'Google Maps & professional business email setup',
-        'Speed-optimized React & Tailwind CSS architecture',
-        'Complete On-Page SEO hierarchy & meta tags'
+        '5–10 custom responsive pages',
+        'WhatsApp, click-to-call & enquiry forms',
+        'Google Maps & business contact setup',
+        'Performance-focused React / modern frontend architecture',
+        'SEO-ready page structure, metadata & headings'
       ]
     },
     {
       id: 'landing',
-      name: 'High-Converting Landing Pages',
-      badge: 'Fast Lead Gen',
+      name: 'Landing Pages for Marketing Campaigns',
+      badge: 'Lead Generation',
       icon: Zap,
-      desc: 'Ultra-targeted, single-page sales funnels engineered specifically for Google Ads, Meta Ads, and product launch campaigns.',
+      desc: 'Focused landing pages for Google Ads, Meta Ads, product launches and other campaigns where a clear message and strong call to action matter.',
       deliverables: [
-        'Psychology-driven visual hierarchy & CTA placement',
-        'Sub-second load times for maximum ad conversion',
-        'Custom lead capture with instant email/CRM forwarding',
-        'A/B testing ready structure with event tracking',
-        'Pixel, Google Tag Manager & GA4 integration'
+        'Campaign-focused page structure & CTA placement',
+        'Fast-loading responsive layout',
+        'Lead capture with email or CRM forwarding',
+        'Analytics and conversion event tracking',
+        'Google Tag Manager, GA4 & advertising pixel integration'
       ]
     },
     {
       id: 'custom',
-      name: 'Custom Interactive Web Platforms',
-      badge: 'Complex Logic',
+      name: 'Custom Web Platforms',
+      badge: 'Custom Development',
       icon: Code,
-      desc: 'Dynamic, feature-rich web portals with database connections, client dashboards, API integrations, and customized user flows.',
+      desc: 'Interactive websites and web platforms for businesses that need dashboards, customer portals, APIs, dynamic data, or custom workflows.',
       deliverables: [
-        'Next.js / React single-page spatial experience',
-        'Role-based login, client portals & dashboards',
-        'REST API & third-party backend data synchronization',
-        'Custom dynamic filters, search engines & forms',
-        'Automated cloud hosting deployment with SSL'
+        'React / Next.js application interfaces',
+        'Role-based login, portals & dashboards',
+        'REST API & third-party integrations',
+        'Dynamic search, filters & custom forms',
+        'Cloud deployment, HTTPS & production configuration'
       ]
     }
   ];
@@ -88,33 +78,33 @@ export default function WebsiteDevelopment() {
   const coreFeatures = [
     {
       icon: Smartphone,
-      title: 'Mobile-First Responsive UI',
-      desc: 'Every layout is meticulously designed and tested across iPhones, Android devices, iPads, laptops, and 4K desktop screens.'
+      title: 'Responsive Website Design',
+      desc: 'Layouts are designed for mobile phones, tablets, laptops and desktop screens so customers can navigate and contact your business comfortably on different devices.'
     },
     {
       icon: Zap,
-      title: '95+ Google PageSpeed Score',
-      desc: 'Clean, lightweight code without bloated builders. We ensure your website loads in under 1.5 seconds for peak user retention.'
+      title: 'Performance-Focused Development',
+      desc: 'Lightweight implementation, image optimization and Core Web Vitals awareness help create a fast, responsive browsing experience without promising a fixed PageSpeed score.'
     },
     {
       icon: Search,
-      title: 'Built-In On-Page Technical SEO',
-      desc: 'Semantic HTML5 structure, schema markup, OpenGraph social previews, XML sitemaps, and robots.txt pre-configured for search engines.'
+      title: 'Technical SEO Foundation',
+      desc: 'Semantic HTML, clear heading structure, unique metadata, crawlable links, sitemap support and relevant structured data help search engines understand your pages.'
     },
     {
       icon: Lock,
-      title: 'SSL Encryption & Enterprise Security',
-      desc: 'Automated HTTPS encryption certificates, sanitized form inputs, spam protection, and secure server headers included free.'
+      title: 'HTTPS & Website Security',
+      desc: 'Secure HTTPS configuration, safer form handling, spam protection and appropriate server or platform security settings are included according to the project setup.'
     },
     {
       icon: Server,
-      title: '1-Year Free Cloud Hosting & Domain',
-      desc: 'We configure and connect high-speed global CDN cloud hosting and 1-year custom domain registration (.com / .in).'
+      title: 'Domain & Deployment Support',
+      desc: 'We help connect your custom domain, configure hosting or CDN services, enable HTTPS and take the approved website live.'
     },
     {
       icon: ShieldCheck,
-      title: '100% Code & Asset Ownership',
-      desc: 'No vendor lock-in. You receive complete ownership of all source code, design assets, domain, and server accounts upon launch.'
+      title: 'Source Code & Asset Ownership',
+      desc: 'You receive the project source code and agreed digital assets, with ownership and account access handled according to the project agreement.'
     }
   ];
 
@@ -125,17 +115,17 @@ export default function WebsiteDevelopment() {
       period: 'One-time investment',
       badge: 'Essential Launch',
       popular: false,
-      desc: 'Ideal for startups, consultants, clinics, and local businesses establishing a professional web presence.',
+      desc: 'A practical starting website for startups, consultants, professionals, clinics and local businesses that need a credible online presence.',
       timeline: '5–7 Days Delivery',
       features: [
         '5 Bespoke Responsive Pages (Home, About, Services, Gallery, Contact)',
         'Modern React & Tailwind CSS Architecture',
-        'Interactive Contact Form with Direct Email Notifications',
-        'WhatsApp Live Chat Integration',
-        'Google Maps & Social Media Links Setup',
-        '1-Year Free Domain (.com / .in) & SSL Certificate',
-        'Basic On-Page SEO & Google Search Console Submission',
-        '30 Days Free Post-Launch Technical Support'
+        'Contact / Enquiry Form with Email Notifications',
+        'WhatsApp & Click-to-Call Integration',
+        'Google Maps & Social Media Links',
+        '1-Year Domain (.com / .in) & SSL Setup',
+        'Basic On-Page SEO & Google Search Console Setup',
+        '30 Days Post-Launch Technical Support'
       ]
     },
     {
@@ -144,139 +134,165 @@ export default function WebsiteDevelopment() {
       period: 'One-time investment',
       badge: 'Most Popular',
       popular: true,
-      desc: 'Perfect for growing companies needing multi-page authority, dynamic service showcases, and content marketing.',
+      desc: 'For growing businesses that need more pages, content publishing, stronger lead capture and a more complete SEO foundation.',
       timeline: '7–10 Days Delivery',
       features: [
-        'Up to 10 Custom Designed Responsive Pages',
-        'Integrated Blog & News Publishing System',
-        'Advanced Lead Generation Funnels & Interactive Calculator',
-        'Dynamic Filterable Portfolio / Case Study Showcase',
-        '95+ Mobile PageSpeed Performance Tuning',
-        'Comprehensive On-Page SEO & JSON-LD Structured Data',
-        'Google Analytics 4 & Meta Pixel Tracking Setup',
-        '60 Days Dedicated Post-Launch Support & Maintenance'
+        'Up to 10 Custom Responsive Pages',
+        'Integrated Blog / News Publishing System',
+        'Advanced Lead Forms & Conversion-Focused Sections',
+        'Filterable Portfolio / Case Study Showcase',
+        'Performance Optimization & Core Web Vitals Review',
+        'On-Page SEO & Relevant JSON-LD Structured Data',
+        'Google Analytics 4 & Meta Pixel Setup',
+        '60 Days Post-Launch Support'
       ]
     },
     {
       name: 'Custom Corporate Web Platform',
       price: 'Custom Quote',
       period: 'Tailored Architecture Scope',
-      badge: 'Enterprise Grade',
+      badge: 'Custom Platform',
       popular: false,
-      desc: 'Engineered for enterprises, fintech, real estate, and organizations with complex multi-system workflows.',
+      desc: 'For organizations that need custom workflows, portals, integrations, multiple languages, or functionality beyond a standard business website.',
       timeline: '12–18 Days Delivery',
       features: [
-        'Unlimited Custom Page Layouts & Architectural Components',
-        'Next.js / React SSR Architecture for Sub-Second Speeds',
-        'User Authentication & Protected Client / Partner Portal',
-        'Custom CRM, ERP, or REST API Backend Integrations',
-        'Multi-Language & Multi-Region Localization Support',
-        'Advanced Security Audits, DDoS Protection & Cloudflare CDN',
-        'Dedicated Project Manager & Architectural Roadmap',
-        '90 Days Priority SLA Maintenance & Support'
+        'Custom Page Layouts & Application Components',
+        'React / Next.js Application Architecture',
+        'User Authentication & Protected Portals',
+        'CRM, ERP or REST API Integrations',
+        'Multi-Language & Multi-Region Support',
+        'Security, CDN & Deployment Configuration',
+        'Project Roadmap & Technical Planning',
+        '90 Days Priority Maintenance & Support'
       ]
     }
   ];
 
   const techStack = [
-    { name: 'React.js', role: 'Interactive Frontend', tag: 'High Speed' },
-    { name: 'Next.js', role: 'Server-Side Rendering & SEO', tag: 'Enterprise' },
-    { name: 'Tailwind CSS', role: 'Modern Design System', tag: 'Clean UI' },
-    { name: 'Node.js', role: 'Fast API & Serverless', tag: 'Backend' },
-    { name: 'Vite', role: 'Optimized Bundler', tag: 'Lightweight' },
-    { name: 'Cloudflare', role: 'Edge CDN & Security', tag: 'Global' }
+    { name: 'React.js', role: 'Interactive Frontend Development', tag: 'Frontend' },
+    { name: 'Next.js', role: 'Modern Web Applications & SEO', tag: 'Full-Stack' },
+    { name: 'Tailwind CSS', role: 'Responsive Interface Styling', tag: 'UI' },
+    { name: 'Node.js', role: 'APIs & Server-Side Services', tag: 'Backend' },
+    { name: 'Vite', role: 'Fast Frontend Build Tool', tag: 'Build' },
+    { name: 'Cloudflare', role: 'CDN, DNS & Web Security', tag: 'Infrastructure' }
   ];
 
   const processSteps = [
     {
       step: '01',
-      title: 'Discovery & Wireframing',
-      desc: 'We analyze your target audience, competitor landscape, brand colors, and craft structured wireframe blueprints.'
+      title: 'Discovery & Requirements',
+      desc: 'We understand your business, customers, services, goals, existing website and required functionality before development begins.'
     },
     {
       step: '02',
-      title: 'UI/UX Visual Design',
-      desc: 'We design high-fidelity visual layouts with custom typography, spatial glass styling, and conversion-focused copy.'
+      title: 'Content & Page Structure',
+      desc: 'We organize the navigation, page hierarchy, calls to action and content structure so visitors can quickly understand what you offer.'
     },
     {
       step: '03',
-      title: 'Modern Frontend Engineering',
-      desc: 'We build your website using modern React/Next.js with clean modular components, fast API routes, and micro-interactions.'
+      title: 'UI/UX Design & Development',
+      desc: 'We build the approved interface with responsive layouts, reusable components and the agreed technologies and integrations.'
     },
     {
       step: '04',
-      title: 'SEO, Speed & Cross-Device QA',
-      desc: 'We audit Core Web Vitals, implement structured Schema markup, and test responsiveness across 15+ screen resolutions.'
+      title: 'SEO, Performance & Testing',
+      desc: 'We review headings, metadata, internal links, structured data, mobile usability and performance before launch.'
     },
     {
       step: '05',
-      title: 'Deployment & Domain Handover',
-      desc: 'We connect your domain, configure HTTPS SSL, submit XML sitemaps to Google, and hand over 100% source code ownership.'
+      title: 'Deployment & Handover',
+      desc: 'We connect the domain, configure HTTPS and deployment, verify the production website, and hand over the agreed project assets and access.'
     }
   ];
 
   const faqs = [
     {
-      question: 'Why choose custom React/Next.js development over WordPress templates?',
-      answer: 'Pre-made WordPress templates are often weighed down by dozens of unnecessary plugins, resulting in slow load times (5-8+ seconds) and frequent security vulnerabilities. Our custom React/Next.js websites load in under 1.5 seconds, achieve 95+ Google PageSpeed scores, have zero plugin bloat, and provide an ultra-modern spatial aesthetic that sets your brand apart.'
+      question: 'How much does website development cost?',
+      answer: 'Website development cost depends on the number of pages, design requirements, content, integrations and functionality. Webliix website packages currently start at ₹9,999 for a standard business website, with custom quotes available for larger websites and web platforms.'
     },
     {
-      question: 'How long does it take to design and launch my website?',
-      answer: 'Our Starter Business Website is delivered within 5–7 business days. Growth Dynamic Websites take approximately 7–10 days, while custom enterprise platforms require 12–18 days depending on custom API integrations and feature specifications.'
+      question: 'How long does it take to build a business website?',
+      answer: 'A Starter Business Website is typically planned for 5–7 days, a Growth Dynamic Website for 7–10 days, and a custom corporate web platform can take longer depending on the scope and integrations.'
     },
     {
-      question: 'Do I own the website and domain after completion?',
-      answer: 'Yes, 100%. Webliix operates with complete transparency — you receive full administrative ownership of your domain registration, cloud hosting account, and complete unencrypted source code repository upon project completion.'
+      question: 'Do you build websites for businesses outside India?',
+      answer: 'Yes. Webliix works with businesses in India and international markets. Project scope, communication, pricing and delivery are discussed according to the client and project requirements.'
     },
     {
-      question: 'Will my website rank on Google?',
-      answer: 'Yes. Every website we build includes foundational technical On-Page SEO: semantic HTML heading hierarchy, meta titles, descriptions, OpenGraph social cards, XML sitemaps, robots.txt directives, and JSON-LD structured schema markup to ensure fast Google indexing.'
+      question: 'Will my website be ready for Google Search?',
+      answer: 'We build a technical SEO foundation that can include semantic HTML, logical headings, unique page metadata, crawlable links, sitemap support, internal linking and relevant structured data. These practices help search engines understand the site, but no agency can guarantee a particular ranking position.'
     },
     {
-      question: 'Can you update our existing outdated website?',
-      answer: 'Absolutely. We regularly migrate legacy websites built on old CMSs or static templates into high-performance, modern React platforms while preserving existing SEO rankings and URL structures.'
+      question: 'Can you redesign or rebuild an existing website?',
+      answer: 'Yes. We can redesign an outdated website, rebuild it on a modern stack, improve its mobile experience and preserve important existing URLs where the project requirements allow.'
+    },
+    {
+      question: 'Do I own my website and source code?',
+      answer: 'Project ownership and account access are handled according to the agreed scope. Webliix can provide the project source code and agreed digital assets after completion, subject to any third-party software or service terms.'
     }
   ];
 
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-20">
       <Helmet>
-        <title>Professional Website Development Services | Webliix</title>
+        <title>Website Development Services for Businesses | Webliix</title>
         <meta
           name="description"
-          content="Transform your business with fast, custom React & Next.js website development by Webliix. 95+ PageSpeed scores, mobile-first design, SEO foundation, and 100% code ownership."
+          content="Webliix provides website development services for businesses, startups and professionals, including responsive websites, landing pages, custom React/Next.js development and SEO-ready website foundations."
         />
-        <meta
-          name="keywords"
-          content="website development company, custom web design, react website agency, nextjs development, corporate business website, landing page design, webliix website development"
-        />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
         <link rel="canonical" href="https://webliix.com/website-development" />
 
         {/* Open Graph */}
-        <meta property="og:title" content="Professional Website Development Services | Webliix" />
-        <meta property="og:description" content="Custom React & Next.js websites built for speed, SEO rankings, and high lead conversions. Clear pricing & 5–7 day delivery." />
+        <meta property="og:title" content="Website Development Services for Businesses | Webliix" />
+        <meta property="og:description" content="Responsive business websites, landing pages and custom web platforms built around usability, search visibility and customer enquiries." />
         <meta property="og:url" content="https://webliix.com/website-development" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://webliix.com/meta-gen/og_image.jpg" />
+        <meta property="og:image:alt" content="Webliix website development services" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Website Development Services for Businesses | Webliix" />
+        <meta name="twitter:description" content="Custom, responsive and SEO-ready website development for businesses in India and international markets." />
+        <meta name="twitter:image" content="https://webliix.com/meta-gen/og_image.jpg" />
 
         {/* JSON-LD Schema */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
+            "@id": "https://webliix.com/website-development#service",
             "name": "Website Development Services",
+            "url": "https://webliix.com/website-development",
             "provider": {
               "@type": "Organization",
               "name": "Webliix",
               "url": "https://webliix.com"
             },
-            "serviceType": "Web Development",
-            "description": "High-performance React & Next.js website development, corporate websites, landing pages, and responsive design systems with built-in SEO.",
-            "offers": {
-              "@type": "Offer",
-              "price": "9999",
-              "priceCurrency": "INR",
-              "availability": "https://schema.org/InStock",
-              "url": "https://webliix.com/website-development"
+            "serviceType": [
+              "Website Development",
+              "Custom Website Development",
+              "Responsive Web Design",
+              "React Development",
+              "Next.js Development",
+              "Landing Page Development",
+              "Web Application Development"
+            ],
+            "description": "Website development services including responsive business websites, landing pages, React and Next.js development, and custom web platforms for businesses in India and international markets.",
+            "areaServed": "Worldwide",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Website Development Packages",
+              "itemListElement": packages.map((pkg, index) => ({
+                "@type": "Offer",
+                "position": index + 1,
+                "name": pkg.name,
+                "description": pkg.desc,
+                "url": "https://webliix.com/website-development#website-pricing",
+                ...(pkg.price !== "Custom Quote" ? {
+                  "price": pkg.price.replace(/[^0-9]/g, ""),
+                  "priceCurrency": "INR"
+                } : {})
+              }))
             }
           })}
         </script>
@@ -288,13 +304,17 @@ export default function WebsiteDevelopment() {
       {/* Hero Section */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <span className="px-4 py-1.5 rounded-full glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-bold uppercase tracking-widest inline-flex items-center gap-1.5 shadow-sm">
-          <Code className="w-3.5 h-3.5" /> High-Performance Web Engineering
+          <Code className="w-3.5 h-3.5" /> Custom Website Development &amp; Web Design
         </span>
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">
-          Modern <span className="text-shimmer">Website Development</span> for High-Growth Brands
+          <span className="text-shimmer">Website Development</span> Services for Businesses Worldwide
         </h1>
         <p className="text-theme-muted text-base sm:text-lg leading-relaxed">
-          We engineer lightning-fast, custom websites with modern React architecture, spatial UI aesthetics, and built-in SEO foundations that convert visitors into paying clients.
+          Webliix builds custom, responsive websites for businesses, startups and professionals—from business websites and landing pages to React, Next.js and web application development. Each project is structured around usability, mobile experience, search visibility and customer enquiries.
+        </p>
+
+        <p className="text-theme-muted text-xs sm:text-sm max-w-2xl mx-auto">
+          Our website development services cover business websites, corporate websites, landing pages, e-commerce websites and custom web platforms, with project delivery for clients in India and international markets.
         </p>
 
         <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
@@ -315,11 +335,11 @@ export default function WebsiteDevelopment() {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
         <WebliixCard variant="stat" className="p-5 text-center space-y-1">
           <div className="text-2xl sm:text-3xl font-display font-extrabold text-theme-primary">95+</div>
-          <div className="text-xs text-theme-muted font-medium">PageSpeed Score</div>
+          <div className="text-xs text-theme-muted font-medium">Page Performance Target</div>
         </WebliixCard>
         <WebliixCard variant="stat" className="p-5 text-center space-y-1">
           <div className="text-2xl sm:text-3xl font-display font-extrabold text-theme-primary">&lt; 1.5s</div>
-          <div className="text-xs text-theme-muted font-medium">Average Load Speed</div>
+          <div className="text-xs text-theme-muted font-medium">Load-Time Goal</div>
         </WebliixCard>
         <WebliixCard variant="stat" className="p-5 text-center space-y-1">
           <div className="text-2xl sm:text-3xl font-display font-extrabold text-emerald-400">100%</div>
@@ -327,7 +347,7 @@ export default function WebsiteDevelopment() {
         </WebliixCard>
         <WebliixCard variant="stat" className="p-5 text-center space-y-1">
           <div className="text-2xl sm:text-3xl font-display font-extrabold text-theme-primary">5–7 Days</div>
-          <div className="text-xs text-theme-muted font-medium">Fast Turnaround</div>
+          <div className="text-xs text-theme-muted font-medium">Typical Launch Time</div>
         </WebliixCard>
       </div>
 
@@ -338,7 +358,7 @@ export default function WebsiteDevelopment() {
             Tailored Solutions
           </span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-theme-text">
-            Websites Engineered for Your Exact Purpose
+            Website Development for Different Business Needs
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
             Whether you need a prestigious corporate identity, a high-converting ad landing page, or a dynamic web application.
@@ -413,7 +433,7 @@ export default function WebsiteDevelopment() {
             Built-In Standards
           </span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-theme-text">
-            Why Our Websites Outperform Competitors
+            Why Businesses Choose Webliix for Website Development
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
             Every website we deploy adheres to modern web standards, security best practices, and search engine guidelines.
@@ -445,7 +465,7 @@ export default function WebsiteDevelopment() {
             Modern Tech Stack
           </span>
           <h2 className="text-2xl sm:text-3xl font-display font-bold text-theme-text">
-            Powered by Leading Frameworks
+            Website Development Technologies
           </h2>
         </div>
 
@@ -469,7 +489,7 @@ export default function WebsiteDevelopment() {
             Transparent Pricing
           </span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-theme-text">
-            All-Inclusive Development Packages
+            Website Development Packages &amp; Pricing
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
             Zero hidden fees or surprises. Clear milestone deliverables with complete source code handover upon completion.
@@ -555,10 +575,10 @@ export default function WebsiteDevelopment() {
             Execution Flow
           </span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-theme-text">
-            Our 5-Step Engineering Workflow
+            Our Website Development Process
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
-            From initial wireframing to live DNS propagation, our organized process ensures zero delays.
+            From initial wireframing to live DNS propagation, our organized process ensures a clear, documented project workflow.
           </p>
         </div>
 
@@ -604,6 +624,15 @@ export default function WebsiteDevelopment() {
                 variant="panel"
                 className="p-5 space-y-3 cursor-pointer transition-all duration-200"
                 onClick={() => toggleFaq(idx)}
+                role="button"
+                tabIndex={0}
+                aria-expanded={isOpen}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleFaq(idx);
+                  }
+                }}
               >
                 <div className="flex items-center justify-between gap-4">
                   <h4 className="text-sm sm:text-base font-display font-bold text-theme-text flex items-center gap-2.5">
@@ -635,21 +664,21 @@ export default function WebsiteDevelopment() {
         className="p-8 sm:p-12 text-center space-y-6 theme-rounded-card border border-theme-primary/50 shadow-spatial-lg"
       >
         <span className="px-3 py-1 theme-rounded-badge bg-theme-primary/20 text-theme-primary text-xs font-mono font-bold uppercase tracking-wider inline-flex items-center gap-1.5">
-          <Sparkles className="w-3.5 h-3.5" /> Launch Your Dream Platform
+          <Sparkles className="w-3.5 h-3.5" /> Start Your Website Project
         </span>
 
         <h2 className="text-2xl sm:text-4xl font-display font-extrabold text-theme-text max-w-2xl mx-auto">
-          Ready to Elevate Your Brand With a Custom Website?
+          Ready to Build or Redesign Your Website?
         </h2>
 
         <p className="text-sm sm:text-base text-theme-muted max-w-xl mx-auto">
-          Schedule a free technical consultation with our lead architects. We will provide a custom wireframe proposal and roadmap with zero obligations.
+          Tell us about your business, website goals and required features. We will review the scope and discuss the right approach for your project.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
           <Link to="/contact">
             <WebliixButton variant="primary" size="lg" icon={ArrowUpRight}>
-              Book Free Consultation
+              Discuss Your Website Project
             </WebliixButton>
           </Link>
           <Link to="/portfolio">

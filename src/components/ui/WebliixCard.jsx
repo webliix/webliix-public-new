@@ -1,8 +1,7 @@
 // WebliixCard.jsx
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import {
   motion,
-  useMotionValue,
   useSpring,
   useReducedMotion,
 } from 'framer-motion';
@@ -20,6 +19,7 @@ import { useTheme } from '../../context/ThemeContext';
  * - Mouse-tracked 3D tilt (spring-eased, respects reduced motion)
  * - Corner-bracket "targeting" accent, shared motif with WebliixButton
  * - Purposeful, one-shot motion — nothing loops or distracts at rest
+ * - Scroll-triggered fade-in on mount (respects reduced motion)
  *
  * VARIANTS: standard / surface / feature / featured / accent / spatial / stat / panel
  * PROPS: variant, accentColor, hoverable, clickable, hoverGlare, tilt, onClick, className
@@ -146,12 +146,29 @@ export default function WebliixCard({
   const shouldReduceMotion = useReducedMotion();
   const cardRef = useRef(null);
 
-  /* Detect mobile view / touch screen (tilt disabled on mobile view) */
-  const isMobileView = typeof window !== 'undefined' && (
-    window.innerWidth < 768 ||
-    ('ontouchstart' in window) ||
-    (navigator.maxTouchPoints > 0 && /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent))
-  );
+  /* Detect mobile view / touch screen (tilt disabled on mobile view).
+     Re-checked on resize/orientation change so it stays accurate,
+     not just frozen at first render. */
+  const [isMobileView, setIsMobileView] = useState(false);
+
+  useEffect(() => {
+    const computeIsMobileView = () =>
+      typeof window !== 'undefined' && (
+        window.innerWidth < 768 ||
+        ('ontouchstart' in window) ||
+        (navigator.maxTouchPoints > 0 && /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent))
+      );
+
+    setIsMobileView(computeIsMobileView());
+
+    const handleResize = () => setIsMobileView(computeIsMobileView());
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleResize);
+    };
+  }, []);
 
   const cfg = VARIANTS[variant] ?? VARIANTS.standard;
   const isFeatured = variant === 'featured' || variant === 'accent';
@@ -205,23 +222,37 @@ export default function WebliixCard({
     onClick(e);
   };
 
+  const handleKeyDown = (e) => {
+    if (!isInteractive) return;
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleClick(e);
+    }
+  };
+
   return (
     <motion.div
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onClick={handleClick}
-      initial="rest"
-      animate="rest"
+      onKeyDown={isInteractive ? handleKeyDown : undefined}
+      role={isInteractive ? 'button' : undefined}
+      tabIndex={isInteractive ? 0 : undefined}
+      initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
+      whileInView="rest"
+      viewport={{ once: true, amount: 0.2 }}
       whileHover={isHoverable ? 'hover' : undefined}
       variants={{
         rest: {
+          opacity: 1,
           y: 0,
           boxShadow: isFeatured
             ? `0 12px 40px rgba(0,0,0,0.09), 0 18px 48px -16px ${accentCfg.glow}`
             : undefined,
         },
         hover: {
+          opacity: 1,
           y: cfg.lift !== 0 ? cfg.lift : 0,
           boxShadow: isFeatured
             ? `0 20px 56px rgba(0,0,0,0.13), 0 26px 64px -14px ${accentCfg.glow}`
@@ -246,6 +277,9 @@ export default function WebliixCard({
         cfg.base,
         isHoverable && cfg.hover ? cfg.hover : '',
         isInteractive ? 'cursor-pointer' : '',
+        isInteractive
+          ? 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-theme-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-theme-background'
+          : '',
         className,
       ]
         .filter(Boolean)

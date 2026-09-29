@@ -2,7 +2,6 @@
 import React, { useRef, useCallback } from 'react';
 import {
   motion,
-  useMotionValue,
   useSpring,
   useReducedMotion,
 } from 'framer-motion';
@@ -162,6 +161,7 @@ export default function WebliixButton({
 
   className = '',
   onClick,
+  type = 'button',
 
   ...props
 }) {
@@ -213,7 +213,7 @@ export default function WebliixButton({
   return (
     <motion.button
       ref={btnRef}
-      type={props.type || 'button'}
+      type={type}
       disabled={isDisabled}
       aria-busy={loading || undefined}
       onClick={handleClick}

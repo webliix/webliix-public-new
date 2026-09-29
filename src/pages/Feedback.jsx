@@ -15,6 +15,8 @@ import {
   WebliixFormCard,
   netlifyEncode,
 } from '../components/ui/WebliixInput';
+import { submitPublicLead } from '../services/leadService';
+import { submitPublicReview } from '../services/reviewService';
 
 const FORM_NAME = 'client-feedback';
 
@@ -115,19 +117,26 @@ export default function Feedback() {
 
     setSubmitting(true);
     try {
-      await fetch('/', {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body:    netlifyEncode({
-          'form-name':      FORM_NAME,
-          name:             form.name,
-          company:          form.company,
-          email:            form.email,
-          service:          form.service,
-          rating:           String(form.rating),
-          feedback:         form.feedback,
-          publishConsent:   String(form.publishConsent),
-        }),
+      await submitPublicReview({
+        authorName: form.name,
+        companyName: form.company,
+        email: form.email,
+        rating: form.rating,
+        reviewText: form.feedback,
+        platform: 'WEBSITE',
+        serviceUsed: form.service,
+        publishConsent: form.publishConsent,
+      });
+
+      const feedbackReq = `[Rating: ${form.rating}/5] [Publish Consent: ${form.publishConsent ? 'Yes' : 'No'}] ${form.feedback}`;
+      await submitPublicLead({
+        name: form.name,
+        companyName: form.company,
+        email: form.email,
+        serviceRequested: form.service || 'Client Feedback',
+        requirements: feedbackReq,
+        source: 'CLIENT_FEEDBACK',
+        page: '/feedback',
       });
     } catch { /* local dev — ignore */ }
     setStep('success');

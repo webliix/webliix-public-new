@@ -76,7 +76,7 @@ export default function Home() {
   const faqs = [
     {
       q: 'How fast can my website be launched?',
-      a: 'With our Webliix LaunchKit package, your complete website, brand logo, domain setup, Google Business Profile, and initial marketing campaign are fully live within 5 to 7 business days.'
+      a: 'Webliix LaunchKit is designed for a fast business launch. It can include a professional website, brand identity, domain setup, Google Business Profile support and essential launch setup. Delivery time depends on the final scope and the material provided.'
     },
     {
       q: 'Do I get 100% ownership of my website and code?',
@@ -84,48 +84,48 @@ export default function Home() {
     },
     {
       q: 'What is included in the Google My Business (GMB) Local SEO setup?',
-      a: 'We handle official business profile creation, Google Maps verification, NAP (Name, Address, Phone) citation consistency, local category tagging, and strategic keyword optimization to boost your local search ranking.'
+      a: 'We can help eligible businesses set up or optimize their Google Business Profile, improve business information consistency, structure local service information, and build a foundation for relevant local searches. Specific rankings are not guaranteed.'
     },
     {
       q: 'Can Webliix build custom e-commerce stores with online payments?',
-      a: 'Yes! We build high-converting e-commerce stores using Shopify, WooCommerce, or custom React applications complete with UPI payment gateways, credit card checkout, order tracking, and mobile optimization.'
+      a: 'Yes. We build e-commerce websites using Shopify, WooCommerce or custom web technologies, with product catalogs, mobile-friendly shopping experiences, payment integration, checkout and order workflows according to the project scope.'
     },
     {
       q: 'Do you provide support after the website goes live?',
-      a: 'Every Webliix project includes 30 days of complimentary post-launch technical support, performance monitoring, security checks, and minor content updates.'
+      a: 'Post-launch support is available according to the selected package or maintenance plan. Support can include technical fixes, content updates, performance checks and ongoing website maintenance.'
     }
   ];
 
   const whyChooseUs = [
     {
       iconComponent: Clock,
-      title: '5-Day Fast Launch Guarantee',
-      desc: 'No waiting for months. We deploy turnkey brand websites, local SEO profiles, and marketing campaigns in 5–7 days.'
+      title: 'Clear Project Delivery',
+      desc: 'We plan the website scope, content, development and launch process around your business requirements and agreed project timeline.'
     },
     {
       iconComponent: Code,
-      title: '100% Custom SOLID Code',
-      desc: 'Clean React 18, Vite, and Next.js architectures optimized for 99/100 Google PageSpeed scores.'
+      title: 'Custom Website Development',
+      desc: 'Modern, maintainable website and application development using technologies selected for your project requirements, performance and scalability.'
     },
     {
       iconComponent: Target,
-      title: 'Local Google Map Rank #1',
-      desc: 'Targeted local SEO citations and Google My Business profile optimization engineered to capture high-intent local phone calls.'
+      title: 'SEO-Ready Website Foundations',
+      desc: 'Search-friendly page structure, metadata, internal linking, technical SEO and Google Business Profile support where appropriate.'
     },
     {
       iconComponent: ShieldCheck,
-      title: 'Transparent Pricing & Zero Lock-In',
-      desc: 'Clear upfront pricing starting from ₹9,999 with 100% client code and domain ownership upon completion.'
+      title: 'Transparent Pricing & Ownership',
+      desc: 'Clear project scope and pricing with source-code and domain ownership arrangements explained before and during delivery.'
     }
   ];
 
   const industryCapabilities = [
-    { name: 'Startups & SMEs', desc: 'Turnkey online foundation with high-conversion landing pages' },
-    { name: 'Local Showrooms & Retail', desc: 'Google Map #1 ranking, WhatsApp catalog & lead generation' },
-    { name: 'Real Estate & Builders', desc: 'High-speed property showcase platforms & virtual tours' },
-    { name: 'Clinics & Healthcare', desc: 'Local appointment booking, doctor profiles & medical SEO' },
-    { name: 'Education & Coaching', desc: 'Course management, student registration & inquiry funnels' },
-    { name: 'Restaurants & Cafes', desc: 'Interactive digital QR menus, Google Maps SEO & table booking' }
+    { name: 'Startups & SMEs', desc: 'Business websites, landing pages and digital foundations for new and growing companies' },
+    { name: 'Local Showrooms & Retail', desc: 'Business websites, product showcases, local search foundations and enquiry channels' },
+    { name: 'Real Estate & Builders', desc: 'Property showcase websites, project pages, lead forms and location-focused content' },
+    { name: 'Clinics & Healthcare', desc: 'Professional websites, service information, appointment enquiries and search-ready content' },
+    { name: 'Education & Coaching', desc: 'Course, program and enquiry pages with clear information architecture' },
+    { name: 'Restaurants & Cafes', desc: 'Menus, location information, ordering or booking journeys and mobile-friendly websites' }
   ];
 
   // ─────────────────────────────────────────────────────────────────────────
@@ -139,7 +139,7 @@ export default function Home() {
     alternateName: 'Webliix Digital Agency',
     url: 'https://webliix.com',
     logo: 'https://webliix.com/logo.png',
-    description: 'Webliix is a full-service web development, custom software engineering, and Local SEO agency empowering businesses across India and globally.',
+    description: 'Webliix provides website development, e-commerce, SEO, digital marketing, branding and custom software solutions for businesses in India and international markets.',
     foundingDate: siteConfig.brand.founded || '2025',
     founders: [
       {
@@ -182,7 +182,7 @@ export default function Home() {
     '@id': 'https://webliix.com/#website',
     url: 'https://webliix.com',
     name: siteConfig.brand.name,
-    description: 'Leading Web Development, Local SEO & Custom Software Engineering Agency in India',
+    description: 'Website development, SEO and digital solutions for businesses in India and international markets',
     publisher: {
       '@id': 'https://webliix.com/#organization'
     },
@@ -197,7 +197,7 @@ export default function Home() {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     '@id': 'https://webliix.com/#localservice',
-    name: 'Webliix - Web Development & Local SEO Company',
+    name: 'Webliix - Website Development & Digital Services',
     image: 'https://webliix.com/logo.png',
     url: 'https://webliix.com',
     telephone: siteConfig.brand.contactPhone,
@@ -235,13 +235,6 @@ export default function Home() {
       { '@type': 'Country', name: 'Canada' },
       { '@type': 'Country', name: 'Germany' }
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '128',
-      bestRating: '5',
-      worstRating: '1'
-    },
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Webliix Core Digital Services',
@@ -251,7 +244,7 @@ export default function Home() {
           itemOffered: {
             '@type': 'Service',
             name: 'Webliix LaunchKit (Turnkey Business Website & Branding)',
-            description: 'Complete 5-7 day business launch package including custom responsive website, logo, Google Business profile, and local SEO foundation.'
+            description: 'Business launch package combining responsive website development, branding, Google Business Profile support and SEO foundations.'
           }
         },
         {
@@ -259,7 +252,7 @@ export default function Home() {
           itemOffered: {
             '@type': 'Service',
             name: 'Custom Web & Application Development',
-            description: 'Full-stack React, Next.js, and Spring Boot web applications built for speed, scale, and 99/100 Google PageSpeed scores.'
+            description: 'Custom web applications and business software built with modern frontend, backend, database and cloud technologies according to project requirements.'
           }
         },
         {
@@ -267,7 +260,7 @@ export default function Home() {
           itemOffered: {
             '@type': 'Service',
             name: 'Google Business Profile (GMB) & Local SEO Optimization',
-            description: 'Rank #1 on Google Maps and local search to capture high-intent inbound customer phone calls and store visits.'
+            description: 'Google Business Profile support and local SEO services focused on improving business information, relevance and visibility for appropriate local searches; rankings are not guaranteed.'
           }
         },
         {
@@ -275,7 +268,7 @@ export default function Home() {
           itemOffered: {
             '@type': 'Service',
             name: 'Shopify & WooCommerce E-Commerce Development',
-            description: 'High-converting online stores with automated UPI payment gateways, mobile optimization, and inventory management.'
+            description: 'E-commerce website development with product catalogs, mobile-friendly storefronts, checkout and payment integration according to project scope.'
           }
         }
       ]
@@ -299,22 +292,18 @@ export default function Home() {
     <div className="relative min-h-screen pt-28 pb-16">
       {/* ADVANCED SEO METADATA & SCHEMA.ORG INJECTION */}
       <Helmet>
-        <title>Webliix | Best Web Development, Local SEO & Digital Growth Agency in India</title>
+        <title>Webliix | Website Development, SEO & Digital Solutions</title>
         <meta
           name="description"
-          content="Webliix is India's leading web development and digital growth agency. We engineer lightning-fast websites, custom web apps, Shopify e-commerce, and rank #1 Local SEO (GMB) for startups & growing brands. Starting from ₹9,999."
+          content="Webliix builds business websites, e-commerce stores, custom web applications and SEO-focused digital solutions for businesses in India and international markets."
         />
-        <meta
-          name="keywords"
-          content="web development company India, website design Noida, web development company Delhi NCR, local SEO services India, Google Business Profile optimization, Shopify developer India, custom web application, affordable website design for small business, Webliix LaunchKit"
-        />
-        <link rel="canonical" href="https://webliix.com/" />
+<link rel="canonical" href="https://webliix.com/" />
         
         {/* Open Graph / Facebook / LinkedIn */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://webliix.com/" />
-        <meta property="og:title" content="Webliix | Best Web Development & Digital Growth Agency in India" />
-        <meta property="og:description" content="High-speed custom websites, Local SEO, and brand growth systems starting from ₹9,999. Launch in 5-7 days." />
+        <meta property="og:title" content="Webliix | Website Development, SEO & Digital Solutions" />
+        <meta property="og:description" content="Business websites, e-commerce, custom web applications, SEO and digital solutions for businesses in India and international markets." />
         <meta property="og:image" content="https://webliix.com/og-image.jpg" />
         <meta property="og:site_name" content="Webliix" />
         <meta property="og:locale" content="en_IN" />
@@ -322,17 +311,10 @@ export default function Home() {
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://webliix.com/" />
-        <meta name="twitter:title" content="Webliix | Best Web Development & Digital Growth Agency in India" />
-        <meta name="twitter:description" content="High-speed custom websites, Local SEO, and brand growth systems starting from ₹9,999. Launch in 5-7 days." />
+        <meta name="twitter:title" content="Webliix | Website Development, SEO & Digital Solutions" />
+        <meta name="twitter:description" content="Business websites, e-commerce, custom web applications, SEO and digital solutions for businesses in India and international markets." />
         <meta name="twitter:image" content="https://webliix.com/og-image.jpg" />
-
-        {/* Local Business Geo Meta Tags */}
-        <meta name="geo.region" content="IN-UP" />
-        <meta name="geo.placename" content="Greater Noida, Delhi NCR, India" />
-        <meta name="geo.position" content="25.3900;87.0989" />
-        <meta name="ICBM" content="25.3900, 87.0989" />
-
-        {/* Google Structured Data JSON-LD Injections */}
+{/* Google Structured Data JSON-LD Injections */}
         <script type="application/ld+json">
           {JSON.stringify(organizationSchema)}
         </script>
@@ -360,7 +342,7 @@ export default function Home() {
             className="inline-flex items-center gap-2 px-4 py-1.5 theme-rounded-badge glass-spatial border border-theme-primary/50 text-xs font-mono text-theme-primary font-bold tracking-wider shadow-sm"
           >
             <span className="w-2 h-2 theme-rounded-badge bg-theme-primary animate-pulse" />
-            <span>India&apos;s Leading Web Development &amp; Digital Growth Agency</span>
+            <span>Website Development • SEO • Digital Solutions</span>
           </motion.div>
 
           {/* Main Headline */}
@@ -381,7 +363,7 @@ export default function Home() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="text-theme-muted text-sm sm:text-base max-w-2xl mx-auto leading-relaxed"
           >
-            We build lightning-fast custom websites, custom web applications, high-converting Shopify stores, and rank #1 Local SEO (GMB) engines tailored for startups, local businesses, and growing brands across NCR India, USA, Canada &amp; Germany.
+            We build business websites, e-commerce stores, custom web applications and search-ready digital experiences for startups, local businesses and growing companies in India and international markets.
           </motion.p>
 
           {/* Action CTAs */}
@@ -393,7 +375,7 @@ export default function Home() {
           >
             <Link to="/contact">
               <WebliixButton variant="primary" icon={ArrowRight} className="text-xs sm:text-sm px-6 py-3">
-                Start Your Project Free
+                Discuss Your Project
               </WebliixButton>
             </Link>
             <Link to="/services">
@@ -437,7 +419,7 @@ export default function Home() {
       {/* CLIENT LOGOS SHOWCASE TICKER */}
       <section className="relative z-10 py-10 border-y border-theme-border/40 bg-theme-bg/40 backdrop-blur-md overflow-hidden">
         <div className="text-center mb-6 text-[11px] font-mono text-theme-muted uppercase tracking-widest font-semibold">
-          Trusted by 120+ Businesses &amp; High-Growth Brands Worldwide
+          120+ Projects Delivered Across Business &amp; Digital Sectors
         </div>
         
         <div className="max-w-6xl mx-auto px-6">
@@ -482,10 +464,10 @@ export default function Home() {
             Competitive Advantage
           </span>
           <h2 className="text-2xl sm:text-4xl font-display font-bold text-theme-text">
-            Why 120+ Businesses Choose Webliix
+            Why Businesses Work With Webliix
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
-            We combine high-speed web engineering with strategic local SEO to deliver real business growth and top Google rankings.
+            We combine website development, search-friendly foundations and practical digital services around the needs of your business and customers.
           </p>
         </div>
 
@@ -509,10 +491,10 @@ export default function Home() {
             Services &amp; Solutions
           </span>
           <h2 className="text-2xl sm:text-4xl font-display font-bold text-theme-text">
-            High-Performance Digital Solutions
+            Website Development, SEO &amp; Digital Services
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
-            Engineered for 99/100 Core Web Vitals, mobile responsiveness, and maximum lead conversion.
+            Explore websites, e-commerce, SEO, advertising, branding and custom software solutions built around your business requirements.
           </p>
         </div>
 
@@ -563,7 +545,7 @@ export default function Home() {
               Webliix LaunchKit — All-In-One Business Package
             </h3>
             <p className="text-theme-muted text-xs sm:text-sm leading-relaxed">
-              Complete professional website engineering, brand logo, Google Business Profile setup, WhatsApp integration, and local SEO foundation starting from ₹9,999. Fully live in 5–7 days.
+              A practical business launch package combining website development, branding, Google Business Profile support, WhatsApp integration and SEO foundations, starting from ₹9,999.
             </p>
           </div>
           <div className="shrink-0">
@@ -583,10 +565,10 @@ export default function Home() {
             Industry Solutions
           </span>
           <h2 className="text-2xl sm:text-4xl font-display font-bold text-theme-text">
-            Tailored Web Systems for Every Sector
+            Website & Digital Solutions for Different Business Sectors
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
-            Proven architectures and local search strategies designed for industry-specific conversion flows.
+            Website, search and digital solutions can be adapted to the needs of different business types and customer journeys.
           </p>
         </div>
 
@@ -612,10 +594,10 @@ export default function Home() {
             Execution Blueprint
           </span>
           <h2 className="text-2xl sm:text-4xl font-display font-bold text-theme-text">
-            Our 4-Step Launch Blueprint
+            Our 4-Step Website Development Process
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
-            Click each step below to inspect how we take your project from discovery to deployment.
+            Explore how we take a project from discovery and planning through development, testing and launch.
           </p>
         </div>
 
@@ -671,7 +653,7 @@ export default function Home() {
               Selected Work
             </span>
             <h2 className="text-2xl sm:text-4xl font-display font-bold text-theme-text mt-1">
-              Featured Client Deliverables
+              Selected Website & Digital Projects
             </h2>
           </div>
           <Link to="/portfolio">
@@ -746,7 +728,7 @@ export default function Home() {
             <HelpCircle className="w-3.5 h-3.5" /> Frequently Asked Questions
           </span>
           <h2 className="text-2xl sm:text-4xl font-display font-bold text-theme-text">
-            Everything You Need to Know
+            Website Development & Digital Service FAQs
           </h2>
         </div>
 
@@ -785,10 +767,10 @@ export default function Home() {
       <section className="relative z-10 max-w-6xl mx-auto px-6 py-12">
         <WebliixCard variant="accent" accentColor="primary" className="p-8 sm:p-12 text-center space-y-5 border border-theme-primary/50 shadow-spatial-lg">
           <h2 className="text-2xl sm:text-5xl font-display font-bold text-theme-text max-w-2xl mx-auto leading-tight">
-            Transform Your Vision into <span className="text-shimmer">Digital Reality</span>
+            Ready to Build Your <span className="text-shimmer">Digital Presence?</span>
           </h2>
           <p className="text-theme-muted text-sm max-w-md mx-auto">
-            Book a free consultation with Webliix digital architects today. Turnkey business packages starting from ₹9,999.
+            Tell us what you want to build, improve or launch. We can discuss your requirements, scope, timeline and estimated project cost.
           </p>
           <div className="pt-2 flex justify-center">
             <Link to="/contact">

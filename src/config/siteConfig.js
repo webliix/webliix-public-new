@@ -139,9 +139,9 @@ services: [
     tag: 'All in One',
     icon: '🚀',
     shortDesc:
-      'All-in-one business launch package — branding, website, business email, Google Business Profile, SEO foundations and launch support.',
+      'A complete digital launch package combining website development, branding, business email, Google Business Profile support and SEO foundations.',
     fullDesc:
-      'Launch your business professionally with a coordinated digital setup covering brand identity, a high-performance responsive website, business email, Google Business Profile support, SEO foundations, analytics and lead-generation essentials.',
+      'Launch your business with the essential digital foundations in one coordinated service. Webliix LaunchKit combines professional website development, brand identity, business email, Google Business Profile support, SEO foundations, analytics and lead-generation essentials for new and growing businesses.',
     startingPrice: 'Starting at ₹9,999',
     features: [
       'Professional Logo & Brand Identity',
@@ -158,13 +158,13 @@ services: [
 
   {
     id: 'quick-ecommerce',
-    title: 'Fast E-Commerce Store Launch',
+    title: 'E-Commerce Website Development',
     tag: 'Trending',
     icon: '⚡',
     shortDesc:
-      'Launch a professional online store in 5–7 days with products, payments, shipping and mobile optimization.',
+      'Professional online store development with product catalogs, payments, checkout, order management and mobile optimization.',
     fullDesc:
-      'Build a conversion-focused ecommerce website for your products or services with product catalogues, shopping cart, checkout, payment gateway integration, shipping configuration, analytics and SEO foundations.',
+      'Build an online store for your products or services with a mobile-friendly shopping experience, product catalogs, categories, shopping cart, checkout, payment gateway integration, shipping configuration, analytics and e-commerce SEO foundations.',
     startingPrice: 'Starting at ₹12,999',
     features: [
       'Shopify, WooCommerce or Custom React Store',
@@ -174,24 +174,25 @@ services: [
       'Payment Gateway Integration',
       'Shipping & Order Management Setup',
       'Mobile-Responsive Store Design',
-      'Basic SEO & Analytics Tracking'
+      'Basic E-Commerce SEO & Analytics'
     ],
     link: '/ecommerce-store'
   },
 
   {
     id: 'website-dev',
-    title: 'Website Development',
+    title: 'Website Development Services',
     tag: 'Core Service',
     icon: '💻',
     shortDesc:
-      'Professional business websites, landing pages and high-performance web experiences built around your goals.',
+      'Professional business website design and development for companies, startups, professionals and organizations.',
     fullDesc:
-      'From simple business websites and portfolio sites to advanced dynamic websites and interactive web experiences, we build fast, responsive and scalable solutions designed for usability, SEO and conversions.',
+      'Webliix develops responsive business websites, corporate websites, landing pages, portfolio websites and custom web experiences designed around your business goals, customers and search visibility. Websites are built for mobile devices, clear navigation, performance, technical SEO foundations and lead generation.',
     startingPrice: 'Starting at ₹9,999',
     features: [
       'Business & Corporate Websites',
       'Landing Pages & Marketing Websites',
+      'Portfolio & Professional Websites',
       'Static & Dynamic Websites',
       'Custom UI/UX Design',
       'React, Next.js & Modern Web Technologies',
@@ -208,9 +209,9 @@ services: [
     tag: 'Advanced',
     icon: '🖥️',
     shortDesc:
-      'Custom web applications, portals and business platforms built for complex workflows and scalable operations.',
+      'Custom web applications, portals and business platforms for complex workflows, customer systems and digital operations.',
     fullDesc:
-      'We design and develop custom web applications for businesses that need more than a traditional website — including dashboards, portals, SaaS platforms, customer systems, booking platforms and workflow applications.',
+      'We design and develop custom web applications for businesses that need more than a traditional website, including dashboards, customer portals, SaaS platforms, booking systems, workflow applications and business management platforms.',
     startingPrice: 'Custom Quote',
     features: [
       'Custom Web Application Architecture',
@@ -227,13 +228,13 @@ services: [
 
   {
     id: 'mobile-app-development',
-    title: 'Mobile App Development',
+    title: 'Mobile App Development Services',
     tag: 'Mobile',
     icon: '📱',
     shortDesc:
-      'Custom Android and iOS applications designed for startups, businesses and scalable digital products.',
+      'Custom Android and iOS applications for startups, businesses and digital products.',
     fullDesc:
-      'Build a professional mobile application for Android, iPhone and other supported platforms with modern UI/UX, secure APIs, authentication, notifications, payments and scalable backend integration.',
+      'Build a professional mobile application with modern UI/UX, secure APIs, authentication, notifications, payments and scalable backend integration for Android, iOS and supported cross-platform environments.',
     startingPrice: 'Starting from Custom Quote',
     features: [
       'Android App Development',
@@ -258,7 +259,7 @@ services: [
     tag: 'Business Solutions',
     icon: '⚙️',
     shortDesc:
-      'Custom business software designed to automate workflows, improve operations and solve specific business requirements.',
+      'Purpose-built business software for workflow automation, operations, reporting, integrations and internal systems.',
     fullDesc:
       'We develop custom software systems for companies that need tailored solutions for internal operations, customer management, automation, reporting, finance, inventory and business workflows.',
     startingPrice: 'Custom Quote',
@@ -283,9 +284,9 @@ services: [
     tag: 'Startup',
     icon: '☁️',
     shortDesc:
-      'Build scalable SaaS products with subscriptions, user accounts, dashboards, APIs and cloud-ready architecture.',
+      'Scalable SaaS product development with user accounts, dashboards, APIs, subscriptions and cloud-ready architecture.',
     fullDesc:
-      'Turn your software idea into a scalable SaaS platform with multi-user architecture, subscription workflows, dashboards, authentication, billing integrations, APIs and cloud deployment.',
+      'Turn your software idea into a SaaS product with multi-user architecture, subscription workflows, dashboards, authentication, billing integrations, APIs and cloud deployment designed around your product requirements.',
     startingPrice: 'Custom Quote',
     features: [
       'SaaS Product Architecture',
@@ -304,13 +305,13 @@ services: [
 
   {
     id: 'crm-erp-development',
-    title: 'CRM & ERP Software',
+    title: 'CRM & ERP Software Development',
     tag: 'Enterprise',
     icon: '📊',
     shortDesc:
-      'Custom CRM and ERP systems that centralize customers, sales, projects, finance, HR and business operations.',
+      'Custom CRM and ERP systems for managing customers, sales, projects, finance, HR, support and business operations.',
     fullDesc:
-      'Build an integrated business management platform tailored to your organization, including CRM, customer management, sales pipelines, projects, tasks, invoicing, finance, HR, tickets, notifications and reporting.',
+      'Build an integrated business management platform tailored to your organization, including CRM, customer management, sales pipelines, projects, tasks, invoicing, finance, HR, support tickets, notifications and reporting.',
     startingPrice: 'Custom Quote',
     features: [
       'Custom CRM Development',
@@ -331,19 +332,19 @@ services: [
 
   {
     id: 'seo-gmb',
-    title: 'SEO & Google Business Profile',
+    title: 'SEO & Google Business Profile Services',
     tag: 'Local Reach',
     icon: '📍',
     shortDesc:
-      'Improve your local online presence with Google Business Profile setup, local SEO and search-ready website optimization.',
+      'Search engine optimization and Google Business Profile services for improving organic and local search visibility.',
     fullDesc:
-      'Build a stronger local search foundation with Google Business Profile setup or optimization for eligible businesses, keyword targeting, on-page SEO, technical SEO and local search improvements.',
+      'Build a stronger search presence with technical SEO, on-page optimization, search-intent research, Google Business Profile setup or optimization for eligible businesses, local SEO foundations, analytics and search performance tracking.',
     startingPrice: 'Starting at ₹7,999',
     features: [
       'Google Business Profile Setup',
       'Google Business Profile Optimization',
       'Local SEO Foundation',
-      'Keyword Research & Targeting',
+      'Keyword Research & Search Intent',
       'On-Page SEO',
       'Meta Titles & Descriptions',
       'Technical SEO Setup',
@@ -358,13 +359,13 @@ services: [
 
   {
     id: 'branding-design',
-    title: 'Branding & Design',
+    title: 'Branding & Graphic Design Services',
     tag: 'Creative',
     icon: '🎨',
     shortDesc:
-      'Build a professional and memorable visual identity for your business, startup or product.',
+      'Professional brand identity and graphic design for businesses, startups, products and organizations.',
     fullDesc:
-      'Create a cohesive brand identity including logo design, colors, typography, business cards, social media assets and brand guidelines that keep your business visually consistent.',
+      'Create a consistent visual identity with logo design, brand colors, typography, business cards, social media assets and brand guidelines that can be used across your website, marketing and customer communications.',
     startingPrice: 'Starting at ₹5,999',
     features: [
       'Custom Logo Design',
@@ -381,13 +382,13 @@ services: [
 
   {
     id: 'ui-ux-design',
-    title: 'UI/UX Design',
+    title: 'UI/UX Design Services',
     tag: 'Product Design',
     icon: '✨',
     shortDesc:
-      'User-focused interface and experience design for websites, dashboards, mobile apps and digital products.',
+      'User-focused interface and experience design for websites, dashboards, mobile applications and digital products.',
     fullDesc:
-      'Design intuitive digital experiences that make websites and applications easier to use, visually consistent and focused on user journeys and business goals.',
+      'Design intuitive digital experiences with clear navigation, consistent interfaces, responsive layouts and user journeys aligned with your business and product goals.',
     startingPrice: 'Custom Quote',
     features: [
       'Website UI/UX Design',
@@ -408,18 +409,18 @@ services: [
     tag: 'Controlled Budget',
     icon: '🎯',
     shortDesc:
-      'Transparent Google, Facebook and Instagram ad management for small businesses with separate ad spend and clear reporting.',
+      'Google, Facebook and Instagram advertising management focused on relevant audiences, enquiries and measurable campaign performance.',
     fullDesc:
-      'We plan, launch, monitor and optimize targeted Google Ads and Meta Ads campaigns designed for measurable business inquiries with controlled budgets and 100% cost transparency.',
+      'Plan, launch, monitor and optimize Google Ads and Meta Ads campaigns around your target audience, search intent, offers, landing pages and conversion goals with transparent management and advertising costs.',
     startingPrice: 'Starting at ₹5,999 / mo',
     features: [
       'Separate Advertising Budget & Management Fee',
       'Google Search & High-Intent Keyword Targeting',
-      'Facebook & Instagram Feed/Reels Ads',
-      'Instant WhatsApp & Call Lead Tracking',
-      'Continuous Negative Keyword & Bid Tuning',
-      'Targeted Audience & Creative Testing',
-      '100% Client Ownership of Ad Accounts',
+      'Facebook & Instagram Advertising',
+      'WhatsApp & Call Lead Tracking',
+      'Negative Keyword & Bid Optimization',
+      'Audience & Creative Testing',
+      'Client Ownership of Advertising Accounts',
       'Transparent Monthly Performance Reports'
     ],
     link: '/paid-advertising'
@@ -427,21 +428,21 @@ services: [
 
   {
     id: 'google-ads',
-    title: 'Google Ads (Search & Maps)',
+    title: 'Google Ads Management Services',
     tag: 'High Intent',
     icon: '🔍',
     shortDesc:
-      'Capture ready-to-buy customers actively searching for your services on Google Search and Google Maps.',
+      'Google Search and Maps advertising for businesses targeting customers who are actively searching for relevant products or services.',
     fullDesc:
-      'Reach local buyers at the exact moment they search for your services with targeted search campaigns, negative keyword filters, and conversion tracking.',
+      'Create and manage Google Ads campaigns around relevant commercial search terms, geographic targeting, negative keywords, conversion tracking and landing-page alignment.',
     startingPrice: 'Starting at ₹5,999 / mo',
     features: [
       'Google Search Campaign Setup',
-      'High-Intent Buyer Keyword Research',
-      'Negative Keyword Budget Protection',
-      'Geo-Radius & City-Level Targeting',
+      'Commercial Keyword Research',
+      'Negative Keyword Management',
+      'Geographic & Audience Targeting',
       'Call & WhatsApp Conversion Tracking',
-      'Continuous Bid & Quality Score Optimization',
+      'Ad Copy & Campaign Optimization',
       'Transparent Monthly Reporting'
     ],
     link: '/google-ads'
@@ -449,20 +450,20 @@ services: [
 
   {
     id: 'meta-ads',
-    title: 'Facebook & Instagram (Meta) Ads',
+    title: 'Meta Ads Management Services',
     tag: 'Social Leads',
     icon: '📱',
     shortDesc:
-      'Turn social media scrollers into direct customer inquiries with Instagram Reels, Feed ads and WhatsApp click-to-chat campaigns.',
+      'Facebook and Instagram advertising designed around audience targeting, creative testing and customer enquiries.',
     fullDesc:
-      'Engage local buyers on Facebook and Instagram with eye-catching visual ads, promotional offers, instant lead forms, and direct WhatsApp chat campaigns.',
+      'Plan and manage Facebook and Instagram campaigns using audience research, creative testing, lead forms, click-to-WhatsApp campaigns, retargeting and conversion tracking.',
     startingPrice: 'Starting at ₹5,999 / mo',
     features: [
       'Facebook Feed & Instagram Reels Ads',
-      'Local Geo-Radius & Demographic Targeting',
-      'Click-to-WhatsApp Campaign Setup',
-      'Multi-Variant Creative & Copy Testing',
-      'Warm Audience Retargeting Funnel',
+      'Geographic & Demographic Targeting',
+      'Click-to-WhatsApp Campaigns',
+      'Creative & Copy Testing',
+      'Retargeting Campaigns',
       'Meta Pixel & Conversion Setup',
       'Transparent Monthly Reporting'
     ],
@@ -471,13 +472,13 @@ services: [
 
   {
     id: 'website-maintenance',
-    title: 'Website & Software Maintenance',
+    title: 'Website Maintenance & Support Services',
     tag: 'Support',
     icon: '🔧',
     shortDesc:
-      'Keep your website, application or digital platform secure, updated and running smoothly.',
+      'Ongoing website and software maintenance covering updates, security, performance, content changes and technical support.',
     fullDesc:
-      'Ongoing technical support covering updates, performance checks, security monitoring, backups, bug fixes, content changes and optimization for websites and web applications.',
+      'Keep your website, application or digital platform maintained with technical updates, security checks, performance improvements, bug fixes, content changes, backups and ongoing support.',
     startingPrice: 'Starting at ₹2,999 / mo',
     features: [
       'Regular Website Updates',
@@ -487,9 +488,9 @@ services: [
       'Speed Monitoring',
       'Content Updates',
       'Database Maintenance',
-      'Daily & Weekly Backup Options',
+      'Backup Options',
       'Software & Dependency Updates',
-      'Office-Time Technical Support'
+      'Technical Support'
     ],
     link: '/website-maintenance'
   }

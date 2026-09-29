@@ -11,21 +11,21 @@ export const themePresets = [
     icon: '☀️',
     isDark: false,
     colors: {
-      bg: '#F6F8FB',
-      card: 'rgba(255, 255, 255, 0.78)',
-      border: 'rgba(15, 23, 42, 0.12)',
-      primary: '#0B2D4D',
-      secondary: '#145DA0',
-      accent: '#E56B2F',
-      glow: 'rgba(20, 93, 160, 0.16)',
-      text: '#0f172a',
+      bg: '#F8FAFC',
+      card: 'rgba(255, 255, 255, 0.88)',
+      border: 'rgba(99, 102, 241, 0.20)',
+      primary: '#4F46E5',
+      secondary: '#7C3AED',
+      accent: '#EC4899',
+      glow: 'rgba(99, 102, 241, 0.20)',
+      text: '#0F172A',
       muted: '#64748B'
     }
   },
 
   // ============================================================
   // 02 — WEBLIIX DARK (Default Dark)
-  // Midnight Cyber / Deep Space Obsidian
+  // Midnight Cyber / Deep Space Indigo Obsidian
   // ============================================================
   {
     id: 'webliix-dark',
@@ -33,13 +33,13 @@ export const themePresets = [
     icon: '🌙',
     isDark: true,
     colors: {
-      bg: '#07111F',
-      card: 'rgba(15, 31, 51, 0.72)',
-      border: 'rgba(96, 165, 250, 0.22)',
-      primary: '#38BDF8',
-      secondary: '#2563EB',
-      accent: '#60A5FA',
-      glow: 'rgba(56, 189, 248, 0.25)',
+      bg: '#090D16',
+      card: 'rgba(15, 23, 42, 0.80)',
+      border: 'rgba(129, 140, 248, 0.25)',
+      primary: '#6366F1',
+      secondary: '#8B5CF6',
+      accent: '#F43F5E',
+      glow: 'rgba(99, 102, 241, 0.28)',
       text: '#F8FAFC',
       muted: '#94A3B8'
     }

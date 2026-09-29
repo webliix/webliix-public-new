@@ -38,129 +38,129 @@ export default function WebsiteMaintenance() {
   const carePillars = [
     {
       icon: ShieldCheck,
-      title: '24/7 Security & Firewall Hardening',
-      desc: 'Real-time malware scanning, brute-force attack prevention, core security patch updates, and automated SSL certificate renewals.'
+      title: 'Website Security & Updates',
+      desc: 'Regular security checks, SSL monitoring, software updates and practical hardening tasks based on the website platform and hosting environment.'
     },
     {
       icon: HardDrive,
-      title: 'Automated Daily Cloud Backups',
-      desc: 'Full offsite database and file backups stored across encrypted cloud buckets with 1-click instant disaster recovery.'
+      title: 'Website Backups',
+      desc: 'Backup monitoring and scheduled offsite backups can help protect website files and databases against accidental changes, failures and other operational issues.'
     },
     {
       icon: Zap,
-      title: 'Continuous Speed & Uptime Monitoring',
-      desc: 'Round-the-clock server health checks with 60-second ping intervals and proactive Core Web Vitals optimization.'
+      title: 'Performance & Uptime Monitoring',
+      desc: 'Monitor website availability and review page performance so technical issues, slow pages and broken customer journeys can be investigated promptly.'
     },
     {
       icon: RefreshCw,
-      title: 'Framework & Dependency Updates',
-      desc: 'Safe, staging-tested updates for React packages, Node.js runtimes, WordPress plugins, PHP versions, and database schemas.'
+      title: 'Framework & Dependency Maintenance',
+      desc: 'Planned updates for supported frameworks, packages, plugins, runtimes and database components, with testing appropriate to the project.'
     },
     {
       icon: Wrench,
-      title: 'Dedicated Developer Task Hours',
-      desc: 'Monthly developer time allocated for adding new banners, modifying text, updating pricing, or creating new landing pages.'
+      title: 'Developer Website Updates',
+      desc: 'Use included support time for content changes, new sections, product updates, forms, banners, tracking changes and other agreed website tasks.'
     },
     {
       icon: LifeBuoy,
-      title: 'Priority Emergency Bug Resolution',
-      desc: 'Guaranteed emergency response SLAs to immediately diagnose and resolve server crashes, broken forms, or payment gateway issues.'
+      title: 'Technical Troubleshooting',
+      desc: 'Help investigate website errors, broken forms, deployment issues, integration problems and other technical issues covered by your maintenance plan.'
     }
   ];
 
   const packages = [
     {
-      name: 'Essential Care Plan',
+      name: 'Essential Website Care',
       price: '₹2,999',
       period: '/ month',
       badge: 'Small Business',
       popular: false,
-      desc: 'Proactive security, uptime monitoring, and weekly backups for standard business websites.',
-      timeline: '24/7 Proactive Care',
+      desc: 'Routine technical care for business websites that need regular updates, backups, security checks and monitoring.',
+      timeline: 'Ongoing Website Care',
       features: [
-        'Weekly Automated Offsite Cloud Backups',
-        '24/7 Real-Time Uptime & Server Monitoring',
-        'Security Patches, Firewall & SSL Auto-Renewal',
-        'Software & Dependency Updates in Staging',
+        'Weekly Offsite Backup Monitoring',
+        'Website Availability Monitoring',
+        'Security Patches, SSL & Platform Checks',
+        'Software & Dependency Updates',
         '1 Hour Monthly Included Developer Support',
-        'Monthly Website Health & Traffic Report',
+        'Monthly Website Health Report',
         'Next-Business-Day Email & Ticket Support'
       ]
     },
     {
-      name: 'Business Growth Care',
+      name: 'Business Website Care',
       price: '₹5,999',
       period: '/ month',
       badge: 'Most Popular',
       popular: true,
-      desc: 'Comprehensive maintenance, speed tuning, and dedicated developer hours for active websites & online stores.',
-      timeline: 'Priority SLA Response',
+      desc: 'Broader maintenance and developer support for active business websites, online stores and frequently updated websites.',
+      timeline: 'Priority Support',
       features: [
-        'Daily Automated Cloud Backups with 1-Click Restore',
-        'Continuous Speed & Core Web Vitals Tuning',
-        'Database Optimization & Caching Engine Maintenance',
-        'Malware Removal & Proactive Vulnerability Fixes',
+        'Daily Backup Monitoring',
+        'Performance & Core Web Vitals Review',
+        'Database & Caching Maintenance Where Applicable',
+        'Security Issue Investigation & Fixes',
         '4 Hours Monthly Included Developer Tasks',
-        'Form & Payment Gateway Health Testing',
-        'Priority 4-Hour Response Time SLA'
+        'Form & Payment Integration Checks',
+        'Priority Support Response'
       ]
     },
     {
-      name: 'Enterprise SLA Care',
+      name: 'Enterprise Application Care',
       price: '₹12,999',
       period: '/ month',
       badge: 'Mission Critical',
       popular: false,
-      desc: 'VIP maintenance and rapid emergency response for high-traffic SaaS platforms and multi-store e-commerce brands.',
-      timeline: '1-Hour Emergency SLA',
+      desc: 'Extended technical maintenance for custom web applications, SaaS products and larger e-commerce systems with ongoing development needs.',
+      timeline: 'Priority Technical Support',
       features: [
-        'Real-Time Continuous Backups & Geo-Redundancy',
-        'Dedicated Senior DevOps & Frontend Engineer',
-        '10 Hours Monthly Dedicated Feature Development',
-        'Custom Webhooks & API Integration Monitoring',
-        '1-Hour Emergency Incident Resolution SLA',
-        'Staging Environment Management & Zero-Downtime Deploys',
-        'Dedicated WhatsApp Channel with Lead Engineers'
+        'Scheduled Backup & Recovery Monitoring',
+        'Dedicated Technical Maintenance',
+        '10 Hours Monthly Feature / Maintenance Work',
+        'API & Webhook Monitoring Where Applicable',
+        'Incident Investigation & Remediation',
+        'Staging Environment & Release Support',
+        'Dedicated Support Channel'
       ]
     }
   ];
 
   const faqs = [
     {
-      question: 'Why do I need a monthly maintenance plan?',
-      answer: 'Websites are live digital software platforms. Without regular updates, security vulnerabilities emerge, plugins break, database tables get bloated slowing down page speed, and unmonitored server errors can cause silent lost sales. Our plans ensure your website remains fast, secure, and fully operational 24/7.'
+      question: 'Why does a website need ongoing maintenance?',
+      answer: 'Websites depend on software, hosting, domains, integrations and content that change over time. Regular maintenance helps keep supported components updated, monitor availability, manage backups and address technical problems as they appear.'
     },
     {
-      question: 'What can I use my included monthly developer hours for?',
-      answer: 'You can use your hours for any technical or design task: uploading new products, updating text and banners, creating new service pages, modifying forms, adding analytics tracking pixels, or styling tweaks.'
+      question: 'What can the included developer hours be used for?',
+      answer: 'Included support time can be used for agreed website tasks such as content and banner updates, product changes, new pages, form changes, analytics updates, troubleshooting and other minor development work.'
     },
     {
-      question: 'Can I cancel or change my plan anytime?',
-      answer: 'Yes. Our maintenance plans operate on a flexible month-to-month basis with zero long-term lock-in contracts. You can upgrade, downgrade, or cancel at any time.'
+      question: 'Can I change or cancel my maintenance plan?',
+      answer: 'Maintenance plans are offered on a flexible monthly basis. Plan changes and cancellation follow the terms agreed for your specific service.'
     },
     {
-      question: 'Do you support websites not built by Webliix?',
-      answer: 'Yes! We begin with a complimentary 360-degree technical audit of your existing website codebase and server architecture before onboarding you onto our maintenance infrastructure.'
+      question: 'Do you maintain websites that were not built by Webliix?',
+      answer: 'Yes. We can review an existing website, hosting setup and technology stack before recommending the appropriate maintenance scope. Access and technical compatibility are required before work begins.'
+    },
+    {
+      question: 'Do you provide maintenance for WordPress and custom websites?',
+      answer: 'Yes, where the platform and access are supported. Maintenance can cover WordPress, WooCommerce, React, Next.js and other websites or applications depending on the technology and agreed scope.'
     }
   ];
 
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-20">
       <Helmet>
-        <title>Website &amp; Software Maintenance Services | Webliix</title>
+        <title>Website Maintenance & Support Services | Webliix</title>
         <meta
           name="description"
-          content="Keep your website secure, fast, and 99.99% operational with Webliix monthly maintenance plans. Daily cloud backups, speed optimization, security scans, and dedicated developer hours."
+          content="Website maintenance and technical support for business websites, WordPress, WooCommerce and custom web applications, including updates, backups, security checks, performance reviews and developer support."
         />
-        <meta
-          name="keywords"
-          content="website maintenance service, wordpress maintenance plan, software maintenance agency, speed optimization support, webliix website maintenance"
-        />
-        <link rel="canonical" href="https://webliix.com/website-maintenance" />
+<link rel="canonical" href="https://webliix.com/website-maintenance" />
 
         {/* Open Graph */}
-        <meta property="og:title" content="Website &amp; Software Maintenance Services | Webliix" />
-        <meta property="og:description" content="Proactive website maintenance: daily backups, security monitoring, 95+ PageSpeed tuning, and dedicated developer hours." />
+        <meta property="og:title" content="Website Maintenance & Support Services | Webliix" />
+        <meta property="og:description" content="Ongoing website maintenance covering security checks, backups, updates, performance reviews, troubleshooting and developer support." />
         <meta property="og:url" content="https://webliix.com/website-maintenance" />
         <meta property="og:type" content="website" />
 
@@ -176,7 +176,7 @@ export default function WebsiteMaintenance() {
               "url": "https://webliix.com"
             },
             "serviceType": "Website Maintenance & DevOps",
-            "description": "Continuous website security scans, daily cloud backups, framework updates, speed tuning, and dedicated technical maintenance.",
+            "description": "Website maintenance and technical support including software updates, backup monitoring, security checks, performance reviews, troubleshooting and developer support.",
             "offers": {
               "@type": "Offer",
               "price": "2999",
@@ -194,13 +194,13 @@ export default function WebsiteMaintenance() {
       {/* Hero Section */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <span className="px-4 py-1.5 rounded-full glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-bold uppercase tracking-widest inline-flex items-center gap-1.5 shadow-sm">
-          <Wrench className="w-3.5 h-3.5" /> 24/7 Proactive Technical Care
+          <Wrench className="w-3.5 h-3.5" /> Ongoing Website Maintenance &amp; Technical Support
         </span>
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">
-          Website &amp; Software <span className="text-shimmer">Maintenance</span> Plans
+          Website <span className="text-shimmer">Maintenance</span> &amp; Support Services
         </h1>
         <p className="text-theme-muted text-base sm:text-lg leading-relaxed">
-          Never worry about server crashes, malware attacks, or slow load times again. We handle daily cloud backups, security hardening, framework updates, and monthly developer tasks so you can focus on growing your business.
+          Keep your website maintained with scheduled updates, backup monitoring, security checks, performance reviews, troubleshooting and developer support. Maintenance is planned around your website platform and business requirements.
         </p>
 
         <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
@@ -220,20 +220,20 @@ export default function WebsiteMaintenance() {
       {/* Metric Badges */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
         <WebliixCard variant="stat" className="p-5 text-center space-y-1">
-          <div className="text-2xl sm:text-3xl font-display font-extrabold text-theme-primary">99.99%</div>
-          <div className="text-xs text-theme-muted font-medium">Uptime Guarantee</div>
+          <div className="text-2xl sm:text-3xl font-display font-extrabold text-theme-primary">Active</div>
+          <div className="text-xs text-theme-muted font-medium">Website Monitoring</div>
         </WebliixCard>
         <WebliixCard variant="stat" className="p-5 text-center space-y-1">
-          <div className="text-2xl sm:text-3xl font-display font-extrabold text-theme-primary">Daily</div>
-          <div className="text-xs text-theme-muted font-medium">Encrypted Cloud Backups</div>
+          <div className="text-2xl sm:text-3xl font-display font-extrabold text-theme-primary">Scheduled</div>
+          <div className="text-xs text-theme-muted font-medium">Backup Monitoring</div>
         </WebliixCard>
         <WebliixCard variant="stat" className="p-5 text-center space-y-1">
-          <div className="text-2xl sm:text-3xl font-display font-extrabold text-emerald-400">1-Hour</div>
-          <div className="text-xs text-theme-muted font-medium">Emergency SLA Response</div>
+          <div className="text-2xl sm:text-3xl font-display font-extrabold text-emerald-400">Priority</div>
+          <div className="text-xs text-theme-muted font-medium">Priority Support</div>
         </WebliixCard>
         <WebliixCard variant="stat" className="p-5 text-center space-y-1">
           <div className="text-2xl sm:text-3xl font-display font-extrabold text-theme-primary">0%</div>
-          <div className="text-xs text-theme-muted font-medium">Lock-In Contracts</div>
+          <div className="text-xs text-theme-muted font-medium">Monthly Service</div>
         </WebliixCard>
       </div>
 
@@ -244,7 +244,7 @@ export default function WebsiteMaintenance() {
             Total Peace of Mind
           </span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-theme-text">
-            Comprehensive Proactive Website Care
+            Website Maintenance Services That Keep Your Site Supported
           </h2>
         </div>
 
@@ -273,7 +273,7 @@ export default function WebsiteMaintenance() {
             Monthly Subscriptions
           </span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-theme-text">
-            Choose Your Maintenance Tier
+            Website Maintenance Plans &amp; Pricing
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
             Simple monthly billing, zero hidden fees, cancel anytime.
@@ -403,11 +403,11 @@ export default function WebsiteMaintenance() {
         className="p-8 sm:p-12 text-center space-y-6 theme-rounded-card border border-theme-primary/50 shadow-spatial-lg"
       >
         <span className="px-3 py-1 theme-rounded-badge bg-theme-primary/20 text-theme-primary text-xs font-mono font-bold uppercase tracking-wider inline-flex items-center gap-1.5">
-          <Sparkles className="w-3.5 h-3.5" /> 24/7 Security Assurance
+          <Sparkles className="w-3.5 h-3.5" /> Website Maintenance &amp; Technical Support
         </span>
 
         <h2 className="text-2xl sm:text-4xl font-display font-extrabold text-theme-text max-w-2xl mx-auto">
-          Need Proactive Maintenance For Your Digital Platform?
+          Need Website Maintenance or Technical Support?
         </h2>
 
         <p className="text-sm sm:text-base text-theme-muted max-w-xl mx-auto">

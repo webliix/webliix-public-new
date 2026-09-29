@@ -12,6 +12,7 @@ import {
   WebliixLabel,
   netlifyEncode
 } from '../ui/WebliixInput';
+import { submitPublicLead } from '../../services/leadService';
 
 const FORM_NAME = 'advertising-consultation';
 
@@ -46,18 +47,27 @@ export default function AdvertisingLeadForm({
     e.preventDefault();
     setSubmitting(true);
     try {
-      await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: netlifyEncode({ 'form-name': FORM_NAME, ...formData })
+      const reqText = `[Goal: ${formData.goal}] [Ad Budget: ${formData.adBudget}] [Target Location: ${formData.location || 'N/A'}] [Website: ${formData.website || 'None'}] ${formData.message || ''}`;
+      await submitPublicLead({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        companyName: formData.businessName,
+        serviceRequested: `Paid Advertising (${formData.platform || defaultPlatform})`,
+        requirements: reqText,
+        source: 'ADVERTISING_FORM',
+        page: window.location.pathname,
       });
-    } catch {
-      // Local dev fallback
-    }
-    setSubmitted(true);
-    setSubmitting(false);
-    if (showToast) {
-      showToast('Advertising consultation request received! Our campaign strategist will reach out within 2 hours.', 'success');
+      setSubmitted(true);
+      if (showToast) {
+        showToast('Advertising consultation request received! Our campaign strategist will reach out within 2 hours.', 'success');
+      }
+    } catch (err) {
+      if (showToast) {
+        showToast(err.message || 'Failed to submit advertising request. Please try again.', 'error');
+      }
+    } finally {
+      setSubmitting(false);
     }
   };
 
