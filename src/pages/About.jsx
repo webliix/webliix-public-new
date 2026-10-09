@@ -8,13 +8,14 @@ import WebliixIcon from '../components/ui/WebliixIcon';
 import WebliixButton from '../components/ui/WebliixButton';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
 import { Link } from 'react-router-dom';
+import { getCloudinarySrcSet } from '../utils/cloudinary';
 
 export default function About() {
   const founders = [
     {
       name: 'Himanshu Sharma',
       role: 'Co-Founder & Managing Director',
-      photoUrl: 'https://res.cloudinary.com/vhth8clt/image/upload/v1790646499/a1daa858-8d72-4559-aef5-5a185c784891.png',
+      photoUrl: 'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1790646499/a1daa858-8d72-4559-aef5-5a185c784891.png',
       alt: 'Himanshu Sharma - Co-Founder & Managing Director at Webliix',
       linkedin: 'https://www.linkedin.com/in/himanshu-sharma-36480a246/',
       shortBio: 'Java Full Stack Developer | SPRING BOOT | REST | JSP | Hibernate | jQuery | React | XML | AJAX | JSON | JavaScript | MongoDb | SQL',
@@ -29,7 +30,7 @@ export default function About() {
     {
       name: 'Abdul Latif',
       role: 'Co-Founder & Business Executive',
-      photoUrl: 'https://res.cloudinary.com/vhth8clt/image/upload/v1788213053/webliix/blog/content/file_pzndtk.jpg',
+      photoUrl: 'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1788213053/webliix/blog/content/file_pzndtk.jpg',
       alt: 'Abdul Latif - Co-Founder & Business Executive at Webliix',
       linkedin: 'https://www.linkedin.com/in/abdul-latif-3a9249213/',
       shortBio: 'MERN Stack Dev 🚀 10X Dev aspirant 💡 JavaScript enthusiast ❤️ Crafting digital wonders ✨ Let’s code and conquer!',
@@ -146,7 +147,17 @@ export default function About() {
                 {/* Profile Header */}
                 <div className="flex flex-col sm:flex-row items-center gap-5">
                   <div className="w-28 h-32 theme-rounded-card overflow-hidden shrink-0 border-2 border-theme-primary/50 shadow-spatial relative">
-                    <img src={f.photoUrl} alt={f.alt || `${f.name} - ${f.role} at Webliix`} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                    <img
+                      src={f.photoUrl}
+                      srcSet={getCloudinarySrcSet(f.photoUrl, [224, 336, 480])}
+                      sizes="(max-width: 640px) 112px, 112px"
+                      alt={f.alt || `${f.name} - ${f.role} at Webliix`}
+                      width="112"
+                      height="128"
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
 
                   <div className="space-y-2 text-center sm:text-left">

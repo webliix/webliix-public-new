@@ -256,7 +256,7 @@ export default function Contact() {
 
 
                 <WebliixFieldGroup label="Interested Solution" htmlFor="ct-service">
-                  <WebliixSelect id="ct-service" name="service" value={formData.service} onChange={handleChange}>
+                  <WebliixSelect id="ct-service" name="service" aria-label="Interested Solution" value={formData.service} onChange={handleChange}>
                     {siteConfig.services.map((s) => (
                       <option key={s.id} value={s.title}>{s.title}</option>
                     ))}

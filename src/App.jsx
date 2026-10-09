@@ -106,6 +106,7 @@ export default function App() {
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/launch-kit" element={<LaunchKit />} />
                     <Route path="/launchkit" element={<LaunchKit />} />
+                    <Route path="/pricing" element={<LaunchKit />} />
                     <Route path="/feedback" element={<Feedback />} />
 
 

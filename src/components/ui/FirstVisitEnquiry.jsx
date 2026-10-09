@@ -190,7 +190,15 @@ export default function FirstVisitEnquiry() {
                     >
                       {/* ── Header ──────────────────────────── */}
                       <div className="flex flex-col items-center text-center gap-2.5 mb-5">
-                        <img src={logoSrc} alt={siteConfig.brand.name} className="h-9 sm:h-11 w-auto object-contain" draggable={false} />
+                        <img
+                          src={logoSrc}
+                          alt={siteConfig.brand.name}
+                          width="160"
+                          height="44"
+                          decoding="async"
+                          className="h-9 sm:h-11 w-auto object-contain"
+                          draggable={false}
+                        />
                         <div className="space-y-1.5">
                           <span className="inline-flex items-center gap-1.5 px-3 py-1 theme-rounded-badge bg-theme-primary/15 border border-theme-primary/30 text-theme-primary text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-widest">
                             <Sparkles className="w-3 h-3 shrink-0" />
@@ -250,14 +258,19 @@ export default function FirstVisitEnquiry() {
 
                         {/* Service */}
                         <div>
-                          <WebliixLabel required>I Need Help With</WebliixLabel>
+                          <WebliixLabel htmlFor="service" required>
+                            Choose a service
+                          </WebliixLabel>
                           <WebliixSelect
-                            required
+                            id="service"
                             name="service"
+                            aria-label="Choose a service"
+                            required
                             value={form.service}
                             onChange={handleChange}
                             placeholder="Choose a service…"
                           >
+                            <option value="">Choose a service…</option>
                             {SERVICES.map((s) => (
                               <option key={s} value={s}>{s}</option>
                             ))}
@@ -336,6 +349,9 @@ export default function FirstVisitEnquiry() {
                       <img
                         src={logoSrc}
                         alt={siteConfig.brand.name}
+                        width="160"
+                        height="44"
+                        decoding="async"
                         className="h-9 sm:h-11 w-auto object-contain"
                         draggable={false}
                       />

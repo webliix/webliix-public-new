@@ -1,28 +1,63 @@
-import logoDark from '../assets/lightlogo.png';
-import logoLight from '../assets/logo.png';
-import iconMark from '../assets/icon-png.png';
 
+const logoDark =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1788210408/lightlogo.png';
 
-import auradrishtiImg from '../assets/logos/auradrishti.png';
-import thehubImg from '../assets/logos/thehub.png';
-import loanheavenImg from '../assets/logos/loanheaven.png';
-import kitchen9villageImg from '../assets/logos/kitchen9village.png';
-import connectifyImg from '../assets/logos/connectify.png';
-import ghomesImg from '../assets/logos/ghomes.png';
-import janaushadiImg from '../assets/logos/janaushadi.jpg';
-import sunsdustImg from '../assets/logos/sunsdust.png';
+const logoLight =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1788210409/logo.png';
 
-import peoriaLogo from '../assets/logos/peoria.svg';
+const iconMark =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1788210407/icon-png.png';
 
-import client1 from '../assets/logos/client1.jpg';
-import client2 from '../assets/logos/client2.png';
-import client3 from '../assets/logos/client3.png';
-import client4 from '../assets/logos/client4.png';
-import client5 from '../assets/logos/client5.jpg';
-import client6 from '../assets/logos/client6.png';
-import client7 from '../assets/logos/client7.png';
-import client8 from '../assets/logos/client8.png';
+const auradrishtiImg =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157248/Auradrishti.png';
 
+const thehubImg =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157260/thehub.png';
+
+const loanheavenImg =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157247/loanheaven.png';
+
+const kitchen9villageImg =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157279/kitchen9village.png';
+
+const connectifyImg =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157237/connectify.png';
+
+const ghomesImg =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157239/ghomes.png';
+
+const janaushadiImg =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157233/janaushadi.jpg';
+
+const sunsdustImg =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157262/sunsdust.png';
+
+const peoriaLogo =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157236/peoria.svg';
+
+const client1 =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157273/client1.jpg';
+
+const client2 =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157261/client2.png';
+
+const client3 =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157266/client3.png';
+
+const client4 =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157219/client4.png';
+
+const client5 =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157230/client5.jpg';
+
+const client6 =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157228/client6.png';
+
+const client7 =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157255/client7.png';
+
+const client8 =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157217/client8.png';
 
 // Single Source of Truth for ALL Website Content & Data
 export const siteConfig = {
@@ -99,20 +134,20 @@ export const siteConfig = {
       name: 'Himanshu Sharma',
       role: 'Founder & Managing Director',
       bio: 'Leading Webliix vision to deliver world-class websites, SEO, and digital growth systems for modern businesses.',
-      image: 'https://res.cloudinary.com/vhth8clt/image/upload/v1790646499/a1daa858-8d72-4559-aef5-5a185c784891.png',
+      image: 'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1790646499/a1daa858-8d72-4559-aef5-5a185c784891.png',
       alt: 'Himanshu Sharma - Founder & Managing Director at Webliix'
     },
     {
       name: 'Abdul Latif',
       role: 'Co-Founder & Technical Lead',
       bio: 'Specializing in full-stack architecture, interactive web apps, and high-performance frontend solutions.',
-      image: 'https://res.cloudinary.com/vhth8clt/image/upload/v1788213053/webliix/blog/content/file_pzndtk.jpg',
+      image: 'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1788213053/webliix/blog/content/file_pzndtk.jpg',
       alt: 'Abdul Latif - Co-Founder & Technical Lead at Webliix'
     }
   ],
 
   clients: [
-    { name: 'Peoria Home Cleaning', logo: 'https://res.cloudinary.com/vhth8clt/image/upload/v1788985903/peoria.png' },
+    { name: 'Peoria Home Cleaning', logo: 'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1788985903/peoria.png' },
     { name: 'Client 1', logo: client1 },
     { name: 'Client 2', logo: client2 },
     { name: 'Client 3', logo: client3 },
@@ -504,7 +539,7 @@ services: [
       category: 'Home Cleaning & Service Portal',
       tag: 'Service Portal',
       metrics: 'Online Booking & Local SEO',
-      image: 'https://res.cloudinary.com/vhth8clt/image/upload/v1788985903/peoria.png',
+      image: 'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1788985903/peoria.png',
       description: 'Professional residential and commercial cleaning website engineered with online booking inquiries, local SEO architecture, and targeted search ad campaigns.',
       deliveredServices: ['Website Development', 'Search Engine Optimization', 'Advertising'],
       liveUrl: 'https://peoria-webliix.netlify.app/'
@@ -575,7 +610,7 @@ services: [
       category: 'Wedding & Event Planning',
       tag: 'Event & Catering Portal',
       metrics: 'Wedding & Luxury Catering',
-      image: 'https://res.cloudinary.com/vhth8clt/image/upload/v1789332530/Best-Wedding-Planners-Luxury-Caterers-in-Greater-Noida-Ramji-Events-09-14-2026_02_17_AM.png',
+      image: 'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1789332530/Best-Wedding-Planners-Luxury-Caterers-in-Greater-Noida-Ramji-Events-09-14-2026_02_17_AM.png',
       description: 'Wedding and event planning portal engineered for luxury event management, catering coordination, decor portfolio showcase, and instant client inquiries.',
       deliveredServices: ['Web Development', 'UI/UX Design', 'Lead Capture', 'Branding'],
       liveUrl: 'https://ramji-events.netlify.app/'

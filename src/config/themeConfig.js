@@ -14,11 +14,11 @@ export const themePresets = [
       bg: '#F8FAFC',
       card: 'rgba(255, 255, 255, 0.88)',
       border: 'rgba(37, 99, 235, 0.20)',
-      primary: '#2563EB',
-      secondary: '#4F46E5',
-      accent: '#38BDF8',
+      primary: 'rgb(14, 40, 96)',
+      secondary: 'rgb(11, 57, 142)',
+      accent: '#1a3c60',
       glow: 'rgba(56, 189, 248, 0.20)',
-      text: '#0F172A',
+      text: '#2c2c2c',
       muted: '#64748B'
     }
   },

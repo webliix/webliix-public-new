@@ -29,6 +29,7 @@ import WebliixCard from '../components/ui/WebliixCard';
 import WebliixButton from '../components/ui/WebliixButton';
 import WebliixIcon from '../components/ui/WebliixIcon';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
+import { optimizeCloudinaryUrl, getCloudinarySrcSet } from '../utils/cloudinary';
 import {
   getPublishedBlogs,
   getFeaturedBlogs,
@@ -221,10 +222,15 @@ export default function Blog() {
               {primaryFeatured.coverImageUrl ? (
                 <div className="lg:col-span-5 theme-rounded-card overflow-hidden h-60 sm:h-72 border border-theme-border/60 relative bg-theme-bg/60">
                   <img
-                    src={primaryFeatured.coverImageUrl}
+                    src={optimizeCloudinaryUrl(primaryFeatured.coverImageUrl)}
+                    srcSet={getCloudinarySrcSet(primaryFeatured.coverImageUrl, [480, 768, 1024])}
+                    sizes="(max-width: 1024px) 100vw, 500px"
                     alt={primaryFeatured.coverImageAlt || primaryFeatured.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    width="600"
+                    height="320"
                     loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   {primaryFeatured.category && (
                     <span className="absolute top-3 left-3 px-3 py-1 theme-rounded-badge bg-theme-primary text-white text-[11px] font-mono font-bold uppercase shadow-sm">
@@ -433,10 +439,15 @@ export default function Blog() {
                       {post.coverImageUrl ? (
                         <div className="theme-rounded-card overflow-hidden h-44 border border-theme-border/60 relative bg-theme-bg/60">
                           <img
-                            src={post.coverImageUrl}
+                            src={optimizeCloudinaryUrl(post.coverImageUrl)}
+                            srcSet={getCloudinarySrcSet(post.coverImageUrl, [360, 640, 800])}
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
                             alt={post.coverImageAlt || post.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            width="380"
+                            height="176"
                             loading="lazy"
+                            decoding="async"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           />
                           {postCategory && (
                             <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 theme-rounded-badge bg-theme-primary text-white text-[10px] font-mono font-bold uppercase shadow-sm">

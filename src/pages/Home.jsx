@@ -35,6 +35,7 @@ import WebliixIcon from '../components/ui/WebliixIcon';
 import WebliixButton from '../components/ui/WebliixButton';
 import WebliixSpotlight from '../components/WebliixSpotlight';
 import { useModal } from '../context/ModalContext';
+import { getCloudinarySrcSet } from '../utils/cloudinary';
 
 export default function Home() {
   const [activeProcessStep, setActiveProcessStep] = useState(0);
@@ -433,6 +434,10 @@ export default function Home() {
                 <img
                   src={client.logo}
                   alt={`${client.name} - Webliix Client`}
+                  width="120"
+                  height="56"
+                  loading="lazy"
+                  decoding="async"
                   className="w-auto h-auto max-h-11 sm:max-h-14 max-w-[85%] object-contain mx-auto group-hover:scale-105 transition-all duration-300"
                 />
               </WebliixCard>
@@ -678,9 +683,14 @@ export default function Home() {
                     <div className="aspect-[16/9] sm:aspect-video w-full flex items-center justify-center relative">
                       <img
                         src={item.image}
+                        srcSet={getCloudinarySrcSet(item.image, [360, 640, 800])}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
                         alt={`${item.title} - Website Project by Webliix`}
-                        className="h-32 sm:h-36 max-h-[96%] max-w-[96%] object-contain mx-auto group-hover:scale-105 transition-transform duration-300"
+                        width="360"
+                        height="200"
                         loading="lazy"
+                        decoding="async"
+                        className="h-32 sm:h-36 max-h-[96%] max-w-[96%] object-contain mx-auto group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                   </div>

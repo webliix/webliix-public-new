@@ -7,34 +7,69 @@ import WebliixCard from '../components/ui/WebliixCard';
 
 import WebliixButton from '../components/ui/WebliixButton';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
+import { getCloudinarySrcSet } from '../utils/cloudinary';
 
-// Project Images (Cloudinary CDN URLs)
-const peoriaImg = 'https://res.cloudinary.com/vhth8clt/image/upload/v1788985054/Peoria-Home-Cleaning-Services-Professional-Residential-Commercial-Cleaners-09-10-2026_01_46_AM.png';
-const ramjiEventsImg = 'https://res.cloudinary.com/vhth8clt/image/upload/v1789332530/Best-Wedding-Planners-Luxury-Caterers-in-Greater-Noida-Ramji-Events-09-14-2026_02_17_AM.png';
-const sunsdustImg = 'https://res.cloudinary.com/vhth8clt/image/upload/v1789080714/sunsdust-website-image.png';
-const auraDrishtiImg = 'https://res.cloudinary.com/vhth8clt/image/upload/v1789080768/Auradrishti.png';
-const kitchen9Img = 'https://res.cloudinary.com/vhth8clt/image/upload/v1789080760/kitchen9village.png';
-const sarswatiImg = 'https://res.cloudinary.com/vhth8clt/image/upload/v1789080786/sarswati.png';
+// Project Images (Cloudinary CDN URLs with automatic format & quality)
+const peoriaImg = 'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1788985054/Peoria-Home-Cleaning-Services-Professional-Residential-Commercial-Cleaners-09-10-2026_01_46_AM.png';
+const ramjiEventsImg = 'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1789332530/Best-Wedding-Planners-Luxury-Caterers-in-Greater-Noida-Ramji-Events-09-14-2026_02_17_AM.png';
+const sunsdustImg = 'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1789080714/sunsdust-website-image.png';
+const auraDrishtiImg = 'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791558638/Auradrisht-website.png';
+const kitchen9Img = 'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791558476/Kitchen-9-Village.png';
+const sarswatiImg = 'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1789080786/sarswati.png';
 
-// Client Logos from old website
-import client1 from '../assets/logos/client1.jpg';
-import client2 from '../assets/logos/client2.png';
-import client3 from '../assets/logos/client3.png';
-import client4 from '../assets/logos/client4.png';
-import client5 from '../assets/logos/client5.jpg';
-import client6 from '../assets/logos/client6.png';
-import client7 from '../assets/logos/client7.png';
-import client8 from '../assets/logos/client8.png';
-import auradrishtiLogo from '../assets/logos/auradrishti.png';
-import sunsdustLogo from '../assets/logos/sunsdust.png';
-import ghomesLogo from '../assets/logos/ghomes.png';
-import kitchen9Logo from '../assets/logos/kitchen9village.png';
-import loanheavenLogo from '../assets/logos/loanheaven.png';
-import connectifyLogo from '../assets/logos/connectify.png';
-import janaushadiLogo from '../assets/logos/janaushadi.jpg';
-import thehubLogo from '../assets/logos/thehub.png';
-import peoriaLogo from '../assets/logos/peoria.svg';
 
+ // Client Logos from Cloudinary
+
+const client1 =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157273/client1.jpg';
+
+const client2 =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157261/client2.png';
+
+const client3 =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157266/client3.png';
+
+const client4 =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157219/client4.png';
+
+const client5 =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157230/client5.jpg';
+
+const client6 =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157228/client6.png';
+
+const client7 =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157255/client7.png';
+
+const client8 =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157217/client8.png';
+
+const auradrishtiLogo =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157248/Auradrishti.png';
+
+const sunsdustLogo =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157262/sunsdust.png';
+
+const ghomesLogo =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157239/ghomes.png';
+
+const kitchen9Logo =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157279/kitchen9village.png';
+
+const loanheavenLogo =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157247/loanheaven.png';
+
+const connectifyLogo =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157237/connectify.png';
+
+const janaushadiLogo =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157233/janaushadi.jpg';
+
+const thehubLogo =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157260/thehub.png';
+
+const peoriaLogo =
+  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157236/peoria.svg';
 
 export default function Portfolio() {
   // Primary Portfolio Items (Preserved exact data & links from old site)
@@ -43,7 +78,7 @@ export default function Portfolio() {
       category: 'Home Cleaning Service Website',
       title: 'Peoria Home Cleaning Services',
       description: 'A modern, high-converting service booking website engineered for residential and commercial cleaning with local SEO optimization and targeted search ad campaigns.',
-      image: 'https://res.cloudinary.com/vhth8clt/image/upload/v1788985054/Peoria-Home-Cleaning-Services-Professional-Residential-Commercial-Cleaners-09-10-2026_01_46_AM.png',
+      image: peoriaImg,
       link: 'https://peoria-webliix.netlify.app/',
       metrics: 'Online Booking & Local SEO'
     },
@@ -92,7 +127,7 @@ export default function Portfolio() {
 
   // Client Logos Array for Branding Marquee
   const clientLogos = [
-    'https://res.cloudinary.com/vhth8clt/image/upload/v1788985903/peoria.png',
+    'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1788985903/peoria.png',
     client1,
     client2,
     client3,
@@ -111,7 +146,7 @@ export default function Portfolio() {
   const clients = [
     {
       name: 'Peoria Home Cleaning',
-      logo: 'https://res.cloudinary.com/vhth8clt/image/upload/v1788985903/peoria.png',
+      logo: 'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1788985903/peoria.png',
       services: ['Web Development', 'Search Engine Optimization', 'Advertising']
     },
 
@@ -223,7 +258,14 @@ export default function Portfolio() {
                   <div className="aspect-[16/10] sm:aspect-video w-full overflow-hidden relative bg-theme-bg">
                     <img
                       src={item.image}
+                      srcSet={getCloudinarySrcSet(item.image, [480, 768, 1024, 1440])}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1200px"
                       alt={item.title}
+                      width="800"
+                      height="500"
+                      loading={index === 0 ? undefined : "lazy"}
+                      fetchPriority={index === 0 ? "high" : undefined}
+                      decoding="async"
                       className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
@@ -290,6 +332,10 @@ export default function Portfolio() {
                 <img
                   src={logo}
                   alt={`Branding Logo ${index + 1}`}
+                  width="112"
+                  height="112"
+                  loading="lazy"
+                  decoding="async"
                   className="h-24 sm:h-28 max-h-[88%] max-w-[88%] object-contain mx-auto group-hover:scale-105 transition-transform duration-300"
                 />
               </WebliixCard>
@@ -327,8 +373,11 @@ export default function Portfolio() {
                     <img
                       src={client.logo}
                       alt={`${client.name} logo`}
-                      className="h-32 sm:h-36 max-h-[96%] max-w-[96%] object-contain mx-auto group-hover:scale-105 transition-transform duration-300"
+                      width="240"
+                      height="144"
                       loading="lazy"
+                      decoding="async"
+                      className="h-32 sm:h-36 max-h-[96%] max-w-[96%] object-contain mx-auto group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                 </div>

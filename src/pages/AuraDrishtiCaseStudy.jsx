@@ -7,8 +7,9 @@ import GlassCard from '../components/spatial/GlassCard';
 import WebliixCard from '../components/ui/WebliixCard';
 import WebliixButton from '../components/ui/WebliixButton';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
+import { getCloudinarySrcSet } from '../utils/cloudinary';
 
-const auradrishtiImg = 'https://res.cloudinary.com/vhth8clt/image/upload/v1789080768/Auradrishti.png';
+const auradrishtiImg = 'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1789080768/Auradrishti.png';
 
 export default function AuraDrishtiCaseStudy() {
   return (
@@ -38,7 +39,17 @@ export default function AuraDrishtiCaseStudy() {
       <GlassCard className="p-6 sm:p-10 border border-theme-border space-y-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="theme-rounded-card overflow-hidden border border-theme-border bg-theme-bg h-56 sm:h-64 relative group">
-            <img src={auradrishtiImg} alt="AuraDrishti Platform" className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+            <img
+              src={auradrishtiImg}
+              srcSet={getCloudinarySrcSet(auradrishtiImg, [480, 768, 1024])}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              alt="AuraDrishti Platform"
+              width="600"
+              height="400"
+              fetchPriority="high"
+              decoding="async"
+              className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+            />
           </div>
           <div className="space-y-4">
             <span className="text-xs font-mono text-theme-primary uppercase font-semibold">Security & Surveillance Tech</span>

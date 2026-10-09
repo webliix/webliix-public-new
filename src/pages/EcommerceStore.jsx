@@ -136,7 +136,7 @@ export default function EcommerceStore() {
   const packages = [
     {
       name: 'Shopify Starter Store',
-      price: '₹12,999',
+      price: '₹17,999',
       period: 'One-time setup',
       badge: 'Quick Launch',
       popular: false,

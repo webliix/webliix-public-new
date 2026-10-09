@@ -1,0 +1,19 @@
+# Webliix
+
+> Webliix helps businesses build websites and digital solutions.
+
+## Main pages
+
+- [Home](https://webliix.com/)
+- [Services](https://webliix.com/services)
+- [Pricing](https://webliix.com/pricing)
+- [Blog](https://webliix.com/blog)
+- [Contact](https://webliix.com/contact)
+
+## Core Offerings
+
+- [Website Development](https://webliix.com/website-development): Custom responsive websites, web applications, and enterprise software.
+- [E-Commerce Solutions](https://webliix.com/ecommerce-store): Fast, mobile-first online stores with payment gateway integrations.
+- [SEO & Local GMB](https://webliix.com/seo): Organic search optimization and Google Business Profile ranking.
+- [Paid Advertising](https://webliix.com/paid-advertising): Targeted Google Ads and Meta advertising for qualified lead generation.
+- [Portfolio](https://webliix.com/portfolio): Client case studies, verified projects, and live website showcases.

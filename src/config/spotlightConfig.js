@@ -1,47 +1,40 @@
+
 // ─────────────────────────────────────────────────────────────────────────────
 // HOMEPAGE SPOTLIGHT CONTENT CONFIGURATION
 // ─────────────────────────────────────────────────────────────────────────────
-// Update this configuration weekly or monthly to showcase what is current,
-// useful, or new at Webliix without modifying any component layout or code.
-//
-// Supported types:
-// - "launch"     : New package or product launches (e.g. Webliix LaunchKit)
-// - "insight"    : Actionable SEO, UX, or digital marketing insights
-// - "case-study" : Recent client transformation or project highlight
-// - "offer"      : Limited-time promotion or seasonal package
-// - "update"     : Company, technical, or global service updates
-// - "service"    : Featured service deep-dive (e.g. Google Ads, Meta Ads)
+// Featured Service: Website Development
+// Purpose: Promote professional business websites with a clear starting price.
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const currentSpotlight = {
   // Content metadata
-  id: 'spotlight-sept-2026-launchkit',
-  type: 'launch',
+  id: 'spotlight-oct-2026-website-development',
+  type: 'service',
   active: true,
-  startDate: '2026-09-01',
-  endDate: '2026-09-30',
+  startDate: '2026-10-01',
+  endDate: '2026-10-31',
 
   // Eyebrow and timeline badge
-  eyebrow: 'WEBLIIX SPOTLIGHT',
-  period: 'SEPTEMBER 2026',
-  badgeText: 'Turnkey Digital Foundation',
+  eyebrow: 'FEATURED WEBLIIX SERVICE',
+  period: 'OCTOBER 2026',
+  badgeText: 'Professional Websites from ₹9,999',
 
-  // Main Headline and Editorial Summary (Outcome-focused)
-  title: 'Launch your business with the right digital foundation.',
+  // Main headline and editorial summary
+  title: 'Your business deserves a website that works as hard as you do.',
   description:
-    'Build a professional online presence ready for customers, search and future growth with Webliix LaunchKit — crafted for businesses worldwide.',
+    'Establish your online presence with a modern, mobile-friendly business website built to showcase your services and generate enquiries. Get custom pages, WhatsApp integration, essential SEO, domain setup, and launch support — starting at just ₹9,999.',
 
-  // Call-To-Action buttons
-  primaryCtaText: 'Explore LaunchKit',
-  primaryCtaUrl: '/launch-kit',
-  secondaryCtaText: 'Talk to Webliix',
+  // Call-to-action buttons
+  primaryCtaText: 'Explore Website Plans',
+  primaryCtaUrl: '/website-development',
+  secondaryCtaText: 'Discuss Your Project',
   secondaryCtaUrl: '/contact',
 
-  // Visual highlights / key takeaway points for the right-hand panel
+  // Visual highlights / key takeaways
   highlights: [
-    'Complete Responsive Business Website',
-    'Search-Ready SEO & Analytics Foundation',
-    'Direct Lead Capture & WhatsApp Integration',
-    '100% Code & Asset Ownership'
+    '5 Custom, Mobile-Friendly Website Pages',
+    'WhatsApp, Enquiry Forms & Click-to-Call',
+    '1-Year Domain, SSL & Essential SEO Setup',
+    '30 Days of Post-Launch Technical Support'
   ]
 };

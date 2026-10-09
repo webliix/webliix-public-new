@@ -282,6 +282,10 @@ export default function SpatialNavbar() {
           <img
             src={logoSrc}
             alt={siteConfig.brand.name}
+            width="240"
+            height="62"
+            fetchPriority="high"
+            decoding="async"
             className="h-14 sm:h-[60px] lg:h-[62px] w-auto object-contain transition-transform group-hover:scale-105"
           />
         </Link>

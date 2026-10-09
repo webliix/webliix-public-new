@@ -1,0 +1,116 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Webliix",
+    "identifier": "did:web:webliix.com",
+    "documentationUrl": "https://webliix.com/services",
+    "logoUrl": "https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1788210409/logo.png"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:webliix.com:service:website-development",
+      "displayName": "Webliix Custom Website Development",
+      "type": "text/html",
+      "url": "https://webliix.com/website-development",
+      "description": "Custom responsive web development, web apps, and enterprise digital solutions tailored for businesses.",
+      "tags": [
+        "web-development",
+        "react",
+        "full-stack",
+        "responsive-design",
+        "agency"
+      ],
+      "capabilities": [
+        "WebsiteDevelopment",
+        "ResponsiveDesign",
+        "CustomSoftware"
+      ],
+      "representativeQueries": [
+        "hire website development agency",
+        "custom web design and development services",
+        "professional business website builder"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-10T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:webliix.com:service:ecommerce-store",
+      "displayName": "Webliix E-Commerce Solutions",
+      "type": "text/html",
+      "url": "https://webliix.com/ecommerce-store",
+      "description": "High-converting online store setup, product catalog architecture, and payment gateway integration.",
+      "tags": [
+        "ecommerce",
+        "online-store",
+        "payment-integration",
+        "shopify",
+        "woocommerce"
+      ],
+      "capabilities": [
+        "ECommerceStore",
+        "PaymentGatewayIntegration",
+        "OnlineStoreSetup"
+      ],
+      "representativeQueries": [
+        "build ecommerce website with payment gateway",
+        "custom online shopping store setup",
+        "fast mobile ecommerce website development"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-10T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:webliix.com:service:seo-and-gmb",
+      "displayName": "Webliix SEO & Google Business Profile Setup",
+      "type": "text/html",
+      "url": "https://webliix.com/seo",
+      "description": "Local SEO ranking, Google Business Profile (GMB) verification and optimization, and organic visibility enhancement.",
+      "tags": [
+        "seo",
+        "gmb",
+        "local-seo",
+        "google-business-profile",
+        "search-ranking"
+      ],
+      "capabilities": [
+        "LocalSEO",
+        "GoogleBusinessProfile",
+        "SearchEngineOptimization"
+      ],
+      "representativeQueries": [
+        "local seo and google business profile setup",
+        "improve google maps ranking for local business",
+        "organic search engine optimization services"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-10T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:webliix.com:service:paid-advertising",
+      "displayName": "Webliix Paid Advertising & PPC Management",
+      "type": "text/html",
+      "url": "https://webliix.com/paid-advertising",
+      "description": "ROI-focused Google Search Ads, Google Maps campaigns, and Meta (Facebook & Instagram) ad management.",
+      "tags": [
+        "google-ads",
+        "meta-ads",
+        "ppc",
+        "lead-generation",
+        "digital-marketing"
+      ],
+      "capabilities": [
+        "GoogleAds",
+        "MetaAds",
+        "PPCManagement",
+        "LeadGeneration"
+      ],
+      "representativeQueries": [
+        "google ads management for small business",
+        "meta facebook and instagram ad campaigns",
+        "targeted pay per click lead generation"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-10T00:00:00Z"
+    }
+  ]
+}

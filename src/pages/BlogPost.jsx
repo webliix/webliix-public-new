@@ -24,6 +24,7 @@ import {
 } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
+import { optimizeCloudinaryUrl, getCloudinarySrcSet } from '../utils/cloudinary';
 import WebliixCard from '../components/ui/WebliixCard';
 import WebliixButton from '../components/ui/WebliixButton';
 import {
@@ -571,8 +572,14 @@ export default function BlogPost() {
             }}
           >
             <img
-              src={post.coverImageUrl}
+              src={optimizeCloudinaryUrl(post.coverImageUrl)}
+              srcSet={getCloudinarySrcSet(post.coverImageUrl, [480, 768, 1024, 1440])}
+              sizes="(max-width: 1024px) 100vw, 900px"
               alt={post.coverImageAlt || post.title}
+              width="1200"
+              height="675"
+              fetchPriority="high"
+              decoding="async"
               className="w-full h-full object-cover"
             />
           </div>

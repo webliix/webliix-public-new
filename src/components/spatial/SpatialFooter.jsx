@@ -110,6 +110,10 @@ export default function SpatialFooter() {
             <img
               src={logoSrc}
               alt={siteConfig.brand.name}
+              width="300"
+              height="86"
+              loading="lazy"
+              decoding="async"
               className="h-16 sm:h-[78px] lg:h-[86px] w-auto object-contain transition-transform group-hover:scale-105"
             />
             <span className="block font-mono text-xs font-bold text-theme-primary tracking-wide">
