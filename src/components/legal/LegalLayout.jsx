@@ -17,12 +17,35 @@ export default function LegalLayout({
   seoDescription,
   canonicalPath,
   tableOfContents = [],
+  showAcceptPortalTerms = false,
   children
 }) {
   const [activeSection, setActiveSection] = useState('');
+  const [acceptedTerms, setAcceptedTerms] = useState(() => {
+    try {
+      return localStorage.getItem('webliix_client_terms_accepted') === 'true';
+    } catch {
+      return false;
+    }
+  });
 
   const handlePrint = () => {
     window.print();
+  };
+
+  const handleAcceptTermsAndProceed = () => {
+    try {
+      localStorage.setItem('webliix_client_terms_accepted', 'true');
+      localStorage.setItem('webliix_client_terms_accepted_at', new Date().toISOString());
+    } catch (e) {
+      console.error(e);
+    }
+    setAcceptedTerms(true);
+    // Redirect to Client Portal
+    const clientPortalUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+      ? 'http://localhost:5174/login'
+      : 'https://login.webliix.com';
+    window.location.href = clientPortalUrl;
   };
 
   const scrollToSection = (id) => {
@@ -63,6 +86,18 @@ export default function LegalLayout({
 
         {/* Action Controls */}
         <div className="flex flex-wrap items-center justify-center gap-3 pt-2 print:hidden">
+          {showAcceptPortalTerms && (
+            <WebliixButton
+              variant="primary"
+              size="sm"
+              iconLeft={ShieldCheck}
+              onClick={handleAcceptTermsAndProceed}
+              className="font-bold shadow-md hover:scale-[1.02] transition-transform"
+            >
+              {acceptedTerms ? 'Terms Accepted • Open Client Portal' : 'Accept Terms to Use Client Portal'}
+            </WebliixButton>
+          )}
+
           <WebliixButton
             variant="ghost"
             size="sm"
