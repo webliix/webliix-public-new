@@ -12,30 +12,34 @@ export default function SpatialHeroCanvas() {
     const ctx = canvas.getContext('2d');
     let animationFrameId;
 
+    // Use window dimensions directly without accessing canvas.parentElement?.clientWidth
+    // which prevents forced synchronous layout calculations on mount
     const updateDimensions = () => {
-      const parentWidth = canvas.parentElement?.clientWidth || 0;
-      const parentHeight = canvas.parentElement?.clientHeight || 0;
-      canvas.width = Math.max(window.innerWidth, parentWidth, 320);
-      canvas.height = Math.max(window.innerHeight, parentHeight, 480);
+      canvas.width = Math.max(window.innerWidth || 0, 320);
+      canvas.height = Math.max(window.innerHeight || 0, 480);
     };
 
     updateDimensions();
     let width = canvas.width;
     let height = canvas.height;
 
-    let cachedRect = canvas.getBoundingClientRect();
-    const updateCachedRect = () => {
-      if (canvas) cachedRect = canvas.getBoundingClientRect();
+    // Lazily evaluate bounding rect on interaction rather than forcing layout on mount & scroll
+    let cachedRect = null;
+    const getRect = () => {
+      if (!cachedRect && canvas) {
+        cachedRect = canvas.getBoundingClientRect();
+      }
+      return cachedRect;
     };
 
     const handleResize = () => {
       updateDimensions();
       width = canvas.width;
       height = canvas.height;
-      updateCachedRect();
+      cachedRect = null;
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize, { passive: true });
 
     // Track Window Scroll for Differential Parallax Speed
     let scrollY = window.scrollY;
@@ -43,7 +47,7 @@ export default function SpatialHeroCanvas() {
 
     const handleScroll = () => {
       targetScrollY = window.scrollY;
-      updateCachedRect();
+      cachedRect = null;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -59,9 +63,10 @@ export default function SpatialHeroCanvas() {
     };
 
     const updateMousePos = (clientX, clientY) => {
-      if (!canvas) return;
-      mouse.targetX = clientX - cachedRect.left;
-      mouse.targetY = clientY - cachedRect.top;
+      const rect = getRect();
+      if (!rect) return;
+      mouse.targetX = clientX - rect.left;
+      mouse.targetY = clientY - rect.top;
       mouse.active = true;
     };
 
@@ -103,8 +108,11 @@ export default function SpatialHeroCanvas() {
       'AI Systems'
     ];
 
-    // Floating Particles System (Balanced Count)
-    const particleCount = Math.min(Math.floor(width / 16), 75);
+    // Detect mobile device to scale particle and grid calculations for mobile CPU efficiency
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
+    // Floating Particles System (Optimized for Mobile)
+    const particleCount = isMobile ? 18 : Math.min(Math.floor(width / 16), 70);
     const particles = [];
 
     for (let i = 0; i < particleCount; i++) {
@@ -126,9 +134,9 @@ export default function SpatialHeroCanvas() {
     const primaryColor = currentTheme?.colors?.primary || '#6366f1';
     const isDark = currentTheme ? currentTheme.isDark !== false : true;
 
-    // 3D Perspective Grid Parameters
-    const gridCols = 32;
-    const gridRows = 24;
+    // 3D Perspective Grid Parameters (Scaled on mobile to prevent CPU lock)
+    const gridCols = isMobile ? 16 : 32;
+    const gridRows = isMobile ? 12 : 24;
     let time = 0;
 
     let isVisible = true;

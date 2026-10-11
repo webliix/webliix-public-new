@@ -1,30 +1,17 @@
 // WebliixButton.jsx
-import React, { useRef, useCallback } from 'react';
-import {
-  motion,
-  useSpring,
-  useReducedMotion,
-} from 'framer-motion';
+import React, { forwardRef } from 'react';
 import { useAudio } from '../../context/AudioContext';
 
 /**
  * WebliixButton — Spatial / Edgy Button System
- *
- * Design:
- * - Spatial depth
- * - Magnetic pointer-tracked tilt
- * - Animated edge light
- * - Corner-bracket "targeting" accent (signature motif, shared with WebliixCard)
- * - Directional icon motion
- * - Premium press feedback
- * - Sharp, square edges throughout
- * - Theme controlled colors
- * - Reduced-motion friendly
+ * Optimized with pure GPU-composited CSS transitions to eliminate
+ * non-composited animation warnings and heavy Framer Motion runtime overhead.
  *
  * Variants:
- * primary  → Main CTA
- * ghost    → Secondary CTA
- * utility  → Tabs / filters / controls
+ * primary    → Main CTA
+ * ghost      → Secondary CTA
+ * secondary  → Alias for ghost
+ * utility    → Tabs / filters / controls
  *
  * Sizes:
  * sm / md / lg
@@ -39,6 +26,10 @@ const VARIANTS = {
     'border border-theme-primary',
     'theme-rounded-btn',
     'shadow-[0_5px_18px_rgba(0,0,0,0.16)]',
+    'hover:shadow-[0_16px_36px_-8px_rgba(0,0,0,0.28)]',
+    'hover:-translate-y-0.5',
+    'active:translate-y-0',
+    'active:scale-[0.98]',
     'focus-visible:outline-none',
     'focus-visible:ring-2',
     'focus-visible:ring-theme-primary/40',
@@ -54,6 +45,10 @@ const VARIANTS = {
     'text-theme-text',
     'border border-theme-border',
     'theme-rounded-btn',
+    'hover:shadow-[0_10px_28px_-10px_rgba(0,0,0,0.18)]',
+    'hover:-translate-y-0.5',
+    'active:translate-y-0',
+    'active:scale-[0.98]',
     'focus-visible:outline-none',
     'focus-visible:ring-2',
     'focus-visible:ring-theme-primary/35',
@@ -69,6 +64,10 @@ const VARIANTS = {
     'text-theme-muted',
     'border border-theme-border',
     'theme-rounded-btn',
+    'hover:shadow-[0_10px_26px_-10px_rgba(0,0,0,0.16)]',
+    'hover:-translate-y-0.5',
+    'active:translate-y-0',
+    'active:scale-[0.98]',
     'focus-visible:outline-none',
     'focus-visible:ring-2',
     'focus-visible:ring-theme-primary/30',
@@ -76,6 +75,8 @@ const VARIANTS = {
     'focus-visible:ring-offset-theme-background',
   ].join(' '),
 };
+
+VARIANTS.secondary = VARIANTS.ghost;
 
 const SIZES = {
   sm: 'min-h-9 px-4 py-2 text-xs',
@@ -95,110 +96,61 @@ const ICON_SIZE = {
   lg: 'w-5 h-5',
 };
 
-// Elevated shadow per variant, applied on hover for extra spatial depth.
-const HOVER_SHADOW = {
-  primary: '0 16px 36px -8px rgba(0,0,0,0.28)',
-  ghost: '0 10px 28px -10px rgba(0,0,0,0.18)',
-  utility: '0 10px 26px -10px rgba(0,0,0,0.16)',
-};
-
-const BASE_SHADOW = {
-  primary: '0 5px 18px rgba(0,0,0,0.16)',
-  ghost: '0 0px 0px rgba(0,0,0,0)',
-  utility: '0 0px 0px rgba(0,0,0,0)',
-};
-
 /* ─────────────────────────────────────────────
  * CORNER BRACKETS
  * Signature "targeting" accent — shared visual
  * language with WebliixCard. Two opposite
  * corners draw themselves in on hover.
- * Auto-hidden in rounded mode.
+ * Pure GPU-composited CSS transitions.
  * ───────────────────────────────────────────── */
-
-function CornerBrackets({ reduceMotion }) {
-  const armVariants = {
-    rest: { opacity: 0, pathLength: 0.4, scale: 0.85 },
-    hover: {
-      opacity: 1,
-      pathLength: 1,
-      scale: 1,
-      transition: { duration: reduceMotion ? 0.01 : 0.35, ease: [0.22, 1, 0.36, 1] },
-    },
-  };
+function CornerBrackets({ variant }) {
+  const borderColor = variant === 'primary' ? 'border-white/70' : 'border-theme-primary/70';
+  const arm = `pointer-events-none absolute h-2.5 w-2.5 ${borderColor} opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-[opacity,transform] duration-200 ease-out corner-bracket`;
 
   return (
     <div className="corner-bracket pointer-events-none">
-      <motion.span
+      <span
         aria-hidden="true"
-        variants={armVariants}
-        className="pointer-events-none absolute left-1.5 top-1.5 h-2.5 w-2.5 border-l-[1.5px] border-t-[1.5px] border-white/70 [.group_&]:border-theme-primary/70 corner-bracket"
+        className={`${arm} left-1.5 top-1.5 border-l-[1.5px] border-t-[1.5px]`}
       />
-      <motion.span
+      <span
         aria-hidden="true"
-        variants={armVariants}
-        className="pointer-events-none absolute right-1.5 bottom-1.5 h-2.5 w-2.5 border-r-[1.5px] border-b-[1.5px] border-white/70 [.group_&]:border-theme-primary/70 corner-bracket"
+        className={`${arm} right-1.5 bottom-1.5 border-r-[1.5px] border-b-[1.5px]`}
       />
     </div>
   );
 }
 
+const WebliixButton = forwardRef(function WebliixButton(
+  {
+    children,
+    variant = 'primary',
+    size = 'md',
 
-export default function WebliixButton({
-  children,
-  variant = 'primary',
-  size = 'md',
+    icon: Icon,
+    iconLeft: IconLeft,
 
-  icon: Icon,
-  iconLeft: IconLeft,
+    fullWidth = false,
 
-  fullWidth = false,
+    loading = false,
+    disabled = false,
 
-  loading = false,
-  disabled = false,
+    magnetic = true, // Retained for API compatibility
 
-  magnetic = true,
+    className = '',
+    onClick,
+    type = 'button',
 
-  className = '',
-  onClick,
-  type = 'button',
-
-  ...props
-}) {
+    ...props
+  },
+  ref
+) {
   const { playHoverSound, playClickSound } = useAudio();
-  const shouldReduceMotion = useReducedMotion();
 
   const isDisabled = disabled || loading;
-  const isGhost = variant === 'ghost';
+  const isGhost = variant === 'ghost' || variant === 'secondary';
   const isUtility = variant === 'utility';
   const isPrimary = variant === 'primary';
-
-  const btnRef = useRef(null);
-
-  /* Magnetic pointer-tracked tilt — independent of the
-     whileHover 'y' lift below, so the two never collide. */
-  const rotateX = useSpring(0, { stiffness: 300, damping: 22, mass: 0.6 });
-  const rotateY = useSpring(0, { stiffness: 300, damping: 22, mass: 0.6 });
-  const magX = useSpring(0, { stiffness: 250, damping: 20 });
-
-  const handleMouseMove = useCallback(
-    (e) => {
-      if (isDisabled || !magnetic || shouldReduceMotion || !btnRef.current) return;
-      const rect = btnRef.current.getBoundingClientRect();
-      const px = (e.clientX - rect.left) / rect.width - 0.5;
-      const py = (e.clientY - rect.top) / rect.height - 0.5;
-      rotateY.set(px * 8);
-      rotateX.set(py * -8);
-      magX.set(px * 4);
-    },
-    [isDisabled, magnetic, shouldReduceMotion, rotateX, rotateY, magX]
-  );
-
-  const resetTilt = useCallback(() => {
-    rotateX.set(0);
-    rotateY.set(0);
-    magX.set(0);
-  }, [rotateX, rotateY, magX]);
 
   const handleClick = (e) => {
     if (isDisabled) return;
@@ -211,43 +163,13 @@ export default function WebliixButton({
   };
 
   return (
-    <motion.button
-      ref={btnRef}
+    <button
+      ref={ref}
       type={type}
       disabled={isDisabled}
       aria-busy={loading || undefined}
       onClick={handleClick}
       onMouseEnter={handleMouseEnter}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={resetTilt}
-      initial="rest"
-      whileHover={!isDisabled ? 'hover' : undefined}
-      whileTap={!isDisabled ? 'tap' : undefined}
-      animate="rest"
-      variants={{
-        rest: {
-          y: 0,
-          scale: 1,
-          boxShadow: BASE_SHADOW[variant] || BASE_SHADOW.primary,
-        },
-        hover: {
-          y: -3,
-          scale: 1,
-          boxShadow: HOVER_SHADOW[variant] || HOVER_SHADOW.primary,
-        },
-        tap: {
-          y: 0,
-          scale: 0.965,
-          boxShadow: BASE_SHADOW[variant] || BASE_SHADOW.primary,
-        },
-      }}
-      transition={{ type: 'spring', stiffness: 420, damping: 25, mass: 0.7 }}
-      style={{
-        rotateX: shouldReduceMotion ? 0 : rotateX,
-        rotateY: shouldReduceMotion ? 0 : rotateY,
-        x: shouldReduceMotion ? 0 : magX,
-        transformPerspective: 700,
-      }}
       className={[
         VARIANTS[variant] || VARIANTS.primary,
         SIZES[size] || SIZES.md,
@@ -264,12 +186,15 @@ export default function WebliixButton({
         'whitespace-nowrap',
 
         'will-change-transform',
-        'transition-[border-color,background-color]',
-        'duration-300',
+        'transition-[transform,box-shadow,border-color,background-color,color]',
+        'duration-200',
+        'ease-out',
 
         'disabled:cursor-not-allowed',
         'disabled:opacity-50',
         'disabled:shadow-none',
+        'disabled:hover:translate-y-0',
+        'disabled:active:scale-100',
 
         fullWidth ? 'w-full' : '',
         className,
@@ -278,23 +203,15 @@ export default function WebliixButton({
         .join(' ')}
       {...props}
     >
-      {/* ═══════════════════════════════════════
-          CORNER BRACKETS — signature accent
-          ═══════════════════════════════════════ */}
-      <CornerBrackets reduceMotion={shouldReduceMotion} />
+      {/* CORNER BRACKETS — signature accent */}
+      <CornerBrackets variant={variant} />
 
-      {/* ═══════════════════════════════════════
-          PRIMARY — MOVING LIGHT EDGE
-          ═══════════════════════════════════════ */}
-
+      {/* PRIMARY — MOVING LIGHT EDGE */}
       {isPrimary && (
         <>
-          <motion.span
+          <span
             aria-hidden="true"
-            className="pointer-events-none absolute top-0 bottom-0 w-20 bg-gradient-to-r from-transparent via-white/25 to-transparent blur-sm"
-            initial={{ x: '-140%' }}
-            variants={{ hover: { x: '500%' } }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="pointer-events-none absolute top-0 bottom-0 w-20 bg-gradient-to-r from-transparent via-white/25 to-transparent blur-sm -translate-x-[140%] group-hover:translate-x-[500%] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
           />
 
           <span
@@ -302,70 +219,46 @@ export default function WebliixButton({
             className="pointer-events-none absolute top-0 left-3 right-3 h-px bg-white/30"
           />
 
-          <motion.span
+          <span
             aria-hidden="true"
-            className="pointer-events-none absolute bottom-0 left-0 h-[2px] bg-white/25"
-            initial={{ width: '0%' }}
-            variants={{ hover: { width: '100%' } }}
-            transition={{ duration: 0.35, ease: 'easeOut' }}
+            className="pointer-events-none absolute bottom-0 left-0 h-[2px] bg-white/25 w-0 group-hover:w-full transition-[width] duration-300 ease-out"
           />
         </>
       )}
 
-      {/* ═══════════════════════════════════════
-          GHOST — SPATIAL FILL
-          ═══════════════════════════════════════ */}
-
+      {/* GHOST / SECONDARY — SPATIAL FILL */}
       {isGhost && (
-        <motion.span
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 origin-left bg-theme-primary"
-          initial={{ scaleX: 0 }}
-          variants={{ hover: { scaleX: 1 } }}
-          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          style={{ transformOrigin: 'left center' }}
-        />
+        <>
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 origin-left bg-theme-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]"
+            style={{ transformOrigin: 'left center' }}
+          />
+
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute top-0 bottom-0 w-16 bg-white/10 blur-md -translate-x-[120%] group-hover:translate-x-[600%] transition-transform duration-700 ease-out delay-75"
+          />
+        </>
       )}
 
-      {isGhost && (
-        <motion.span
-          aria-hidden="true"
-          className="pointer-events-none absolute top-0 bottom-0 w-16 bg-white/10 blur-md"
-          initial={{ x: '-120%' }}
-          variants={{ hover: { x: '600%' } }}
-          transition={{ duration: 0.65, ease: 'easeOut', delay: 0.05 }}
-        />
-      )}
-
-      {/* ═══════════════════════════════════════
-          UTILITY — ACTIVE EDGE
-          ═══════════════════════════════════════ */}
-
+      {/* UTILITY — ACTIVE EDGE */}
       {isUtility && (
         <>
-          <motion.span
+          <span
             aria-hidden="true"
-            className="pointer-events-none absolute bottom-0 left-1/2 h-[2px] -translate-x-1/2 bg-theme-primary"
-            initial={{ width: 0 }}
-            variants={{ hover: { width: '55%' } }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="pointer-events-none absolute bottom-0 left-1/2 h-[2px] -translate-x-1/2 bg-theme-primary w-0 group-hover:w-[55%] transition-[width] duration-300 ease-out"
           />
 
-          <motion.span
+          <span
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-theme-primary/5"
-            initial={{ opacity: 0 }}
-            variants={{ hover: { opacity: 1 } }}
-            transition={{ duration: 0.2 }}
+            className="pointer-events-none absolute inset-0 bg-theme-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
           />
         </>
       )}
 
-      {/* ═══════════════════════════════════════
-          CONTENT
-          ═══════════════════════════════════════ */}
-
-      <motion.span
+      {/* CONTENT */}
+      <span
         className={[
           'relative',
           'z-10',
@@ -376,21 +269,16 @@ export default function WebliixButton({
         ].join(' ')}
       >
         {IconLeft && (
-          <motion.span
-            className="inline-flex shrink-0"
-            variants={{ hover: !isDisabled ? { x: -2 } : {} }}
-          >
+          <span className="inline-flex shrink-0 transition-transform duration-200 group-hover:-translate-x-0.5">
             <IconLeft className={[ICON_SIZE[size] || ICON_SIZE.md, 'shrink-0'].join(' ')} />
-          </motion.span>
+          </span>
         )}
 
         {loading ? (
           <>
-            <motion.span
+            <span
               aria-hidden="true"
-              className="h-4 w-4 shrink-0 rounded-full border-2 border-current border-t-transparent"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 0.8, repeat: Infinity, ease: 'linear' }}
+              className="h-4 w-4 shrink-0 rounded-full border-2 border-current border-t-transparent animate-spin"
             />
             <span>{typeof children === 'string' ? 'Processing...' : children}</span>
           </>
@@ -399,17 +287,15 @@ export default function WebliixButton({
             <span>{children}</span>
 
             {Icon && (
-              <motion.span
-                className="inline-flex shrink-0"
-                variants={{ hover: !isDisabled ? { x: 5 } : {} }}
-                transition={{ type: 'spring', stiffness: 500, damping: 22 }}
-              >
+              <span className="inline-flex shrink-0 transition-transform duration-200 group-hover:translate-x-1">
                 <Icon className={[ICON_SIZE[size] || ICON_SIZE.md, 'shrink-0'].join(' ')} />
-              </motion.span>
+              </span>
             )}
           </>
         )}
-      </motion.span>
-    </motion.button>
+      </span>
+    </button>
   );
-}
+});
+
+export default WebliixButton;

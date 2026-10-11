@@ -1,10 +1,5 @@
 // WebliixCard.jsx
 import React, { useState, useRef, useCallback, useEffect } from 'react';
-import {
-  motion,
-  useSpring,
-  useReducedMotion,
-} from 'framer-motion';
 import { useAudio } from '../../context/AudioContext';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -16,10 +11,9 @@ import { useTheme } from '../../context/ThemeContext';
  * - Modern, spatial, premium, slightly edgy
  * - Sharp, square edges throughout
  * - Theme-driven, subtle depth
- * - Mouse-tracked 3D tilt (spring-eased, respects reduced motion)
- * - Corner-bracket "targeting" accent, shared motif with WebliixButton
- * - Purposeful, one-shot motion — nothing loops or distracts at rest
- * - Scroll-triggered fade-in on mount (respects reduced motion)
+ * - GPU-composited 3D tilt & hover effects
+ * - CSS corner-bracket "targeting" accent, shared motif with WebliixButton
+ * - Zero non-composited animations / forced reflows
  *
  * VARIANTS: standard / surface / feature / featured / accent / spatial / stat / panel
  * PROPS: variant, accentColor, hoverable, clickable, hoverGlare, tilt, onClick, className
@@ -45,43 +39,43 @@ const ACCENT_STYLES = {
 
 const VARIANTS = {
   standard: {
-    base: 'bg-theme-card glass-spatial border border-theme-border/80 theme-rounded-card shadow-[0_4px_20px_rgba(0,0,0,0.055)]',
+    base: 'bg-theme-card glass-spatial border border-theme-border/80 theme-rounded-card shadow-[0_4px_20px_rgba(0,0,0,0.055)] hover:shadow-spatial',
     hover: 'hover:border-theme-primary/50',
     lift: -3,
     tiltDeg: 2,
   },
   surface: {
-    base: 'bg-theme-card glass-spatial border border-theme-border/80 theme-rounded-card shadow-[0_4px_20px_rgba(0,0,0,0.055)]',
+    base: 'bg-theme-card glass-spatial border border-theme-border/80 theme-rounded-card shadow-[0_4px_20px_rgba(0,0,0,0.055)] hover:shadow-spatial',
     hover: 'hover:border-theme-primary/50',
     lift: -3,
     tiltDeg: 2,
   },
   feature: {
-    base: 'bg-theme-card glass-spatial border border-theme-border/80 theme-rounded-card shadow-[0_4px_20px_rgba(0,0,0,0.055)] group',
+    base: 'bg-theme-card glass-spatial border border-theme-border/80 theme-rounded-card shadow-[0_4px_20px_rgba(0,0,0,0.055)] hover:shadow-spatial group',
     hover: 'hover:border-theme-primary/60',
     lift: -4,
     tiltDeg: 3,
   },
   featured: {
-    base: 'bg-theme-card glass-spatial border border-theme-primary/40 theme-rounded-card shadow-[0_12px_40px_rgba(0,0,0,0.10)] relative overflow-hidden',
+    base: 'bg-theme-card glass-spatial border border-theme-primary/40 theme-rounded-card shadow-[0_12px_40px_rgba(0,0,0,0.10)] hover:shadow-spatial-lg relative overflow-hidden',
     hover: 'hover:border-theme-primary/70',
     lift: -3,
     tiltDeg: 5,
   },
   accent: {
-    base: 'bg-theme-card glass-spatial border border-theme-primary/40 theme-rounded-card shadow-[0_12px_40px_rgba(0,0,0,0.10)] relative overflow-hidden',
+    base: 'bg-theme-card glass-spatial border border-theme-primary/40 theme-rounded-card shadow-[0_12px_40px_rgba(0,0,0,0.10)] hover:shadow-spatial-lg relative overflow-hidden',
     hover: 'hover:border-theme-primary/70',
     lift: -3,
     tiltDeg: 5,
   },
   spatial: {
-    base: 'bg-theme-card glass-spatial border border-theme-primary/35 theme-rounded-card shadow-[0_16px_48px_rgba(0,0,0,0.12)] relative overflow-hidden',
+    base: 'bg-theme-card glass-spatial border border-theme-primary/35 theme-rounded-card shadow-[0_16px_48px_rgba(0,0,0,0.12)] hover:shadow-spatial-lg relative overflow-hidden',
     hover: 'hover:border-theme-primary/65',
     lift: -2,
     tiltDeg: 6,
   },
   stat: {
-    base: 'bg-theme-card glass-spatial border border-theme-border/80 theme-rounded-card shadow-[0_4px_20px_rgba(0,0,0,0.055)] text-center group',
+    base: 'bg-theme-card glass-spatial border border-theme-border/80 theme-rounded-card shadow-[0_4px_20px_rgba(0,0,0,0.055)] text-center group hover:shadow-spatial',
     hover: 'hover:border-theme-primary/55',
     lift: -2,
     tiltDeg: 2,
@@ -94,39 +88,23 @@ const VARIANTS = {
   },
 };
 
-
-const HOVER_SHADOW = {
-  standard: '0 18px 40px -12px rgba(0,0,0,0.16)',
-  surface: '0 18px 40px -12px rgba(0,0,0,0.16)',
-  feature: '0 20px 44px -12px rgba(0,0,0,0.18)',
-  stat: '0 18px 40px -14px rgba(0,0,0,0.14)',
-  panel: 'none',
-};
-
 /* ─────────────────────────────────────────────
  * CORNER BRACKETS — signature motif matching WebliixButton
- * Sits flush against the edgy square edges (auto-hidden in rounded mode)
+ * Pure composited CSS transitions (eliminates 166+ animated JS nodes)
  * ───────────────────────────────────────────── */
-
 function CornerBrackets() {
-  const armVariants = {
-    rest: { opacity: 0, scale: 0.8 },
-    hover: { opacity: 1, scale: 1, transition: { duration: 0.25, ease: [0.22, 1, 0.36, 1] } },
-  };
-  const arm = 'pointer-events-none absolute h-2.5 w-2.5 border-theme-primary corner-bracket';
+  const arm = 'pointer-events-none absolute h-2.5 w-2.5 border-theme-primary corner-bracket opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-[opacity,transform] duration-200 ease-out';
   return (
     <div className="corner-bracket pointer-events-none">
-      <motion.span aria-hidden="true" variants={armVariants} className={`${arm} left-1.5 top-1.5 border-l-[1.5px] border-t-[1.5px]`} />
-      <motion.span aria-hidden="true" variants={armVariants} className={`${arm} right-1.5 top-1.5 border-r-[1.5px] border-t-[1.5px]`} />
-      <motion.span aria-hidden="true" variants={armVariants} className={`${arm} left-1.5 bottom-1.5 border-l-[1.5px] border-b-[1.5px]`} />
-      <motion.span aria-hidden="true" variants={armVariants} className={`${arm} right-1.5 bottom-1.5 border-r-[1.5px] border-b-[1.5px]`} />
+      <span aria-hidden="true" className={`${arm} left-1.5 top-1.5 border-l-[1.5px] border-t-[1.5px]`} />
+      <span aria-hidden="true" className={`${arm} right-1.5 top-1.5 border-r-[1.5px] border-t-[1.5px]`} />
+      <span aria-hidden="true" className={`${arm} left-1.5 bottom-1.5 border-l-[1.5px] border-b-[1.5px]`} />
+      <span aria-hidden="true" className={`${arm} right-1.5 bottom-1.5 border-r-[1.5px] border-b-[1.5px]`} />
     </div>
   );
 }
 
-
-
-// Shared mobile view detection to avoid adding duplicate resize listeners across hundreds of cards
+// Shared mobile view detection to avoid adding duplicate resize listeners across cards
 let isMobileCache = typeof window !== 'undefined'
   ? (window.innerWidth < 768 || ('ontouchstart' in window) || (navigator.maxTouchPoints > 0 && /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)))
   : false;
@@ -154,11 +132,10 @@ export default function WebliixCard({
   style = {},
   ...props
 }) {
-
   const [glarePos, setGlarePos] = useState({ x: 50, y: 50 });
+  const [tiltStyle, setTiltStyle] = useState(null);
   const { playClickSound } = useAudio();
   const { desktopTilt = true } = useTheme();
-  const shouldReduceMotion = useReducedMotion();
   const cardRef = useRef(null);
 
   const [isMobileView, setIsMobileView] = useState(() => isMobileCache);
@@ -179,13 +156,7 @@ export default function WebliixCard({
   const isInteractive = clickable || onClick != null;
   const isHoverable = hoverable !== undefined ? hoverable : isInteractive || cfg.lift !== 0;
 
-  const accentCfg = ACCENT_STYLES[accentColor] ?? ACCENT_STYLES.primary;
-
-  /* 3D pointer-tracked tilt, independent of the whileHover 'y' lift. */
-  const rotateX = useSpring(0, { stiffness: 260, damping: 24, mass: 0.7 });
-  const rotateY = useSpring(0, { stiffness: 260, damping: 24, mass: 0.7 });
-
-  const isTiltAllowed = tilt && desktopTilt && !isMobileView && cfg.tiltDeg > 0 && !shouldReduceMotion;
+  const isTiltAllowed = tilt && desktopTilt && !isMobileView && cfg.tiltDeg > 0;
 
   const handleMouseMove = useCallback(
     (e) => {
@@ -202,20 +173,18 @@ export default function WebliixCard({
       if (isTiltAllowed) {
         const px = (e.clientX - rect.left) / rect.width - 0.5;
         const py = (e.clientY - rect.top) / rect.height - 0.5;
-        rotateY.set(px * cfg.tiltDeg * 2);
-        rotateX.set(py * -cfg.tiltDeg * 2);
-      } else {
-        rotateX.set(0);
-        rotateY.set(0);
+        setTiltStyle({
+          rotateY: px * cfg.tiltDeg * 2,
+          rotateX: py * -cfg.tiltDeg * 2,
+        });
       }
     },
-    [hoverGlare, isTiltAllowed, cfg.tiltDeg, rotateX, rotateY]
+    [hoverGlare, isTiltAllowed, cfg.tiltDeg, isMobileView]
   );
 
   const handleMouseLeave = useCallback(() => {
-    rotateX.set(0);
-    rotateY.set(0);
-  }, [rotateX, rotateY]);
+    setTiltStyle(null);
+  }, []);
 
   const handleClick = (e) => {
     if (!onClick) return;
@@ -232,7 +201,7 @@ export default function WebliixCard({
   };
 
   return (
-    <motion.div
+    <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -240,31 +209,8 @@ export default function WebliixCard({
       onKeyDown={isInteractive ? handleKeyDown : undefined}
       role={isInteractive ? 'button' : undefined}
       tabIndex={isInteractive ? 0 : undefined}
-      initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
-      whileInView="rest"
-      viewport={{ once: true, amount: 0.2 }}
-      whileHover={isHoverable ? 'hover' : undefined}
-      variants={{
-        rest: {
-          opacity: 1,
-          y: 0,
-          boxShadow: isFeatured
-            ? `0 12px 40px rgba(0,0,0,0.09), 0 18px 48px -16px ${accentCfg.glow}`
-            : undefined,
-        },
-        hover: {
-          opacity: 1,
-          y: cfg.lift !== 0 ? cfg.lift : 0,
-          boxShadow: isFeatured
-            ? `0 20px 56px rgba(0,0,0,0.13), 0 26px 64px -14px ${accentCfg.glow}`
-            : HOVER_SHADOW[variant] || undefined,
-        },
-      }}
-      transition={{ type: 'spring', stiffness: 360, damping: 28, mass: 0.8 }}
       style={{
-        rotateX: shouldReduceMotion ? 0 : rotateX,
-        rotateY: shouldReduceMotion ? 0 : rotateY,
-        transformPerspective: 1000,
+        transform: tiltStyle ? `perspective(1000px) rotateX(${tiltStyle.rotateX}deg) rotateY(${tiltStyle.rotateY}deg)` : undefined,
         backdropFilter: 'blur(var(--glass-blur, 12px))',
         WebkitBackdropFilter: 'blur(var(--glass-blur, 12px))',
         ...style,
@@ -272,10 +218,11 @@ export default function WebliixCard({
       className={[
         'relative',
         'overflow-hidden',
-        'will-change-transform',
-        'transition-[border-color,background-color,backdrop-filter]',
+        'group',
+        'transition-[transform,border-color,background-color,box-shadow]',
         'duration-300',
         cfg.base,
+        isHoverable && cfg.lift !== 0 ? 'hover:-translate-y-1' : '',
         isHoverable && cfg.hover ? cfg.hover : '',
         isInteractive ? 'cursor-pointer' : '',
         isInteractive
@@ -286,7 +233,6 @@ export default function WebliixCard({
         .filter(Boolean)
         .join(' ')}
       {...props}
-
     >
       {/* CORNER BRACKETS — signature accent, hidden on calm 'panel' variant */}
       {cfg.tiltDeg > 0 && <CornerBrackets />}
@@ -314,19 +260,16 @@ export default function WebliixCard({
         />
       )}
 
-      {/* FEATURED TOP ACCENT + one-shot light sweep on hover */}
+      {/* FEATURED TOP ACCENT + GPU-composited light sweep on hover */}
       {isFeatured && (
         <>
           <div
             aria-hidden="true"
             className="pointer-events-none absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-theme-primary/70 to-transparent"
           />
-          <motion.div
+          <div
             aria-hidden="true"
-            className="pointer-events-none absolute top-0 h-px w-24 bg-gradient-to-r from-transparent via-white/70 to-transparent blur-[1px]"
-            initial={{ left: '-10%' }}
-            variants={{ hover: { left: '110%' } }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            className="pointer-events-none absolute top-0 -left-24 h-px w-24 bg-gradient-to-r from-transparent via-white/70 to-transparent blur-[1px] opacity-0 group-hover:opacity-100 group-hover:translate-x-[500px] transition-[transform,opacity] duration-1000 ease-out"
           />
         </>
       )}
@@ -351,7 +294,7 @@ export default function WebliixCard({
       {hoverGlare && (
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 z-0 opacity-0 transition-opacity duration-300 hover:opacity-100"
+          className="pointer-events-none absolute inset-0 z-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           style={{
             background: `radial-gradient(300px circle at ${glarePos.x}% ${glarePos.y}%, var(--color-glow, rgba(37,99,235,0.10)), transparent 72%)`,
           }}
@@ -360,6 +303,6 @@ export default function WebliixCard({
 
       {/* CONTENT */}
       <div className="relative z-10">{children}</div>
-    </motion.div>
+    </div>
   );
 }

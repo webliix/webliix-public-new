@@ -160,10 +160,15 @@ export default function SpatialNavbar() {
   ];
 
   useEffect(() => {
+    let lastScrolled = typeof window !== 'undefined' && window.scrollY > 20;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const isOver = window.scrollY > 20;
+      if (isOver !== lastScrolled) {
+        lastScrolled = isOver;
+        setScrolled(isOver);
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

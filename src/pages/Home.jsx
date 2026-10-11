@@ -358,12 +358,7 @@ export default function Home() {
           </p>
 
           {/* Action CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="flex flex-wrap justify-center gap-3 pt-1"
-          >
+          <div className="flex flex-wrap justify-center gap-3 pt-1">
             <Link to="/contact">
               <WebliixButton variant="primary" icon={ArrowRight} className="text-xs sm:text-sm px-6 py-3">
                 Discuss Your Project
@@ -374,17 +369,12 @@ export default function Home() {
                 Explore Solutions
               </WebliixButton>
             </Link>
-          </motion.div>
+          </div>
 
           {/* WEBLIIX SPOTLIGHT (DYNAMIC EDITORIAL HIGHLIGHT) */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-            className="w-full"
-          >
+          <div className="w-full">
             <WebliixSpotlight />
-          </motion.div>
+          </div>
 
           {/* Trust Badges + Subtle Udyam Compliance Badge */}
           <div className="pt-4 flex flex-col items-center gap-3">
