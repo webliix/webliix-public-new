@@ -127,6 +127,13 @@ export default function Services() {
           content="Explore Webliix website development, e-commerce, SEO, Google Business Profile, digital marketing, branding, UI/UX and custom software services for businesses in India and international markets."
         />
 
+        <meta
+          name="keywords"
+          content="website development services, ecommerce web design, local SEO company, Google Business Profile services, custom web application development, mobile app development, branding design agency, website maintenance services India"
+        />
+
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+
         <link
           rel="canonical"
           href="https://webliix.com/services"
@@ -321,7 +328,13 @@ export default function Services() {
                 </div>
 
                 <h3 className="text-2xl font-display font-bold text-theme-text">
-                  {service.title}
+                  {service.link ? (
+                    <Link to={service.link} className="hover:text-theme-primary transition-colors">
+                      {service.title}
+                    </Link>
+                  ) : (
+                    service.title
+                  )}
                 </h3>
 
                 <p className="text-theme-muted text-xs sm:text-sm leading-relaxed">
@@ -355,7 +368,7 @@ export default function Services() {
 
               </div>
 
-              <div className="pt-4 border-t border-theme-border flex items-center justify-between gap-2 flex-wrap">
+              <div className="pt-4 border-t border-theme-border flex flex-col sm:flex-row sm:items-center justify-between gap-3">
 
                 <div>
                   <span className="text-[10px] font-mono text-theme-muted block uppercase">
@@ -367,32 +380,34 @@ export default function Services() {
                   </span>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap">
 
                   {service.link && (
-                    <Link to={service.link}>
+                    <Link to={service.link} className="w-full sm:w-auto">
                       <WebliixButton
                         variant="ghost"
                         icon={ArrowUpRight}
                         size="sm"
+                        className="w-full sm:w-auto justify-center"
                       >
                         Learn More
                       </WebliixButton>
                     </Link>
                   )}
 
-                  <Link to="/contact">
+                  <Link to="/contact" className="w-full sm:w-auto">
                     <WebliixButton
                       variant="primary"
                       icon={ArrowUpRight}
                       size="sm"
+                      className="w-full sm:w-auto justify-center font-bold"
                     >
                       {service.id === 'brand-launchkit'
                         ? 'Explore LaunchKit'
                         : service.id === 'quick-ecommerce'
                         ? 'Book Store Launch'
                         : service.startingPrice === 'Custom Quote'
-                        ? 'Get Free Quote & Estimate'
+                        ? 'Get Free Quote'
                         : 'Book Service'}
                     </WebliixButton>
                   </Link>

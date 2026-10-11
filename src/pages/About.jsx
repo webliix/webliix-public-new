@@ -85,7 +85,10 @@ export default function About() {
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-6xl mx-auto space-y-12">
       <Helmet>
         <title>About Us | Founders & Agency Vision | {siteConfig.brand.name}</title>
-        <meta name="description" content="Meet Webliix founders Himanshu Sharma (Managing Director) and Abdul Latif (Business Executive). Learn about our story, MERN & Java stack, and global digital agency vision." />
+        <meta name="description" content="Meet Webliix founders Himanshu Sharma (Managing Director) and Abdul Latif (Technical Lead). Learn about our story, Java & React stack, and global digital agency vision." />
+        <meta name="keywords" content="about Webliix, Webliix founders, Himanshu Sharma, Abdul Latif, digital agency India, website development agency, web development company Bihar NCR" />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <link rel="canonical" href="https://webliix.com/about" />
       </Helmet>
 
       {/* Dynamic Breadcrumbs */}

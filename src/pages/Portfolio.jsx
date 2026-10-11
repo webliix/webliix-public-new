@@ -72,7 +72,7 @@ const peoriaLogo =
   'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157236/peoria.svg';
 
 export default function Portfolio() {
-  // Primary Portfolio Items (Preserved exact data & links from old site)
+  // Primary Portfolio Items with rich internal service and case study links
   const portfolioItems = [
     {
       category: 'Home Cleaning Service Website',
@@ -80,7 +80,9 @@ export default function Portfolio() {
       description: 'A modern, high-converting service booking website engineered for residential and commercial cleaning with local SEO optimization and targeted search ad campaigns.',
       image: peoriaImg,
       link: 'https://peoria-webliix.netlify.app/',
-      metrics: 'Online Booking & Local SEO'
+      metrics: 'Online Booking & Local SEO',
+      serviceLink: '/seo',
+      serviceName: 'Local SEO & Web Dev'
     },
     {
       category: 'Wedding & Event Planning',
@@ -88,7 +90,9 @@ export default function Portfolio() {
       description: 'A premier event and wedding planning website featuring end-to-end luxury event coordination, bespoke catering menus, decor galleries, and direct booking inquiries.',
       image: ramjiEventsImg,
       link: 'https://ramji-events.netlify.app/',
-      metrics: 'Wedding & Luxury Catering'
+      metrics: 'Wedding & Luxury Catering',
+      serviceLink: '/branding-design',
+      serviceName: 'Branding & UI/UX'
     },
     {
       category: 'Portfolio Website',
@@ -96,7 +100,9 @@ export default function Portfolio() {
       description: 'Manufacturer & Supplier of ESE Lightning Arresters, Surge Protection Devices, GI & Copper Bonded Earth Electrodes. Trusted across 28+ states in India.',
       image: sunsdustImg,
       link: 'https://sunsdust-webliix-2.netlify.app/',
-      metrics: 'Trusted Across 28+ States'
+      metrics: 'Trusted Across 28+ States',
+      serviceLink: '/website-development',
+      serviceName: 'Website Development'
     },
     {
       category: 'CCTV & Security Solutions',
@@ -104,16 +110,21 @@ export default function Portfolio() {
       description: 'A professional CCTV camera installation, servicing, and surveillance equipment sales company with custom responsive web design, local SEO, and lead campaigns.',
       image: auraDrishtiImg,
       link: 'https://auradrishti-webliix.netlify.app/',
-      metrics: '4.9★ Rating • 3x GMB Visits'
+      metrics: '4.9★ Rating • 3x GMB Visits',
+      serviceLink: '/seo',
+      serviceName: 'Local SEO & GMB',
+      caseStudyLink: '/case-studies/auradrishti',
+      caseStudyName: 'View Case Study'
     },
-
     {
       category: 'Cloud Kitchen Portfolio',
       title: 'Kitchen 9 Village',
       description: 'Authentic Indian vegetarian cuisine crafted with traditional recipes, premium ingredients, and strict hygiene standards. Proudly serving Siliguri with fast and reliable delivery.',
       image: kitchen9Img,
       link: 'https://kitchen9-webliix.netlify.app',
-      metrics: '+180% Direct Orders'
+      metrics: '+180% Direct Orders',
+      serviceLink: '/ecommerce-store',
+      serviceName: 'E-Commerce Store'
     },
     {
       category: 'Portfolio Website',
@@ -121,7 +132,9 @@ export default function Portfolio() {
       description: 'A complete website redesign to enhance user experience and showcase a professional portfolio.',
       image: sarswatiImg,
       link: 'https://latifcodes.github.io/Saraswati-Enterprise/',
-      metrics: '100% Mobile Responsive'
+      metrics: '100% Mobile Responsive',
+      serviceLink: '/website-development',
+      serviceName: 'Website Development'
     }
   ];
 
@@ -287,19 +300,43 @@ export default function Portfolio() {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-theme-border flex items-center justify-between">
-                <span className="text-xs font-mono text-theme-muted">
-                  Client Deployment
-                </span>
-                <a
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <WebliixButton variant="primary" icon={ExternalLink} size="sm">
-                    View Project
-                  </WebliixButton>
-                </a>
+              <div className="pt-4 border-t border-theme-border flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-mono text-theme-muted">
+                    Service:
+                  </span>
+                  {item.serviceLink ? (
+                    <Link
+                      to={item.serviceLink}
+                      className="text-xs font-mono font-medium text-theme-primary hover:underline"
+                    >
+                      {item.serviceName}
+                    </Link>
+                  ) : (
+                    <span className="text-xs font-mono text-theme-primary">{item.serviceName || 'Custom Engineering'}</span>
+                  )}
+                </div>
+
+                <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap">
+                  {item.caseStudyLink && (
+                    <Link to={item.caseStudyLink} className="w-full sm:w-auto">
+                      <WebliixButton variant="ghost" icon={ArrowUpRight} size="sm" className="w-full sm:w-auto justify-center">
+                        Case Study
+                      </WebliixButton>
+                    </Link>
+                  )}
+
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto"
+                  >
+                    <WebliixButton variant="primary" icon={ExternalLink} size="sm" className="w-full sm:w-auto justify-center font-bold">
+                      Live Preview
+                    </WebliixButton>
+                  </a>
+                </div>
               </div>
             </GlassCard>
           ))}

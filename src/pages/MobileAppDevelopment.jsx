@@ -213,6 +213,10 @@ export default function MobileAppDevelopment() {
           name="description"
           content="Webliix builds custom mobile apps for iOS and Android using Flutter and React Native. Get MVP, ecommerce, booking, business and enterprise app development with UI/UX, APIs, payments and store launch support."
         />
+        <meta
+          name="keywords"
+          content="mobile app development company, Flutter app development, React Native agency, iOS app development, Android app developers India, cross platform mobile apps, business app developers"
+        />
         <meta name="robots" content="index, follow, max-image-preview:large" />
         <link rel="canonical" href="https://webliix.com/mobile-app-development" />
 
@@ -611,6 +615,56 @@ export default function MobileAppDevelopment() {
               </WebliixCard>
             );
           })}
+        </div>
+      </section>
+
+      {/* Related Solutions Cross-Linking */}
+      <section className="space-y-6 pt-6 border-t border-theme-border/60">
+        <div className="text-center max-w-xl mx-auto space-y-2">
+          <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-bold">
+            Connected Ecosystem
+          </span>
+          <h3 className="text-2xl font-display font-bold text-theme-text">
+            Complementary App Services
+          </h3>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Web Applications &amp; SaaS</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Centralized cloud backend APIs, management dashboards, and web portal access.</p>
+            <Link to="/web-app-development" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Web Apps &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Branding &amp; UI/UX Design</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Figma interface systems, app icon sets, splash screens, and design kits.</p>
+            <Link to="/branding-design" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore UI/UX &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Website Development</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">App landing pages with direct App Store and Play Store smart app banners.</p>
+            <Link to="/website-development" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Websites &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>App &amp; Cloud Maintenance</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Ongoing OS upgrades, SDK updates, bug fixing, and uptime monitoring.</p>
+            <Link to="/website-maintenance" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Maintenance &rarr;</Link>
+          </WebliixCard>
         </div>
       </section>
 

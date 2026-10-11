@@ -162,25 +162,29 @@ export const fontPresets = [
     id: 'sora-jakarta',
     name: 'Sora + Jakarta',
     display: "'Sora', sans-serif",
-    sans: "'Plus Jakarta Sans', sans-serif"
+    sans: "'Plus Jakarta Sans', sans-serif",
+    googleFontUrl: 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap'
   },
   {
     id: 'modern-agency',
     name: 'Space Grotesk + Jakarta',
     display: "'Space Grotesk', sans-serif",
-    sans: "'Plus Jakarta Sans', sans-serif"
+    sans: "'Plus Jakarta Sans', sans-serif",
+    googleFontUrl: 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap'
   },
   {
     id: 'editorial-luxe',
     name: 'Cinzel + Outfit',
     display: "'Cinzel', serif",
-    sans: "'Outfit', sans-serif"
+    sans: "'Outfit', sans-serif",
+    googleFontUrl: 'https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&display=swap'
   },
   {
     id: 'tech-developer',
     name: 'JetBrains + Jakarta',
     display: "'JetBrains Mono', monospace",
-    sans: "'Plus Jakarta Sans', sans-serif"
+    sans: "'Plus Jakarta Sans', sans-serif",
+    googleFontUrl: 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap'
   },
   {
     id: 'clean-product',

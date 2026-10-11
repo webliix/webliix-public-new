@@ -156,7 +156,12 @@ export default function WebsiteMaintenance() {
           name="description"
           content="Website maintenance and technical support for business websites, WordPress, WooCommerce and custom web applications, including updates, backups, security checks, performance reviews and developer support."
         />
-<link rel="canonical" href="https://webliix.com/website-maintenance" />
+        <meta
+          name="keywords"
+          content="website maintenance services, WordPress maintenance India, website support AMC, website speed optimization, malware removal, security patches, web developer on demand"
+        />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <link rel="canonical" href="https://webliix.com/website-maintenance" />
 
         {/* Open Graph */}
         <meta property="og:title" content="Website Maintenance & Support Services | Webliix" />
@@ -393,6 +398,56 @@ export default function WebsiteMaintenance() {
               </WebliixCard>
             );
           })}
+        </div>
+      </section>
+
+      {/* Related Solutions Cross-Linking */}
+      <section className="space-y-6 pt-6 border-t border-theme-border/60">
+        <div className="text-center max-w-xl mx-auto space-y-2">
+          <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-bold">
+            Full Lifecycle Care
+          </span>
+          <h3 className="text-2xl font-display font-bold text-theme-text">
+            Complementary Technical Upgrades
+          </h3>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Website Redesign</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Upgrade from outdated legacy templates to modern, ultra-fast custom React/Next.js code.</p>
+            <Link to="/website-development" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Websites &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>SEO Audit &amp; Ranking</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Fix crawl errors, broken links, schema deficiencies, and mobile indexing issues.</p>
+            <Link to="/seo" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore SEO &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>E-Commerce Migration</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Migrate your store to Shopify or WooCommerce with zero downtime or lost customer data.</p>
+            <Link to="/ecommerce-store" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore E-Commerce &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Web Applications &amp; SaaS</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Custom client portals, backend API updates, and automated database sync scripts.</p>
+            <Link to="/web-app-development" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Web Apps &rarr;</Link>
+          </WebliixCard>
         </div>
       </section>
 

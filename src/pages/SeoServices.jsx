@@ -194,6 +194,11 @@ export default function SeoServices() {
           name="description"
           content="Explore Webliix specialized SEO & GMB modules: Technical SEO Audit, On-Page Content SEO, Google My Business Local SEO, and Off-Page Link Building & PR."
         />
+        <meta
+          name="keywords"
+          content="SEO services India, Google Business Profile optimization, GMB ranking, local SEO NCR, technical SEO audit, on page SEO, backlink building, search engine optimization"
+        />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
         <link rel="canonical" href="https://webliix.com/seo" />
       </Helmet>
 
@@ -480,6 +485,56 @@ export default function SeoServices() {
               )}
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* SEO CASE STUDY & ECOSYSTEM CROSS-LINKS */}
+      <section className="space-y-6 pt-4 border-t border-theme-border/60">
+        <div className="text-center max-w-xl mx-auto space-y-2">
+          <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-bold">
+            Real Proof &amp; Related Solutions
+          </span>
+          <h3 className="text-xl sm:text-2xl font-display font-bold text-theme-text">
+            See How We Boost Rankings &amp; Leads
+          </h3>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Aura Drishti Case Study</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">How Aura Drishti achieved 3x Google Business Profile visits and a 4.9★ local rating.</p>
+            <Link to="/case-studies/auradrishti" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Read Case Study &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Website Development</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Clean code, semantic HTML5, and Schema.org markup designed for search indexing.</p>
+            <Link to="/website-development" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Websites &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Webliix LaunchKit</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">All-in-one business starter: website, logo design, GMB verification &amp; setup.</p>
+            <Link to="/launch-kit" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore LaunchKit &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Paid Google Ads</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Combine organic SEO with high-intent Google Search PPC for immediate phone calls.</p>
+            <Link to="/google-ads" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Google Ads &rarr;</Link>
+          </WebliixCard>
         </div>
       </section>
 

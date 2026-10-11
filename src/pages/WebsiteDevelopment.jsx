@@ -240,6 +240,10 @@ export default function WebsiteDevelopment() {
           name="description"
           content="Webliix provides website development services for businesses, startups and professionals, including responsive websites, landing pages, custom React/Next.js development and SEO-ready website foundations."
         />
+        <meta
+          name="keywords"
+          content="website development, custom website development, responsive web design, business website development, React development, Next.js development, landing page developer, web development company India"
+        />
         <meta name="robots" content="index, follow, max-image-preview:large" />
         <link rel="canonical" href="https://webliix.com/website-development" />
 
@@ -654,6 +658,56 @@ export default function WebsiteDevelopment() {
               </WebliixCard>
             );
           })}
+        </div>
+      </section>
+
+      {/* RELATED SOLUTIONS INTERLINKING */}
+      <section className="space-y-6 pt-4 border-t border-theme-border/60">
+        <div className="text-center max-w-xl mx-auto space-y-2">
+          <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-bold">
+            Explore Related Solutions
+          </span>
+          <h3 className="text-xl sm:text-2xl font-display font-bold text-theme-text">
+            Complementary Digital Services
+          </h3>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>E-Commerce Store</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Online shops with cart, checkout, payments and inventory management.</p>
+            <Link to="/ecommerce-store" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Learn More &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>SEO &amp; Local Dominance</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Google Business Profile, technical SEO and targeted local search ranking.</p>
+            <Link to="/seo" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Learn More &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Webliix LaunchKit</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Turnkey package: website, logo branding, GMB setup and hosting setup.</p>
+            <Link to="/launch-kit" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Learn More &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Website Maintenance</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Speed optimization, continuous security patches, and AMC support.</p>
+            <Link to="/website-maintenance" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Learn More &rarr;</Link>
+          </WebliixCard>
         </div>
       </section>
 

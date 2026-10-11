@@ -248,6 +248,7 @@ export default function EcommerceStore() {
       <Helmet>
         <title>Shopify Store Development & Setup | Webliix</title>
         <meta name="description" content="Shopify store development and setup for eCommerce businesses. Webliix builds custom Shopify stores with theme design, payments, shipping, product SEO and conversion-focused setup." />
+        <meta name="keywords" content="Shopify store setup, eCommerce website development, Shopify theme customization, online store development, WooCommerce website design, D2C eCommerce agency, Razorpay integration, online store builder India" />
         <meta name="robots" content="index, follow, max-image-preview:large" />
         <link rel="canonical" href="https://webliix.com/ecommerce-store" />
         <meta property="og:title" content="Shopify Store Development & Setup | Webliix" />
@@ -610,6 +611,56 @@ export default function EcommerceStore() {
               </WebliixCard>
             );
           })}
+        </div>
+      </section>
+
+      {/* Related Solutions Cross-Linking */}
+      <section className="space-y-6 pt-6 border-t border-theme-border/60">
+        <div className="text-center max-w-xl mx-auto space-y-2">
+          <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-bold">
+            Growth Ecosystem
+          </span>
+          <h3 className="text-2xl font-display font-bold text-theme-text">
+            Complementary E-Commerce Services
+          </h3>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Google Ads (PPC)</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">High-intent Google Shopping and search ads to generate profitable first-day orders.</p>
+            <Link to="/google-ads" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Google Ads &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Meta Ads &amp; Retargeting</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Instagram &amp; Facebook catalog sales, cart abandonment funnels, and creative scaling.</p>
+            <Link to="/meta-ads" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Meta Ads &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>SEO &amp; Local Dominance</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Product schema markup, category SEO, and organic ranking on Google search.</p>
+            <Link to="/seo" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore SEO &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Website Maintenance</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Ongoing store speed optimization, plugin updates, security audits, and catalog updates.</p>
+            <Link to="/website-maintenance" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Maintenance &rarr;</Link>
+          </WebliixCard>
         </div>
       </section>
 

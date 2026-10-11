@@ -121,12 +121,12 @@ export default function Home() {
   ];
 
   const industryCapabilities = [
-    { name: 'Startups & SMEs', desc: 'Business websites, landing pages and digital foundations for new and growing companies' },
-    { name: 'Local Showrooms & Retail', desc: 'Business websites, product showcases, local search foundations and enquiry channels' },
-    { name: 'Real Estate & Builders', desc: 'Property showcase websites, project pages, lead forms and location-focused content' },
-    { name: 'Clinics & Healthcare', desc: 'Professional websites, service information, appointment enquiries and search-ready content' },
-    { name: 'Education & Coaching', desc: 'Course, program and enquiry pages with clear information architecture' },
-    { name: 'Restaurants & Cafes', desc: 'Menus, location information, ordering or booking journeys and mobile-friendly websites' }
+    { name: 'Startups & SMEs', desc: 'Business websites, landing pages and digital foundations for new and growing companies', link: '/launch-kit', linkText: 'Explore LaunchKit' },
+    { name: 'Local Showrooms & Retail', desc: 'Business websites, product showcases, local search foundations and online storefronts', link: '/ecommerce-store', linkText: 'E-Commerce Solutions' },
+    { name: 'Real Estate & Builders', desc: 'Property showcase websites, project pages, lead forms and location-focused content', link: '/website-development', linkText: 'Web Development' },
+    { name: 'Clinics & Healthcare', desc: 'Professional websites, service information, appointment enquiries and local search optimization', link: '/seo', linkText: 'Local SEO & GMB' },
+    { name: 'Education & Coaching', desc: 'Course, student portals, enquiry pages and custom interactive web platform architecture', link: '/web-app-development', linkText: 'Custom Web Apps' },
+    { name: 'Restaurants & Cafes', desc: 'Menus, location information, digital menus and targeted social ad campaigns', link: '/paid-advertising', linkText: 'Paid Ads Management' }
   ];
 
   // ─────────────────────────────────────────────────────────────────────────
@@ -298,7 +298,12 @@ export default function Home() {
           name="description"
           content="Webliix builds business websites, e-commerce stores, custom web applications and SEO-focused digital solutions for businesses in India and international markets."
         />
-<link rel="canonical" href="https://webliix.com/" />
+        <meta
+          name="keywords"
+          content="website development India, web design agency NCR, local SEO services, Google Business Profile optimization, GMB ranking, ecommerce website development, custom web applications, SaaS development, mobile app development, Webliix LaunchKit, website maintenance"
+        />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <link rel="canonical" href="https://webliix.com/" />
         
         {/* Open Graph / Facebook / LinkedIn */}
         <meta property="og:type" content="website" />
@@ -508,8 +513,7 @@ export default function Home() {
             <WebliixCard
               key={service.id}
               variant="featured"
-              onClick={() => handleOpenServiceModal(service)}
-              className="p-5 sm:p-6 flex flex-col justify-between space-y-4 group cursor-pointer hover:border-theme-primary/60 transition-all duration-300"
+              className="p-5 sm:p-6 flex flex-col justify-between space-y-4 group hover:border-theme-primary/60 transition-all duration-300"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
@@ -519,20 +523,34 @@ export default function Home() {
                   </span>
                 </div>
                 <h3 className="text-base font-display font-bold text-theme-text group-hover:text-theme-primary transition-colors">
-                  {service.title}
+                  <Link to={service.link || '/services'} className="hover:underline">
+                    {service.title}
+                  </Link>
                 </h3>
                 <p className="text-theme-muted text-xs leading-relaxed">
                   {service.shortDesc}
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-theme-border flex items-center justify-between text-xs">
+              <div className="pt-3 border-t border-theme-border flex items-center justify-between text-xs gap-2">
                 <span className="font-mono font-bold text-theme-primary">
                   {service.startingPrice}
                 </span>
-                <span className="text-theme-text font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                  Details <ArrowRight className="w-3 h-3" />
-                </span>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => handleOpenServiceModal(service)}
+                    className="text-theme-muted hover:text-theme-text text-[11px] font-mono font-semibold transition-colors"
+                  >
+                    Quick View
+                  </button>
+                  <Link
+                    to={service.link || '/services'}
+                    className="text-theme-primary font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform"
+                  >
+                    Details <ArrowRight className="w-3 h-3" />
+                  </Link>
+                </div>
               </div>
             </WebliixCard>
           ))}
@@ -579,14 +597,22 @@ export default function Home() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {industryCapabilities.map((ind, idx) => (
-            <WebliixCard key={idx} variant="panel" className="p-5 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-theme-primary" />
-                <h3 className="text-sm font-display font-bold text-theme-text">{ind.name}</h3>
+            <WebliixCard key={idx} variant="panel" className="p-5 flex flex-col justify-between space-y-3 border border-theme-border/70 hover:border-theme-primary/50 transition-colors group">
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-theme-primary" />
+                  <h3 className="text-sm font-display font-bold text-theme-text group-hover:text-theme-primary transition-colors">{ind.name}</h3>
+                </div>
+                <p className="text-xs text-theme-muted leading-relaxed pl-4">
+                  {ind.desc}
+                </p>
               </div>
-              <p className="text-xs text-theme-muted leading-relaxed pl-4">
-                {ind.desc}
-              </p>
+              <div className="pt-2 pl-4 border-t border-theme-border/40">
+                <Link to={ind.link} className="text-xs font-mono font-medium text-theme-primary inline-flex items-center gap-1 hover:underline">
+                  <span>{ind.linkText}</span>
+                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </WebliixCard>
           ))}
         </div>
@@ -770,6 +796,71 @@ export default function Home() {
               </WebliixCard>
             );
           })}
+        </div>
+      </section>
+
+      {/* ECOSYSTEM INTERNAL LINKING DIRECTORY (SEO & DISCOVERY) */}
+      <section className="relative z-10 max-w-6xl mx-auto px-6 py-10">
+        <div className="text-center max-w-xl mx-auto mb-8 space-y-2">
+          <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-semibold">
+            Digital Ecosystem
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-display font-bold text-theme-text">
+            Explore All Webliix Solutions &amp; Platforms
+          </h2>
+          <p className="text-theme-muted text-xs sm:text-sm">
+            Quickly navigate our core development services, marketing channels, case studies, and business resources.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <WebliixCard variant="panel" className="p-4 space-y-2.5 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-xs font-mono font-bold text-theme-primary uppercase tracking-wider flex items-center gap-1.5">
+              <Code className="w-3.5 h-3.5" /> Web &amp; Applications
+            </h4>
+            <ul className="space-y-1.5 text-xs text-theme-muted">
+              <li><Link to="/website-development" className="hover:text-theme-primary transition-colors flex items-center justify-between">Website Development <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/ecommerce-store" className="hover:text-theme-primary transition-colors flex items-center justify-between">E-Commerce Stores <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/web-app-development" className="hover:text-theme-primary transition-colors flex items-center justify-between">Custom Web Apps <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/mobile-app-development" className="hover:text-theme-primary transition-colors flex items-center justify-between">Mobile Applications <ArrowRight className="w-3 h-3" /></Link></li>
+            </ul>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2.5 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-xs font-mono font-bold text-theme-primary uppercase tracking-wider flex items-center gap-1.5">
+              <Search className="w-3.5 h-3.5" /> Search &amp; Growth
+            </h4>
+            <ul className="space-y-1.5 text-xs text-theme-muted">
+              <li><Link to="/seo" className="hover:text-theme-primary transition-colors flex items-center justify-between">Local SEO &amp; GMB <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/paid-advertising" className="hover:text-theme-primary transition-colors flex items-center justify-between">Paid Advertising <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/google-ads" className="hover:text-theme-primary transition-colors flex items-center justify-between">Google Ads PPC <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/meta-ads" className="hover:text-theme-primary transition-colors flex items-center justify-between">Meta &amp; Social Ads <ArrowRight className="w-3 h-3" /></Link></li>
+            </ul>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2.5 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-xs font-mono font-bold text-theme-primary uppercase tracking-wider flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5" /> Turnkey &amp; Design
+            </h4>
+            <ul className="space-y-1.5 text-xs text-theme-muted">
+              <li><Link to="/launch-kit" className="hover:text-theme-primary transition-colors flex items-center justify-between">Webliix LaunchKit <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/branding-design" className="hover:text-theme-primary transition-colors flex items-center justify-between">Branding &amp; UI/UX <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/website-maintenance" className="hover:text-theme-primary transition-colors flex items-center justify-between">Website Maintenance <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/feedback" className="hover:text-theme-primary transition-colors flex items-center justify-between">Client Reviews <ArrowRight className="w-3 h-3" /></Link></li>
+            </ul>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2.5 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-xs font-mono font-bold text-theme-primary uppercase tracking-wider flex items-center gap-1.5">
+              <Globe className="w-3.5 h-3.5" /> Proof &amp; Company
+            </h4>
+            <ul className="space-y-1.5 text-xs text-theme-muted">
+              <li><Link to="/portfolio" className="hover:text-theme-primary transition-colors flex items-center justify-between">Portfolio Showcase <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/case-studies/auradrishti" className="hover:text-theme-primary transition-colors flex items-center justify-between">Aura Drishti Study <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/blog" className="hover:text-theme-primary transition-colors flex items-center justify-between">SEO Knowledge Hub <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/careers" className="hover:text-theme-primary transition-colors flex items-center justify-between">Partner Program <ArrowRight className="w-3 h-3" /></Link></li>
+            </ul>
+          </WebliixCard>
         </div>
       </section>
 

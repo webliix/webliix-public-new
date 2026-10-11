@@ -700,6 +700,11 @@ export default function LaunchKit() {
           name="description"
           content="Website design, branding and SEO packages for businesses, startups and professionals. Launch with a professional website, brand identity, Google Business Profile setup and SEO foundations from ₹9,999."
         />
+        <meta
+          name="keywords"
+          content="Webliix LaunchKit, business website packages, startup website design, Google Business Profile setup, turnkey business launch package, affordable website design India, logo and branding package"
+        />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
         <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content="Website Design, Branding & SEO Packages for Businesses | Webliix" />
         <meta
@@ -1497,6 +1502,56 @@ export default function LaunchKit() {
             )}
           </div>
         </WebliixCard>
+      </section>
+
+      {/* Related Solutions Cross-Linking */}
+      <section className="space-y-6 pt-6 border-t border-theme-border/60">
+        <div className="text-center max-w-xl mx-auto space-y-2">
+          <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-bold">
+            Expand Your Scope
+          </span>
+          <h3 className="text-2xl font-display font-bold text-theme-text">
+            Explore Specialized Individual Services
+          </h3>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Full Website Development</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Multi-page corporate portals, interactive calculators, and custom frontend layouts.</p>
+            <Link to="/website-development" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Websites &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>SEO &amp; Local Dominance</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Dedicated local search ranking, Google Maps optimization, and citation indexing.</p>
+            <Link to="/seo" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore SEO &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>E-Commerce Store Setup</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Shopify &amp; WooCommerce setups with online checkout, inventory, and payment gateways.</p>
+            <Link to="/ecommerce-store" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore E-Commerce &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Paid Advertising (PPC)</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">High-converting Google Ads and Meta Ads campaigns to generate instant enquiries.</p>
+            <Link to="/paid-advertising" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Paid Ads &rarr;</Link>
+          </WebliixCard>
+        </div>
       </section>
 
       {/* Final Bottom CTA */}

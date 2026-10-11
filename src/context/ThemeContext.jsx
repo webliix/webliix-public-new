@@ -119,6 +119,18 @@ export const ThemeProvider = ({ children }) => {
     root.style.setProperty('--glass-blur', activeBlur);
 
     if (activeFont) {
+      // On-demand lazy font loading: only fetch font assets when explicitly chosen
+      if (activeFont.googleFontUrl && typeof document !== 'undefined') {
+        const linkId = `font-preset-${activeFont.id}`;
+        if (!document.getElementById(linkId)) {
+          const link = document.createElement('link');
+          link.id = linkId;
+          link.rel = 'stylesheet';
+          link.href = activeFont.googleFontUrl;
+          document.head.appendChild(link);
+        }
+      }
+
       if (activeFont.sans) {
         root.style.setProperty('--font-sans', activeFont.sans);
         document.body.style.fontFamily = activeFont.sans;

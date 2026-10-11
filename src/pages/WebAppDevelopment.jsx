@@ -217,7 +217,12 @@ export default function WebAppDevelopment() {
           name="description"
           content="Custom web application and SaaS development for businesses and startups, including CRM, ERP, dashboards, portals, APIs and business software built with modern web technologies."
         />
-<link rel="canonical" href="https://webliix.com/web-app-development" />
+        <meta
+          name="keywords"
+          content="custom web application development, SaaS development company, CRM development, ERP development services, web app development India, React Node full stack development, cloud portal development"
+        />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <link rel="canonical" href="https://webliix.com/web-app-development" />
 
         {/* Open Graph */}
         <meta property="og:title" content="Custom Web Application & SaaS Development Services | Webliix" />
@@ -549,6 +554,56 @@ export default function WebAppDevelopment() {
               </WebliixCard>
             );
           })}
+        </div>
+      </section>
+
+      {/* Related Solutions Cross-Linking */}
+      <section className="space-y-6 pt-6 border-t border-theme-border/60">
+        <div className="text-center max-w-xl mx-auto space-y-2">
+          <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-bold">
+            Integrated Engineering
+          </span>
+          <h3 className="text-2xl font-display font-bold text-theme-text">
+            Complementary Technical Services
+          </h3>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Mobile App Development</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Native and cross-platform iOS &amp; Android apps connected directly to your web backend.</p>
+            <Link to="/mobile-app-development" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Mobile Apps &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Website Development</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">High-converting landing pages and marketing frontends for your software products.</p>
+            <Link to="/website-development" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Websites &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Website &amp; App Maintenance</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Cloud server monitoring, CI/CD maintenance, database tuning, and security patching.</p>
+            <Link to="/website-maintenance" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Maintenance &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>E-Commerce Platform</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Full-fledged checkout funnels, payment orchestration, and automated inventory sync.</p>
+            <Link to="/ecommerce-store" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore E-Commerce &rarr;</Link>
+          </WebliixCard>
         </div>
       </section>
 

@@ -251,6 +251,11 @@ export default function MetaAds() {
           name="description"
           content="Webliix helps small businesses manage Facebook and Instagram advertising campaigns with audience targeting, creative testing, conversion tracking and reporting."
         />
+        <meta
+          name="keywords"
+          content="Meta ads agency, Facebook advertising services, Instagram ads management, Click to WhatsApp ads, social media paid ads India, lead generation Facebook ads"
+        />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
         <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content="Facebook & Instagram Ads Management | Webliix" />
         <meta
@@ -607,6 +612,56 @@ export default function MetaAds() {
           heading="Get Started With Facebook & Instagram Ads"
           subtext="Tell us about your business and ideal customers. We will analyze social audience size in your location and build a custom campaign strategy."
         />
+      </section>
+
+      {/* Related Solutions Cross-Linking */}
+      <section className="space-y-6 pt-6 border-t border-theme-border/60">
+        <div className="text-center max-w-xl mx-auto space-y-2">
+          <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-bold">
+            Full-Funnel Growth
+          </span>
+          <h3 className="text-2xl font-display font-bold text-theme-text">
+            Complementary Traffic &amp; Conversion Channels
+          </h3>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Google Search &amp; Maps Ads</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Capture ready-to-buy customers searching on Google with intent-driven search ads.</p>
+            <Link to="/google-ads" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Google Ads &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Branding &amp; Creative Design</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">High-converting social ad creatives, banners, video hooks, and brand guidelines.</p>
+            <Link to="/branding-design" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Branding &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Website Landing Pages</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Fast-loading mobile landing pages built to turn social traffic into verified leads.</p>
+            <Link to="/website-development" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Websites &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>SEO Organic Traffic</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Complement social push campaigns with consistent organic Google search discovery.</p>
+            <Link to="/seo" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore SEO &rarr;</Link>
+          </WebliixCard>
+        </div>
       </section>
 
       {/* Cross-Link Footer Navigation */}

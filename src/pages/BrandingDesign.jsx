@@ -170,8 +170,9 @@ export default function BrandingDesign() {
         />
         <meta
           name="keywords"
-          content="branding design agency, logo design company, ui ux design figma, corporate brand identity, brand guidelines book, webliix branding"
+          content="branding design agency, logo design company, ui ux design figma, corporate brand identity, brand guidelines book, webliix branding, visual identity system, mobile app UI design"
         />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
         <link rel="canonical" href="https://webliix.com/branding-design" />
 
         {/* Open Graph */}
@@ -449,6 +450,56 @@ export default function BrandingDesign() {
               </WebliixCard>
             );
           })}
+        </div>
+      </section>
+
+      {/* Related Solutions Cross-Linking */}
+      <section className="space-y-6 pt-6 border-t border-theme-border/60">
+        <div className="text-center max-w-xl mx-auto space-y-2">
+          <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-bold">
+            Bring Design to Life
+          </span>
+          <h3 className="text-2xl font-display font-bold text-theme-text">
+            From Visual Assets to Live Implementation
+          </h3>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Website Development</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Turn your brand identity and Figma UI into high-performance responsive web code.</p>
+            <Link to="/website-development" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Websites &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Webliix LaunchKit</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Bundle logo design, business cards, domain, hosting, and website into one turnkey package.</p>
+            <Link to="/launch-kit" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore LaunchKit &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Mobile App Development</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Engineer your mobile UI wireframes into cross-platform iOS and Android apps.</p>
+            <Link to="/mobile-app-development" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Mobile Apps &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Social Media &amp; Ad Creatives</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">High-converting Meta and Google visual banners designed in your distinct brand aesthetic.</p>
+            <Link to="/meta-ads" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Meta Ads &rarr;</Link>
+          </WebliixCard>
         </div>
       </section>
 

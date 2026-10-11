@@ -1,7 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ShieldCheck, ArrowRight, ExternalLink, CheckCircle2, TrendingUp, Phone, MapPin, Globe } from 'lucide-react';
+import { ShieldCheck, ArrowRight, ArrowUpRight, ExternalLink, CheckCircle2, TrendingUp, Phone, MapPin, Globe } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import GlassCard from '../components/spatial/GlassCard';
 import WebliixCard from '../components/ui/WebliixCard';
@@ -15,8 +16,11 @@ export default function AuraDrishtiCaseStudy() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-5xl mx-auto space-y-12">
       <Helmet>
-        <title>AuraDrishti Case Study | {siteConfig.brand.name}</title>
-        <meta name="description" content="View how Webliix transformed AuraDrishti with brand logo identity, custom web application, Google Maps GMB setup, and local SEO lead generation." />
+        <title>AuraDrishti CCTV & Security Case Study | Webliix</title>
+        <meta name="description" content="Read how Webliix delivered complete digital transformation for AuraDrishti with brand identity, custom website design, Google Maps GMB setup, and local SEO lead generation in Noida." />
+        <meta name="keywords" content="AuraDrishti case study, CCTV security website Noida, local SEO case study, Google Business Profile ranking case study, web design results India" />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <link rel="canonical" href="https://webliix.com/case-studies/auradrishti" />
       </Helmet>
 
       {/* Dynamic Breadcrumbs */}
@@ -99,14 +103,69 @@ export default function AuraDrishtiCaseStudy() {
             <span className="text-xs text-theme-muted block">Organic Local Search Growth</span>
           </div>
         </div>
-        <div className="pt-4">
-          <a href="https://auradrishti.com" target="_blank" rel="noopener noreferrer" className="inline-block">
+        <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
+          <a href="https://auradrishti.com" target="_blank" rel="noopener noreferrer">
             <WebliixButton variant="primary" icon={ExternalLink} size="lg">
               Visit Live AuraDrishti Platform
             </WebliixButton>
           </a>
+          <Link to="/contact">
+            <WebliixButton variant="ghost" size="lg">
+              Get Similar Results For Your Business
+            </WebliixButton>
+          </Link>
         </div>
       </WebliixCard>
+
+      {/* Services Used in this Case Study */}
+      <section className="space-y-6 pt-6 border-t border-theme-border/60">
+        <div className="text-center max-w-xl mx-auto space-y-2">
+          <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-bold">
+            Solutions Applied
+          </span>
+          <h3 className="text-2xl font-display font-bold text-theme-text">
+            Services Featured in this Project
+          </h3>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Local SEO &amp; Maps</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Google Business Profile setup, local citation signals, and search ranking.</p>
+            <Link to="/seo" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore SEO &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Website Development</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Responsive frontend with CCTV product catalogs and WhatsApp lead triggers.</p>
+            <Link to="/website-development" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Websites &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Branding &amp; Vector Logo</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Custom technology logo lockups, color palettes, and print collateral design.</p>
+            <Link to="/branding-design" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Branding &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Webliix LaunchKit</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">The turnkey all-in-one package containing website, logo, GMB, and email setup.</p>
+            <Link to="/launch-kit" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore LaunchKit &rarr;</Link>
+          </WebliixCard>
+        </div>
+      </section>
     </div>
   );
 }

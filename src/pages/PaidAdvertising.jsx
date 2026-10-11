@@ -287,6 +287,11 @@ export default function PaidAdvertising() {
           name="description"
           content="Webliix helps small businesses manage Google, Facebook and Instagram advertising with transparent pricing, controlled budgets and clear reporting."
         />
+        <meta
+          name="keywords"
+          content="paid advertising services, Google Ads management India, Meta ads agency, Facebook ad management, PPC agency for small business, Instagram advertising, lead generation ads"
+        />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
         <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content="Paid Advertising Services for Small Businesses | Webliix" />
         <meta
@@ -1160,6 +1165,56 @@ export default function PaidAdvertising() {
           heading="Ready to Test Paid Advertising for Your Business?"
           subtext="Tell us about your business, target audience, and monthly budget. We will review your goals and share a clear, no-obligation campaign plan."
         />
+      </section>
+
+      {/* Related Solutions Cross-Linking */}
+      <section className="space-y-6 pt-6 border-t border-theme-border/60">
+        <div className="text-center max-w-xl mx-auto space-y-2">
+          <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-bold">
+            Advertising &amp; Growth Channels
+          </span>
+          <h3 className="text-2xl font-display font-bold text-theme-text">
+            Explore Dedicated Ad Platforms &amp; Growth
+          </h3>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Google Ads Dedicated</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Search ads, Google Maps call campaigns, and shopping ads for high purchase intent.</p>
+            <Link to="/google-ads" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Google Ads &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Meta Ads Dedicated</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Instagram Reels ads, Facebook lead generation forms, and carousel creatives.</p>
+            <Link to="/meta-ads" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Meta Ads &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>SEO Services</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Build compounding organic traffic without paying per click on every visit.</p>
+            <Link to="/seo" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore SEO &rarr;</Link>
+          </WebliixCard>
+
+          <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
+            <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
+              <span>Website Development</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
+            </h4>
+            <p className="text-xs text-theme-muted leading-relaxed">Fast, mobile-optimized landing pages that maximize ad click-to-lead conversion rates.</p>
+            <Link to="/website-development" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Explore Websites &rarr;</Link>
+          </WebliixCard>
+        </div>
       </section>
 
       {/* Final Bottom CTA */}
