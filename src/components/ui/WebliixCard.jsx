@@ -126,6 +126,21 @@ function CornerBrackets() {
 
 
 
+// Shared mobile view detection to avoid adding duplicate resize listeners across hundreds of cards
+let isMobileCache = typeof window !== 'undefined'
+  ? (window.innerWidth < 768 || ('ontouchstart' in window) || (navigator.maxTouchPoints > 0 && /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)))
+  : false;
+
+const mobileListeners = new Set();
+if (typeof window !== 'undefined') {
+  const updateMobile = () => {
+    isMobileCache = window.innerWidth < 768 || ('ontouchstart' in window) || (navigator.maxTouchPoints > 0 && /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent));
+    mobileListeners.forEach(fn => fn(isMobileCache));
+  };
+  window.addEventListener('resize', updateMobile, { passive: true });
+  window.addEventListener('orientationchange', updateMobile, { passive: true });
+}
+
 export default function WebliixCard({
   children,
   variant = 'standard',
@@ -146,27 +161,12 @@ export default function WebliixCard({
   const shouldReduceMotion = useReducedMotion();
   const cardRef = useRef(null);
 
-  /* Detect mobile view / touch screen (tilt disabled on mobile view).
-     Re-checked on resize/orientation change so it stays accurate,
-     not just frozen at first render. */
-  const [isMobileView, setIsMobileView] = useState(false);
+  const [isMobileView, setIsMobileView] = useState(() => isMobileCache);
 
   useEffect(() => {
-    const computeIsMobileView = () =>
-      typeof window !== 'undefined' && (
-        window.innerWidth < 768 ||
-        ('ontouchstart' in window) ||
-        (navigator.maxTouchPoints > 0 && /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent))
-      );
-
-    setIsMobileView(computeIsMobileView());
-
-    const handleResize = () => setIsMobileView(computeIsMobileView());
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('orientationchange', handleResize);
+    mobileListeners.add(setIsMobileView);
     return () => {
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('orientationchange', handleResize);
+      mobileListeners.delete(setIsMobileView);
     };
   }, []);
 
@@ -189,6 +189,7 @@ export default function WebliixCard({
 
   const handleMouseMove = useCallback(
     (e) => {
+      if (isMobileView || (!hoverGlare && !isTiltAllowed)) return;
       const rect = e.currentTarget.getBoundingClientRect();
 
       if (hoverGlare) {

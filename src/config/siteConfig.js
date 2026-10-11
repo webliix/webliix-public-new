@@ -1,63 +1,63 @@
 
 const logoDark =
-  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1788210408/lightlogo.png';
+  'https://res.cloudinary.com/vhth8clt/image/upload/w_480,c_limit,f_auto,q_auto/v1788210408/lightlogo.png';
 
 const logoLight =
-  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1788210409/logo.png';
+  'https://res.cloudinary.com/vhth8clt/image/upload/w_480,c_limit,f_auto,q_auto/v1788210409/logo.png';
 
 const iconMark =
-  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1788210407/icon-png.png';
+  'https://res.cloudinary.com/vhth8clt/image/upload/w_200,c_limit,f_auto,q_auto/v1788210407/icon-png.png';
 
 const auradrishtiImg =
-  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157248/Auradrishti.png';
+  'https://res.cloudinary.com/vhth8clt/image/upload/w_800,c_limit,f_auto,q_auto/v1791157248/Auradrishti.png';
 
 const thehubImg =
-  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157260/thehub.png';
+  'https://res.cloudinary.com/vhth8clt/image/upload/w_800,c_limit,f_auto,q_auto/v1791157260/thehub.png';
 
 const loanheavenImg =
-  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157247/loanheaven.png';
+  'https://res.cloudinary.com/vhth8clt/image/upload/w_800,c_limit,f_auto,q_auto/v1791157247/loanheaven.png';
 
 const kitchen9villageImg =
-  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157279/kitchen9village.png';
+  'https://res.cloudinary.com/vhth8clt/image/upload/w_800,c_limit,f_auto,q_auto/v1791157279/kitchen9village.png';
 
 const connectifyImg =
-  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157237/connectify.png';
+  'https://res.cloudinary.com/vhth8clt/image/upload/w_800,c_limit,f_auto,q_auto/v1791157237/connectify.png';
 
 const ghomesImg =
-  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157239/ghomes.png';
+  'https://res.cloudinary.com/vhth8clt/image/upload/w_800,c_limit,f_auto,q_auto/v1791157239/ghomes.png';
 
 const janaushadiImg =
-  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157233/janaushadi.jpg';
+  'https://res.cloudinary.com/vhth8clt/image/upload/w_800,c_limit,f_auto,q_auto/v1791157233/janaushadi.jpg';
 
 const sunsdustImg =
-  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157262/sunsdust.png';
+  'https://res.cloudinary.com/vhth8clt/image/upload/w_800,c_limit,f_auto,q_auto/v1791157262/sunsdust.png';
 
 const peoriaLogo =
-  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157236/peoria.svg';
+  'https://res.cloudinary.com/vhth8clt/image/upload/w_240,c_limit,f_auto,q_auto/v1791157236/peoria.svg';
 
 const client1 =
-  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157273/client1.jpg';
+  'https://res.cloudinary.com/vhth8clt/image/upload/w_240,c_limit,f_auto,q_auto/v1791157273/client1.jpg';
 
 const client2 =
-  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157261/client2.png';
+  'https://res.cloudinary.com/vhth8clt/image/upload/w_240,c_limit,f_auto,q_auto/v1791157261/client2.png';
 
 const client3 =
-  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157266/client3.png';
+  'https://res.cloudinary.com/vhth8clt/image/upload/w_240,c_limit,f_auto,q_auto/v1791157266/client3.png';
 
 const client4 =
-  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157219/client4.png';
+  'https://res.cloudinary.com/vhth8clt/image/upload/w_240,c_limit,f_auto,q_auto/v1791157219/client4.png';
 
 const client5 =
-  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157230/client5.jpg';
+  'https://res.cloudinary.com/vhth8clt/image/upload/w_240,c_limit,f_auto,q_auto/v1791157230/client5.jpg';
 
 const client6 =
-  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157228/client6.png';
+  'https://res.cloudinary.com/vhth8clt/image/upload/w_240,c_limit,f_auto,q_auto/v1791157228/client6.png';
 
 const client7 =
-  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157255/client7.png';
+  'https://res.cloudinary.com/vhth8clt/image/upload/w_240,c_limit,f_auto,q_auto/v1791157255/client7.png';
 
 const client8 =
-  'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1791157217/client8.png';
+  'https://res.cloudinary.com/vhth8clt/image/upload/w_240,c_limit,f_auto,q_auto/v1791157217/client8.png';
 
 // Single Source of Truth for ALL Website Content & Data
 export const siteConfig = {

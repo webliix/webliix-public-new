@@ -43,6 +43,7 @@ export default function SpatialThemeControl() {
     setCanvasParticles,
     desktopTilt,
     setDesktopTilt,
+    preloadAllFonts,
     resetTheme
   } = useTheme();
 
@@ -52,6 +53,7 @@ export default function SpatialThemeControl() {
 
   useEffect(() => {
     if (isOpen) {
+      if (preloadAllFonts) preloadAllFonts();
       document.documentElement.setAttribute('data-theme-control-open', 'true');
       document.body.style.overflow = 'hidden';
     } else {
@@ -62,7 +64,7 @@ export default function SpatialThemeControl() {
       document.documentElement.removeAttribute('data-theme-control-open');
       document.body.style.overflow = '';
     };
-  }, [isOpen]);
+  }, [isOpen, preloadAllFonts]);
 
   return (
     <>
@@ -375,6 +377,7 @@ export default function SpatialThemeControl() {
       {/* Floating Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
+        onMouseEnter={() => preloadAllFonts && preloadAllFonts()}
         className="fixed bottom-6 right-6 z-50 floating-action-btn w-12 h-12 theme-rounded-btn glass-spatial border border-theme-primary shadow-spatial text-theme-primary hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center group"
         style={{
           backdropFilter: `blur(var(--glass-blur, ${glassBlur || '12px'}))`,

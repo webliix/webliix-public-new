@@ -35,7 +35,7 @@ import WebliixIcon from '../components/ui/WebliixIcon';
 import WebliixButton from '../components/ui/WebliixButton';
 import WebliixSpotlight from '../components/WebliixSpotlight';
 import { useModal } from '../context/ModalContext';
-import { getCloudinarySrcSet } from '../utils/cloudinary';
+import { optimizeCloudinaryUrl, getCloudinarySrcSet } from '../utils/cloudinary';
 
 export default function Home() {
   const [activeProcessStep, setActiveProcessStep] = useState(0);
@@ -341,36 +341,21 @@ export default function Home() {
 
         <div className="relative z-10 max-w-4xl mx-auto space-y-6">
           {/* Eyebrow Tagline Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: -15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 theme-rounded-badge glass-spatial border border-theme-primary/50 text-xs font-mono text-theme-primary font-bold tracking-wider shadow-sm"
-          >
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 theme-rounded-badge glass-spatial border border-theme-primary/50 text-xs font-mono text-theme-primary font-bold tracking-wider shadow-sm">
             <span className="w-2 h-2 theme-rounded-badge bg-theme-primary animate-pulse" />
             <span>Website Development • SEO • Digital Solutions</span>
-          </motion.div>
+          </div>
 
           {/* Main Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-3xl sm:text-5xl md:text-6xl font-display font-extrabold text-theme-text leading-[1.08] tracking-tight"
-          >
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-display font-extrabold text-theme-text leading-[1.08] tracking-tight">
             Empower Your<br />
             <span className="text-shimmer">Digital Journey</span>
-          </motion.h1>
+          </h1>
 
-          {/* Subtext */}
-          <motion.p
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="text-theme-muted text-sm sm:text-base max-w-2xl mx-auto leading-relaxed"
-          >
+          {/* Subtext (LCP Element) */}
+          <p className="text-theme-muted text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
             We build business websites, e-commerce stores, custom web applications and search-ready digital experiences for startups, local businesses and growing companies in India and international markets.
-          </motion.p>
+          </p>
 
           {/* Action CTAs */}
           <motion.div
@@ -437,7 +422,9 @@ export default function Home() {
                 className="p-2 sm:p-3 h-16 sm:h-20 lg:h-24 bg-white border border-gray-200/80 shadow-sm theme-rounded-card group hover:border-theme-primary/60 transition-all flex items-center justify-center overflow-hidden"
               >
                 <img
-                  src={client.logo}
+                  src={optimizeCloudinaryUrl(client.logo, { width: 240 })}
+                  srcSet={`${optimizeCloudinaryUrl(client.logo, { width: 120 })} 120w, ${optimizeCloudinaryUrl(client.logo, { width: 240 })} 240w`}
+                  sizes="(max-width: 640px) 120px, 120px"
                   alt={`${client.name} - Webliix Client`}
                   width="120"
                   height="56"

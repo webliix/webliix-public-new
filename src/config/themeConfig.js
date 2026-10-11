@@ -184,7 +184,7 @@ export const fontPresets = [
     name: 'JetBrains + Jakarta',
     display: "'JetBrains Mono', monospace",
     sans: "'Plus Jakarta Sans', sans-serif",
-    googleFontUrl: 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap'
+    googleFontUrl: 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap'
   },
   {
     id: 'clean-product',

@@ -14,6 +14,23 @@ const ThemeContext = createContext();
 
 export { fontPresets, cornerStylePresets, blurPresets };
 
+const loadedFontsCache = new Set();
+
+export const loadFontStylesheet = (font) => {
+  if (!font?.googleFontUrl || typeof document === 'undefined') return;
+  const linkId = `font-preset-${font.id}`;
+  if (loadedFontsCache.has(linkId) || document.getElementById(linkId)) {
+    loadedFontsCache.add(linkId);
+    return;
+  }
+  const link = document.createElement('link');
+  link.id = linkId;
+  link.rel = 'stylesheet';
+  link.href = font.googleFontUrl;
+  document.head.appendChild(link);
+  loadedFontsCache.add(linkId);
+};
+
 const detectDeviceOS = () => {
   if (typeof navigator === 'undefined') return 'desktop';
   const ua = navigator.userAgent || navigator.vendor || (typeof window !== 'undefined' && window.opera ? window.opera.toString() : '');
@@ -120,16 +137,7 @@ export const ThemeProvider = ({ children }) => {
 
     if (activeFont) {
       // On-demand lazy font loading: only fetch font assets when explicitly chosen
-      if (activeFont.googleFontUrl && typeof document !== 'undefined') {
-        const linkId = `font-preset-${activeFont.id}`;
-        if (!document.getElementById(linkId)) {
-          const link = document.createElement('link');
-          link.id = linkId;
-          link.rel = 'stylesheet';
-          link.href = activeFont.googleFontUrl;
-          document.head.appendChild(link);
-        }
-      }
+      loadFontStylesheet(activeFont);
 
       if (activeFont.sans) {
         root.style.setProperty('--font-sans', activeFont.sans);
@@ -173,7 +181,16 @@ export const ThemeProvider = ({ children }) => {
 
   const selectFont = (fontId) => {
     const found = fontPresets.find(f => f.id === fontId);
-    if (found) setCurrentFont(found);
+    if (found) {
+      loadFontStylesheet(found);
+      setCurrentFont(found);
+    }
+  };
+
+  const preloadAllFonts = () => {
+    fontPresets.forEach(font => {
+      loadFontStylesheet(font);
+    });
   };
 
   const selectCornerStyle = (styleId) => {
@@ -206,6 +223,7 @@ export const ThemeProvider = ({ children }) => {
       fontPresets,
       currentFont,
       selectFont,
+      preloadAllFonts,
       cornerStyle,
       setCornerStyle: selectCornerStyle,
       cornerStylePresets,

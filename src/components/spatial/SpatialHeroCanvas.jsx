@@ -23,10 +23,16 @@ export default function SpatialHeroCanvas() {
     let width = canvas.width;
     let height = canvas.height;
 
+    let cachedRect = canvas.getBoundingClientRect();
+    const updateCachedRect = () => {
+      if (canvas) cachedRect = canvas.getBoundingClientRect();
+    };
+
     const handleResize = () => {
       updateDimensions();
       width = canvas.width;
       height = canvas.height;
+      updateCachedRect();
     };
 
     window.addEventListener('resize', handleResize);
@@ -37,6 +43,7 @@ export default function SpatialHeroCanvas() {
 
     const handleScroll = () => {
       targetScrollY = window.scrollY;
+      updateCachedRect();
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -53,9 +60,8 @@ export default function SpatialHeroCanvas() {
 
     const updateMousePos = (clientX, clientY) => {
       if (!canvas) return;
-      const rect = canvas.getBoundingClientRect();
-      mouse.targetX = clientX - rect.left;
-      mouse.targetY = clientY - rect.top;
+      mouse.targetX = clientX - cachedRect.left;
+      mouse.targetY = clientY - cachedRect.top;
       mouse.active = true;
     };
 
@@ -73,8 +79,8 @@ export default function SpatialHeroCanvas() {
       mouse.active = false;
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('touchmove', handleTouchMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
     window.addEventListener('mouseleave', handleMouseLeave);
 
     // Balanced IT Tokens, Brand & Services List
@@ -116,23 +122,30 @@ export default function SpatialHeroCanvas() {
       });
     }
 
+    // Cache theme colors outside render loop to eliminate forced layout reflows
+    const primaryColor = currentTheme?.colors?.primary || '#6366f1';
+    const isDark = currentTheme ? currentTheme.isDark !== false : true;
+
     // 3D Perspective Grid Parameters
     const gridCols = 32;
     const gridRows = 24;
     let time = 0;
 
+    let isVisible = true;
+    let isRendering = false;
+
     const render = () => {
+      if (!isVisible) {
+        isRendering = false;
+        return;
+      }
+
       ctx.clearRect(0, 0, width, height);
 
       // Smooth Physics Damping
       mouse.x += (mouse.targetX - mouse.x) * 0.1;
       mouse.y += (mouse.targetY - mouse.y) * 0.1;
       scrollY += (targetScrollY - scrollY) * 0.08;
-
-      const style = getComputedStyle(document.documentElement);
-      const cssPrimary = style.getPropertyValue('--color-primary').trim();
-      const primaryColor = cssPrimary || currentTheme?.colors?.primary || '#6366f1';
-      const isDark = currentTheme ? currentTheme.isDark !== false : true;
 
       time += 0.018;
 
@@ -299,15 +312,41 @@ export default function SpatialHeroCanvas() {
       animationFrameId = requestAnimationFrame(render);
     };
 
-    render();
+    const startRendering = () => {
+      if (!isRendering && isVisible) {
+        isRendering = true;
+        animationFrameId = requestAnimationFrame(render);
+      }
+    };
+
+    const stopRendering = () => {
+      isRendering = false;
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
+      }
+    };
+
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+      if (isVisible) {
+        startRendering();
+      } else {
+        stopRendering();
+      }
+    }, { threshold: 0.05 });
+
+    observer.observe(canvas);
+    startRendering();
 
     return () => {
+      observer.disconnect();
+      stopRendering();
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('mouseleave', handleMouseLeave);
-      cancelAnimationFrame(animationFrameId);
     };
   }, [canvasParticles, currentTheme]);
 
