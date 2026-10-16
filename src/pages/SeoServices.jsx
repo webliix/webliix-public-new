@@ -11,6 +11,7 @@ import {
   CheckCircle2,
   ArrowUpRight,
   Sparkles,
+  Lightbulb,
   Zap,
   Globe,
   BarChart3,
@@ -338,8 +339,8 @@ export default function SeoServices() {
                 </div>
 
                 {/* Ideal for callout */}
-                <div className="p-3 theme-rounded-card bg-theme-primary/10 border border-theme-primary/20 text-xs font-mono text-theme-primary flex items-start gap-1.5">
-                  <span className="text-sm">💡</span>
+                <div className="p-3 theme-rounded-card bg-theme-primary/10 border border-theme-primary/20 text-xs font-mono text-theme-primary flex items-start gap-2">
+                  <Lightbulb className="w-4 h-4 text-theme-primary shrink-0 mt-0.5" />
                   <div>
                     <span className="font-bold">Ideal for:</span> {mod.idealFor}
                   </div>
@@ -505,7 +506,7 @@ export default function SeoServices() {
               <span>Aura Drishti Case Study</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
             </h4>
-            <p className="text-xs text-theme-muted leading-relaxed">How Aura Drishti achieved 3x Google Business Profile visits and a 4.9★ local rating.</p>
+            <p className="text-xs text-theme-muted leading-relaxed">How Aura Drishti achieved 3x Google Business Profile visits and a 4.9/5 local rating.</p>
             <Link to="/case-studies/auradrishti" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Read Case Study &rarr;</Link>
           </WebliixCard>
 

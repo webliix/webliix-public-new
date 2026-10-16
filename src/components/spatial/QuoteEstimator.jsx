@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calculator, Check, ArrowRight, Sparkles, Clock } from 'lucide-react';
+import { Calculator, Check, ArrowRight, Sparkles, Clock, Zap } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
 import GlassCard from './GlassCard';
 import WebliixCard from '../ui/WebliixCard';
@@ -44,7 +44,7 @@ export default function QuoteEstimator() {
       .join(', ');
 
     openModal({
-      title: '🚀 Launch Custom Project Inquiry',
+      title: 'Launch Custom Project Inquiry',
       content: (
         <div className="space-y-4">
           <p className="text-sm text-theme-muted">
@@ -158,8 +158,9 @@ export default function QuoteEstimator() {
                 onClick={() => setDeliverySpeed('rush')}
                 className="flex-1"
                 size="sm"
+                icon={Zap}
               >
-                🚀 Express Rush (3–5 Days)
+                Express Rush (3–5 Days)
               </WebliixButton>
             </div>
           </div>

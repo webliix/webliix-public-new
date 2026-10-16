@@ -154,7 +154,7 @@ export default function FirstVisitEnquiry() {
                 <div className="w-10 h-1 theme-rounded-badge bg-theme-border/60" />
               </div>
 
-              {/* close ✕ */}
+              {/* close button */}
               <button
                 onClick={dismiss}
                 aria-label="Close enquiry"
@@ -390,8 +390,9 @@ export default function FirstVisitEnquiry() {
 
                       {/* text */}
                       <div className="space-y-2">
-                        <h2 className="text-xl sm:text-2xl font-display font-extrabold text-theme-text">
-                          Enquiry Received! 🎉
+                        <h2 className="text-xl sm:text-2xl font-display font-extrabold text-theme-text flex items-center justify-center gap-2">
+                          <span>Enquiry Received!</span>
+                          <Sparkles className="w-5 h-5 text-theme-primary shrink-0" />
                         </h2>
                         <p className="text-xs sm:text-sm text-theme-muted leading-relaxed max-w-[16rem] sm:max-w-xs mx-auto">
                           Thank you,{' '}

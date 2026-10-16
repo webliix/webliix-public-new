@@ -511,24 +511,26 @@ export default function Careers() {
               <button
                 type="button"
                 onClick={() => handleTypeSwitch('job')}
-                className={`px-4 py-2 theme-rounded-btn text-xs font-mono font-bold transition ${
+                className={`inline-flex items-center justify-center gap-1.5 px-4 py-2 theme-rounded-btn text-xs font-mono font-bold transition ${
                   appType === 'job'
                     ? 'bg-theme-primary text-white shadow-spatial'
                     : 'glass-spatial text-theme-muted hover:text-theme-text border border-theme-border/60'
                 }`}
               >
-                💼 Job / Internship Role
+                <Briefcase className="w-3.5 h-3.5" />
+                Job / Internship Role
               </button>
               <button
                 type="button"
                 onClick={() => handleTypeSwitch('partner')}
-                className={`px-4 py-2 theme-rounded-btn text-xs font-mono font-bold transition ${
+                className={`inline-flex items-center justify-center gap-1.5 px-4 py-2 theme-rounded-btn text-xs font-mono font-bold transition ${
                   appType === 'partner'
                     ? 'bg-theme-primary text-white shadow-spatial'
                     : 'glass-spatial text-theme-muted hover:text-theme-text border border-theme-border/60'
                 }`}
               >
-                🤝 Strategic Growth Partner
+                <Handshake className="w-3.5 h-3.5" />
+                Strategic Growth Partner
               </button>
             </div>
           </div>
@@ -547,8 +549,9 @@ export default function Careers() {
                 </p>
               </div>
 
-              <div className="p-4 theme-rounded-card bg-theme-primary/10 border border-theme-primary/20 text-xs font-mono text-theme-primary max-w-md mx-auto">
-                💬 Want to fast-track your submission? Reach out directly to our team coordinator on WhatsApp!
+              <div className="p-4 theme-rounded-card bg-theme-primary/10 border border-theme-primary/20 text-xs font-mono text-theme-primary max-w-md mx-auto flex items-center justify-center gap-2">
+                <MessageCircle className="w-4 h-4 shrink-0" />
+                <span>Want to fast-track your submission? Reach out directly to our team coordinator on WhatsApp!</span>
               </div>
 
               <div className="flex flex-wrap items-center justify-center gap-3 pt-2">

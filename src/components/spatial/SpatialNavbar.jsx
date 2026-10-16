@@ -368,7 +368,7 @@ export default function SpatialNavbar() {
                     }}
                   >
                     {/* Header bar */}
-                    <div className="flex items-center justify-between pb-3.5 border-b border-theme-border/60">
+                    <div className="flex items-center justify-between pb-3 border-b border-theme-border/20">
                       <div className="flex items-center gap-3">
                         <div className="flex items-center gap-2">
                           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -376,7 +376,7 @@ export default function SpatialNavbar() {
                             Webliix Engineering & Growth Ecosystem
                           </span>
                         </div>
-                        <span className="hidden sm:inline-block text-[11px] font-mono text-theme-muted/80 border-l border-theme-border/60 pl-3">
+                        <span className="hidden sm:inline-block text-[11px] font-mono text-theme-muted/70 pl-3 border-l border-theme-border/20">
                           11+ Dedicated Solutions for Ambitious Businesses
                         </span>
                       </div>
@@ -384,7 +384,7 @@ export default function SpatialNavbar() {
                       <div className="flex items-center gap-3">
                         <Link
                           to="/services"
-                          className="text-xs font-mono font-semibold text-theme-muted hover:text-theme-primary transition flex items-center gap-1.5 group px-2.5 py-1 theme-rounded-btn hover:bg-theme-primary/10 hover:shadow-[0_2px_10px_var(--color-glow)]"
+                          className="text-xs font-mono font-semibold text-theme-muted hover:text-theme-primary transition flex items-center gap-1.5 group px-2.5 py-1 rounded-lg hover:bg-theme-primary/10"
                         >
                           <span>Explore All Services</span>
                           <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-theme-primary" />
@@ -396,21 +396,21 @@ export default function SpatialNavbar() {
                     <div className="grid grid-cols-12 gap-5">
                       
                       {/* Left: 3 Categorized Service Columns (9 cols) */}
-                      <div className="col-span-12 lg:col-span-9 grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="col-span-12 lg:col-span-9 grid grid-cols-1 md:grid-cols-3 gap-3">
                         
                         {/* Column 1: Web & App Engineering */}
-                        <div className="space-y-2.5">
-                          <div className="flex items-center justify-between px-1">
+                        <div className="space-y-1.5">
+                          <div className="flex items-center justify-between px-2 pb-1">
                             <span className="text-xs font-mono font-bold text-theme-text uppercase tracking-wider flex items-center gap-1.5">
                               <Layout className="w-3.5 h-3.5 text-theme-primary" />
                               <span>Engineering</span>
                             </span>
-                            <span className="text-[10px] font-mono text-theme-muted px-1.5 py-0.5 theme-rounded-btn bg-theme-bg/60 border border-theme-border/40">
+                            <span className="text-[10px] font-mono text-theme-muted/80 px-2 py-0.5 rounded-full bg-theme-primary/5">
                               Full-Stack
                             </span>
                           </div>
 
-                          <div className="space-y-2">
+                          <div className="space-y-0.5">
                             {serviceCategories[0].items.map((service) => {
                               const Icon = service.icon;
                               const isCurrent = location.pathname === service.path;
@@ -418,29 +418,29 @@ export default function SpatialNavbar() {
                                 <Link
                                   key={service.path}
                                   to={service.path}
-                                  className={`p-2.5 theme-rounded-card border transition-all duration-300 group flex items-start gap-2.5 ${
+                                  className={`p-2.5 rounded-xl transition-all duration-200 group flex items-start gap-3 ${
                                     isCurrent
-                                      ? 'bg-theme-primary/20 border-theme-primary text-theme-primary shadow-[0_4px_16px_var(--color-glow)]'
-                                      : 'border-theme-border/50 bg-theme-bg/30 hover:bg-theme-primary/10 hover:border-theme-primary hover:shadow-[0_4px_16px_var(--color-glow)]'
+                                      ? 'bg-theme-primary/15 text-theme-primary font-semibold'
+                                      : 'hover:bg-theme-primary/[0.08] text-theme-text'
                                   }`}
-                                  style={{
-                                    backdropFilter: 'blur(var(--glass-blur, 12px))',
-                                    WebkitBackdropFilter: 'blur(var(--glass-blur, 12px))'
-                                  }}
                                 >
-                                  <div className="p-1.5 theme-rounded-btn bg-theme-primary/10 text-theme-primary border border-theme-primary/20 group-hover:scale-110 group-hover:bg-theme-primary group-hover:text-white transition-all duration-300 shrink-0 mt-0.5 shadow-sm">
-                                    <Icon className="w-3.5 h-3.5" />
+                                  <div className={`p-2 rounded-lg shrink-0 mt-0.5 transition-all duration-200 ${
+                                    isCurrent
+                                      ? 'bg-theme-primary text-white shadow-sm'
+                                      : 'bg-theme-primary/10 text-theme-primary group-hover:bg-theme-primary group-hover:text-white'
+                                  }`}>
+                                    <Icon className="w-4 h-4" />
                                   </div>
                                   <div className="space-y-0.5 flex-1 min-w-0">
                                     <div className="flex items-center justify-between gap-1">
-                                      <h4 className="text-xs font-display font-bold text-theme-text group-hover:text-theme-primary transition-colors truncate">
+                                      <h4 className="text-xs font-display font-semibold text-theme-text group-hover:text-theme-primary transition-colors truncate">
                                         {service.name}
                                       </h4>
                                     </div>
                                     <p className="text-[11px] text-theme-muted line-clamp-1 leading-snug">
                                       {service.desc}
                                     </p>
-                                    <div className="text-[9px] font-mono text-theme-primary font-semibold pt-0.5 truncate">
+                                    <div className="text-[9px] font-mono text-theme-primary/80 font-medium pt-0.5 truncate">
                                       {service.meta}
                                     </div>
                                   </div>
@@ -451,18 +451,18 @@ export default function SpatialNavbar() {
                         </div>
 
                         {/* Column 2: Growth & Advertising */}
-                        <div className="space-y-2.5">
-                          <div className="flex items-center justify-between px-1">
+                        <div className="space-y-1.5">
+                          <div className="flex items-center justify-between px-2 pb-1">
                             <span className="text-xs font-mono font-bold text-theme-text uppercase tracking-wider flex items-center gap-1.5">
                               <Target className="w-3.5 h-3.5 text-theme-primary" />
                               <span>Growth & Ads</span>
                             </span>
-                            <span className="text-[10px] font-mono text-theme-muted px-1.5 py-0.5 theme-rounded-btn bg-theme-bg/60 border border-theme-border/40">
+                            <span className="text-[10px] font-mono text-theme-muted/80 px-2 py-0.5 rounded-full bg-theme-primary/5">
                               ROI Driven
                             </span>
                           </div>
 
-                          <div className="space-y-2">
+                          <div className="space-y-0.5">
                             {serviceCategories[1].items.map((service) => {
                               const Icon = service.icon;
                               const isCurrent = location.pathname === service.path;
@@ -470,29 +470,29 @@ export default function SpatialNavbar() {
                                 <Link
                                   key={service.path}
                                   to={service.path}
-                                  className={`p-2.5 theme-rounded-card border transition-all duration-300 group flex items-start gap-2.5 ${
+                                  className={`p-2.5 rounded-xl transition-all duration-200 group flex items-start gap-3 ${
                                     isCurrent
-                                      ? 'bg-theme-primary/20 border-theme-primary text-theme-primary shadow-[0_4px_16px_var(--color-glow)]'
-                                      : 'border-theme-border/50 bg-theme-bg/30 hover:bg-theme-primary/10 hover:border-theme-primary hover:shadow-[0_4px_16px_var(--color-glow)]'
+                                      ? 'bg-theme-primary/15 text-theme-primary font-semibold'
+                                      : 'hover:bg-theme-primary/[0.08] text-theme-text'
                                   }`}
-                                  style={{
-                                    backdropFilter: 'blur(var(--glass-blur, 12px))',
-                                    WebkitBackdropFilter: 'blur(var(--glass-blur, 12px))'
-                                  }}
                                 >
-                                  <div className="p-1.5 theme-rounded-btn bg-theme-primary/10 text-theme-primary border border-theme-primary/20 group-hover:scale-110 group-hover:bg-theme-primary group-hover:text-white transition-all duration-300 shrink-0 mt-0.5 shadow-sm">
-                                    <Icon className="w-3.5 h-3.5" />
+                                  <div className={`p-2 rounded-lg shrink-0 mt-0.5 transition-all duration-200 ${
+                                    isCurrent
+                                      ? 'bg-theme-primary text-white shadow-sm'
+                                      : 'bg-theme-primary/10 text-theme-primary group-hover:bg-theme-primary group-hover:text-white'
+                                  }`}>
+                                    <Icon className="w-4 h-4" />
                                   </div>
                                   <div className="space-y-0.5 flex-1 min-w-0">
                                     <div className="flex items-center justify-between gap-1">
-                                      <h4 className="text-xs font-display font-bold text-theme-text group-hover:text-theme-primary transition-colors truncate">
+                                      <h4 className="text-xs font-display font-semibold text-theme-text group-hover:text-theme-primary transition-colors truncate">
                                         {service.name}
                                       </h4>
                                     </div>
                                     <p className="text-[11px] text-theme-muted line-clamp-1 leading-snug">
                                       {service.desc}
                                     </p>
-                                    <div className="text-[9px] font-mono text-theme-primary font-semibold pt-0.5 truncate">
+                                    <div className="text-[9px] font-mono text-theme-primary/80 font-medium pt-0.5 truncate">
                                       {service.meta}
                                     </div>
                                   </div>
@@ -503,18 +503,18 @@ export default function SpatialNavbar() {
                         </div>
 
                         {/* Column 3: Creative & Care + Interactive Cost Estimator CTA */}
-                        <div className="space-y-2.5">
-                          <div className="flex items-center justify-between px-1">
+                        <div className="space-y-1.5">
+                          <div className="flex items-center justify-between px-2 pb-1">
                             <span className="text-xs font-mono font-bold text-theme-text uppercase tracking-wider flex items-center gap-1.5">
                               <Palette className="w-3.5 h-3.5 text-theme-primary" />
                               <span>Design & Care</span>
                             </span>
-                            <span className="text-[10px] font-mono text-theme-muted px-1.5 py-0.5 theme-rounded-btn bg-theme-bg/60 border border-theme-border/40">
+                            <span className="text-[10px] font-mono text-theme-muted/80 px-2 py-0.5 rounded-full bg-theme-primary/5">
                               24/7 Support
                             </span>
                           </div>
 
-                          <div className="space-y-2">
+                          <div className="space-y-0.5">
                             {serviceCategories[2].items.map((service) => {
                               const Icon = service.icon;
                               const isCurrent = location.pathname === service.path;
@@ -522,29 +522,29 @@ export default function SpatialNavbar() {
                                 <Link
                                   key={service.path}
                                   to={service.path}
-                                  className={`p-2.5 theme-rounded-card border transition-all duration-300 group flex items-start gap-2.5 ${
+                                  className={`p-2.5 rounded-xl transition-all duration-200 group flex items-start gap-3 ${
                                     isCurrent
-                                      ? 'bg-theme-primary/20 border-theme-primary text-theme-primary shadow-[0_4px_16px_var(--color-glow)]'
-                                      : 'border-theme-border/50 bg-theme-bg/30 hover:bg-theme-primary/10 hover:border-theme-primary hover:shadow-[0_4px_16px_var(--color-glow)]'
+                                      ? 'bg-theme-primary/15 text-theme-primary font-semibold'
+                                      : 'hover:bg-theme-primary/[0.08] text-theme-text'
                                   }`}
-                                  style={{
-                                    backdropFilter: 'blur(var(--glass-blur, 12px))',
-                                    WebkitBackdropFilter: 'blur(var(--glass-blur, 12px))'
-                                  }}
                                 >
-                                  <div className="p-1.5 theme-rounded-btn bg-theme-primary/10 text-theme-primary border border-theme-primary/20 group-hover:scale-110 group-hover:bg-theme-primary group-hover:text-white transition-all duration-300 shrink-0 mt-0.5 shadow-sm">
-                                    <Icon className="w-3.5 h-3.5" />
+                                  <div className={`p-2 rounded-lg shrink-0 mt-0.5 transition-all duration-200 ${
+                                    isCurrent
+                                      ? 'bg-theme-primary text-white shadow-sm'
+                                      : 'bg-theme-primary/10 text-theme-primary group-hover:bg-theme-primary group-hover:text-white'
+                                  }`}>
+                                    <Icon className="w-4 h-4" />
                                   </div>
                                   <div className="space-y-0.5 flex-1 min-w-0">
                                     <div className="flex items-center justify-between gap-1">
-                                      <h4 className="text-xs font-display font-bold text-theme-text group-hover:text-theme-primary transition-colors truncate">
+                                      <h4 className="text-xs font-display font-semibold text-theme-text group-hover:text-theme-primary transition-colors truncate">
                                         {service.name}
                                       </h4>
                                     </div>
                                     <p className="text-[11px] text-theme-muted line-clamp-1 leading-snug">
                                       {service.desc}
                                     </p>
-                                    <div className="text-[9px] font-mono text-theme-primary font-semibold pt-0.5 truncate">
+                                    <div className="text-[9px] font-mono text-theme-primary/80 font-medium pt-0.5 truncate">
                                       {service.meta}
                                     </div>
                                   </div>
@@ -555,11 +555,7 @@ export default function SpatialNavbar() {
                             {/* Interactive Instant Estimate Card */}
                             <Link
                               to="/services"
-                              className="p-3 theme-rounded-card border border-theme-primary/30 bg-theme-primary/10 hover:bg-theme-primary/20 hover:border-theme-primary hover:shadow-[0_4px_16px_var(--color-glow)] transition-all duration-300 group block space-y-1"
-                              style={{
-                                backdropFilter: 'blur(var(--glass-blur, 12px))',
-                                WebkitBackdropFilter: 'blur(var(--glass-blur, 12px))'
-                              }}
+                              className="mt-2 p-2.5 rounded-xl bg-theme-primary/[0.06] hover:bg-theme-primary/[0.12] transition-all duration-200 group block space-y-1 border border-theme-primary/20"
                             >
                               <div className="flex items-center gap-2 text-theme-primary font-bold text-xs">
                                 <Calculator className="w-3.5 h-3.5" />
@@ -568,7 +564,7 @@ export default function SpatialNavbar() {
                               <p className="text-[11px] text-theme-muted leading-tight">
                                 Calculate instant custom project scopes & turnaround timelines.
                               </p>
-                              <span className="text-[10px] font-mono font-bold text-theme-primary group-hover:underline inline-flex items-center gap-1 pt-1">
+                              <span className="text-[10px] font-mono font-bold text-theme-primary group-hover:underline inline-flex items-center gap-1 pt-0.5">
                                 Calculate Scope <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
                               </span>
                             </Link>
@@ -580,17 +576,17 @@ export default function SpatialNavbar() {
                       {/* Right: Featured Showcase Rail (3 cols) */}
                       <div className="col-span-12 lg:col-span-3 flex flex-col">
                         <div
-                          className="p-4 sm:p-4.5 theme-rounded-card border border-theme-primary/40 bg-gradient-to-br from-theme-primary/15 via-theme-bg/60 to-theme-primary/5 relative overflow-hidden flex flex-col justify-between h-full shadow-[0_8px_32px_var(--color-glow)] space-y-3.5 transition-[background-color,border-color,border-radius] duration-300"
+                          className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-theme-primary/10 via-theme-bg/50 to-transparent border border-theme-primary/20 relative overflow-hidden flex flex-col justify-between h-full space-y-3.5 transition-[background-color,border-color,border-radius] duration-300"
                           style={{
                             backdropFilter: 'blur(var(--glass-blur, 12px))',
                             WebkitBackdropFilter: 'blur(var(--glass-blur, 12px))'
                           }}
                         >
                           {/* Ambient glow accent */}
-                          <div className="absolute -top-12 -right-12 w-28 h-28 bg-theme-primary/20 rounded-full blur-2xl pointer-events-none" />
+                          <div className="absolute -top-12 -right-12 w-28 h-28 bg-theme-primary/15 rounded-full blur-2xl pointer-events-none" />
 
                           <div className="space-y-2.5 relative z-10">
-                            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 theme-rounded-btn bg-theme-primary/20 text-theme-primary border border-theme-primary/40 text-[10px] font-mono font-bold">
+                            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-theme-primary/15 text-theme-primary text-[10px] font-mono font-bold">
                               <Sparkles className="w-3 h-3" />
                               <span>FLAGSHIP ALL-IN-ONE</span>
                             </div>
@@ -623,7 +619,7 @@ export default function SpatialNavbar() {
                             </div>
                           </div>
 
-                          <div className="pt-2 border-t border-theme-border/60 relative z-10 space-y-2">
+                          <div className="pt-2 border-t border-theme-border/20 relative z-10 space-y-2">
                             <div className="flex items-baseline justify-between">
                               <span className="text-[10px] font-mono text-theme-muted uppercase">Starting From</span>
                               <span className="text-xs font-mono font-bold text-theme-primary">₹9,999</span>
@@ -645,7 +641,7 @@ export default function SpatialNavbar() {
                     </div>
 
                     {/* Bottom Trust & Guarantee Strip */}
-                    <div className="pt-3 border-t border-theme-border/60 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono bg-theme-primary/5 -mx-5 -mb-5 sm:-mx-6 sm:-mb-6 px-5 py-3 sm:px-6 rounded-b-[inherit]">
+                    <div className="pt-3 border-t border-theme-border/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono bg-theme-primary/[0.03] -mx-5 -mb-5 sm:-mx-6 sm:-mb-6 px-5 py-3 sm:px-6 rounded-b-[inherit]">
                       <div className="flex flex-wrap items-center gap-4 text-theme-muted text-[11px]">
                         <div className="flex items-center gap-1.5">
                           <Clock className="w-3.5 h-3.5 text-theme-primary shrink-0" />
@@ -845,10 +841,10 @@ export default function SpatialNavbar() {
                                 <Link
                                   key={srv.path}
                                   to={srv.path}
-                                  className={`px-3 py-2 theme-rounded-btn text-xs font-medium flex items-center justify-between transition-all duration-200 ${
+                                  className={`px-3 py-2 rounded-lg text-xs font-medium flex items-center justify-between transition-all duration-200 ${
                                     isSrvActive
                                       ? 'bg-theme-primary text-white font-bold shadow-sm'
-                                      : 'text-theme-text hover:bg-theme-primary/10 hover:text-theme-primary bg-theme-bg/40 border border-theme-border/30 hover:border-theme-primary/50'
+                                      : 'text-theme-text hover:bg-theme-primary/10 hover:text-theme-primary'
                                   }`}
                                 >
                                   <div className="flex items-center gap-2 min-w-0">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, ArrowRight, ShieldCheck, ChevronRight } from 'lucide-react';
+import { Sparkles, ArrowRight, ShieldCheck, ChevronRight, Laptop, MapPin, ShoppingBag, Palette, Rocket } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
 import { useTheme } from '../../context/ThemeContext';
 import { useAudio } from '../../context/AudioContext';
@@ -20,7 +20,7 @@ export default function InteractiveEcosystemHub() {
     {
       id: 'web-dev',
       title: 'Custom Web Applications',
-      icon: '💻',
+      icon: Laptop,
       metric: '99/100 Performance Score',
       desc: 'React 18 & Next.js architectures engineered for sub-second load times and top search rankings.',
       tags: ['React 18', 'Vite ESM', 'Clean Code', 'SSL Security'],
@@ -29,7 +29,7 @@ export default function InteractiveEcosystemHub() {
     {
       id: 'seo-gmb',
       title: 'Local SEO & GMB Domination',
-      icon: '📍',
+      icon: MapPin,
       metric: '#1 Map Ranking Result',
       desc: 'Google Business Profile verification, keyword targeting, and local map pack dominance.',
       tags: ['GMB Profile', 'On-Page SEO', 'Map Pack #1', 'Local Citations'],
@@ -38,7 +38,7 @@ export default function InteractiveEcosystemHub() {
     {
       id: 'ecommerce',
       title: 'Fast E-Commerce Launch',
-      icon: '⚡',
+      icon: ShoppingBag,
       metric: '5-Day Live Store',
       desc: 'High-converting storefronts with automated payment gateways, product catalogs, and instant checkout.',
       tags: ['5-Day Launch', 'UPI & Cards', '50 Products', 'Mobile Checkout'],
@@ -47,7 +47,7 @@ export default function InteractiveEcosystemHub() {
     {
       id: 'branding',
       title: 'Brand Identity & Design',
-      icon: '🎨',
+      icon: Palette,
       metric: 'Vector Brand Package',
       desc: 'Custom logo design, brand guidelines, print business cards, and social media media kits.',
       tags: ['Logo Package', 'Color Palette', 'Business Cards', 'Social Assets'],
@@ -56,7 +56,7 @@ export default function InteractiveEcosystemHub() {
     {
       id: 'launchkit',
       title: 'Webliix LaunchKit 360',
-      icon: '🚀',
+      icon: Rocket,
       metric: 'All-in-One Turnkey',
       desc: 'Complete business launch package: logo, website, domain, business email & 5-day ad campaign.',
       tags: ['Logo Design', 'Website', 'Domain & Email', '5-Day Ads'],
@@ -69,7 +69,7 @@ export default function InteractiveEcosystemHub() {
   const handleNodeClick = (node) => {
     playClickSound();
     openModal({
-      title: `${node.icon} ${node.title}`,
+      title: node.title,
       content: (
         <div className="space-y-4">
           <div className="p-4 rounded-2xl glass-spatial border border-theme-primary/30 space-y-2">
@@ -153,7 +153,9 @@ export default function InteractiveEcosystemHub() {
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
-                    <span className="text-xl">{node.icon}</span>
+                    <div className="p-2 rounded-lg bg-theme-primary/10 text-theme-primary group-hover:bg-theme-primary group-hover:text-white transition-colors">
+                      <WebliixIcon icon={node.icon} size="sm" />
+                    </div>
                     <div>
                       <h4 className="text-xs font-display font-bold text-theme-text">{node.title}</h4>
                       <span className="text-[10px] font-mono text-theme-primary font-semibold">{node.metric}</span>
@@ -178,7 +180,9 @@ export default function InteractiveEcosystemHub() {
               >
                 <div className="flex items-center justify-between pb-3 border-b border-theme-border/60">
                   <div className="flex items-center gap-2.5">
-                    <span className="text-3xl">{activeNode.icon}</span>
+                    <div className="p-2.5 rounded-xl bg-theme-primary/10 text-theme-primary">
+                      <WebliixIcon icon={activeNode.icon} size="md" />
+                    </div>
                     <div>
                       <h3 className="text-lg font-display font-bold text-theme-text">{activeNode.title}</h3>
                       <span className="text-[10px] font-mono text-theme-primary font-semibold">{activeNode.metric}</span>

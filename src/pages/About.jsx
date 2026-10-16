@@ -1,6 +1,38 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Sparkles, Target, Compass, Award, CheckCircle2, ArrowRight, Code, ShieldCheck, Zap, Globe, Cpu, Heart, Rocket, Layers } from 'lucide-react';
+import {
+  Sparkles,
+  Target,
+  Compass,
+  Award,
+  CheckCircle2,
+  ArrowRight,
+  Code,
+  ShieldCheck,
+  Zap,
+  Globe,
+  Cpu,
+  Heart,
+  Rocket,
+  Layers,
+  Handshake,
+  TrendingUp,
+  Lightbulb,
+  Code2,
+  Palette,
+  FileCode2,
+  Server,
+  Coffee,
+  Link2,
+  Database,
+  Flame,
+  Cloud,
+  Box,
+  GitBranch,
+  Search,
+  Share2,
+  MapPin
+} from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import GlassCard from '../components/spatial/GlassCard';
 import WebliixCard from '../components/ui/WebliixCard';
@@ -24,7 +56,7 @@ export default function About() {
       highlights: [
         { label: 'Specialty', value: 'Managing Director & Enterprise Tech' },
         { label: 'Focus', value: 'Java Full Stack & Strategy' },
-        { label: 'Based in', value: 'Naugachia, Bihar, India 🇮🇳' }
+        { label: 'Based in', value: 'Naugachia, Bihar, India' }
       ]
     },
     {
@@ -33,52 +65,52 @@ export default function About() {
       photoUrl: 'https://res.cloudinary.com/vhth8clt/image/upload/f_auto,q_auto/v1788213053/webliix/blog/content/file_pzndtk.jpg',
       alt: 'Abdul Latif - Co-Founder & Business Executive at Webliix',
       linkedin: 'https://www.linkedin.com/in/abdul-latif-3a9249213/',
-      shortBio: 'MERN Stack Dev 🚀 10X Dev aspirant 💡 JavaScript enthusiast ❤️ Crafting digital wonders ✨ Let’s code and conquer!',
+      shortBio: 'MERN Stack Developer | JavaScript Enthusiast | Crafting high-performance digital systems & architectures.',
       extendedBio: 'Abdul leads Webliix technical execution and business growth operations. Specializing in Node.js, Express, React, and performance marketing, he architects fast, scalable web systems and data-driven ad campaigns that turn digital traffic into measurable customer ROI.',
       skills: ['MERN Stack', 'Node.js & Express', 'React 18', 'JavaScript ESM', 'API Architecture', 'Digital Marketing', 'Meta & Google Ads'],
       highlights: [
         { label: 'Specialty', value: 'Business Executive & MERN Architect' },
-        { label: 'Focus', value: '10X Full-Stack Engineering' },
-        { label: 'Based in', value: 'Naugachia, Bihar, India 🇮🇳' }
+        { label: 'Focus', value: 'Full-Stack Engineering' },
+        { label: 'Based in', value: 'Naugachia, Bihar, India' }
       ]
     }
   ];
 
   const values = [
-    { icon: '🤝', title: 'Transparency', desc: 'You will always know what we are building, why, and what to expect next. No jargon, zero hidden fees.' },
-    { icon: '🏆', title: 'Ownership', desc: 'We treat every client project as if our own business depended on its performance.' },
-    { icon: '📈', title: 'Results Driven', desc: 'Aesthetics matter — but every engineering decision we make is tied directly to your commercial ROI.' },
-    { icon: '💡', title: 'Continuous Innovation', desc: 'Staying ahead of web standards so clients always have access to top-speed tools.' },
-    { icon: '🌍', title: 'Global Vision', desc: 'Based in NCR India, serving clients seamlessly across USA, UK, Canada, and Germany.' },
-    { icon: '❤️', title: 'Client Care', desc: 'We genuinely care about the long-term success of every founder and team we partner with.' }
+    { icon: Handshake, title: 'Transparency', desc: 'You will always know what we are building, why, and what to expect next. No jargon, zero hidden fees.' },
+    { icon: Award, title: 'Ownership', desc: 'We treat every client project as if our own business depended on its performance.' },
+    { icon: TrendingUp, title: 'Results Driven', desc: 'Aesthetics matter — but every engineering decision we make is tied directly to your commercial ROI.' },
+    { icon: Lightbulb, title: 'Continuous Innovation', desc: 'Staying ahead of web standards so clients always have access to top-speed tools.' },
+    { icon: Globe, title: 'Global Vision', desc: 'Based in NCR India, serving clients seamlessly across USA, UK, Canada, and Germany.' },
+    { icon: Heart, title: 'Client Care', desc: 'We genuinely care about the long-term success of every founder and team we partner with.' }
   ];
 
   const techCategories = [
-    { name: 'React 18', icon: '⚛️', tag: 'Frontend' },
-    { name: 'Next.js', icon: '⏭️', tag: 'Frontend' },
-    { name: 'Tailwind CSS', icon: '💨', tag: 'Frontend' },
-    { name: 'JavaScript ESM', icon: '🟨', tag: 'Frontend' },
-    { name: 'Node.js', icon: '🟢', tag: 'Backend' },
-    { name: 'Express.js', icon: '🚂', tag: 'Backend' },
-    { name: 'Java', icon: '☕', tag: 'Backend' },
-    { name: 'Spring Boot', icon: '🌱', tag: 'Backend' },
-    { name: 'REST APIs', icon: '🔗', tag: 'Backend' },
-    { name: 'MongoDB', icon: '🍃', tag: 'Database' },
-    { name: 'MySQL', icon: '🗄️', tag: 'Database' },
-    { name: 'Firebase', icon: '🔥', tag: 'Database' },
-    { name: 'AWS Cloud', icon: '☁️', tag: 'DevOps' },
-    { name: 'Docker', icon: '🐳', tag: 'DevOps' },
-    { name: 'Git & GitHub', icon: '🐙', tag: 'DevOps' },
-    { name: 'Google Ads & SEO', icon: '🔍', tag: 'Marketing' },
-    { name: 'Meta Ads', icon: '📘', tag: 'Marketing' },
-    { name: 'Google Maps GMB', icon: '📍', tag: 'Marketing' }
+    { name: 'React 18', icon: Code2, tag: 'Frontend' },
+    { name: 'Next.js', icon: Globe, tag: 'Frontend' },
+    { name: 'Tailwind CSS', icon: Palette, tag: 'Frontend' },
+    { name: 'JavaScript ESM', icon: FileCode2, tag: 'Frontend' },
+    { name: 'Node.js', icon: Server, tag: 'Backend' },
+    { name: 'Express.js', icon: Cpu, tag: 'Backend' },
+    { name: 'Java', icon: Coffee, tag: 'Backend' },
+    { name: 'Spring Boot', icon: ShieldCheck, tag: 'Backend' },
+    { name: 'REST APIs', icon: Link2, tag: 'Backend' },
+    { name: 'MongoDB', icon: Database, tag: 'Database' },
+    { name: 'MySQL', icon: Database, tag: 'Database' },
+    { name: 'Firebase', icon: Flame, tag: 'Database' },
+    { name: 'AWS Cloud', icon: Cloud, tag: 'DevOps' },
+    { name: 'Docker', icon: Box, tag: 'DevOps' },
+    { name: 'Git & GitHub', icon: GitBranch, tag: 'DevOps' },
+    { name: 'Google Ads & SEO', icon: Search, tag: 'Marketing' },
+    { name: 'Meta Ads', icon: Share2, tag: 'Marketing' },
+    { name: 'Google Maps GMB', icon: MapPin, tag: 'Marketing' }
   ];
 
   const globalReach = [
-    { flag: '🇮🇳', country: 'India', desc: 'Headquarters & NCR Operations Hub' },
-    { flag: '🇺🇸', country: 'USA', desc: 'E-Commerce & Technology Startups' },
-    { flag: '🇬🇧', country: 'UK', desc: 'Corporate & Service Enterprise Clients' },
-    { flag: '🇩🇪', country: 'Germany', desc: 'B2B Engineering & Industrial Brands' }
+    { code: 'IN', country: 'India', desc: 'Headquarters & NCR Operations Hub' },
+    { code: 'US', country: 'USA', desc: 'E-Commerce & Technology Startups' },
+    { code: 'UK', country: 'UK', desc: 'Corporate & Service Enterprise Clients' },
+    { code: 'DE', country: 'Germany', desc: 'B2B Engineering & Industrial Brands' }
   ];
 
   return (
@@ -129,7 +161,7 @@ export default function About() {
         ))}
       </div>
 
-      {/* 🌟 FOUNDERS & LEADERSHIP SHOWCASE */}
+      {/* FOUNDERS & LEADERSHIP SHOWCASE */}
       <div id="founders" className="space-y-8">
         <div className="text-center max-w-xl mx-auto space-y-2">
           <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-semibold">
@@ -271,7 +303,9 @@ export default function About() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {values.map((v, i) => (
             <GlassCard key={i} className="p-6 border border-theme-border space-y-3">
-              <span className="text-3xl">{v.icon}</span>
+              <div className="p-2.5 w-fit rounded-xl bg-theme-primary/10 text-theme-primary">
+                <WebliixIcon icon={v.icon} size="md" />
+              </div>
               <h4 className="text-lg font-display font-bold text-theme-text">{v.title}</h4>
               <p className="text-xs text-theme-muted leading-relaxed">{v.desc}</p>
             </GlassCard>
@@ -292,8 +326,10 @@ export default function About() {
 
         <div className="flex flex-wrap justify-center gap-3">
           {techCategories.map((t, i) => (
-            <GlassCard key={i} className="px-4 py-2.5 flex items-center gap-2 border border-theme-border">
-              <span className="text-lg">{t.icon}</span>
+            <GlassCard key={i} className="px-4 py-2.5 flex items-center gap-2.5 border border-theme-border">
+              <div className="text-theme-primary shrink-0">
+                <WebliixIcon icon={t.icon} size="sm" />
+              </div>
               <span className="text-xs font-mono font-bold text-theme-text">{t.name}</span>
               <span className="text-[9px] font-mono text-theme-primary font-semibold px-2 py-0.5 rounded-full bg-theme-primary/10">
                 {t.tag}
@@ -320,7 +356,9 @@ export default function About() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           {globalReach.map((loc, i) => (
             <WebliixCard key={i} variant="feature" className="p-5 space-y-2">
-              <span className="text-4xl block mb-1">{loc.flag}</span>
+              <div className="w-10 h-10 mx-auto rounded-full bg-theme-primary/10 text-theme-primary border border-theme-primary/30 flex items-center justify-center font-mono font-bold text-xs tracking-wider mb-1">
+                {loc.code}
+              </div>
               <h4 className="text-base font-display font-bold text-theme-text">{loc.country}</h4>
               <p className="text-[11px] text-theme-muted leading-relaxed">{loc.desc}</p>
             </WebliixCard>

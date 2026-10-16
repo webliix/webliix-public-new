@@ -110,7 +110,7 @@ export default function Portfolio() {
       description: 'A professional CCTV camera installation, servicing, and surveillance equipment sales company with custom responsive web design, local SEO, and lead campaigns.',
       image: auraDrishtiImg,
       link: 'https://auradrishti-webliix.netlify.app/',
-      metrics: '4.9★ Rating • 3x GMB Visits',
+      metrics: '4.9/5 Rating • 3x GMB Visits',
       serviceLink: '/seo',
       serviceName: 'Local SEO & GMB',
       caseStudyLink: '/case-studies/auradrishti',

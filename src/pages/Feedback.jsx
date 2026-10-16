@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Star, MessageSquare, Sparkles, CheckCircle2, Send } from 'lucide-react';
+import { Star, MessageSquare, Sparkles, CheckCircle2, Send, Lock, TrendingUp } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
 import WebliixButton from '../components/ui/WebliixButton';
@@ -178,8 +178,9 @@ export default function Feedback() {
               serve our clients better.
             </p>
             {form.publishConsent && (
-              <p className="text-xs text-theme-primary font-mono border border-theme-primary/30 rounded-xl px-4 py-2 inline-block bg-theme-primary/10">
-                ✓ We may feature your testimonial on our website
+              <p className="text-xs text-theme-primary font-mono border border-theme-primary/30 rounded-xl px-4 py-2 inline-flex items-center gap-1.5 bg-theme-primary/10">
+                <CheckCircle2 className="w-3.5 h-3.5" />
+                <span>We may feature your testimonial on our website</span>
               </p>
             )}
           </div>
@@ -362,16 +363,18 @@ export default function Feedback() {
           {/* Trust signals */}
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { icon: '🔒', title: 'Private & Secure', desc: 'Your email is never published' },
-              { icon: '⭐', title: 'Helps Others', desc: 'Honest reviews guide future clients' },
-              { icon: '📈', title: 'Drives Improvement', desc: 'Every response shapes our work' },
+              { icon: Lock, title: 'Private & Secure', desc: 'Your email is never published' },
+              { icon: Star, title: 'Helps Others', desc: 'Honest reviews guide future clients' },
+              { icon: TrendingUp, title: 'Drives Improvement', desc: 'Every response shapes our work' },
             ].map((item) => (
               <WebliixCard
                 key={item.title}
                 variant="feature"
-                className="p-4 text-center space-y-1"
+                className="p-4 text-center space-y-2 flex flex-col items-center"
               >
-                <div className="text-2xl">{item.icon}</div>
+                <div className="w-10 h-10 rounded-xl bg-theme-primary/10 border border-theme-primary/20 flex items-center justify-center text-theme-primary">
+                  <item.icon className="w-5 h-5" />
+                </div>
                 <p className="text-sm font-semibold text-theme-text">{item.title}</p>
                 <p className="text-xs text-theme-muted">{item.desc}</p>
               </WebliixCard>

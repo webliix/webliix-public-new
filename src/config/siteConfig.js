@@ -1,4 +1,25 @@
 
+import {
+  Rocket,
+  ShoppingBag,
+  Monitor,
+  Laptop,
+  Smartphone,
+  Cpu,
+  Cloud,
+  BarChart3,
+  MapPin,
+  Palette,
+  Sparkles,
+  Target,
+  Search,
+  Share2,
+  Wrench,
+  Lightbulb,
+  Handshake,
+  RefreshCw
+} from 'lucide-react';
+
 const logoDark =
   'https://res.cloudinary.com/vhth8clt/image/upload/w_480,c_limit,f_auto,q_auto/v1788210408/lightlogo.png';
 
@@ -108,10 +129,10 @@ export const siteConfig = {
     mission: 'Every business deserves a commanding digital presence. We craft immersive, high-converting digital experiences that don’t just look beautiful — they perform.',
     vision: 'To empower 1,000+ businesses globally with state-of-the-art websites, organic search dominance, and seamless brand identities under one roof.',
     values: [
-      { icon: '💡', title: 'Strategic Execution', desc: 'Designs built to convert visitors into real paying customers.' },
-      { icon: '🚀', title: 'Top-Speed Performance', desc: 'Fast-loading, SEO-optimized web systems built with modern frameworks.' },
-      { icon: '🤝', title: 'Transparent Partnership', desc: 'Dedicated project management with zero hidden costs or delays.' },
-      { icon: '🔄', title: 'Ongoing Support', desc: 'Free post-launch monitoring and continuous security checks included.' }
+      { icon: Lightbulb, title: 'Strategic Execution', desc: 'Designs built to convert visitors into real paying customers.' },
+      { icon: Rocket, title: 'Top-Speed Performance', desc: 'Fast-loading, SEO-optimized web systems built with modern frameworks.' },
+      { icon: Handshake, title: 'Transparent Partnership', desc: 'Dedicated project management with zero hidden costs or delays.' },
+      { icon: RefreshCw, title: 'Ongoing Support', desc: 'Free post-launch monitoring and continuous security checks included.' }
     ],
     timeline: [
       { year: 'Apr 2025', title: 'Webliix Founded', desc: 'Himanshu and Abdul launch Webliix with a clear vision: world-class digital solutions for every business size.' },
@@ -173,7 +194,7 @@ services: [
     id: 'brand-launchkit',
     title: 'Webliix LaunchKit',
     tag: 'All in One',
-    icon: '🚀',
+    icon: Rocket,
     shortDesc:
       'A complete digital launch package combining website development, branding, business email, Google Business Profile support and SEO foundations.',
     fullDesc:
@@ -196,7 +217,7 @@ services: [
     id: 'quick-ecommerce',
     title: 'E-Commerce Website Development',
     tag: 'Trending',
-    icon: '⚡',
+    icon: ShoppingBag,
     shortDesc:
       'Professional online store development with product catalogs, payments, checkout, order management and mobile optimization.',
     fullDesc:
@@ -219,7 +240,7 @@ services: [
     id: 'website-dev',
     title: 'Website Development Services',
     tag: 'Core Service',
-    icon: '💻',
+    icon: Monitor,
     shortDesc:
       'Professional business website design and development for companies, startups, professionals and organizations.',
     fullDesc:
@@ -243,7 +264,7 @@ services: [
     id: 'web-app-development',
     title: 'Custom Web Application Development',
     tag: 'Advanced',
-    icon: '🖥️',
+    icon: Laptop,
     shortDesc:
       'Custom web applications, portals and business platforms for complex workflows, customer systems and digital operations.',
     fullDesc:
@@ -266,7 +287,7 @@ services: [
     id: 'mobile-app-development',
     title: 'Mobile App Development Services',
     tag: 'Mobile',
-    icon: '📱',
+    icon: Smartphone,
     shortDesc:
       'Custom Android and iOS applications for startups, businesses and digital products.',
     fullDesc:
@@ -293,7 +314,7 @@ services: [
     id: 'software-development',
     title: 'Custom Software Development',
     tag: 'Business Solutions',
-    icon: '⚙️',
+    icon: Cpu,
     shortDesc:
       'Purpose-built business software for workflow automation, operations, reporting, integrations and internal systems.',
     fullDesc:
@@ -318,7 +339,7 @@ services: [
     id: 'saas-development',
     title: 'SaaS Product Development',
     tag: 'Startup',
-    icon: '☁️',
+    icon: Cloud,
     shortDesc:
       'Scalable SaaS product development with user accounts, dashboards, APIs, subscriptions and cloud-ready architecture.',
     fullDesc:
@@ -343,7 +364,7 @@ services: [
     id: 'crm-erp-development',
     title: 'CRM & ERP Software Development',
     tag: 'Enterprise',
-    icon: '📊',
+    icon: BarChart3,
     shortDesc:
       'Custom CRM and ERP systems for managing customers, sales, projects, finance, HR, support and business operations.',
     fullDesc:
@@ -370,7 +391,7 @@ services: [
     id: 'seo-gmb',
     title: 'SEO & Google Business Profile Services',
     tag: 'Local Reach',
-    icon: '📍',
+    icon: MapPin,
     shortDesc:
       'Search engine optimization and Google Business Profile services for improving organic and local search visibility.',
     fullDesc:
@@ -397,7 +418,7 @@ services: [
     id: 'branding-design',
     title: 'Branding & Graphic Design Services',
     tag: 'Creative',
-    icon: '🎨',
+    icon: Palette,
     shortDesc:
       'Professional brand identity and graphic design for businesses, startups, products and organizations.',
     fullDesc:
@@ -420,7 +441,7 @@ services: [
     id: 'ui-ux-design',
     title: 'UI/UX Design Services',
     tag: 'Product Design',
-    icon: '✨',
+    icon: Sparkles,
     shortDesc:
       'User-focused interface and experience design for websites, dashboards, mobile applications and digital products.',
     fullDesc:
@@ -443,7 +464,7 @@ services: [
     id: 'paid-advertising',
     title: 'Paid Advertising Management',
     tag: 'Controlled Budget',
-    icon: '🎯',
+    icon: Target,
     shortDesc:
       'Google, Facebook and Instagram advertising management focused on relevant audiences, enquiries and measurable campaign performance.',
     fullDesc:
@@ -466,7 +487,7 @@ services: [
     id: 'google-ads',
     title: 'Google Ads Management Services',
     tag: 'High Intent',
-    icon: '🔍',
+    icon: Search,
     shortDesc:
       'Google Search and Maps advertising for businesses targeting customers who are actively searching for relevant products or services.',
     fullDesc:
@@ -488,7 +509,7 @@ services: [
     id: 'meta-ads',
     title: 'Meta Ads Management Services',
     tag: 'Social Leads',
-    icon: '📱',
+    icon: Share2,
     shortDesc:
       'Facebook and Instagram advertising designed around audience targeting, creative testing and customer enquiries.',
     fullDesc:
@@ -510,7 +531,7 @@ services: [
     id: 'website-maintenance',
     title: 'Website Maintenance & Support Services',
     tag: 'Support',
-    icon: '🔧',
+    icon: Wrench,
     shortDesc:
       'Ongoing website and software maintenance covering updates, security, performance, content changes and technical support.',
     fullDesc:
@@ -564,7 +585,7 @@ services: [
       title: 'Aura Drishti CCTV & Surveillance',
       category: 'CCTV Installation & Security Services',
       tag: 'Case Study',
-      metrics: '4.9★ Rating • 3x GMB Visits',
+      metrics: '4.9/5 Rating • 3x GMB Visits',
       image: auradrishtiImg,
       description: 'A CCTV camera installation, servicing, and surveillance equipment sales company built with custom web UI, GMB verification, and lead generation campaigns.',
       deliveredServices: ['Advertising', 'Web Development', 'Social Media Management', 'Branding', 'Graphic Design'],

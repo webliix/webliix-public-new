@@ -1,3 +1,14 @@
+import {
+  Sun,
+  Moon,
+  Leaf,
+  Sparkles,
+  Crown,
+  Zap,
+  Square,
+  Circle
+} from 'lucide-react';
+
 // Single Source of Truth for Webliix Spatial Design System: Themes, Fonts, Corner Styles & Accents
 
 export const themePresets = [
@@ -7,8 +18,8 @@ export const themePresets = [
   // ============================================================
   {
     id: 'webliix-light',
-    name: '☀️ Webliix Light',
-    icon: '☀️',
+    name: 'Webliix Light',
+    icon: Sun,
     isDark: false,
     colors: {
       bg: '#F8FAFC',
@@ -29,8 +40,8 @@ export const themePresets = [
   // ============================================================
   {
     id: 'webliix-dark',
-    name: '🌙 Webliix Dark',
-    icon: '🌙',
+    name: 'Webliix Dark',
+    icon: Moon,
     isDark: true,
     colors: {
       bg: '#090D16',
@@ -51,8 +62,8 @@ export const themePresets = [
   // ============================================================
   {
     id: 'emerald-obsidian',
-    name: '🌿 Emerald Matrix',
-    icon: '🌿',
+    name: 'Emerald Matrix',
+    icon: Leaf,
     isDark: true,
     colors: {
       bg: '#03140F',
@@ -73,8 +84,8 @@ export const themePresets = [
   // ============================================================
   {
     id: 'sunset-nebula',
-    name: '🌌 Sunset Nebula',
-    icon: '🌌',
+    name: 'Sunset Nebula',
+    icon: Sparkles,
     isDark: true,
     colors: {
       bg: '#0D061A',
@@ -95,8 +106,8 @@ export const themePresets = [
   // ============================================================
   {
     id: 'luxury-gold',
-    name: '👑 Luxury Gold',
-    icon: '👑',
+    name: 'Luxury Gold',
+    icon: Crown,
     isDark: true,
     colors: {
       bg: '#120F09',
@@ -117,8 +128,8 @@ export const themePresets = [
   // ============================================================
   {
     id: 'cyber-aqua',
-    name: '⚡ Cyber Aqua',
-    icon: '⚡',
+    name: 'Cyber Aqua',
+    icon: Zap,
     isDark: true,
     colors: {
       bg: '#04070B',
@@ -203,13 +214,15 @@ export const defaultFont = fontPresets[0];
 export const cornerStylePresets = [
   {
     id: 'edgy',
-    name: '📐 Edgy (Default)',
+    name: 'Edgy (Default)',
+    icon: Square,
     label: 'Edgy (Default)',
     desc: 'Sharp geometric edges with technical corner brackets'
   },
   {
     id: 'rounded',
-    name: '🔘 Rounded',
+    name: 'Rounded',
+    icon: Circle,
     label: 'Rounded Corners',
     desc: 'Smooth ergonomic curves across all cards and buttons'
   }

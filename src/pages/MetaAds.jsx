@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import {
   Share2,
+  Smartphone,
   Sparkles,
   ArrowRight,
   ArrowUpRight,
@@ -286,8 +287,9 @@ export default function MetaAds() {
           Webliix helps small businesses create and manage Facebook and Instagram advertising campaigns designed around clear business objectives such as enquiries, website visits, promotions and lead generation.
         </p>
 
-        <div className="inline-block p-3 sm:px-6 theme-rounded-card bg-theme-primary/5 border border-theme-primary/30 text-xs sm:text-sm font-medium text-theme-text">
-          📱 <strong className="text-theme-primary">Direct Customer Inquiries:</strong> Generate instant WhatsApp messages, phone calls, or qualified lead form submissions from local buyers.
+        <div className="inline-flex items-center gap-2.5 p-3 sm:px-6 theme-rounded-card bg-theme-primary/5 border border-theme-primary/30 text-xs sm:text-sm font-medium text-theme-text text-left sm:text-center">
+          <Smartphone className="w-4 h-4 text-theme-primary shrink-0" />
+          <span><strong className="text-theme-primary">Direct Customer Inquiries:</strong> Generate instant WhatsApp messages, phone calls, or qualified lead form submissions from local buyers.</span>
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-4 pt-2">

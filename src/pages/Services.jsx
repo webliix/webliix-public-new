@@ -317,9 +317,9 @@ export default function Services() {
 
                 <div className="flex items-center justify-between">
 
-                  <span className="text-4xl p-2 theme-rounded-card bg-theme-primary/10 border border-theme-primary/20">
-                    {service.icon}
-                  </span>
+                  <div className="p-3 theme-rounded-card bg-theme-primary/10 text-theme-primary border border-theme-primary/20 flex items-center justify-center">
+                    <WebliixIcon icon={service.icon} size="xl" />
+                  </div>
 
                   <span className="px-3 py-1 theme-rounded-badge text-xs font-mono font-bold bg-theme-primary/15 text-theme-primary border border-theme-primary/30">
                     {service.tag}

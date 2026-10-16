@@ -44,7 +44,7 @@ export default function Home() {
 
   const handleOpenServiceModal = (service) => {
     openModal({
-      title: `${service.icon} ${service.title}`,
+      title: service.title,
       content: (
         <div className="space-y-4">
           <p className="text-theme-muted text-sm leading-relaxed">{service.fullDesc}</p>
@@ -494,7 +494,9 @@ export default function Home() {
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-2xl">{service.icon}</span>
+                  <div className="p-2 rounded-xl bg-theme-primary/10 text-theme-primary group-hover:bg-theme-primary group-hover:text-white transition-colors duration-200">
+                    <WebliixIcon icon={service.icon} size="md" />
+                  </div>
                   <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-theme-primary/15 text-theme-primary border border-theme-primary/30">
                     {service.tag}
                   </span>

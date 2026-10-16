@@ -166,11 +166,15 @@ export default function SpatialThemeControl() {
                             }`}
                           >
                             <div className="flex items-center justify-between">
-                              <span className="text-xs">{preset.icon}</span>
+                              {typeof preset.icon === 'function' ? (
+                                <preset.icon className="w-3.5 h-3.5 text-theme-primary" />
+                              ) : (
+                                <span className="text-xs">{preset.icon}</span>
+                              )}
                               {isSelected && <span className="w-1.5 h-1.5 rounded-full bg-theme-primary animate-pulse" />}
                             </div>
                             <span className="text-[10px] sm:text-[11px] font-display font-bold text-theme-text truncate block mt-0.5">
-                              {preset.name.replace(/^[^\s]+\s/, '')}
+                              {preset.name}
                             </span>
                             <div className="flex items-center gap-0.5 pt-0.5">
                               <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: preset.colors.primary }} />
@@ -243,13 +247,16 @@ export default function SpatialThemeControl() {
                                 : 'glass-spatial border-theme-border/60 hover:border-theme-border hover:bg-theme-card/60'
                             }`}
                           >
-                            <div>
-                              <span className="text-[10.5px] sm:text-xs font-mono font-bold text-theme-text block">
-                                {style.name}
-                              </span>
-                              <span className="text-[9px] text-theme-muted block mt-0.5">
-                                {style.id === 'edgy' ? '0px / 4px geometric' : '20px / 24px curves'}
-                              </span>
+                            <div className="flex items-center gap-2">
+                              {style.icon && <style.icon className="w-3.5 h-3.5 text-theme-primary shrink-0" />}
+                              <div>
+                                <span className="text-[10.5px] sm:text-xs font-mono font-bold text-theme-text block">
+                                  {style.name}
+                                </span>
+                                <span className="text-[9px] text-theme-muted block mt-0.5">
+                                  {style.id === 'edgy' ? '0px / 4px geometric' : '20px / 24px curves'}
+                                </span>
+                              </div>
                             </div>
                             {isSelected && <CheckCircle2 className="w-3 h-3 text-theme-primary shrink-0" />}
                           </button>

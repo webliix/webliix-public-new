@@ -38,7 +38,9 @@ import {
   FileCode,
   CreditCard,
   PlusCircle,
-  Star
+  Star,
+  Info,
+  Lightbulb
 } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import { useModal } from '../context/ModalContext';
@@ -60,7 +62,7 @@ const FORM_NAME = 'launchkit-enquiry';
 
 export default function LaunchKit() {
   const [openFaq, setOpenFaq] = useState(null);
-  const [selectedPackage, setSelectedPackage] = useState('02 — PROFESSIONAL ⭐ (Starting @ ₹19,999)');
+  const [selectedPackage, setSelectedPackage] = useState('02 — PROFESSIONAL (Starting @ ₹19,999)');
   const [formData, setFormData] = useState({
     name: '',
     businessName: '',
@@ -69,7 +71,7 @@ export default function LaunchKit() {
     country: '',
     website: '',
     needs: 'New Website',
-    package: '02 — PROFESSIONAL ⭐ (Starting @ ₹19,999)',
+    package: '02 — PROFESSIONAL (Starting @ ₹19,999)',
     budget: '₹15,000–₹35,000',
     targetMarket: '',
     message: ''
@@ -190,16 +192,16 @@ export default function LaunchKit() {
     },
     {
       situation: 'Need a stronger brand and website?',
-      recommendation: '02 — PROFESSIONAL ⭐',
+      recommendation: '02 — PROFESSIONAL',
       badge: 'Build Your Brand',
-      pkgTarget: '02 — PROFESSIONAL ⭐ (Starting @ ₹19,999)',
+      pkgTarget: '02 — PROFESSIONAL (Starting @ ₹19,999)',
       desc: 'Combine a more complete visual identity, multi-page website, stronger lead sections and a deeper local SEO foundation.'
     },
     {
       situation: 'Want to improve your Google visibility?',
       recommendation: '02 — PROFESSIONAL + SEO',
       badge: 'Search Visibility',
-      pkgTarget: '02 — PROFESSIONAL ⭐ (Starting @ ₹19,999)',
+      pkgTarget: '02 — PROFESSIONAL (Starting @ ₹19,999)',
       desc: 'Add keyword research, page optimization, internal linking, Google Business Profile optimization and technical SEO work.'
     },
     {
@@ -291,7 +293,7 @@ export default function LaunchKit() {
     {
       id: 'professional',
       number: '02',
-      name: '02 — PROFESSIONAL ⭐',
+      name: '02 — PROFESSIONAL',
       intent: 'Build Your Brand',
       price: '₹19,999',
       priceLabel: 'Starting @',
@@ -572,12 +574,12 @@ export default function LaunchKit() {
     { feature: 'Starting Price', essential: '₹9,999', professional: '₹19,999', businessPro: '₹34,999', ecommerce: '₹29,999' },
     { feature: 'Core Pages Included', essential: '3–5 Pages', professional: '7–10 Pages', businessPro: '12–15 Pages', ecommerce: 'Store + Product Pages' },
     { feature: 'Logo / Brand Design', essential: 'Basic Logo & Colors', professional: 'Brand Starter Kit', businessPro: 'Full Brand System + 3 Posts', ecommerce: 'Basic Store Branding' },
-    { feature: 'Mobile-First Responsive UI', essential: '✓', professional: '✓', businessPro: '✓', ecommerce: '✓' },
+    { feature: 'Mobile-First Responsive UI', essential: 'Included', professional: 'Included', businessPro: 'Included', ecommerce: 'Included' },
     { feature: 'Google Business Profile', essential: 'Setup', professional: 'Optimization', businessPro: 'Expanded Optimization', ecommerce: 'Setup' },
     { feature: 'Technical & On-Page SEO', essential: 'Basic Setup', professional: 'Expanded SEO Foundation', businessPro: 'Advanced SEO Foundation', ecommerce: 'Product SEO Foundation' },
     { feature: 'Lead Capture & WhatsApp CTA', essential: 'Standard Form + CTA', professional: 'Advanced Forms + CTA', businessPro: 'Tracking + CRM Ready', ecommerce: 'Cart + Product Enquiries' },
     { feature: 'E-Commerce / Payment Gateway', essential: '—', professional: 'Optional Add-on', businessPro: 'Optional Add-on', ecommerce: 'Included (25 Products)' },
-    { feature: 'Google Analytics & Search Console', essential: '✓', professional: '✓ + Conversion Tracking', businessPro: '✓ + Event / Pixel Tracking', ecommerce: '✓ + Purchase Tracking' },
+    { feature: 'Google Analytics & Search Console', essential: 'Included', professional: 'Conversion Tracking Included', businessPro: 'Event & Pixel Tracking Included', ecommerce: 'Purchase Tracking Included' },
     { feature: 'Professional Business Email', essential: '1 Account Setup', professional: 'Included', businessPro: 'Included', ecommerce: 'Included' },
     { feature: 'Post-Launch Support', essential: 'Launch Support', professional: '90 Days Included', businessPro: '180 Days Included', ecommerce: '60 Days Included' },
     { feature: 'Standard Delivery Time', essential: '5–10 Working Days', professional: '10–15 Working Days', businessPro: '15–25 Working Days', ecommerce: '10–18 Working Days' }
@@ -812,7 +814,7 @@ export default function LaunchKit() {
         </div>
       </section>
 
-      {/* 🚀 MAIN LAUNCHKIT PACKAGES (4 TIERS) */}
+      {/* MAIN LAUNCHKIT PACKAGES (4 TIERS) */}
       <section id="launchkit-packages" className="space-y-8 pt-6 border-t border-theme-border/60 scroll-mt-24">
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-bold">
@@ -910,15 +912,17 @@ export default function LaunchKit() {
 
                 {/* SEO Highlight Note for Professional */}
                 {pkg.seoHighlight && (
-                  <div className="p-3 theme-rounded-card bg-theme-primary/5 border border-theme-primary/20 text-[11px] text-theme-muted leading-relaxed">
-                    💡 <strong className="text-theme-text">Google Compliance:</strong> {pkg.seoHighlight}
+                  <div className="p-3 theme-rounded-card bg-theme-primary/5 border border-theme-primary/20 text-[11px] text-theme-muted leading-relaxed flex items-start gap-2">
+                    <Lightbulb className="w-4 h-4 text-theme-primary shrink-0 mt-0.5" />
+                    <span><strong className="text-theme-text">Google Compliance:</strong> {pkg.seoHighlight}</span>
                   </div>
                 )}
 
                 {/* Extra note for Ecommerce */}
                 {pkg.extraNote && (
-                  <div className="p-2.5 theme-rounded-card glass-spatial border border-theme-border/60 text-[11px] text-theme-muted leading-relaxed">
-                    ℹ️ {pkg.extraNote}
+                  <div className="p-2.5 theme-rounded-card glass-spatial border border-theme-border/60 text-[11px] text-theme-muted leading-relaxed flex items-start gap-2">
+                    <Info className="w-3.5 h-3.5 text-theme-primary shrink-0 mt-0.5" />
+                    <span>{pkg.extraNote}</span>
                   </div>
                 )}
 
@@ -1018,7 +1022,7 @@ export default function LaunchKit() {
         </div>
       </section>
 
-      {/* 🧩 ADD-ON SERVICES SECTION (Modular Enhancements) */}
+      {/* ADD-ON SERVICES SECTION (Modular Enhancements) */}
       <section className="space-y-8 pt-6 border-t border-theme-border/60">
         <div className="text-center max-w-2xl mx-auto space-y-2">
           <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-bold">
@@ -1053,8 +1057,9 @@ export default function LaunchKit() {
 
                 {/* Optional notice (like for Google SEO) */}
                 {cat.note && (
-                  <div className="p-3 theme-rounded-card bg-theme-primary/5 border border-theme-primary/20 text-xs font-mono text-theme-primary">
-                    💡 <strong className="font-bold">Transparency Note:</strong> {cat.note}
+                  <div className="p-3 theme-rounded-card bg-theme-primary/5 border border-theme-primary/20 text-xs font-mono text-theme-primary flex items-start gap-2">
+                    <ShieldCheck className="w-4 h-4 text-theme-primary shrink-0 mt-0.5" />
+                    <span><strong className="font-bold">Transparency Note:</strong> {cat.note}</span>
                   </div>
                 )}
 
@@ -1108,7 +1113,7 @@ export default function LaunchKit() {
         </div>
       </section>
 
-      {/* 📊 PACKAGE COMPARISON TABLE */}
+      {/* PACKAGE COMPARISON TABLE */}
       <section className="space-y-8 pt-6 border-t border-theme-border/60">
         <div className="text-center max-w-2xl mx-auto space-y-2">
           <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-bold">
@@ -1129,7 +1134,10 @@ export default function LaunchKit() {
                 <th className="p-3.5 font-mono font-bold text-theme-primary uppercase">Feature / Scope</th>
                 <th className="p-3.5 font-mono font-bold text-theme-text uppercase">01 Essential</th>
                 <th className="p-3.5 font-mono font-bold text-theme-primary uppercase bg-theme-primary/10 theme-rounded-card">
-                  02 Professional ⭐
+                  <span className="inline-flex items-center gap-1">
+                    <span>02 Professional</span>
+                    <Star className="w-3.5 h-3.5 fill-current text-amber-400" />
+                  </span>
                 </th>
                 <th className="p-3.5 font-mono font-bold text-theme-text uppercase">03 Business Pro</th>
                 <th className="p-3.5 font-mono font-bold text-theme-text uppercase">04 E-Commerce</th>
@@ -1150,7 +1158,7 @@ export default function LaunchKit() {
         </div>
       </section>
 
-      {/* 🗺️ EXECUTION PROCESS ROADMAP */}
+      {/* EXECUTION PROCESS ROADMAP */}
       <section className="space-y-8 pt-6 border-t border-theme-border/60">
         <div className="text-center max-w-2xl mx-auto space-y-2">
           <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-bold">
@@ -1183,7 +1191,7 @@ export default function LaunchKit() {
         </div>
       </section>
 
-      {/* ❓ FREQUENTLY ASKED QUESTIONS */}
+      {/* FREQUENTLY ASKED QUESTIONS */}
       <section className="space-y-8 pt-6 border-t border-theme-border/60">
         <div className="text-center max-w-2xl mx-auto space-y-2">
           <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-bold">
@@ -1230,7 +1238,7 @@ export default function LaunchKit() {
         </div>
       </section>
 
-      {/* 📝 LEAD CAPTURE / ENQUIRY FORM */}
+      {/* LEAD CAPTURE / ENQUIRY FORM */}
       <section id="launchkit-form-section" className="space-y-6 pt-6 border-t border-theme-border/60 scroll-mt-24">
         <WebliixCard
           variant="panel"
@@ -1279,7 +1287,7 @@ export default function LaunchKit() {
                         country: '',
                         website: '',
                         needs: 'New Website',
-                        package: '02 — PROFESSIONAL ⭐ (Starting @ ₹19,999)',
+                        package: '02 — PROFESSIONAL (Starting @ ₹19,999)',
                         budget: '₹15,000–₹35,000',
                         targetMarket: '',
                         message: ''
@@ -1421,7 +1429,7 @@ export default function LaunchKit() {
                       onChange={handleChange}
                     >
                       <option value="01 — ESSENTIAL (Starting @ ₹9,999)">01 — ESSENTIAL (Starting @ ₹9,999)</option>
-                      <option value="02 — PROFESSIONAL ⭐ (Starting @ ₹19,999)">02 — PROFESSIONAL ⭐ Most Popular (Starting @ ₹19,999)</option>
+                      <option value="02 — PROFESSIONAL (Starting @ ₹19,999)">02 — PROFESSIONAL (Most Popular) (Starting @ ₹19,999)</option>
                       <option value="03 — BUSINESS PRO (Starting @ ₹34,999)">03 — BUSINESS PRO (Starting @ ₹34,999)</option>
                       <option value="04 — E-COMMERCE (Starting @ ₹29,999)">04 — E-COMMERCE (Starting @ ₹29,999)</option>
                       <option value="Custom Add-ons / Individual Services">Custom Add-ons / Individual Services</option>

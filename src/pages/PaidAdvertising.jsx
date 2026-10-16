@@ -323,8 +323,9 @@ export default function PaidAdvertising() {
         </p>
 
         {/* Supporting statement */}
-        <div className="inline-block p-3 sm:px-6 theme-rounded-card bg-theme-primary/5 border border-theme-primary/30 text-xs sm:text-sm font-medium text-theme-text">
-          ✨ <strong className="text-theme-primary">Clear Cost Separation:</strong> Your advertising budget stays yours. Our management fee is separate.
+        <div className="inline-flex items-center gap-2.5 p-3 sm:px-6 theme-rounded-card bg-theme-primary/5 border border-theme-primary/30 text-xs sm:text-sm font-medium text-theme-text text-left sm:text-center">
+          <Sparkles className="w-4 h-4 text-theme-primary shrink-0" />
+          <span><strong className="text-theme-primary">Clear Cost Separation:</strong> Your advertising budget stays yours. Our management fee is separate.</span>
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
@@ -889,8 +890,9 @@ export default function PaidAdvertising() {
               </ul>
             </div>
 
-            <div className="p-3 theme-rounded-card bg-amber-500/10 border border-amber-500/30 text-xs text-theme-text">
-              ⚡ <strong>Speed to Lead Matters:</strong> A good ad campaign generates an enquiry, but prompt response time from your sales team is essential to close the customer.
+            <div className="p-3 theme-rounded-card bg-amber-500/10 border border-amber-500/30 text-xs text-theme-text flex items-start sm:items-center gap-2">
+              <Zap className="w-4 h-4 text-amber-500 shrink-0 mt-0.5 sm:mt-0" />
+              <span><strong>Speed to Lead Matters:</strong> A good ad campaign generates an enquiry, but prompt response time from your sales team is essential to close the customer.</span>
             </div>
           </WebliixCard>
 
@@ -930,8 +932,9 @@ export default function PaidAdvertising() {
               </div>
             </div>
 
-            <p className="text-[11px] text-theme-muted italic pt-1">
-              🔒 Webliix does not need your personal Google or Facebook password to manage your campaigns.
+            <p className="text-[11px] text-theme-muted italic pt-1 inline-flex items-center gap-1.5">
+              <Lock className="w-3.5 h-3.5 shrink-0" />
+              <span>Webliix does not need your personal Google or Facebook password to manage your campaigns.</span>
             </p>
           </WebliixCard>
         </div>

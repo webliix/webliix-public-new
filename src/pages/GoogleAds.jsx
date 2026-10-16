@@ -284,8 +284,9 @@ export default function GoogleAds() {
           Webliix helps small businesses create, manage and optimize Google Ads campaigns designed to reach people actively searching for relevant products and services.
         </p>
 
-        <div className="inline-block p-3 sm:px-6 theme-rounded-card bg-theme-primary/5 border border-theme-primary/30 text-xs sm:text-sm font-medium text-theme-text">
-          🎯 <strong className="text-theme-primary">High Commercial Intent:</strong> Show up right when potential buyers are looking for solutions in your service area.
+        <div className="inline-flex items-center gap-2.5 p-3 sm:px-6 theme-rounded-card bg-theme-primary/5 border border-theme-primary/30 text-xs sm:text-sm font-medium text-theme-text text-left sm:text-center">
+          <Target className="w-4 h-4 text-theme-primary shrink-0" />
+          <span><strong className="text-theme-primary">High Commercial Intent:</strong> Show up right when potential buyers are looking for solutions in your service area.</span>
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
