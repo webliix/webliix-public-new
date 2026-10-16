@@ -211,16 +211,19 @@ h1, h2, h3, h4, h5, h6, .font-display {
   -webkit-backdrop-filter: blur(var(--glass-blur, 12px));
   border: 1px solid var(--color-border, rgba(37, 99, 235, 0.35));
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1), backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease;
-  will-change: transform, backdrop-filter;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
+  transition: border-color 0.28s ease, background-color 0.28s ease, box-shadow 0.28s ease, backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease;
+  will-change: transform, box-shadow;
+  /* Baseline identity transforms for stacking context stability */
+  translate: 0 0;
+  scale: 1;
+  rotate: 0deg;
 }
 
-
-.glass-spatial:hover {
-  border-color: var(--color-primary, #2563eb);
-  box-shadow: 0 15px 40px -10px var(--color-glow, rgba(37, 99, 235, 0.4));
+@media (hover: hover) and (pointer: fine) {
+  .glass-spatial:hover {
+    border-color: var(--color-primary, #38bdf8);
+    box-shadow: 0 16px 40px -10px var(--color-glow, rgba(56, 189, 248, 0.28)), 0 0 20px -2px var(--color-glow, rgba(56, 189, 248, 0.20));
+  }
 }
 
 /* ─── Primary Button ─────────────────────────────────────────────
