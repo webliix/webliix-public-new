@@ -124,6 +124,7 @@ export default function WebliixCard({
   children,
   variant = 'standard',
   accentColor = 'primary',
+  active = false,
   hoverable,
   clickable = false,
   hoverGlare = true,
@@ -255,6 +256,7 @@ export default function WebliixCard({
         isInteractive
           ? 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-theme-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-theme-background'
           : '',
+        active ? 'ring-1 ring-theme-primary/80 border-theme-primary shadow-spatial' : '',
         sanitizedClassName,
       ]
         .filter(Boolean)

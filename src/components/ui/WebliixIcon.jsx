@@ -59,12 +59,22 @@ export default function WebliixIcon({
   className = '',
   ...props
 }) {
+  if (!icon && !social) return null;
+
+  // If already a rendered React element
+  if (React.isValidElement(icon)) {
+    return icon;
+  }
+
   // Resolve icon component (Lucide component OR social string identifier)
   let IconComponent = icon;
 
   const socialKey = (typeof icon === 'string' ? icon : social || '').toLowerCase();
   if (socialKey && SOCIAL_ICONS[socialKey]) {
     IconComponent = SOCIAL_ICONS[socialKey];
+  } else if (typeof IconComponent === 'string') {
+    // If it's a string and not a social icon, render as text/emoji safely
+    return <span className={className} {...props}>{IconComponent}</span>;
   }
 
   if (!IconComponent) return null;

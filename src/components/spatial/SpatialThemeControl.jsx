@@ -166,11 +166,7 @@ export default function SpatialThemeControl() {
                             }`}
                           >
                             <div className="flex items-center justify-between">
-                              {typeof preset.icon === 'function' ? (
-                                <preset.icon className="w-3.5 h-3.5 text-theme-primary" />
-                              ) : (
-                                <span className="text-xs">{preset.icon}</span>
-                              )}
+                              <WebliixIcon icon={preset.icon} size="sm" />
                               {isSelected && <span className="w-1.5 h-1.5 rounded-full bg-theme-primary animate-pulse" />}
                             </div>
                             <span className="text-[10px] sm:text-[11px] font-display font-bold text-theme-text truncate block mt-0.5">
@@ -248,7 +244,7 @@ export default function SpatialThemeControl() {
                             }`}
                           >
                             <div className="flex items-center gap-2">
-                              {style.icon && <style.icon className="w-3.5 h-3.5 text-theme-primary shrink-0" />}
+                              {style.icon && <WebliixIcon icon={style.icon} size="sm" />}
                               <div>
                                 <span className="text-[10.5px] sm:text-xs font-mono font-bold text-theme-text block">
                                   {style.name}
