@@ -100,8 +100,44 @@ export default function Contact() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-12">
       <Helmet>
-        <title>Contact Us | {siteConfig.brand.name}</title>
-        <meta name="description" content="Get in touch with Webliix to start your website, SEO, or digital marketing project. Serving clients across NCR India, USA, Canada, and Germany." />
+        <title>Contact Us | Free Website &amp; SEO Consultation | {siteConfig.brand.name}</title>
+        <meta name="description" content="Get in touch with Webliix engineers to start your website development, SEO ranking, or e-commerce project. Free project consultation & 2-hour response time." />
+        <meta name="keywords" content="contact Webliix, hire web developer India, website design quote, SEO consultation, Shopify expert contact, web agency contact" />
+        <link rel="canonical" href="https://webliix.com/contact" />
+        <meta property="og:title" content={`Contact Us | Free Website & SEO Consultation | ${siteConfig.brand.name}`} />
+        <meta property="og:description" content="Connect with Webliix engineers to build high-converting websites, local SEO engines, or custom software platforms." />
+        <meta property="og:url" content="https://webliix.com/contact" />
+        <meta property="og:type" content="website" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "@id": "https://webliix.com/contact#webpage",
+            "url": "https://webliix.com/contact",
+            "name": "Contact Webliix — Digital Agency & Web Engineers",
+            "description": "Get in touch with Webliix to start your website, SEO, or software development project.",
+            "isPartOf": {
+              "@type": "WebSite",
+              "@id": "https://webliix.com/#website",
+              "url": "https://webliix.com",
+              "name": "Webliix"
+            },
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "Webliix",
+              "url": "https://webliix.com",
+              "telephone": "+91-9310181569",
+              "email": "support@webliix.com",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+91-9310181569",
+                "contactType": "sales",
+                "areaServed": ["IN", "US", "CA", "DE", "GB"],
+                "availableLanguage": ["English", "Hindi"]
+              }
+            }
+          })}
+        </script>
       </Helmet>
 
       <Breadcrumbs />
@@ -112,10 +148,10 @@ export default function Contact() {
           <Sparkles className="w-3.5 h-3.5" /> Let's Connect
         </span>
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text">
-          Start Your <span className="text-shimmer">Digital Journey</span>
+          Contact Webliix — <span className="text-shimmer">Free Consultation</span>
         </h1>
         <p className="text-theme-muted text-base sm:text-lg">
-          Connect with Webliix engineers to build high-converting websites, local SEO engines, or custom software platforms.
+          Connect with Webliix engineers to build high-converting business websites, Shopify stores, local SEO engines, or custom software platforms.
         </p>
       </div>
 

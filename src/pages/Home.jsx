@@ -348,13 +348,13 @@ export default function Home() {
 
           {/* Main Headline */}
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-display font-extrabold text-theme-text leading-[1.08] tracking-tight">
-            Empower Your<br />
-            <span className="text-shimmer">Digital Journey</span>
+            Professional Website Development &amp;<br />
+            <span className="text-shimmer">SEO Growth Solutions</span>
           </h1>
 
           {/* Subtext (LCP Element) */}
           <p className="text-theme-muted text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-            We build business websites, e-commerce stores, custom web applications and search-ready digital experiences for startups, local businesses and growing companies in India and international markets.
+            We build fast business websites, high-converting Shopify e-commerce stores, custom web applications, and local SEO engines that help startups and businesses rank #1 and grow revenue.
           </p>
 
           {/* Action CTAs */}
@@ -366,7 +366,12 @@ export default function Home() {
             </Link>
             <Link to="/services">
               <WebliixButton variant="ghost" className="text-xs sm:text-sm px-6 py-3">
-                Explore Solutions
+                Explore Services
+              </WebliixButton>
+            </Link>
+            <Link to="/launch-kit">
+              <WebliixButton variant="ghost" className="text-xs sm:text-sm px-6 py-3 text-theme-primary">
+                View LaunchKit Packages
               </WebliixButton>
             </Link>
           </div>

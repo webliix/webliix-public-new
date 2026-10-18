@@ -277,9 +277,30 @@ export default function Careers() {
         <title>Careers &amp; Growth Partner Program | {siteConfig.brand.name}</title>
         <meta
           name="description"
-          content="Explore career opportunities at Webliix. Join our engineering, design, and strategic partner teams. Remote-first culture, high-impact projects, and revenue-share incentives."
+          content="Explore career opportunities at Webliix. Join our web development, SEO, and strategic partner teams. Remote-first culture, high-impact projects, and revenue-share incentives."
         />
+        <meta name="keywords" content="Webliix careers, web developer jobs India, remote React developer, partner program, digital marketing partnership" />
         <link rel="canonical" href="https://webliix.com/careers" />
+        <meta property="og:title" content={`Careers & Growth Partner Program | ${siteConfig.brand.name}`} />
+        <meta property="og:description" content="Join our web development, SEO, and strategic partner teams. Remote-first culture and high-impact projects." />
+        <meta property="og:url" content="https://webliix.com/careers" />
+        <meta property="og:type" content="website" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": "https://webliix.com/careers#webpage",
+            "url": "https://webliix.com/careers",
+            "name": "Careers & Growth Partner Program at Webliix",
+            "description": "Career opportunities and strategic growth partner program at Webliix.",
+            "isPartOf": {
+              "@type": "WebSite",
+              "@id": "https://webliix.com/#website",
+              "url": "https://webliix.com",
+              "name": "Webliix"
+            }
+          })}
+        </script>
       </Helmet>
 
       {/* Dynamic Breadcrumbs */}
@@ -291,7 +312,7 @@ export default function Careers() {
           <Sparkles className="w-3.5 h-3.5" /> Careers &amp; Strategic Partnerships
         </span>
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">
-          Build the Future with <span className="text-shimmer">Webliix</span>
+          Careers &amp; Partner Program at <span className="text-shimmer">Webliix</span>
         </h1>
         <p className="text-theme-muted text-base sm:text-lg leading-relaxed">
           Join an agile engineering and design collective. Whether you want to craft high-performance code, design spatial interfaces, or collaborate as a strategic growth partner, thrive with us.

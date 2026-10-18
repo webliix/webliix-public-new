@@ -16,11 +16,44 @@ export default function AuraDrishtiCaseStudy() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-5xl mx-auto space-y-12">
       <Helmet>
-        <title>AuraDrishti CCTV & Security Case Study | Webliix</title>
+        <title>AuraDrishti CCTV &amp; Security Case Study | Webliix</title>
         <meta name="description" content="Read how Webliix delivered complete digital transformation for AuraDrishti with brand identity, custom website design, Google Maps GMB setup, and local SEO lead generation in Noida." />
         <meta name="keywords" content="AuraDrishti case study, CCTV security website Noida, local SEO case study, Google Business Profile ranking case study, web design results India" />
         <meta name="robots" content="index, follow, max-image-preview:large" />
         <link rel="canonical" href="https://webliix.com/case-studies/auradrishti" />
+        <meta property="og:title" content="AuraDrishti CCTV & Security Case Study | Webliix" />
+        <meta property="og:description" content="3x Google Business Profile visits and 2.5x customer calls with Webliix custom website & local SEO." />
+        <meta property="og:url" content="https://webliix.com/case-studies/auradrishti" />
+        <meta property="og:type" content="article" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "@id": "https://webliix.com/case-studies/auradrishti#article",
+            "headline": "AuraDrishti Case Study — Local SEO & Custom Website Design",
+            "description": "How AuraDrishti achieved 3x Google Business Profile visits and 2.5x customer calls with Webliix web design and local SEO.",
+            "url": "https://webliix.com/case-studies/auradrishti",
+            "image": auradrishtiImg,
+            "author": {
+              "@type": "Organization",
+              "name": "Webliix",
+              "url": "https://webliix.com"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Webliix",
+              "url": "https://webliix.com"
+            },
+            "about": {
+              "@type": "Service",
+              "name": "Local SEO & Website Development",
+              "provider": {
+                "@type": "Organization",
+                "name": "Webliix"
+              }
+            }
+          })}
+        </script>
       </Helmet>
 
       {/* Dynamic Breadcrumbs */}
@@ -32,10 +65,10 @@ export default function AuraDrishtiCaseStudy() {
           <ShieldCheck className="w-3.5 h-3.5" /> Featured Case Study
         </span>
         <h1 className="text-3xl sm:text-5xl font-display font-extrabold text-theme-text">
-          AuraDrishti – Noida's Smart Security Experts
+          AuraDrishti Case Study — <span className="text-shimmer">Local SEO &amp; Website Design</span>
         </h1>
         <p className="text-theme-muted text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-          A complete digital transformation journey for AuraDrishti, a premier CCTV surveillance & security installation provider in Noida, NCR.
+          A complete digital transformation journey for AuraDrishti, a premier CCTV surveillance &amp; security installation provider in Noida, NCR.
         </p>
       </div>
 

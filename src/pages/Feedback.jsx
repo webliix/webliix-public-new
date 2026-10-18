@@ -146,11 +146,33 @@ export default function Feedback() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-2xl mx-auto">
       <Helmet>
-        <title>Share Feedback | {siteConfig.brand.name}</title>
+        <title>Client Feedback &amp; Reviews | {siteConfig.brand.name}</title>
         <meta
           name="description"
-          content="Share your experience with Webliix. Your feedback helps us improve and helps other businesses find the right digital partner."
+          content="Share your experience working with Webliix. Read verified feedback and client reviews for our website development, SEO, and digital services."
         />
+        <meta name="keywords" content="Webliix reviews, Webliix client feedback, Webliix ratings, website agency reviews" />
+        <link rel="canonical" href="https://webliix.com/feedback" />
+        <meta property="og:title" content={`Client Feedback & Reviews | ${siteConfig.brand.name}`} />
+        <meta property="og:description" content="Share your experience working with Webliix. Verified client reviews and feedback." />
+        <meta property="og:url" content="https://webliix.com/feedback" />
+        <meta property="og:type" content="website" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": "https://webliix.com/feedback#webpage",
+            "url": "https://webliix.com/feedback",
+            "name": "Webliix Client Feedback & Reviews",
+            "description": "Client review submission portal and verified testimonials for Webliix.",
+            "isPartOf": {
+              "@type": "WebSite",
+              "@id": "https://webliix.com/#website",
+              "url": "https://webliix.com",
+              "name": "Webliix"
+            }
+          })}
+        </script>
       </Helmet>
 
       <Breadcrumbs />
@@ -170,9 +192,9 @@ export default function Feedback() {
                 />
               ))}
             </div>
-            <h1 className="text-3xl font-display font-extrabold text-theme-text">
+            <h2 className="text-3xl font-display font-extrabold text-theme-text">
               Thank You, {form.name}!
-            </h1>
+            </h2>
             <p className="text-theme-muted text-base max-w-sm mx-auto">
               Your feedback has been received. It means the world to us and helps us
               serve our clients better.
@@ -197,8 +219,7 @@ export default function Feedback() {
               <MessageSquare className="w-3.5 h-3.5" /> We Value Your Opinion
             </span>
             <h1 className="text-4xl sm:text-5xl font-display font-extrabold text-theme-text">
-              Share Your{' '}
-              <span className="text-shimmer">Experience</span>
+              Client Feedback &amp; <span className="text-shimmer">Reviews</span>
             </h1>
             <p className="text-theme-muted text-base">
               Worked with Webliix? We'd love to hear how it went. Your honest

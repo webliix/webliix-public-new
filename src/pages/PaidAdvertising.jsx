@@ -315,7 +315,7 @@ export default function PaidAdvertising() {
         </div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-theme-text leading-[1.15]">
-          Reach the Right Customers With <span className="text-shimmer">Smarter Paid Advertising</span>
+          Paid Advertising Services — <span className="text-shimmer">Google, Meta &amp; Social Ads</span>
         </h1>
 
         <p className="text-base sm:text-lg text-theme-muted leading-relaxed max-w-2xl mx-auto">

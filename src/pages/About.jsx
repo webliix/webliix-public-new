@@ -121,6 +121,41 @@ export default function About() {
         <meta name="keywords" content="about Webliix, Webliix founders, Himanshu Sharma, Abdul Latif, digital agency India, website development agency, web development company Bihar NCR" />
         <meta name="robots" content="index, follow, max-image-preview:large" />
         <link rel="canonical" href="https://webliix.com/about" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "@id": "https://webliix.com/about#webpage",
+            "url": "https://webliix.com/about",
+            "name": "About Webliix — Founders & Digital Agency Story",
+            "description": "Meet Webliix founders Himanshu Sharma and Abdul Latif. Learn about our story, technology stack, and global digital agency vision.",
+            "isPartOf": {
+              "@type": "WebSite",
+              "@id": "https://webliix.com/#website",
+              "url": "https://webliix.com",
+              "name": "Webliix"
+            },
+            "about": {
+              "@type": "Organization",
+              "name": "Webliix",
+              "url": "https://webliix.com",
+              "founder": [
+                {
+                  "@type": "Person",
+                  "name": "Himanshu Sharma",
+                  "jobTitle": "Co-Founder & Managing Director",
+                  "sameAs": "https://www.linkedin.com/in/himanshu-sharma-36480a246/"
+                },
+                {
+                  "@type": "Person",
+                  "name": "Abdul Latif",
+                  "jobTitle": "Co-Founder & Business Executive",
+                  "sameAs": "https://www.linkedin.com/in/abdul-latif-3a9249213/"
+                }
+              ]
+            }
+          })}
+        </script>
       </Helmet>
 
       {/* Dynamic Breadcrumbs */}
@@ -139,7 +174,7 @@ export default function About() {
           </span>
         </div>
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">
-          We Are <span className="text-shimmer">Webliix</span>
+          About Webliix — <span className="text-shimmer">Digital Agency &amp; Web Engineers</span>
         </h1>
         <p className="text-theme-muted text-base sm:text-lg leading-relaxed">
           A global digital growth agency built by two founders who believe every business — regardless of size — deserves world-class web engineering, branding, and search dominance.

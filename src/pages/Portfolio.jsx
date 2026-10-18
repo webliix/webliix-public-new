@@ -210,10 +210,41 @@ export default function Portfolio() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-20">
       <Helmet>
-        <title>Our Work | Website, Branding & Marketing Projects | Webliix</title>
-        <meta name="description" content="View our portfolio of websites, branding, and digital marketing projects for clients in India, Canada, USA, and Germany." />
+        <title>Our Work | Website, Branding &amp; Marketing Projects | Webliix</title>
+        <meta name="description" content="Explore Webliix portfolio of custom business websites, Shopify stores, brand identities, and SEO projects delivering verified growth for clients in India, USA, and worldwide." />
         <meta name="keywords" content="web design portfolio, branding samples, ecommerce site showcase, SEO results, India USA website agency, Webliix case studies" />
         <link rel="canonical" href="https://webliix.com/portfolio" />
+        <meta property="og:title" content="Our Work | Website, Branding & Marketing Projects | Webliix" />
+        <meta property="og:description" content="Explore custom business websites, Shopify stores, and SEO projects delivering verified growth." />
+        <meta property="og:url" content="https://webliix.com/portfolio" />
+        <meta property="og:type" content="website" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "@id": "https://webliix.com/portfolio#webpage",
+            "url": "https://webliix.com/portfolio",
+            "name": "Webliix Portfolio — Client Websites & Digital Case Studies",
+            "description": "Featured portfolio of custom websites, branding, and local SEO case studies built by Webliix.",
+            "isPartOf": {
+              "@type": "WebSite",
+              "@id": "https://webliix.com/#website",
+              "url": "https://webliix.com",
+              "name": "Webliix"
+            },
+            "mainEntity": {
+              "@type": "ItemList",
+              "itemListElement": portfolioItems.map((item, index) => ({
+                "@type": "CreativeWork",
+                "position": index + 1,
+                "name": item.title,
+                "description": item.description,
+                "genre": item.category,
+                "url": item.link
+              }))
+            }
+          })}
+        </script>
       </Helmet>
 
       {/* Dynamic Breadcrumbs */}
@@ -225,11 +256,11 @@ export default function Portfolio() {
           <Sparkles className="w-3.5 h-3.5" /> Proven Client Results
         </span>
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">
-          Our <span className="text-shimmer">Portfolio</span>
+          Client Work &amp; <span className="text-shimmer">Website Design Portfolio</span>
         </h1>
         <p className="text-theme-muted text-base sm:text-lg leading-relaxed">
-          Discover the stunning websites and impactful branding crafted by{' '}
-          <span className="font-bold text-theme-primary">Webliix</span> to elevate businesses worldwide.
+          Explore responsive business websites, Shopify e-commerce platforms, and brand identities crafted by{' '}
+          <span className="font-bold text-theme-primary">Webliix</span> to help businesses attract more customers and grow online.
         </p>
       </div>
 

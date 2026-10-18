@@ -48,6 +48,85 @@
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" />
     </noscript>
+
+    <!-- Global Organization & WebSite Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://webliix.com/#organization",
+          "name": "Webliix",
+          "alternateName": ["Webliix Agency", "Webliix Digital Solutions"],
+          "url": "https://webliix.com",
+          "logo": {
+            "@type": "ImageObject",
+            "@id": "https://webliix.com/#logo",
+            "url": "https://webliix.com/favicon-96x96.png",
+            "caption": "Webliix Logo"
+          },
+          "image": "https://webliix.com/og-image.jpg",
+          "description": "Webliix is a full-service digital agency providing custom website development, Shopify e-commerce stores, Google Business Profile (GMB) optimization, SEO, and paid advertising for businesses worldwide.",
+          "telephone": "+91-9310181569",
+          "email": "support@webliix.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bhagalpur",
+            "addressRegion": "Bihar",
+            "addressCountry": "IN"
+          },
+          "founder": [
+            {
+              "@type": "Person",
+              "name": "Himanshu Sharma",
+              "jobTitle": "Co-Founder & Managing Director",
+              "sameAs": "https://www.linkedin.com/in/himanshu-sharma-36480a246/"
+            },
+            {
+              "@type": "Person",
+              "name": "Abdul Latif",
+              "jobTitle": "Co-Founder & Business Executive",
+              "sameAs": "https://www.linkedin.com/in/abdul-latif-3a9249213/"
+            }
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/company/webliix",
+            "https://www.instagram.com/webliix",
+            "https://github.com/webliix",
+            "https://www.facebook.com/webliix"
+          ],
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+91-9310181569",
+              "contactType": "customer service",
+              "areaServed": ["IN", "US", "CA", "DE", "GB"],
+              "availableLanguage": ["English", "Hindi"]
+            }
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://webliix.com/#website",
+          "url": "https://webliix.com",
+          "name": "Webliix",
+          "description": "Professional Website Development, SEO & Digital Growth Solutions",
+          "publisher": {
+            "@id": "https://webliix.com/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://webliix.com/blog?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

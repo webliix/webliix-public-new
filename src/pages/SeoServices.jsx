@@ -190,10 +190,10 @@ export default function SeoServices() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-4 sm:px-6 max-w-7xl mx-auto space-y-16">
       <Helmet>
-        <title>Specialized SEO &amp; GMB Modules | {siteConfig.brand.name}</title>
+        <title>SEO Services &amp; Google My Business (GMB) Optimization | {siteConfig.brand.name}</title>
         <meta
           name="description"
-          content="Explore Webliix specialized SEO & GMB modules: Technical SEO Audit, On-Page Content SEO, Google My Business Local SEO, and Off-Page Link Building & PR."
+          content="Rank higher on Google with Webliix SEO services: Technical SEO Audits, On-Page Content Optimization, Google My Business (GMB) Local Maps ranking, and high-authority link building."
         />
         <meta
           name="keywords"
@@ -201,6 +201,62 @@ export default function SeoServices() {
         />
         <meta name="robots" content="index, follow, max-image-preview:large" />
         <link rel="canonical" href="https://webliix.com/seo" />
+        <meta property="og:title" content={`SEO Services & Google My Business (GMB) Optimization | ${siteConfig.brand.name}`} />
+        <meta property="og:description" content="Rank higher on Google and dominate local Google Maps search with transparent, white-hat SEO modules." />
+        <meta property="og:url" content="https://webliix.com/seo" />
+        <meta property="og:type" content="website" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "@id": "https://webliix.com/seo#service",
+            "name": "SEO & Google Business Profile Services",
+            "url": "https://webliix.com/seo",
+            "provider": {
+              "@type": "Organization",
+              "name": "Webliix",
+              "url": "https://webliix.com"
+            },
+            "serviceType": [
+              "Search Engine Optimization",
+              "Technical SEO Audit",
+              "On-Page SEO",
+              "Local SEO",
+              "Google My Business Optimization",
+              "Google Maps Ranking",
+              "Link Building & PR"
+            ],
+            "description": "Comprehensive SEO and Google Business Profile optimization services including Technical Audits, On-Page SEO, GMB Local Ranking, and high-authority Link Building.",
+            "areaServed": "Worldwide",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Specialized SEO Modules",
+              "itemListElement": modules.map((mod, idx) => ({
+                "@type": "Offer",
+                "position": idx + 1,
+                "name": mod.title,
+                "description": mod.desc,
+                "price": mod.price.replace(/[^0-9]/g, ""),
+                "priceCurrency": "INR",
+                "url": "https://webliix.com/seo"
+              }))
+            }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.a
+              }
+            }))
+          })}
+        </script>
       </Helmet>
 
       {/* Dynamic Breadcrumbs */}
@@ -213,11 +269,11 @@ export default function SeoServices() {
         </span>
 
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">
-          Specialized <span className="text-shimmer">SEO &amp; GMB</span> Modules
+          Professional <span className="text-shimmer">SEO &amp; Google Business Profile</span> Services
         </h1>
 
-        <p className="text-theme-muted text-base sm:text-lg leading-relaxed">
-          Data-driven search engine optimization designed to generate organic phone calls and qualified leads.
+        <p className="text-theme-muted text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+          Rank higher on Google, dominate local Google Maps searches, and get more customer calls and website visitors with transparent, white-hat SEO modules.
         </p>
 
         {/* Hero CTAs */}
@@ -225,6 +281,11 @@ export default function SeoServices() {
           <Link to="/contact">
             <WebliixButton variant="primary" size="lg" icon={ArrowUpRight}>
               Book an SEO Module
+            </WebliixButton>
+          </Link>
+          <Link to="/case-studies/auradrishti">
+            <WebliixButton variant="ghost" size="lg">
+              View Case Study (3x Visits)
             </WebliixButton>
           </Link>
           <a

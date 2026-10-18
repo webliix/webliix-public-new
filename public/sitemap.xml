@@ -6,7 +6,7 @@
 
   <!-- ═══════════════════════════════════════════════════════════════
        WEBLIIX SITEMAP — https://webliix.com
-       Last updated: 2026-10-11
+       Last updated: 2026-10-19
        Priority guide:
          1.0  → Homepage (most critical)
          0.9  → High-value conversion pages
@@ -20,21 +20,21 @@
 
   <url>
     <loc>https://webliix.com/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://webliix.com/launch-kit</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
 
   <url>
     <loc>https://webliix.com/contact</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
@@ -43,77 +43,77 @@
 
   <url>
     <loc>https://webliix.com/services</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://webliix.com/website-development</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://webliix.com/ecommerce-store</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://webliix.com/web-app-development</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://webliix.com/mobile-app-development</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://webliix.com/seo</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://webliix.com/branding-design</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://webliix.com/website-maintenance</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://webliix.com/paid-advertising</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://webliix.com/google-ads</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://webliix.com/meta-ads</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -122,21 +122,21 @@
 
   <url>
     <loc>https://webliix.com/portfolio</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://webliix.com/blog</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://webliix.com/feedback</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
@@ -145,21 +145,21 @@
 
   <url>
     <loc>https://webliix.com/about</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
 
   <url>
     <loc>https://webliix.com/careers</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
   </url>
 
   <url>
     <loc>https://webliix.com/case-studies/auradrishti</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
   </url>
@@ -168,21 +168,21 @@
 
   <url>
     <loc>https://webliix.com/blog/free-meta-tag-generator-for-seo-2026</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
   </url>
 
   <url>
     <loc>https://webliix.com/blog/digital-marketing-small-business-india-2026-complete-guide</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
   </url>
 
   <url>
     <loc>https://webliix.com/blog/why-every-small-business-in-india-needs-a-website-in-2025</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
   </url>
@@ -191,35 +191,35 @@
 
   <url>
     <loc>https://webliix.com/business-information</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
 
   <url>
     <loc>https://webliix.com/privacy-policy</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
 
   <url>
     <loc>https://webliix.com/terms-and-conditions</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
 
   <url>
     <loc>https://webliix.com/refund-cancellation</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.50</priority>
   </url>
 
   <url>
     <loc>https://webliix.com/disclaimer</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.50</priority>
   </url>

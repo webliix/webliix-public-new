@@ -64,6 +64,20 @@ export default function LegalLayout({
         <title>{seoTitle || `${title} | ${siteConfig.brand.name}`}</title>
         <meta name="description" content={seoDescription || subtitle} />
         <link rel="canonical" href={`https://webliix.com${canonicalPath}`} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": seoTitle || `${title} | ${siteConfig.brand.name}`,
+            "description": seoDescription || subtitle,
+            "url": `https://webliix.com${canonicalPath}`,
+            "publisher": {
+              "@type": "Organization",
+              "name": "Webliix",
+              "url": "https://webliix.com"
+            }
+          })}
+        </script>
       </Helmet>
 
       {/* Dynamic Breadcrumb Navigation */}

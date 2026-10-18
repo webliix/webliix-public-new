@@ -277,7 +277,7 @@ export default function GoogleAds() {
         </div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-theme-text leading-[1.15]">
-          Be There When Customers Are <span className="text-shimmer">Actively Searching</span>
+          Google Ads Management &amp; <span className="text-shimmer">PPC Lead Campaigns</span>
         </h1>
 
         <p className="text-base sm:text-lg text-theme-muted leading-relaxed max-w-2xl mx-auto">

@@ -155,16 +155,36 @@ export default function Blog() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-4 sm:px-6 max-w-7xl mx-auto space-y-14">
       <Helmet>
-        <title>Knowledge Hub & Engineering Insights | {siteConfig.brand.name}</title>
+        <title>Web Development &amp; SEO Insights Blog | {siteConfig.brand.name}</title>
         <meta
           name="description"
           content="Explore deep architectural breakdowns, digital growth tutorials, Google Ads strategies, and technical SEO guides by Webliix digital architects."
         />
+        <meta name="keywords" content="web development blog, SEO tips, technical SEO, React development, business growth, digital marketing guides, Webliix blog" />
         <link rel="canonical" href="https://webliix.com/blog" />
-        <meta property="og:title" content={`Knowledge Hub & Engineering Insights | ${siteConfig.brand.name}`} />
+        <meta property="og:title" content={`Web Development & SEO Insights Blog | ${siteConfig.brand.name}`} />
         <meta property="og:description" content="Explore deep architectural breakdowns, digital growth tutorials, and technical SEO strategies." />
         <meta property="og:type" content="blog" />
         <meta property="og:url" content="https://webliix.com/blog" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "@id": "https://webliix.com/blog#blog",
+            "name": "Webliix Engineering & SEO Insights Blog",
+            "url": "https://webliix.com/blog",
+            "description": "Explore deep architectural breakdowns, digital growth tutorials, Google Ads strategies, and technical SEO guides by Webliix digital architects.",
+            "publisher": {
+              "@type": "Organization",
+              "name": "Webliix",
+              "url": "https://webliix.com",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://res.cloudinary.com/dtsuvx8dz/image/upload/v1772635905/webliix-logo_xy8m4u.png"
+              }
+            }
+          })}
+        </script>
       </Helmet>
 
       {/* Dynamic Breadcrumbs */}
@@ -176,7 +196,7 @@ export default function Blog() {
           <Sparkles className="w-3.5 h-3.5" /> Webliix Knowledge Hub
         </span>
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">
-          Insights on Web, <span className="text-shimmer">SEO &amp; Growth</span>
+          Web Development &amp; SEO Insights <span className="text-shimmer">Blog</span>
         </h1>
         <p className="text-theme-muted text-base sm:text-lg leading-relaxed">
           Deep architectural breakdowns, practical tutorials, and digital growth strategies direct from Webliix engineers.
