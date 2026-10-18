@@ -129,11 +129,13 @@ const WebliixButton = forwardRef(function WebliixButton(
 
     icon: Icon,
     iconLeft: IconLeft,
+    iconOnly = false,
 
     fullWidth = false,
 
     loading = false,
     disabled = false,
+    active = false,
 
     magnetic = true, // Retained for API compatibility
 
@@ -168,11 +170,13 @@ const WebliixButton = forwardRef(function WebliixButton(
       type={type}
       disabled={isDisabled}
       aria-busy={loading || undefined}
+      aria-pressed={active ? true : undefined}
       onClick={handleClick}
       onMouseEnter={handleMouseEnter}
       className={[
         VARIANTS[variant] || VARIANTS.primary,
         SIZES[size] || SIZES.md,
+        active ? '!border-theme-primary !bg-theme-primary/15 !text-theme-primary font-bold shadow-sm' : '',
 
         'group',
         'inline-flex',
@@ -284,7 +288,7 @@ const WebliixButton = forwardRef(function WebliixButton(
           </>
         ) : (
           <>
-            <span>{children}</span>
+            {children !== undefined && children !== null && children !== false && <span>{children}</span>}
 
             {Icon && (
               <span className="inline-flex shrink-0 transition-transform duration-200 group-hover:translate-x-1">
