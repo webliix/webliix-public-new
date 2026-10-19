@@ -137,7 +137,7 @@ export default function Careers() {
       playSound('success');
     } catch (err) {
       console.error('Application submission error:', err);
-      setErrorMessage(err.message || 'There was an issue submitting your application. Please try again.');
+      setErrorMessage(err.message || 'Unable to submit your application right now. Please check your connection and try again, or connect directly on WhatsApp at +91 93101 81569.');
       setFormStatus('error');
       playSound('error');
     }
@@ -659,6 +659,7 @@ export default function Careers() {
                     name="name"
                     type="text"
                     required
+                    maxLength={100}
                     placeholder="e.g. Rahul Sharma"
                     value={formData.name}
                     onChange={handleInputChange}
@@ -671,6 +672,7 @@ export default function Careers() {
                     name="email"
                     type="email"
                     required
+                    maxLength={100}
                     placeholder="rahul@example.com"
                     value={formData.email}
                     onChange={handleInputChange}
@@ -685,6 +687,7 @@ export default function Careers() {
                     name="phone"
                     type="tel"
                     required
+                    maxLength={20}
                     placeholder="+91 98765 43210"
                     value={formData.phone}
                     onChange={handleInputChange}
@@ -697,6 +700,7 @@ export default function Careers() {
                     name="location"
                     type="text"
                     required
+                    maxLength={150}
                     placeholder="e.g. Delhi NCR, Bangalore, Pune"
                     value={formData.location}
                     onChange={handleInputChange}
@@ -734,6 +738,7 @@ export default function Careers() {
                         name="portfolioUrl"
                         type="url"
                         required
+                        maxLength={200}
                         placeholder="https://github.com/yourhandle OR portfolio URL"
                         value={formData.portfolioUrl}
                         onChange={handleInputChange}
@@ -751,6 +756,7 @@ export default function Careers() {
                       id="app-resume"
                       name="resumeLink"
                       type="url"
+                      maxLength={200}
                       placeholder="https://drive.google.com/your-resume-link"
                       value={formData.resumeLink}
                       onChange={handleInputChange}
@@ -766,6 +772,7 @@ export default function Careers() {
                       id="app-message"
                       name="message"
                       rows={3}
+                      maxLength={1000}
                       placeholder="Tell us about a project you are proud of, or what technologies you love building with..."
                       value={formData.message}
                       onChange={handleInputChange}
@@ -802,6 +809,7 @@ export default function Careers() {
                         name="payoutDetails"
                         type="text"
                         required
+                        maxLength={150}
                         placeholder="e.g. rahul@oksbi OR Account + IFSC"
                         value={formData.payoutDetails}
                         onChange={handleInputChange}
@@ -819,6 +827,7 @@ export default function Careers() {
                       id="partner-client-lead"
                       name="clientLead"
                       rows={3}
+                      maxLength={1000}
                       placeholder="e.g. Corporate business seeking custom web application & SEO services. Contact: 9811XXXXXX"
                       value={formData.clientLead}
                       onChange={handleInputChange}

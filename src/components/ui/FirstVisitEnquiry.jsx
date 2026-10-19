@@ -100,7 +100,7 @@ export default function FirstVisitEnquiry() {
         phone: form.phone,
         email: form.email || `${form.phone.replaceAll(/[^0-9]/g, '')}@lead.webliix.in`,
         serviceRequested: form.service,
-        requirements: form.note || 'First Visit Popup Inquiry',
+        requirements: form.message || form.note || 'First Visit Popup Inquiry',
         source: 'FIRST_VISIT_POPUP',
         page: window.location.pathname,
       });
@@ -203,14 +203,14 @@ export default function FirstVisitEnquiry() {
                           <span className="inline-flex items-center gap-1.5 px-3 py-1 theme-rounded-badge bg-theme-primary/15 border border-theme-primary/30 text-theme-primary text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-widest">
                             <Sparkles className="w-3 h-3 shrink-0" />
 
-                            Free Consultation — No Obligation
+                            Free Consultation • Zero Obligation
                           </span>
                           <h2 className="text-[1.3rem] sm:text-2xl font-display font-extrabold text-theme-text leading-snug">
                             Let's Build Something{' '}
                             <span className="text-shimmer">Remarkable</span>
                           </h2>
                           <p className="text-xs text-theme-muted leading-relaxed max-w-[18rem] mx-auto">
-                            Drop your details — our team responds in{' '}
+                            Share your project details. Our team responds in{' '}
                             <strong className="text-theme-text">under 2 hours</strong>.
                           </p>
                         </div>
@@ -236,6 +236,7 @@ export default function FirstVisitEnquiry() {
                               required
                               type="text"
                               name="name"
+                              maxLength={100}
                               value={form.name}
                               onChange={handleChange}
                               placeholder="e.g. Aryan Sharma"
@@ -248,6 +249,7 @@ export default function FirstVisitEnquiry() {
                               required
                               type="tel"
                               name="phone"
+                              maxLength={20}
                               value={form.phone}
                               onChange={handleChange}
                               placeholder="+91 98765 43210"
@@ -283,6 +285,7 @@ export default function FirstVisitEnquiry() {
                           <WebliixTextarea
                             rows={2}
                             name="message"
+                            maxLength={1000}
                             value={form.message}
                             onChange={handleChange}
                             placeholder="e.g. I need an e-commerce site for my clothing brand…"
@@ -330,7 +333,7 @@ export default function FirstVisitEnquiry() {
                           className="hover:text-theme-primary transition-colors
                                      underline underline-offset-2 decoration-dotted"
                         >
-                          Skip — I'll explore on my own
+                          Skip and explore on my own
                         </button>
                       </div>
                     </motion.div>
@@ -397,9 +400,9 @@ export default function FirstVisitEnquiry() {
                         <p className="text-xs sm:text-sm text-theme-muted leading-relaxed max-w-[16rem] sm:max-w-xs mx-auto">
                           Thank you,{' '}
                           <strong className="text-theme-text">{form.name || 'there'}</strong>!
-                          We'll contact you on{' '}
+                          Our team will review your project and contact you on{' '}
                           <strong className="text-theme-text">{form.phone}</strong>{' '}
-                          within 2 hours.
+                          within 2 to 4 business hours.
                         </p>
                       </div>
 

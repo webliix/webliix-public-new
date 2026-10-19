@@ -60,11 +60,11 @@ export default function AdvertisingLeadForm({
       });
       setSubmitted(true);
       if (showToast) {
-        showToast('Advertising consultation request received! Our campaign strategist will reach out within 2 hours.', 'success');
+        showToast('Thank you! Your advertising consultation request has been received. Our campaign strategist will review your business details and get back to you within 2 to 4 business hours.', 'success');
       }
     } catch (err) {
       if (showToast) {
-        showToast(err.message || 'Failed to submit advertising request. Please try again.', 'error');
+        showToast(err.message || 'Unable to submit your request right now. Please check your connection and try again, or connect with us on WhatsApp at +91 93101 81569.', 'error');
       }
     } finally {
       setSubmitting(false);
@@ -105,7 +105,7 @@ export default function AdvertisingLeadForm({
               Consultation Request Received!
             </h4>
             <p className="text-sm text-theme-muted max-w-md mx-auto">
-              Thank you, <strong className="text-theme-text">{formData.name}</strong>. Our campaign strategist is reviewing your business details and will get in touch within 2 hours.
+              Thank you, <strong className="text-theme-text">{formData.name}</strong>. Your inquiry has been received. Our campaign strategist will review your business details and get back to you within 2 to 4 business hours.
             </p>
             <div className="pt-4 flex flex-wrap justify-center gap-3">
               <a href={waUrl} target="_blank" rel="noopener noreferrer">
@@ -161,6 +161,7 @@ export default function AdvertisingLeadForm({
                   name="name"
                   type="text"
                   required
+                  maxLength={100}
                   placeholder="e.g. Ramesh Kumar"
                   value={formData.name}
                   onChange={handleChange}
@@ -174,6 +175,7 @@ export default function AdvertisingLeadForm({
                   name="businessName"
                   type="text"
                   required
+                  maxLength={150}
                   placeholder="e.g. Apex Health Clinic"
                   value={formData.businessName}
                   onChange={handleChange}
@@ -190,6 +192,7 @@ export default function AdvertisingLeadForm({
                   name="email"
                   type="email"
                   required
+                  maxLength={100}
                   placeholder="name@yourcompany.com"
                   value={formData.email}
                   onChange={handleChange}
@@ -203,6 +206,7 @@ export default function AdvertisingLeadForm({
                   name="phone"
                   type="tel"
                   required
+                  maxLength={20}
                   placeholder="+91 98765 43210"
                   value={formData.phone}
                   onChange={handleChange}
@@ -218,6 +222,7 @@ export default function AdvertisingLeadForm({
                   id="ad-website"
                   name="website"
                   type="url"
+                  maxLength={200}
                   placeholder="https://yourwebsite.com"
                   value={formData.website}
                   onChange={handleChange}
@@ -231,6 +236,7 @@ export default function AdvertisingLeadForm({
                   name="location"
                   type="text"
                   required
+                  maxLength={150}
                   placeholder="e.g. Delhi NCR, Bangalore, Pan-India"
                   value={formData.location}
                   onChange={handleChange}
@@ -300,6 +306,7 @@ export default function AdvertisingLeadForm({
                 id="ad-message"
                 name="message"
                 rows={3}
+                maxLength={1000}
                 placeholder="What products or services do you offer? Who are your ideal customers? What have you tried before?"
                 value={formData.message}
                 onChange={handleChange}

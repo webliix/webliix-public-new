@@ -79,7 +79,7 @@ export default function About() {
   const values = [
     { icon: Handshake, title: 'Transparency', desc: 'You will always know what we are building, why, and what to expect next. No jargon, zero hidden fees.' },
     { icon: Award, title: 'Ownership', desc: 'We treat every client project as if our own business depended on its performance.' },
-    { icon: TrendingUp, title: 'Results Driven', desc: 'Aesthetics matter — but every engineering decision we make is tied directly to your commercial ROI.' },
+    { icon: TrendingUp, title: 'Results Driven', desc: 'Aesthetics matter, but every design and engineering decision is tied directly to measurable commercial ROI.' },
     { icon: Lightbulb, title: 'Continuous Innovation', desc: 'Staying ahead of web standards so clients always have access to top-speed tools.' },
     { icon: Globe, title: 'Global Vision', desc: 'Based in NCR India, serving clients seamlessly across USA, UK, Canada, and Germany.' },
     { icon: Heart, title: 'Client Care', desc: 'We genuinely care about the long-term success of every founder and team we partner with.' }
@@ -127,7 +127,7 @@ export default function About() {
             "@type": "AboutPage",
             "@id": "https://webliix.com/about#webpage",
             "url": "https://webliix.com/about",
-            "name": "About Webliix — Founders & Digital Agency Story",
+            "name": "About Webliix | Founders & Digital Growth Agency",
             "description": "Meet Webliix founders Himanshu Sharma and Abdul Latif. Learn about our story, technology stack, and global digital agency vision.",
             "isPartOf": {
               "@type": "WebSite",
@@ -174,10 +174,10 @@ export default function About() {
           </span>
         </div>
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">
-          About Webliix — <span className="text-shimmer">Digital Agency &amp; Web Engineers</span>
+          About Webliix: <span className="text-shimmer">Full-Service Web &amp; Growth Agency</span>
         </h1>
         <p className="text-theme-muted text-base sm:text-lg leading-relaxed">
-          A global digital growth agency built by two founders who believe every business — regardless of size — deserves world-class web engineering, branding, and search dominance.
+          A modern digital growth agency built by founders who believe every business, regardless of size, deserves fast web engineering, memorable branding, and high search rankings.
         </p>
       </div>
 
@@ -206,7 +206,7 @@ export default function About() {
             Meet the Founders
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
-            Two full-stack builders. One shared obsession — helping brands dominate online.
+            Two full-stack builders with one shared mission: helping modern brands launch, convert, and scale online.
           </p>
         </div>
 
@@ -316,7 +316,7 @@ export default function About() {
             Born from a Belief That Great Digital Work Should Be Accessible
           </h2>
           <p className="text-theme-muted text-sm leading-relaxed">
-            Webliix was founded in April 2025 by Himanshu Sharma and Abdul Latif — two builders who saw firsthand how businesses were being underserved by traditional agencies charging inflated retainers for slow work.
+            Webliix was founded in April 2025 by Himanshu Sharma and Abdul Latif. As hands-on engineers, they saw firsthand how businesses were underserved by traditional agencies charging inflated retainers for slow, template-based work.
           </p>
           <p className="text-theme-muted text-sm leading-relaxed">
             We launched Webliix with a simple mandate: bring enterprise-grade web engineering, local Google Maps ranking, and high-converting marketing to businesses of every size at transparent prices. Within months, Webliix grew to serve clients across India, USA, Canada, and Germany.
@@ -384,7 +384,7 @@ export default function About() {
             Serving Clients Worldwide
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
-            Headquartered in Naugachia, Bhagalpur, Bihar — operating across global time zones.
+            Headquartered in Naugachia, Bihar, serving clients and fast-growing businesses worldwide.
           </p>
         </div>
 

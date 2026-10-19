@@ -17,6 +17,7 @@ import {
 } from '../components/ui/WebliixInput';
 import { submitPublicLead } from '../services/leadService';
 import { submitPublicReview } from '../services/reviewService';
+import { useModal } from '../context/ModalContext';
 
 const FORM_NAME = 'client-feedback';
 
@@ -87,6 +88,7 @@ export default function Feedback() {
   const [step, setStep]         = useState('form'); // 'form' | 'success'
   const [submitting, setSubmitting] = useState(false);
   const [errors, setErrors]     = useState({});
+  const { showToast }           = useModal();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -138,9 +140,17 @@ export default function Feedback() {
         source: 'CLIENT_FEEDBACK',
         page: '/feedback',
       });
-    } catch { /* local dev — ignore */ }
-    setStep('success');
-    setSubmitting(false);
+      setStep('success');
+      if (showToast) {
+        showToast('Thank you! Your feedback has been received.', 'success');
+      }
+    } catch (err) {
+      if (showToast) {
+        showToast(err.message || 'Unable to submit your feedback right now. Please check your connection and try again.', 'error');
+      }
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -299,6 +309,7 @@ export default function Feedback() {
                     id="fb-name"
                     name="name"
                     type="text"
+                    maxLength={100}
                     value={form.name}
                     onChange={handleChange}
                     placeholder="e.g. Priya Gupta"
@@ -315,6 +326,7 @@ export default function Feedback() {
                     id="fb-company"
                     name="company"
                     type="text"
+                    maxLength={150}
                     value={form.company}
                     onChange={handleChange}
                     placeholder="e.g. Green Leaf Exports"
@@ -333,6 +345,7 @@ export default function Feedback() {
                   id="fb-email"
                   name="email"
                   type="email"
+                  maxLength={100}
                   value={form.email}
                   onChange={handleChange}
                   placeholder="you@example.com"
@@ -346,11 +359,12 @@ export default function Feedback() {
                 htmlFor="fb-feedback"
                 required
                 error={errors.feedback}
-                hint="Share what you liked, what surprised you, or what we can improve."
+                hint={`${form.feedback.length}/1000 - Share what you liked or what we can improve.`}
               >
                 <WebliixTextarea
                   id="fb-feedback"
                   name="feedback"
+                  maxLength={1000}
                   value={form.feedback}
                   onChange={handleChange}
                   rows={5}

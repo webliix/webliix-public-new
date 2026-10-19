@@ -283,9 +283,9 @@ export default function SeoServices() {
               Book an SEO Module
             </WebliixButton>
           </Link>
-          <Link to="/case-studies/auradrishti">
+          <Link to="/portfolio">
             <WebliixButton variant="ghost" size="lg">
-              View Case Study (3x Visits)
+              Explore Client Portfolio
             </WebliixButton>
           </Link>
           <a
@@ -564,11 +564,11 @@ export default function SeoServices() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
             <h4 className="text-sm font-display font-bold text-theme-text flex items-center justify-between">
-              <span>Aura Drishti Case Study</span>
+              <span>Client Portfolio</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-theme-primary" />
             </h4>
-            <p className="text-xs text-theme-muted leading-relaxed">How Aura Drishti achieved 3x Google Business Profile visits and a 4.9/5 local rating.</p>
-            <Link to="/case-studies/auradrishti" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">Read Case Study &rarr;</Link>
+            <p className="text-xs text-theme-muted leading-relaxed">Explore our live web engineering and search ranking results across diverse client industries.</p>
+            <Link to="/portfolio" className="text-xs font-mono font-medium text-theme-primary hover:underline block pt-1">View Portfolio &rarr;</Link>
           </WebliixCard>
 
           <WebliixCard variant="panel" className="p-4 space-y-2 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">

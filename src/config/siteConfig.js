@@ -99,7 +99,7 @@ export const siteConfig = {
       '< E-Commerce & Custom Software />'
     ],
 
-    heroSubtext: 'Building immersive digital experiences, brands that resonate, and SEO engines that dominate — tailored for NCR India, USA, Canada & Germany.',
+    heroSubtext: 'Building high-performance digital experiences, brands that resonate, and SEO engines that dominate, tailored for clients across India, USA, Canada, and Germany.',
     contactEmail: 'contact@webliix.com',
     contactPhone: '+91 93101 81569',
     alternatePhone: '+91 88106 50511',
@@ -126,7 +126,7 @@ export const siteConfig = {
   },
 
   about: {
-    mission: 'Every business deserves a commanding digital presence. We craft immersive, high-converting digital experiences that don’t just look beautiful — they perform.',
+    mission: 'Every business deserves a commanding digital presence. We craft high-converting digital experiences that combine modern aesthetics with measurable business results.',
     vision: 'To empower 1,000+ businesses globally with state-of-the-art websites, organic search dominance, and seamless brand identities under one roof.',
     values: [
       { icon: Lightbulb, title: 'Strategic Execution', desc: 'Designs built to convert visitors into real paying customers.' },
@@ -584,7 +584,7 @@ services: [
       id: 'auradrishti',
       title: 'Aura Drishti CCTV & Surveillance',
       category: 'CCTV Installation & Security Services',
-      tag: 'Case Study',
+      tag: 'Client Project',
       metrics: '4.9/5 Rating • 3x GMB Visits',
       image: auradrishtiImg,
       description: 'A CCTV camera installation, servicing, and surveillance equipment sales company built with custom web UI, GMB verification, and lead generation campaigns.',

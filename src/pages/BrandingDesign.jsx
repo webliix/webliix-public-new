@@ -214,7 +214,7 @@ export default function BrandingDesign() {
           <Palette className="w-3.5 h-3.5" /> Iconic Brand Identities &amp; UI Systems
         </span>
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">
-          Branding &amp; UI/UX Design — <span className="text-shimmer">Logo, Identity &amp; Digital Interfaces</span>
+          Branding &amp; UI/UX Design: <span className="text-shimmer">Logos, Visual Identity &amp; Digital Interfaces</span>
         </h1>
         <p className="text-theme-muted text-base sm:text-lg leading-relaxed">
           Stand out with a timeless, authoritative brand presence. We design bespoke vector logos, comprehensive brand style books, and intuitive Figma UI/UX product experiences that command respect.

@@ -22,7 +22,7 @@ export const currentSpotlight = {
   // Main headline and editorial summary
   title: 'Your business deserves a website that works as hard as you do.',
   description:
-    'Establish your online presence with a modern, mobile-friendly business website built to showcase your services and generate enquiries. Get custom pages, WhatsApp integration, essential SEO, domain setup, and launch support — starting at just ₹9,999.',
+    'Establish your online presence with a modern, mobile-friendly business website built to showcase your services and generate enquiries. Get custom pages, WhatsApp integration, essential SEO, domain setup, and launch support starting at just ₹9,999.',
 
   // Call-to-action buttons
   primaryCtaText: 'Explore Website Plans',

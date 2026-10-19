@@ -315,7 +315,7 @@ export default function PaidAdvertising() {
         </div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-theme-text leading-[1.15]">
-          Paid Advertising Services — <span className="text-shimmer">Google, Meta &amp; Social Ads</span>
+          Paid Advertising Services: <span className="text-shimmer">Google, Meta &amp; Social Ads</span>
         </h1>
 
         <p className="text-base sm:text-lg text-theme-muted leading-relaxed max-w-2xl mx-auto">
@@ -787,7 +787,7 @@ export default function PaidAdvertising() {
             Clear Expectations
           </span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-theme-text">
-            What We Promise — And What We Don't
+            What We Promise and What We Do Not
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
             Honest marketing partnerships are built on clarity and trust from day one.
@@ -1050,7 +1050,7 @@ export default function PaidAdvertising() {
             Scope Clarity
           </span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-theme-text">
-            What's Included — And What's Separate
+            What Is Included and What Is Separate
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
             We clearly define service boundaries to prevent surprises or unexpected invoices.

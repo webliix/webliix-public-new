@@ -303,12 +303,11 @@ export default function SpatialFooter() {
             <li><Link to="/about" className="hover:text-theme-primary transition">About Us</Link></li>
             <li><Link to="/services" className="hover:text-theme-primary transition">Services</Link></li>
             <li><Link to="/portfolio" className="hover:text-theme-primary transition">Portfolio Showcase</Link></li>
-            <li><Link to="/case-studies/auradrishti" className="hover:text-theme-primary transition">Case Study: AuraDrishti</Link></li>
             <li><a href="https://client.webliix.com" target="_blank" rel="noopener noreferrer" className="hover:text-theme-primary transition">Client Portal ↗</a></li>
             <li><Link to="/careers" className="hover:text-theme-primary transition">Careers</Link></li>
             <li><Link to="/blog" className="hover:text-theme-primary transition">Knowledge Hub</Link></li>
             <li><Link to="/contact" className="hover:text-theme-primary transition">Contact Us</Link></li>
-            <li><Link to="/feedback" className="hover:text-theme-primary transition">Share Feedback</Link></li>
+            <li><Link to="/feedback" className="hover:text-theme-primary transition">Client Reviews</Link></li>
           </ul>
         </div>
 

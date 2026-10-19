@@ -62,7 +62,7 @@ const FORM_NAME = 'launchkit-enquiry';
 
 export default function LaunchKit() {
   const [openFaq, setOpenFaq] = useState(null);
-  const [selectedPackage, setSelectedPackage] = useState('02 — PROFESSIONAL (Starting @ ₹19,999)');
+  const [selectedPackage, setSelectedPackage] = useState('02 Professional (Starting @ ₹19,999)');
   const [formData, setFormData] = useState({
     name: '',
     businessName: '',
@@ -71,7 +71,7 @@ export default function LaunchKit() {
     country: '',
     website: '',
     needs: 'New Website',
-    package: '02 — PROFESSIONAL (Starting @ ₹19,999)',
+    package: '02 Professional (Starting @ ₹19,999)',
     budget: '₹15,000–₹35,000',
     targetMarket: '',
     message: ''
@@ -121,11 +121,11 @@ export default function LaunchKit() {
       });
       setSubmitted(true);
       if (showToast) {
-        showToast('LaunchKit inquiry submitted! Our project team will review your requirements and contact you.', 'success');
+        showToast('Thank you! Your LaunchKit inquiry has been received. Our team will review your business requirements and get back to you within 2 to 4 business hours.', 'success');
       }
     } catch (err) {
       if (showToast) {
-        showToast(err.message || 'Failed to submit LaunchKit inquiry. Please try again.', 'error');
+        showToast(err.message || 'Unable to submit your LaunchKit inquiry right now. Please check your connection and try again, or connect directly on WhatsApp at +91 93101 81569.', 'error');
       }
     } finally {
       setSubmitting(false);
@@ -185,37 +185,37 @@ export default function LaunchKit() {
   const whatDoYouNeedOptions = [
     {
       situation: 'Starting a new business?',
-      recommendation: '01 — ESSENTIAL',
+      recommendation: '01 Essential',
       badge: 'Get Online',
-      pkgTarget: '01 — ESSENTIAL (Starting @ ₹9,999)',
+      pkgTarget: '01 Essential (Starting @ ₹9,999)',
       desc: 'Start with the essentials: a professional website, basic brand setup, Google Business Profile setup and core contact options.'
     },
     {
       situation: 'Need a stronger brand and website?',
-      recommendation: '02 — PROFESSIONAL',
+      recommendation: '02 Professional',
       badge: 'Build Your Brand',
-      pkgTarget: '02 — PROFESSIONAL (Starting @ ₹19,999)',
+      pkgTarget: '02 Professional (Starting @ ₹19,999)',
       desc: 'Combine a more complete visual identity, multi-page website, stronger lead sections and a deeper local SEO foundation.'
     },
     {
       situation: 'Want to improve your Google visibility?',
-      recommendation: '02 — PROFESSIONAL + SEO',
+      recommendation: '02 Professional + SEO',
       badge: 'Search Visibility',
-      pkgTarget: '02 — PROFESSIONAL (Starting @ ₹19,999)',
+      pkgTarget: '02 Professional (Starting @ ₹19,999)',
       desc: 'Add keyword research, page optimization, internal linking, Google Business Profile optimization and technical SEO work.'
     },
     {
       situation: 'Need a complete business website system?',
-      recommendation: '03 — BUSINESS PRO',
+      recommendation: '03 Business Pro',
       badge: 'Growth Setup',
-      pkgTarget: '03 — BUSINESS PRO (Starting @ ₹34,999)',
+      pkgTarget: '03 Business Pro (Starting @ ₹34,999)',
       desc: 'A larger website structure with service and location content, blog setup, analytics, lead tracking and broader digital foundations.'
     },
     {
       situation: 'Want to sell products online?',
-      recommendation: '04 — E-COMMERCE',
+      recommendation: '04 E-Commerce',
       badge: 'Online Store',
-      pkgTarget: '04 — E-COMMERCE (Starting @ ₹29,999)',
+      pkgTarget: '04 E-Commerce (Starting @ ₹29,999)',
       desc: 'Launch an online store with product categories, shopping cart, checkout, payment integration and basic store SEO.'
     },
     {
@@ -232,7 +232,7 @@ export default function LaunchKit() {
     {
       id: 'essential',
       number: '01',
-      name: '01 — ESSENTIAL',
+      name: '01 Essential',
       intent: 'Get Online',
       price: '₹9,999',
       priceLabel: 'Starting @',
@@ -293,7 +293,7 @@ export default function LaunchKit() {
     {
       id: 'professional',
       number: '02',
-      name: '02 — PROFESSIONAL',
+      name: '02 Professional',
       intent: 'Build Your Brand',
       price: '₹19,999',
       priceLabel: 'Starting @',
@@ -358,7 +358,7 @@ export default function LaunchKit() {
     {
       id: 'business-pro',
       number: '03',
-      name: '03 — BUSINESS PRO',
+      name: '03 Business Pro',
       intent: 'Build to Grow',
       price: '₹34,999',
       priceLabel: 'Starting @',
@@ -387,7 +387,7 @@ export default function LaunchKit() {
             'Up to 12–15 pages',
             'Advanced custom UI/UX design',
             'Service / category architecture & multiple service pages',
-            'Relevant location pages & portfolio / case studies',
+            'Relevant location pages & portfolio / project showcase',
             'Testimonials & review content sections',
             'FAQ system & blog setup',
             'Lead-generation sections & WhatsApp conversion flow',
@@ -422,7 +422,7 @@ export default function LaunchKit() {
     {
       id: 'ecommerce',
       number: '04',
-      name: '04 — E-COMMERCE',
+      name: '04 E-Commerce',
       intent: 'Sell Online',
       price: '₹29,999',
       priceLabel: 'Starting @',
@@ -487,7 +487,7 @@ export default function LaunchKit() {
         { name: 'Additional Page', price: 'Starting @ ₹999', desc: 'Add a custom service, landing or informational page to the website.' },
         { name: 'High-Converting Landing Page', price: 'Starting @ ₹2,999', desc: 'Create a focused landing page for an advertising campaign, service or offer.' },
         { name: 'Blog / CMS System', price: 'Starting @ ₹4,999', desc: 'Publish articles, guides, news or business updates through a content system.' },
-        { name: 'Portfolio / Case Study Section', price: 'Starting @ ₹2,999', desc: 'Showcase selected projects, services delivered, results and visual work.' },
+        { name: 'Portfolio & Project Showcase Section', price: 'Starting @ ₹2,999', desc: 'Showcase selected projects, services delivered, results and visual work.' },
         { name: 'Advanced Form / Lead System', price: 'Starting @ ₹2,999', desc: 'Add multi-step forms, file uploads, conditional fields or webhook integrations.' },
         { name: 'Payment Gateway Integration', price: 'Starting @ ₹2,999', desc: 'Set up supported payment options such as Razorpay, UPI or Stripe.' },
         { name: 'Additional Product Setup', price: 'Starting @ ₹499 / product', desc: 'Add product images, variants, descriptions, SKUs and SEO details.' },
@@ -578,7 +578,7 @@ export default function LaunchKit() {
     { feature: 'Google Business Profile', essential: 'Setup', professional: 'Optimization', businessPro: 'Expanded Optimization', ecommerce: 'Setup' },
     { feature: 'Technical & On-Page SEO', essential: 'Basic Setup', professional: 'Expanded SEO Foundation', businessPro: 'Advanced SEO Foundation', ecommerce: 'Product SEO Foundation' },
     { feature: 'Lead Capture & WhatsApp CTA', essential: 'Standard Form + CTA', professional: 'Advanced Forms + CTA', businessPro: 'Tracking + CRM Ready', ecommerce: 'Cart + Product Enquiries' },
-    { feature: 'E-Commerce / Payment Gateway', essential: '—', professional: 'Optional Add-on', businessPro: 'Optional Add-on', ecommerce: 'Included (25 Products)' },
+    { feature: 'E-Commerce / Payment Gateway', essential: 'Not Included', professional: 'Optional Add-on', businessPro: 'Optional Add-on', ecommerce: 'Included (25 Products)' },
     { feature: 'Google Analytics & Search Console', essential: 'Included', professional: 'Conversion Tracking Included', businessPro: 'Event & Pixel Tracking Included', ecommerce: 'Purchase Tracking Included' },
     { feature: 'Professional Business Email', essential: '1 Account Setup', professional: 'Included', businessPro: 'Included', ecommerce: 'Included' },
     { feature: 'Post-Launch Support', essential: 'Launch Support', professional: '90 Days Included', businessPro: '180 Days Included', ecommerce: '60 Days Included' },
@@ -656,25 +656,25 @@ export default function LaunchKit() {
     offers: [
       {
         '@type': 'Offer',
-        name: '01 — ESSENTIAL LaunchKit',
+        name: '01 Essential LaunchKit',
         price: '9999',
         priceCurrency: 'INR'
       },
       {
         '@type': 'Offer',
-        name: '02 — PROFESSIONAL LaunchKit (Most Popular)',
+        name: '02 Professional LaunchKit (Most Popular)',
         price: '19999',
         priceCurrency: 'INR'
       },
       {
         '@type': 'Offer',
-        name: '03 — BUSINESS PRO LaunchKit',
+        name: '03 Business Pro LaunchKit',
         price: '34999',
         priceCurrency: 'INR'
       },
       {
         '@type': 'Offer',
-        name: '04 — E-COMMERCE LaunchKit',
+        name: '04 E-Commerce LaunchKit',
         price: '29999',
         priceCurrency: 'INR'
       }
@@ -1266,7 +1266,7 @@ export default function LaunchKit() {
                   LaunchKit Enquiry Received!
                 </h4>
                 <p className="text-sm text-theme-muted max-w-md mx-auto">
-                  Thank you, <strong className="text-theme-text">{formData.name}</strong>. Your LaunchKit enquiry has been received and our team will review the requirements.
+                  Thank you, <strong className="text-theme-text">{formData.name}</strong>. Your LaunchKit inquiry has been received. Our team will review your business requirements and get back to you within 2 to 4 business hours.
                 </p>
                 <div className="pt-4 flex flex-wrap justify-center gap-3">
                   <a href={waUrl} target="_blank" rel="noopener noreferrer">
@@ -1287,7 +1287,7 @@ export default function LaunchKit() {
                         country: '',
                         website: '',
                         needs: 'New Website',
-                        package: '02 — PROFESSIONAL (Starting @ ₹19,999)',
+                        package: '02 Professional (Starting @ ₹19,999)',
                         budget: '₹15,000–₹35,000',
                         targetMarket: '',
                         message: ''
@@ -1323,6 +1323,7 @@ export default function LaunchKit() {
                       name="name"
                       type="text"
                       required
+                      maxLength={100}
                       placeholder="e.g. Rahul Sharma / Sarah Jenkins"
                       value={formData.name}
                       onChange={handleChange}
@@ -1336,6 +1337,7 @@ export default function LaunchKit() {
                       name="businessName"
                       type="text"
                       required
+                      maxLength={150}
                       placeholder="e.g. Apex Health & Wellness"
                       value={formData.businessName}
                       onChange={handleChange}
@@ -1352,6 +1354,7 @@ export default function LaunchKit() {
                       name="email"
                       type="email"
                       required
+                      maxLength={100}
                       placeholder="name@yourcompany.com"
                       value={formData.email}
                       onChange={handleChange}
@@ -1365,6 +1368,7 @@ export default function LaunchKit() {
                       name="phone"
                       type="tel"
                       required
+                      maxLength={20}
                       placeholder="+91 93101 81569 or +1..."
                       value={formData.phone}
                       onChange={handleChange}
@@ -1381,6 +1385,7 @@ export default function LaunchKit() {
                       name="country"
                       type="text"
                       required
+                      maxLength={100}
                       placeholder="e.g. India, USA, UK, Canada, Australia, UAE..."
                       value={formData.country}
                       onChange={handleChange}
@@ -1393,6 +1398,7 @@ export default function LaunchKit() {
                       id="lk-website"
                       name="website"
                       type="url"
+                      maxLength={200}
                       placeholder="https://example.com (if redesign)"
                       value={formData.website}
                       onChange={handleChange}
@@ -1428,10 +1434,10 @@ export default function LaunchKit() {
                       value={formData.package}
                       onChange={handleChange}
                     >
-                      <option value="01 — ESSENTIAL (Starting @ ₹9,999)">01 — ESSENTIAL (Starting @ ₹9,999)</option>
-                      <option value="02 — PROFESSIONAL (Starting @ ₹19,999)">02 — PROFESSIONAL (Most Popular) (Starting @ ₹19,999)</option>
-                      <option value="03 — BUSINESS PRO (Starting @ ₹34,999)">03 — BUSINESS PRO (Starting @ ₹34,999)</option>
-                      <option value="04 — E-COMMERCE (Starting @ ₹29,999)">04 — E-COMMERCE (Starting @ ₹29,999)</option>
+                      <option value="01 Essential (Starting @ ₹9,999)">01 Essential (Starting @ ₹9,999)</option>
+                      <option value="02 Professional (Starting @ ₹19,999)">02 Professional (Most Popular) (Starting @ ₹19,999)</option>
+                      <option value="03 Business Pro (Starting @ ₹34,999)">03 Business Pro (Starting @ ₹34,999)</option>
+                      <option value="04 E-Commerce (Starting @ ₹29,999)">04 E-Commerce (Starting @ ₹29,999)</option>
                       <option value="Custom Add-ons / Individual Services">Custom Add-ons / Individual Services</option>
                       <option value="Not Sure">Not Sure (Advise Me)</option>
                     </WebliixSelect>
@@ -1463,6 +1469,7 @@ export default function LaunchKit() {
                       name="targetMarket"
                       type="text"
                       required
+                      maxLength={150}
                       placeholder="e.g. Delhi NCR, California, London, Toronto, Dubai, International..."
                       value={formData.targetMarket}
                       onChange={handleChange}
@@ -1479,6 +1486,7 @@ export default function LaunchKit() {
                     id="lk-message"
                     name="message"
                     rows={3}
+                    maxLength={1000}
                     placeholder="What products or services do you offer? Who are your ideal customers? What are your key website and growth goals?"
                     value={formData.message}
                     onChange={handleChange}

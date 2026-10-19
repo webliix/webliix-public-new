@@ -112,9 +112,7 @@ export default function Portfolio() {
       link: 'https://auradrishti-webliix.netlify.app/',
       metrics: '4.9/5 Rating • 3x GMB Visits',
       serviceLink: '/seo',
-      serviceName: 'Local SEO & GMB',
-      caseStudyLink: '/case-studies/auradrishti',
-      caseStudyName: 'View Case Study'
+      serviceName: 'Local SEO & GMB'
     },
     {
       category: 'Cloud Kitchen Portfolio',
@@ -212,7 +210,7 @@ export default function Portfolio() {
       <Helmet>
         <title>Our Work | Website, Branding &amp; Marketing Projects | Webliix</title>
         <meta name="description" content="Explore Webliix portfolio of custom business websites, Shopify stores, brand identities, and SEO projects delivering verified growth for clients in India, USA, and worldwide." />
-        <meta name="keywords" content="web design portfolio, branding samples, ecommerce site showcase, SEO results, India USA website agency, Webliix case studies" />
+        <meta name="keywords" content="web design portfolio, branding samples, ecommerce site showcase, SEO results, India USA website agency, Webliix client projects" />
         <link rel="canonical" href="https://webliix.com/portfolio" />
         <meta property="og:title" content="Our Work | Website, Branding & Marketing Projects | Webliix" />
         <meta property="og:description" content="Explore custom business websites, Shopify stores, and SEO projects delivering verified growth." />
@@ -224,8 +222,8 @@ export default function Portfolio() {
             "@type": "CollectionPage",
             "@id": "https://webliix.com/portfolio#webpage",
             "url": "https://webliix.com/portfolio",
-            "name": "Webliix Portfolio — Client Websites & Digital Case Studies",
-            "description": "Featured portfolio of custom websites, branding, and local SEO case studies built by Webliix.",
+            "name": "Webliix Portfolio: Client Websites & Projects",
+            "description": "Featured portfolio of custom websites, branding, and local SEO projects built by Webliix.",
             "isPartOf": {
               "@type": "WebSite",
               "@id": "https://webliix.com/#website",
@@ -269,7 +267,7 @@ export default function Portfolio() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-theme-border/60 pb-4">
           <div>
             <span className="text-xs font-mono text-theme-primary font-bold uppercase tracking-wider block">
-              Featured Case Studies
+              Featured Client Projects
             </span>
             <h2 className="text-2xl sm:text-3xl font-display font-bold text-theme-text flex items-center gap-2 mt-0.5">
               <Laptop className="w-6 h-6 text-theme-primary" /> Website & Web App Showcase
@@ -298,15 +296,15 @@ export default function Portfolio() {
                     <span className="text-theme-primary font-bold">{item.category}</span>
                   </div>
 
-                  {/* Clean Image Container — landscape responsive */}
-                  <div className="aspect-[16/10] sm:aspect-video w-full overflow-hidden relative bg-theme-bg">
+                  {/* Clean Image Container: landscape browser frame */}
+                  <div className="aspect-[16/9] sm:aspect-[2.1/1] max-h-56 sm:max-h-64 w-full overflow-hidden relative bg-theme-bg">
                     <img
                       src={item.image}
                       srcSet={getCloudinarySrcSet(item.image, [480, 768, 1024, 1440])}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1200px"
                       alt={item.title}
                       width="800"
-                      height="500"
+                      height="450"
                       loading={index === 0 ? undefined : "lazy"}
                       fetchPriority={index === 0 ? "high" : undefined}
                       decoding="async"
@@ -349,14 +347,6 @@ export default function Portfolio() {
                 </div>
 
                 <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap">
-                  {item.caseStudyLink && (
-                    <Link to={item.caseStudyLink} className="w-full sm:w-auto">
-                      <WebliixButton variant="ghost" icon={ArrowUpRight} size="sm" className="w-full sm:w-auto justify-center">
-                        Case Study
-                      </WebliixButton>
-                    </Link>
-                  )}
-
                   <a
                     href={item.link}
                     target="_blank"
@@ -488,7 +478,7 @@ export default function Portfolio() {
         </h2>
 
         <p className="text-sm sm:text-base text-theme-muted max-w-xl mx-auto">
-          We engineer custom, spatial portfolio showcases with interactive case studies, 95+ PageSpeed scores, and clear scope transparency.
+          We engineer custom, spatial portfolio showcases with live project previews, 95+ PageSpeed scores, and clear scope transparency.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4 pt-2">

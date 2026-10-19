@@ -31,7 +31,7 @@ const TYPE_CONFIG = {
   },
   'case-study': {
     icon: FileText,
-    label: 'Case Study',
+    label: 'Client Project',
     accentClass: 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20'
   },
   offer: {

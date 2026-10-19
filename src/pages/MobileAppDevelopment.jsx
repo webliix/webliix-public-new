@@ -291,7 +291,7 @@ export default function MobileAppDevelopment() {
           <span className="text-shimmer">Mobile App Development</span> Company for iOS & Android
         </h1>
         <p className="text-theme-muted text-base sm:text-lg leading-relaxed">
-          Turn your app idea into a product customers can actually use. Webliix designs and develops custom iOS and Android apps for startups and businesses using Flutter, React Native and API-driven backends—with UI/UX, payments, notifications, integrations and store launch support.
+          Turn your app idea into a product customers can actually use. Webliix designs and develops custom iOS and Android apps for startups and businesses using Flutter, React Native and API-driven backends, complete with UI/UX, payments, notifications, integrations and store launch support.
         </p>
 
         <div className="pt-4 flex flex-wrap items-center justify-center gap-4">

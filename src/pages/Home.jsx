@@ -549,7 +549,7 @@ export default function Home() {
               <WebliixIcon icon={Rocket} variant="inline" size="xs" color="primary" /> Turnkey Business Launch Kit
             </span>
             <h3 className="text-2xl sm:text-3xl font-display font-bold text-theme-text">
-              Webliix LaunchKit — All-In-One Business Package
+              Webliix LaunchKit: Complete Business Launch Package
             </h3>
             <p className="text-theme-muted text-xs sm:text-sm leading-relaxed">
               A practical business launch package combining website development, branding, Google Business Profile support, WhatsApp integration and SEO foundations, starting from ₹9,999.
@@ -793,7 +793,7 @@ export default function Home() {
             Explore All Webliix Solutions &amp; Platforms
           </h2>
           <p className="text-theme-muted text-xs sm:text-sm">
-            Quickly navigate our core development services, marketing channels, case studies, and business resources.
+            Quickly navigate our core development services, marketing channels, portfolio showcases, and business resources.
           </p>
         </div>
 
@@ -840,7 +840,7 @@ export default function Home() {
             </h4>
             <ul className="space-y-1.5 text-xs text-theme-muted">
               <li><Link to="/portfolio" className="hover:text-theme-primary transition-colors flex items-center justify-between">Portfolio Showcase <ArrowRight className="w-3 h-3" /></Link></li>
-              <li><Link to="/case-studies/auradrishti" className="hover:text-theme-primary transition-colors flex items-center justify-between">Aura Drishti Study <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/feedback" className="hover:text-theme-primary transition-colors flex items-center justify-between">Client Feedback &amp; Reviews <ArrowRight className="w-3 h-3" /></Link></li>
               <li><Link to="/blog" className="hover:text-theme-primary transition-colors flex items-center justify-between">SEO Knowledge Hub <ArrowRight className="w-3 h-3" /></Link></li>
               <li><Link to="/careers" className="hover:text-theme-primary transition-colors flex items-center justify-between">Partner Program <ArrowRight className="w-3 h-3" /></Link></li>
             </ul>

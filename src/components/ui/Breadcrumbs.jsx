@@ -8,8 +8,6 @@ const routeLabels = {
   'about': 'About Us',
   'services': 'Services & Solutions',
   'portfolio': 'Portfolio Showcase',
-  'case-studies': 'Case Studies',
-  'auradrishti': 'AuraDrishti CCTV Security',
   'blog': 'Knowledge Hub',
   'tools': 'Free SEO Tools',
   'contact': 'Contact & Support',

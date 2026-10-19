@@ -140,7 +140,7 @@ export default function WebsiteDevelopment() {
         'Up to 10 Custom Responsive Pages',
         'Integrated Blog / News Publishing System',
         'Advanced Lead Forms & Conversion-Focused Sections',
-        'Filterable Portfolio / Case Study Showcase',
+        'Filterable Portfolio & Project Showcase',
         'Performance Optimization & Core Web Vitals Review',
         'On-Page SEO & Relevant JSON-LD Structured Data',
         'Google Analytics 4 & Meta Pixel Setup',
@@ -314,7 +314,7 @@ export default function WebsiteDevelopment() {
           <span className="text-shimmer">Website Development</span> Services for Businesses Worldwide
         </h1>
         <p className="text-theme-muted text-base sm:text-lg leading-relaxed">
-          Webliix builds custom, responsive websites for businesses, startups and professionals—from business websites and landing pages to React, Next.js and web application development. Each project is structured around usability, mobile experience, search visibility and customer enquiries.
+          Webliix builds custom, responsive websites for businesses, startups and professionals, ranging from business websites and landing pages to React, Next.js and web application development. Each project is structured around usability, mobile experience, search visibility and customer enquiries.
         </p>
 
         <p className="text-theme-muted text-xs sm:text-sm max-w-2xl mx-auto">

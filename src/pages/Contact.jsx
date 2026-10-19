@@ -89,9 +89,9 @@ export default function Contact() {
         page: '/contact',
       });
       setSubmitted(true);
-      showToast('Inquiry submitted successfully! Our team will reach out within 2 hours.', 'success');
+      showToast('Thank you! Your inquiry has been received. Our team will review your project details and reach out within 2 to 4 business hours.', 'success');
     } catch (err) {
-      showToast(err.message || 'Failed to submit inquiry. Please try again.', 'error');
+      showToast(err.message || 'Unable to submit your message right now. Please check your connection and try again, or chat with us on WhatsApp at +91 93101 81569.', 'error');
     } finally {
       setSubmitting(false);
     }
@@ -114,7 +114,7 @@ export default function Contact() {
             "@type": "ContactPage",
             "@id": "https://webliix.com/contact#webpage",
             "url": "https://webliix.com/contact",
-            "name": "Contact Webliix — Digital Agency & Web Engineers",
+            "name": "Contact Webliix | Free Consultation & Web Project Quote",
             "description": "Get in touch with Webliix to start your website, SEO, or software development project.",
             "isPartOf": {
               "@type": "WebSite",
@@ -148,7 +148,7 @@ export default function Contact() {
           <Sparkles className="w-3.5 h-3.5" /> Let's Connect
         </span>
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text">
-          Contact Webliix — <span className="text-shimmer">Free Consultation</span>
+          Contact Webliix: <span className="text-shimmer">Book a Free Consultation</span>
         </h1>
         <p className="text-theme-muted text-base sm:text-lg">
           Connect with Webliix engineers to build high-converting business websites, Shopify stores, local SEO engines, or custom software platforms.
@@ -256,7 +256,7 @@ export default function Contact() {
                 <CheckCircle className="w-8 h-8" />
               </div>
               <h3 className="text-2xl font-display font-bold text-theme-text">Inquiry Received!</h3>
-              <p className="text-theme-muted text-sm max-w-sm mx-auto">Thank you for connecting. Our project lead will get back to you within 2 hours.</p>
+              <p className="text-theme-muted text-sm max-w-sm mx-auto">Thank you! Your message has been received. Our team will review your project details and get back to you within 2 to 4 business hours.</p>
               <button onClick={() => setSubmitted(false)} className="text-xs font-mono text-theme-primary hover:underline pt-4 block mx-auto">
                 Submit another inquiry
               </button>
@@ -279,15 +279,15 @@ export default function Contact() {
                 <h3 className="text-2xl font-display font-bold text-theme-text mb-2">Send a Message</h3>
 
                 <WebliixFieldGroup label="Full Name" htmlFor="ct-name" required>
-                  <WebliixInput id="ct-name" required type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your Name" autoComplete="name" />
+                  <WebliixInput id="ct-name" required type="text" name="name" maxLength={100} value={formData.name} onChange={handleChange} placeholder="Your Name" autoComplete="name" />
                 </WebliixFieldGroup>
 
                 <WebliixFieldGroup label="Mobile Number (WhatsApp)" htmlFor="ct-mobile" required>
-                  <WebliixInput id="ct-mobile" required type="tel" name="mobile" value={formData.mobile} onChange={handleChange} placeholder="+91 93101 81569" autoComplete="tel" />
+                  <WebliixInput id="ct-mobile" required type="tel" name="mobile" maxLength={20} value={formData.mobile} onChange={handleChange} placeholder="+91 93101 81569" autoComplete="tel" />
                 </WebliixFieldGroup>
 
                 <WebliixFieldGroup label="Email Address" htmlFor="ct-email" optional>
-                  <WebliixInput id="ct-email" type="email" name="email" value={formData.email} onChange={handleChange} placeholder="contact@webliix.com" autoComplete="email" />
+                  <WebliixInput id="ct-email" type="email" name="email" maxLength={100} value={formData.email} onChange={handleChange} placeholder="contact@webliix.com" autoComplete="email" />
                 </WebliixFieldGroup>
 
 
@@ -299,8 +299,8 @@ export default function Contact() {
                   </WebliixSelect>
                 </WebliixFieldGroup>
 
-                <WebliixFieldGroup label="Project Details" htmlFor="ct-message" required>
-                  <WebliixTextarea id="ct-message" required rows={4} name="message" value={formData.message} onChange={handleChange} placeholder="Tell us about your business goals and timeline..." />
+                <WebliixFieldGroup label="Project Details" htmlFor="ct-message" required hint={`${formData.message.length}/1000`}>
+                  <WebliixTextarea id="ct-message" required rows={4} name="message" maxLength={1000} value={formData.message} onChange={handleChange} placeholder="Tell us about your business goals and timeline..." />
                 </WebliixFieldGroup>
 
                 <SpatialButton type="submit" variant="primary" className="w-full mt-2" icon={Send} disabled={submitting}>

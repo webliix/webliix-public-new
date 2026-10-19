@@ -20,7 +20,6 @@ const FirstVisitEnquiry = React.lazy(() => import('./components/ui/FirstVisitEnq
 const About = React.lazy(() => import('./pages/About'));
 const Services = React.lazy(() => import('./pages/Services'));
 const Portfolio = React.lazy(() => import('./pages/Portfolio'));
-const AuraDrishtiCaseStudy = React.lazy(() => import('./pages/AuraDrishtiCaseStudy'));
 const Blog = React.lazy(() => import('./pages/Blog'));
 const Contact = React.lazy(() => import('./pages/Contact'));
 const LaunchKit = React.lazy(() => import('./pages/LaunchKit'));
@@ -102,7 +101,9 @@ export default function App() {
                       <Route path="/career" element={<Careers />} />
                       <Route path="/partner-program" element={<Careers />} />
                       <Route path="/marketing-partner" element={<Careers />} />
-                      <Route path="/case-studies/auradrishti" element={<AuraDrishtiCaseStudy />} />
+                      <Route path="/case-studies/*" element={<Navigate to="/portfolio" replace />} />
+                      <Route path="/case-studies" element={<Navigate to="/portfolio" replace />} />
+                      <Route path="/case-study" element={<Navigate to="/portfolio" replace />} />
                       <Route path="/blog" element={<Blog />} />
                       <Route path="/blog/:id" element={<BlogPost />} />
                       <Route path="/contact" element={<Contact />} />

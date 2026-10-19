@@ -112,7 +112,7 @@ export default function GoogleAds() {
     },
     {
       term: 'Conversions',
-      desc: 'The real business actions that matter to you — such as completed quote forms, incoming phone calls, or WhatsApp chats.'
+      desc: 'The real business actions that matter to you, such as completed quote forms, incoming customer calls, or WhatsApp inquiries.'
     },
     {
       term: 'Cost Per Conversion',

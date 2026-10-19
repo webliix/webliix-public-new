@@ -23,7 +23,6 @@ import {
   Share2,
   ShieldCheck,
   Clock,
-  Calculator,
   Globe2,
   Compass
 } from 'lucide-react';
@@ -551,23 +550,6 @@ export default function SpatialNavbar() {
                                 </Link>
                               );
                             })}
-
-                            {/* Interactive Instant Estimate Card */}
-                            <Link
-                              to="/services"
-                              className="mt-2 p-2.5 rounded-xl bg-theme-primary/[0.06] hover:bg-theme-primary/[0.12] transition-all duration-200 group block space-y-1 border border-theme-primary/20"
-                            >
-                              <div className="flex items-center gap-2 text-theme-primary font-bold text-xs">
-                                <Calculator className="w-3.5 h-3.5" />
-                                <span>Instant Quote Estimator</span>
-                              </div>
-                              <p className="text-[11px] text-theme-muted leading-tight">
-                                Calculate instant custom project scopes & turnaround timelines.
-                              </p>
-                              <span className="text-[10px] font-mono font-bold text-theme-primary group-hover:underline inline-flex items-center gap-1 pt-0.5">
-                                Calculate Scope <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                              </span>
-                            </Link>
                           </div>
                         </div>
 
