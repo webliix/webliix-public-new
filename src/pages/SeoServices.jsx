@@ -188,7 +188,7 @@ export default function SeoServices() {
   ];
 
   return (
-    <div className="relative min-h-screen pt-28 pb-20 px-4 sm:px-6 max-w-7xl mx-auto space-y-16">
+    <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-16">
       <Helmet>
         <title>SEO Services &amp; Google My Business (GMB) Optimization | {siteConfig.brand.name}</title>
         <meta
@@ -263,7 +263,7 @@ export default function SeoServices() {
       <Breadcrumbs />
 
       {/* Hero Header */}
-      <div className="text-center max-w-3xl mx-auto space-y-4">
+      <div className="!mt-4 sm:!mt-6 text-center max-w-3xl mx-auto space-y-4">
         <span className="px-4 py-1.5 theme-rounded-badge glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-bold uppercase tracking-widest inline-flex items-center gap-1.5 shadow-sm">
           <Sparkles className="w-3.5 h-3.5" /> Search Engine Dominance
         </span>

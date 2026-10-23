@@ -114,7 +114,7 @@ export default function About() {
   ];
 
   return (
-    <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-6xl mx-auto space-y-12">
+    <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-16">
       <Helmet>
         <title>About Us | Founders & Agency Vision | {siteConfig.brand.name}</title>
         <meta name="description" content="Meet Webliix founders Himanshu Sharma (Managing Director) and Abdul Latif (Technical Lead). Learn about our story, Java & React stack, and global digital agency vision." />
@@ -162,7 +162,7 @@ export default function About() {
       <Breadcrumbs />
 
       {/* Header */}
-      <div className="text-center max-w-3xl mx-auto space-y-4">
+      <div className="!mt-4 sm:!mt-6 text-center max-w-3xl mx-auto space-y-4">
         <div className="flex flex-wrap items-center justify-center gap-2">
           <span className="px-3.5 py-1.5 theme-rounded-badge glass-spatial border border-theme-primary/50 text-xs font-mono text-theme-primary font-bold tracking-wider inline-flex items-center gap-1.5 shadow-sm">
             <Code className="w-3.5 h-3.5 text-theme-primary" />

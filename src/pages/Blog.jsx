@@ -153,7 +153,7 @@ export default function Blog() {
   const primaryFeatured = featuredBlogs && featuredBlogs.length > 0 ? featuredBlogs[0] : null;
 
   return (
-    <div className="relative min-h-screen pt-28 pb-20 px-4 sm:px-6 max-w-7xl mx-auto space-y-14">
+    <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-14">
       <Helmet>
         <title>Web Development &amp; SEO Insights Blog | {siteConfig.brand.name}</title>
         <meta
@@ -191,7 +191,7 @@ export default function Blog() {
       <Breadcrumbs />
 
       {/* HERO HEADER */}
-      <div className="text-center max-w-3xl mx-auto space-y-4">
+      <div className="!mt-4 sm:!mt-6 text-center max-w-3xl mx-auto space-y-4">
         <span className="px-4 py-1.5 theme-rounded-badge glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-bold uppercase tracking-widest inline-flex items-center gap-1.5 shadow-sm">
           <Sparkles className="w-3.5 h-3.5" /> Webliix Knowledge Hub
         </span>

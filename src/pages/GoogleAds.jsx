@@ -270,7 +270,7 @@ export default function GoogleAds() {
       <Breadcrumbs />
 
       {/* Hero Section */}
-      <section className="text-center max-w-3xl mx-auto space-y-6">
+      <section className="!mt-4 sm:!mt-6 text-center max-w-3xl mx-auto space-y-6">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 theme-rounded-badge bg-theme-primary/10 border border-theme-primary/30 text-xs font-mono font-bold uppercase tracking-widest text-theme-primary">
           <Search className="w-3.5 h-3.5" />
           <span>WEBLIIX GOOGLE ADS</span>

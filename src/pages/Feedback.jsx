@@ -154,7 +154,7 @@ export default function Feedback() {
   };
 
   return (
-    <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-2xl mx-auto">
+    <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-12">
       <Helmet>
         <title>Client Feedback &amp; Reviews | {siteConfig.brand.name}</title>
         <meta
@@ -189,7 +189,7 @@ export default function Feedback() {
 
       {step === 'success' ? (
         /* ── Success State ─────────────────────────────────────────────── */
-        <div className="flex flex-col items-center text-center py-16 space-y-6">
+        <div className="flex flex-col items-center text-center py-16 space-y-6 !mt-4 sm:!mt-6">
           <div className="w-20 h-20 rounded-full bg-emerald-500/15 border border-emerald-500/40 flex items-center justify-center">
             <CheckCircle2 className="w-10 h-10 text-emerald-400" />
           </div>
@@ -224,7 +224,7 @@ export default function Feedback() {
         /* ── Form State ─────────────────────────────────────────────────── */
         <>
           {/* Page Header */}
-          <div className="text-center max-w-xl mx-auto mb-10 space-y-3">
+          <div className="text-center max-w-xl mx-auto mb-10 space-y-3 !mt-4 sm:!mt-6">
             <span className="px-4 py-1.5 theme-rounded-badge glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-semibold uppercase tracking-widest inline-flex items-center gap-1.5">
               <MessageSquare className="w-3.5 h-3.5" /> We Value Your Opinion
             </span>

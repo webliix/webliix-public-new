@@ -178,7 +178,7 @@ export default function Breadcrumbs({ customCrumbs, className = '' }) {
 
       <nav
         aria-label="Breadcrumb"
-        className={`w-full flex items-center justify-start mb-4 sm:mb-6 select-none ${className}`}
+        className={`w-full flex items-center justify-start select-none ${className}`}
       >
         <ol
           itemScope

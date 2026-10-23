@@ -411,7 +411,7 @@ export default function BlogPost() {
   };
 
   return (
-    <div className="relative min-h-screen pt-28 pb-20 px-4 sm:px-6 max-w-4xl mx-auto space-y-12">
+    <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-8">
       <Helmet>
         <title>{post.seoTitle || `${post.title} | ${siteConfig.brand.name} Knowledge Hub`}</title>
         <meta name="description" content={post.seoDescription || post.summary} />
@@ -442,6 +442,7 @@ export default function BlogPost() {
         }
       />
 
+      <div className="max-w-4xl mx-auto space-y-12 !mt-4 sm:!mt-6">
       {/* Back to Blog Navigation */}
       <div>
         <Link
@@ -829,6 +830,7 @@ export default function BlogPost() {
           </div>
         </section>
       )}
+    </div>
     </div>
   );
 }

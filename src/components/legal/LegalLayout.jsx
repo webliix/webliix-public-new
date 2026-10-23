@@ -59,7 +59,7 @@ export default function LegalLayout({
   };
 
   return (
-    <div className="relative min-h-screen pt-28 pb-20 px-4 sm:px-6 max-w-7xl mx-auto space-y-10">
+    <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-10">
       <Helmet>
         <title>{seoTitle || `${title} | ${siteConfig.brand.name}`}</title>
         <meta name="description" content={seoDescription || subtitle} />
@@ -84,7 +84,7 @@ export default function LegalLayout({
       <Breadcrumbs />
 
       {/* Header Banner */}
-      <div className="text-center max-w-3xl mx-auto space-y-4">
+      <div className="!mt-4 sm:!mt-6 text-center max-w-3xl mx-auto space-y-4">
         <span className="px-3.5 py-1.5 theme-rounded-badge glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-semibold uppercase tracking-widest inline-flex items-center gap-1.5">
           <WebliixIcon icon={ShieldCheck} variant="inline" size="xs" color="primary" />
           {categoryTag} • Last Updated: {lastUpdated}
