@@ -431,7 +431,16 @@ export default function BlogPost() {
       </Helmet>
 
       {/* Dynamic Breadcrumbs */}
-      <Breadcrumbs />
+      <Breadcrumbs
+        customCrumbs={
+          post?.title
+            ? [
+                { label: 'Knowledge Hub', path: '/blog' },
+                { label: post.title }
+              ]
+            : undefined
+        }
+      />
 
       {/* Back to Blog Navigation */}
       <div>
