@@ -99,7 +99,7 @@ export default function SeoServices() {
       badgeColor: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30',
       icon: MapPin,
       idealFor: 'Dominating Google Maps & getting direct customer calls locally',
-      desc: 'Local search engine dominance designed to rank your business profile #1 on Google Maps for regional buyer calls.',
+      desc: 'Local search engine dominance designed to place your business profile in the top Google Maps results for regional buyer calls.',
       keyDeliverables: [
         'GMB Official Verification',
         'NAP Citation Consistency Check',
@@ -322,10 +322,10 @@ export default function SeoServices() {
 
         <WebliixCard variant="stat" className="p-5 sm:p-6 text-center border border-theme-border">
           <div className="text-3xl sm:text-5xl font-display font-extrabold text-theme-primary mb-1">
-            #1
+            Top 3
           </div>
           <div className="text-xs uppercase tracking-wider font-semibold text-theme-muted">
-            Google Maps Goal
+            Google Map Pack Goal
           </div>
         </WebliixCard>
 

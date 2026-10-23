@@ -114,7 +114,7 @@ export default function SpatialNavbar() {
         {
           name: 'SEO & Local Search',
           path: '/seo',
-          tag: 'Rank #1',
+          tag: 'Local Growth',
           icon: Compass,
           desc: 'Google Maps verification, local SEO ranking & organic search',
           meta: 'GMB Setup • Local Citations'

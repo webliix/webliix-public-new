@@ -366,7 +366,7 @@ export default function Home() {
           {/* Eyebrow Tagline Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-semibold shadow-xs">
             <span className="w-2 h-2 rounded-full bg-theme-primary animate-pulse" />
-            <span>Turnkey Websites • E-Commerce Stores • #1 Google Ranking</span>
+            <span>Turnkey Websites • E-Commerce Stores • Top Google Visibility</span>
           </div>
 
           {/* Punchy Headline (High-converting, best text, no fluff) */}
@@ -451,8 +451,7 @@ export default function Home() {
                   <button
                     onClick={() => setActiveHeroTab('web')}
                     className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 ${
-                      activeHeroTab === 'web'
-                        ? 'bg-theme-primary text-black font-bold shadow-sm'
+                      activeHeroTab === 'web' ? 'bg-theme-primary text-white font-bold shadow-sm'
                         : 'text-theme-muted hover:text-theme-text'
                     }`}
                   >
@@ -462,8 +461,7 @@ export default function Home() {
                   <button
                     onClick={() => setActiveHeroTab('ecommerce')}
                     className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 ${
-                      activeHeroTab === 'ecommerce'
-                        ? 'bg-theme-primary text-black font-bold shadow-sm'
+                      activeHeroTab === 'ecommerce' ? 'bg-theme-primary text-white font-bold shadow-sm'
                         : 'text-theme-muted hover:text-theme-text'
                     }`}
                   >
@@ -473,8 +471,7 @@ export default function Home() {
                   <button
                     onClick={() => setActiveHeroTab('seo')}
                     className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 ${
-                      activeHeroTab === 'seo'
-                        ? 'bg-theme-primary text-black font-bold shadow-sm'
+                      activeHeroTab === 'seo' ? 'bg-theme-primary text-white font-bold shadow-sm'
                         : 'text-theme-muted hover:text-theme-text'
                     }`}
                   >
@@ -633,7 +630,7 @@ export default function Home() {
                   <div className="flex flex-wrap items-center justify-between gap-3 pt-1 text-xs font-mono text-theme-muted border-t border-theme-border/40">
                     <div className="flex flex-wrap items-center gap-3">
                       <span className="flex items-center gap-1.5 text-emerald-400 font-semibold">
-                        <CheckCircle2 className="w-3.5 h-3.5" /> #1 Google Maps Ranking
+                        <CheckCircle2 className="w-3.5 h-3.5" /> Top Google Maps Ranking
                       </span>
                       <span className="flex items-center gap-1.5 text-theme-text">
                         <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" /> Google Search Ready

@@ -30,9 +30,9 @@ export default function InteractiveEcosystemHub() {
       id: 'seo-gmb',
       title: 'Local SEO & GMB Domination',
       icon: MapPin,
-      metric: '#1 Map Ranking Result',
+      metric: 'Top Map Ranking Result',
       desc: 'Google Business Profile verification, keyword targeting, and local map pack dominance.',
-      tags: ['GMB Profile', 'On-Page SEO', 'Map Pack #1', 'Local Citations'],
+      tags: ['GMB Profile', 'On-Page SEO', 'Google Map Pack', 'Local Citations'],
       color: '#10b981'
     },
     {
