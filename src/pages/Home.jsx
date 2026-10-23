@@ -355,6 +355,11 @@ export default function Home() {
           REDESIGNED MODERN HERO SECTION (MINIMALIST, HIGH-IMPACT, ZERO GRID)
           ═══════════════════════════════════════════════════════════════ */}
       <section className="relative pt-6 sm:pt-10 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden text-center">
+        {/* Layered CSS Ambient Radiant Halos (Linear & Stripe studio aesthetic) */}
+        <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] sm:w-[950px] h-[320px] sm:h-[460px] bg-gradient-to-b from-cyan-500/25 via-indigo-500/18 to-transparent blur-[130px] rounded-full z-0 opacity-80" />
+        <div className="pointer-events-none absolute top-1/4 -left-20 w-[300px] sm:w-[480px] h-[300px] sm:h-[480px] bg-purple-600/20 blur-[140px] rounded-full z-0" />
+        <div className="pointer-events-none absolute top-1/3 -right-20 w-[300px] sm:w-[480px] h-[300px] sm:h-[480px] bg-cyan-400/20 blur-[140px] rounded-full z-0" />
+
         <SpatialHeroCanvas />
 
         <div className="relative z-10 max-w-5xl mx-auto space-y-6 sm:space-y-8">
@@ -412,7 +417,18 @@ export default function Home() {
           {/* ═══════════════════════════════════════════════════════════
               NEW INTERACTIVE STUDIO SHOWCASE (CLEAN, MODERN, ENGAGING)
               ═══════════════════════════════════════════════════════════ */}
-          <div className="pt-4 max-w-4xl mx-auto">
+          <div className="pt-4 max-w-4xl mx-auto relative">
+            {/* Floating Modern Accent Badges (Linear/Stripe Studio Aesthetic) */}
+            <div className="hidden lg:flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-spatial border border-emerald-500/40 text-[11px] font-mono text-emerald-400 absolute -top-3 -left-6 z-20 shadow-xl backdrop-blur-md pointer-events-none">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+              <span>⚡ 0.4s Global Edge Load</span>
+            </div>
+
+            <div className="hidden lg:flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-spatial border border-theme-primary/40 text-[11px] font-mono text-theme-primary absolute -bottom-3 -right-6 z-20 shadow-xl backdrop-blur-md pointer-events-none">
+              <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" />
+              <span>100% Code Ownership</span>
+            </div>
+
             <WebliixCard variant="featured" className="p-4 sm:p-7 shadow-2xl relative text-left">
               
               {/* Studio Header: Browser Chrome + Mode Tabs */}
