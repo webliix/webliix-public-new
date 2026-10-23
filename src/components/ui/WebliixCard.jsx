@@ -1,23 +1,20 @@
 // WebliixCard.jsx
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { useAudio } from '../../context/AudioContext';
-import { useTheme } from '../../context/ThemeContext';
 
 /**
  * WebliixCard — Modern Spatial Card System
  * ─────────────────────────────────────────
  *
  * Design philosophy:
- * - Modern, spatial, engaging, ultra-responsive
- * - Hardware-accelerated 3D tilt with zero-rerender CSS custom property tracking
- * - Unified 3D transform preventing class vs style conflicts & hover jitter
+ * - Ultra-smooth modern card with zero 3D tilt jitter
+ * - Subtle elevation transform with custom bezier curve
+ * - Ambient colored depth shadow and gentle light lift on hover
  * - Interactive cursor-following spotlight glare & illuminated border gradient
- * - Identity transforms to avoid stacking context shifts (modern-web-guidance compliant)
- * - Touch-safe behavior: zero stuck hover on mobile, instant tactile tap feedback
- * - Dynamic theme-driven colored depth shadows
+ * - Mobile-safe: no sticky hover on touch devices
  *
  * VARIANTS: standard / surface / feature / featured / accent / spatial / stat / panel
- * PROPS: variant, accentColor, hoverable, clickable, hoverGlare, tilt, onClick, className
+ * PROPS: variant, accentColor, hoverable, clickable, hoverGlare, onClick, className
  */
 
 const ACCENT_STYLES = {
@@ -43,55 +40,46 @@ const VARIANTS = {
     base: 'bg-theme-card glass-spatial border border-theme-border/80 theme-rounded-card shadow-[0_4px_20px_rgba(0,0,0,0.055)] group',
     hover: 'hover:border-theme-primary/60 hover:shadow-spatial',
     lift: -4,
-    tiltDeg: 2,
   },
   surface: {
     base: 'bg-theme-card glass-spatial border border-theme-border/80 theme-rounded-card shadow-[0_4px_20px_rgba(0,0,0,0.055)] group',
     hover: 'hover:border-theme-primary/60 hover:shadow-spatial',
     lift: -4,
-    tiltDeg: 2,
   },
   feature: {
     base: 'bg-theme-card glass-spatial border border-theme-border/80 theme-rounded-card shadow-[0_4px_20px_rgba(0,0,0,0.055)] group',
     hover: 'hover:border-theme-primary/70 hover:shadow-spatial',
     lift: -5,
-    tiltDeg: 2.5,
   },
   featured: {
     base: 'bg-theme-card glass-spatial border border-theme-primary/40 theme-rounded-card shadow-[0_12px_40px_rgba(0,0,0,0.10)] relative overflow-hidden group',
     hover: 'hover:border-theme-primary/80 hover:shadow-spatial-lg',
     lift: -5,
-    tiltDeg: 3,
   },
   accent: {
     base: 'bg-theme-card glass-spatial border border-theme-primary/45 theme-rounded-card shadow-[0_12px_40px_rgba(0,0,0,0.10)] relative overflow-hidden group',
     hover: 'hover:border-theme-primary/80 hover:shadow-spatial-lg',
     lift: -5,
-    tiltDeg: 3,
   },
   spatial: {
     base: 'bg-theme-card glass-spatial border border-theme-primary/35 theme-rounded-card shadow-[0_16px_48px_rgba(0,0,0,0.12)] relative overflow-hidden group',
     hover: 'hover:border-theme-primary/75 hover:shadow-spatial-lg',
     lift: -5,
-    tiltDeg: 3,
   },
   stat: {
     base: 'bg-theme-card glass-spatial border border-theme-border/80 theme-rounded-card shadow-[0_4px_20px_rgba(0,0,0,0.055)] text-center group',
     hover: 'hover:border-theme-primary/60 hover:shadow-spatial',
     lift: -3,
-    tiltDeg: 1.5,
   },
   panel: {
     base: 'bg-theme-card glass-spatial border border-theme-border/80 theme-rounded-card group',
     hover: 'hover:border-theme-primary/55',
     lift: -2,
-    tiltDeg: 1.2,
   },
 };
 
 /* ─────────────────────────────────────────────
  * CORNER BRACKETS — signature motif matching WebliixButton
- * Pure composited CSS transitions (eliminates 166+ animated JS nodes)
  * ───────────────────────────────────────────── */
 function CornerBrackets() {
   const arm = 'pointer-events-none absolute h-2.5 w-2.5 border-theme-primary corner-bracket transition-all duration-300';
@@ -128,14 +116,13 @@ export default function WebliixCard({
   hoverable,
   clickable = false,
   hoverGlare = true,
-  tilt = true,
+  tilt, // Ignored: 3D tilt mode intentionally removed for clean, modern flat hover
   onClick,
   className = '',
   style = {},
   ...props
 }) {
   const { playClickSound } = useAudio();
-  const { desktopTilt = true, cardTilt3D = true } = useTheme();
   const cardRef = useRef(null);
 
   const [isMobileView, setIsMobileView] = useState(() => isMobileCache);
@@ -156,9 +143,6 @@ export default function WebliixCard({
   const isInteractive = clickable || onClick != null;
   const isHoverable = hoverable !== undefined ? hoverable : isInteractive || cfg.lift !== 0;
 
-  const effectiveTiltSetting = desktopTilt !== false && cardTilt3D !== false;
-  const isTiltAllowed = tilt && effectiveTiltSetting && !isMobileView && cfg.tiltDeg > 0;
-
   const handleMouseMove = useCallback(
     (e) => {
       if (!cardRef.current || isMobileView) return;
@@ -176,17 +160,8 @@ export default function WebliixCard({
       if (isHoverable && cfg.lift !== 0) {
         cardRef.current.style.setProperty('--card-lift', `${cfg.lift}px`);
       }
-
-      if (isTiltAllowed) {
-        const px = (clientX - rect.left) / rect.width - 0.5;
-        const py = (clientY - rect.top) / rect.height - 0.5;
-        const ry = (px * cfg.tiltDeg * 2).toFixed(2);
-        const rx = (py * -cfg.tiltDeg * 2).toFixed(2);
-        cardRef.current.style.setProperty('--tilt-rx', `${rx}deg`);
-        cardRef.current.style.setProperty('--tilt-ry', `${ry}deg`);
-      }
     },
-    [hoverGlare, isTiltAllowed, isHoverable, cfg.tiltDeg, cfg.lift, isMobileView]
+    [isHoverable, cfg.lift, isMobileView]
   );
 
   const handleMouseEnter = useCallback(() => {
@@ -201,8 +176,6 @@ export default function WebliixCard({
     if (!cardRef.current) return;
     cardRef.current.style.setProperty('--glare-opacity', '0');
     cardRef.current.style.setProperty('--card-lift', '0px');
-    cardRef.current.style.setProperty('--tilt-rx', '0deg');
-    cardRef.current.style.setProperty('--tilt-ry', '0deg');
   }, []);
 
   const handleClick = (e) => {
@@ -236,11 +209,10 @@ export default function WebliixCard({
       role={isInteractive ? 'button' : undefined}
       tabIndex={isInteractive ? 0 : undefined}
       style={{
-        transform: 'perspective(1000px) translate3d(0, var(--card-lift, 0px), 0) rotateX(var(--tilt-rx, 0deg)) rotateY(var(--tilt-ry, 0deg))',
-        transition: 'transform 0.22s cubic-bezier(0.2, 0.9, 0.3, 1), border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease',
+        transform: 'translate3d(0, var(--card-lift, 0px), 0)',
+        transition: 'transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, background-color 0.25s ease',
         backdropFilter: 'blur(var(--glass-blur, 12px))',
         WebkitBackdropFilter: 'blur(var(--glass-blur, 12px))',
-        /* Base identity transform properties to prevent stacking context shifts */
         translate: '0 0',
         ...style,
       }}
@@ -264,7 +236,7 @@ export default function WebliixCard({
       {...props}
     >
       {/* CORNER BRACKETS — signature accent, hidden on calm 'panel' variant */}
-      {cfg.tiltDeg > 0 && <CornerBrackets />}
+      {variant !== 'panel' && <CornerBrackets />}
 
       {/* INTERACTIVE BORDER GLOW ACCENT (Illuminates the edge near cursor on desktop) */}
       {!isMobileView && (
