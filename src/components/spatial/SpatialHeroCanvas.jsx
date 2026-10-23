@@ -265,7 +265,7 @@ export default function SpatialHeroCanvas() {
         if (n.y < 0) n.y = height;
         if (n.y > height) n.y = 0;
 
-        const currentY = n.y + scrollY * 0.10;
+        const currentY = n.y;
 
         // Interaction with mouse cursor
         const dx = mouse.x - n.x;
@@ -315,7 +315,7 @@ export default function SpatialHeroCanvas() {
         // Draw Inter-Node Connecting Filaments
         for (let j = i + 1; j < nodes.length; j++) {
           const n2 = nodes[j];
-          const n2Y = n2.y + scrollY * 0.10;
+          const n2Y = n2.y;
           const ndx = n2.x - n.x;
           const ndy = n2Y - currentY;
           const ndist = Math.sqrt(ndx * ndx + ndy * ndy);
@@ -364,7 +364,8 @@ export default function SpatialHeroCanvas() {
       { threshold: 0.05 }
     );
 
-    observer.observe(canvas);
+    const sectionTarget = canvas.closest('section') || canvas.parentElement || canvas;
+    observer.observe(sectionTarget);
     startRendering();
 
     return () => {

@@ -354,13 +354,20 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════════════
           REDESIGNED MODERN HERO SECTION (MINIMALIST, HIGH-IMPACT, ZERO GRID)
           ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative pt-24 sm:pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden text-center">
-        {/* Layered CSS Ambient Radiant Halos (Linear & Stripe studio aesthetic) */}
-        <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] sm:w-[950px] h-[320px] sm:h-[460px] bg-gradient-to-b from-cyan-500/25 via-indigo-500/18 to-transparent blur-[130px] rounded-full z-0 opacity-80" />
-        <div className="pointer-events-none absolute top-1/4 -left-20 w-[300px] sm:w-[480px] h-[300px] sm:h-[480px] bg-purple-600/20 blur-[140px] rounded-full z-0" />
-        <div className="pointer-events-none absolute top-1/3 -right-20 w-[300px] sm:w-[480px] h-[300px] sm:h-[480px] bg-cyan-400/20 blur-[140px] rounded-full z-0" />
+      <section
+        className="relative pt-24 sm:pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden text-center"
+        style={{ clipPath: 'inset(0)' }}
+      >
+        {/* Fixed Hero Background Layer (Stays fixed in viewport behind hero section) */}
+        <div className="pointer-events-none fixed inset-0 z-0 w-full h-full overflow-hidden">
+          {/* Layered CSS Ambient Radiant Halos */}
+          <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] sm:w-[950px] h-[320px] sm:h-[460px] bg-gradient-to-b from-cyan-500/25 via-indigo-500/18 to-transparent blur-[130px] rounded-full opacity-80" />
+          <div className="pointer-events-none absolute top-1/4 -left-20 w-[300px] sm:w-[480px] h-[300px] sm:h-[480px] bg-purple-600/20 blur-[140px] rounded-full" />
+          <div className="pointer-events-none absolute top-1/3 -right-20 w-[300px] sm:w-[480px] h-[300px] sm:h-[480px] bg-cyan-400/20 blur-[140px] rounded-full" />
 
-        <SpatialHeroCanvas />
+          {/* Interactive Fixed Canvas */}
+          <SpatialHeroCanvas />
+        </div>
 
         <div className="relative z-10 max-w-5xl mx-auto space-y-6 sm:space-y-8">
           {/* Eyebrow Tagline Badge */}
