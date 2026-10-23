@@ -33,7 +33,9 @@ export default function SpatialHeroCanvas() {
       const displayWidth = rect && rect.width > 0 ? rect.width : (window.innerWidth || 1200);
       const displayHeight = rect && rect.height > 0 ? Math.max(rect.height, 650) : Math.max(window.innerHeight || 0, 650);
 
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      // On mobile or lower-end phones, cap DPR to 1 to reduce fill-rate memory & GPU load
+      const isMobileDevice = typeof window !== 'undefined' && (window.innerWidth < 768 || ('ontouchstart' in window && window.innerWidth < 1024));
+      const dpr = isMobileDevice ? 1 : Math.min(window.devicePixelRatio || 1, 1.5);
       canvas.width = Math.floor(displayWidth * dpr);
       canvas.height = Math.floor(displayHeight * dpr);
       canvas.style.width = `${displayWidth}px`;
@@ -93,10 +95,10 @@ export default function SpatialHeroCanvas() {
     window.addEventListener('touchmove', handleTouchMove, { passive: true });
     window.addEventListener('mouseleave', handleMouseLeave);
 
-    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    const isMobile = typeof window !== 'undefined' && (window.innerWidth < 768 || ('ontouchstart' in window && window.innerWidth < 1024));
 
-    // Interactive Constellation Nodes
-    const nodeCount = isMobile ? 24 : 52;
+    // Interactive Constellation Nodes (optimized for high-efficiency mobile rendering)
+    const nodeCount = isMobile ? 16 : 46;
     const nodes = [];
 
     for (let i = 0; i < nodeCount; i++) {
@@ -215,15 +217,16 @@ export default function SpatialHeroCanvas() {
         // 3. ORGANIC FLUID HARMONIC SINE-WAVES (Liquid Light Ribbons)
         // ─────────────────────────────────────────────────────────────
         ctx.save();
-        const waveCount = 3;
+        const waveCount = isMobile ? 2 : 3;
+        const waveStep = isMobile ? 32 : 16;
         for (let w = 0; w < waveCount; w++) {
           ctx.beginPath();
           const waveBaseY = height * (0.32 + w * 0.18);
           const waveFreq = 0.0020 + w * 0.0008;
           const waveSpeed = time * (0.8 + w * 0.35);
-          const waveAmp = (isMobile ? 22 : 42) + w * 14;
+          const waveAmp = (isMobile ? 20 : 42) + w * 14;
 
-          for (let x = 0; x <= width; x += 16) {
+          for (let x = 0; x <= width; x += waveStep) {
             // Ripple distortion near mouse
             const dx = mouse.x - x;
             const distFromMouseX = Math.abs(dx);
@@ -366,10 +369,21 @@ export default function SpatialHeroCanvas() {
 
     const sectionTarget = canvas.closest('section') || canvas.parentElement || canvas;
     observer.observe(sectionTarget);
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        stopRendering();
+      } else if (isVisible) {
+        startRendering();
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
     startRendering();
 
     return () => {
       observer.disconnect();
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
       stopRendering();
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('scroll', handleScroll);

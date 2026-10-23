@@ -447,3 +447,63 @@ h1, h2, h3, h4, h5, h6, .font-display {
   transform: translateY(-2px);
 }
 
+/* ─── Hero Cinematic Text & Element Reveal Animations ────────────────────── */
+@keyframes heroTextRevealUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 115%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes heroFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-hero-reveal-line1 {
+  display: inline-block;
+  animation: heroTextRevealUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
+  will-change: transform, opacity;
+}
+
+.animate-hero-reveal-line2 {
+  display: inline-block;
+  animation: heroTextRevealUp 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.20s both;
+  will-change: transform, opacity;
+}
+
+.animate-hero-fade-badge {
+  animation: heroFadeInUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0s both;
+  will-change: transform, opacity;
+}
+
+.animate-hero-fade-subhead {
+  animation: heroFadeInUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+  will-change: transform, opacity;
+}
+
+.animate-hero-fade-actions {
+  animation: heroFadeInUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
+  will-change: transform, opacity;
+}
+
+.animate-hero-fade-proof {
+  animation: heroFadeInUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both;
+  will-change: transform, opacity;
+}
+
+/* ─── Modern Web Guidance: Deferred Off-screen Content Rendering ───────────── */
+.deferred-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto none auto 550px;
+}

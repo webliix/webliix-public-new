@@ -366,24 +366,30 @@ export default function Home() {
 
         <div className="relative z-10 max-w-5xl mx-auto space-y-6 sm:space-y-8">
           {/* Eyebrow Tagline Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 theme-rounded-badge glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-semibold shadow-xs">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 theme-rounded-badge glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-semibold shadow-xs animate-hero-fade-badge">
             <span className="w-2 h-2 rounded-full bg-theme-primary animate-pulse" />
             <span>Turnkey Websites • E-Commerce Stores • Top Google Visibility</span>
           </div>
 
           {/* Punchy Headline (High-converting, best text, no fluff) */}
+          {/* Punchy Headline (High-converting, best text, no fluff) with Modern Clip-Reveal Effect */}
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-display font-extrabold text-theme-text leading-[1.08] tracking-tight">
-            Modern Websites Built to<br />
-            <span className="text-shimmer">Win Customers &amp; Grow Sales</span>
+            <span className="inline-block overflow-hidden py-1">
+              <span className="inline-block animate-hero-reveal-line1">Modern Websites Built to</span>
+            </span>
+            <br />
+            <span className="inline-block overflow-hidden py-1">
+              <span className="inline-block text-shimmer animate-hero-reveal-line2">Win Customers &amp; Grow Sales</span>
+            </span>
           </h1>
 
           {/* Crisp 1-Sentence Subhead (Less text, clear value) */}
-          <p className="text-theme-muted text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-theme-muted text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed animate-hero-fade-subhead">
             We build lightning-fast business websites, online stores, and Google SEO that help you attract more clients, close more sales, and own 100% of your code.
           </p>
 
           {/* High-Impact Actions */}
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-1 animate-hero-fade-actions">
             <Link to="/contact">
               <WebliixButton variant="primary" icon={ArrowRight} className="text-xs sm:text-sm px-6 py-3">
                 Start Your Project
@@ -397,7 +403,7 @@ export default function Home() {
           </div>
 
           {/* Micro Social Proof & Verified Trust Indicator */}
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-theme-muted font-mono pt-1">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-theme-muted font-mono pt-1 animate-hero-fade-proof">
             <div className="flex items-center gap-1.5">
               <div className="flex text-amber-400">
                 {[...Array(5)].map((_, i) => (
@@ -606,7 +612,7 @@ export default function Home() {
       </section>
 
       {/* CLIENT LOGOS SHOWCASE TICKER */}
-      <section className="relative z-10 py-10 border-y border-theme-border/40 bg-theme-bg/40 backdrop-blur-md overflow-hidden">
+      <section className="deferred-section relative z-10 py-10 border-y border-theme-border/40 bg-theme-bg/40 backdrop-blur-md overflow-hidden">
         <div className="text-center mb-6 text-[11px] font-mono text-theme-muted uppercase tracking-widest font-semibold">
           120+ Projects Delivered Across Business &amp; Digital Sectors
         </div>
@@ -637,7 +643,7 @@ export default function Home() {
       </section>
 
       {/* STATS METRICS SECTION */}
-      <section className="relative z-10 max-w-6xl mx-auto px-6 py-12">
+      <section className="deferred-section relative z-10 max-w-6xl mx-auto px-6 py-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {siteConfig.stats.map((stat, i) => (
             <WebliixCard key={i} variant="stat" className="p-5 group">
@@ -653,7 +659,7 @@ export default function Home() {
       </section>
 
       {/* INFORMATIVE SECTION: WHY CHOOSE WEBLIIX */}
-      <section className="relative z-10 max-w-6xl mx-auto px-6 py-12">
+      <section className="deferred-section relative z-10 max-w-6xl mx-auto px-6 py-12">
         <div className="text-center max-w-xl mx-auto mb-10 space-y-2">
           <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-semibold">
             Competitive Advantage
@@ -680,7 +686,7 @@ export default function Home() {
       </section>
 
       {/* CORE SERVICES */}
-      <section className="relative z-10 max-w-6xl mx-auto px-6 py-12">
+      <section className="deferred-section relative z-10 max-w-6xl mx-auto px-6 py-12">
         <div className="text-center max-w-xl mx-auto mb-10 space-y-2">
           <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-semibold">
             Services &amp; Solutions
@@ -745,7 +751,7 @@ export default function Home() {
       </section>
 
       {/* WEBLIIX LAUNCHKIT SHOWCASE BANNER */}
-      <section className="relative z-10 max-w-6xl mx-auto px-6 py-6">
+      <section className="deferred-section relative z-10 max-w-6xl mx-auto px-6 py-6">
         <WebliixCard variant="accent" accentColor="primary" className="p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 border border-theme-primary/50 shadow-spatial">
           <div className="space-y-3 max-w-2xl text-center md:text-left">
             <span className="px-3 py-1 rounded-full bg-theme-primary/15 text-theme-primary text-xs font-mono font-bold border border-theme-primary/30 inline-flex items-center gap-1.5">
@@ -769,7 +775,7 @@ export default function Home() {
       </section>
 
       {/* INDUSTRY CAPABILITIES & SEO KEYWORD COVERAGE */}
-      <section className="relative z-10 max-w-6xl mx-auto px-6 py-12">
+      <section className="deferred-section relative z-10 max-w-6xl mx-auto px-6 py-12">
         <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
           <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-semibold">
             Industry Solutions
@@ -806,7 +812,7 @@ export default function Home() {
       </section>
 
       {/* INTERACTIVE 4-STEP BLUEPRINT WORKFLOW */}
-      <section className="relative z-10 max-w-6xl mx-auto px-6 py-12">
+      <section className="deferred-section relative z-10 max-w-6xl mx-auto px-6 py-12">
         <div className="text-center max-w-xl mx-auto mb-10 space-y-2">
           <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-semibold">
             Execution Blueprint
@@ -864,7 +870,7 @@ export default function Home() {
       </section>
 
       {/* FEATURED CLIENT PROJECTS */}
-      <section className="relative z-10 max-w-6xl mx-auto px-6 py-12">
+      <section className="deferred-section relative z-10 max-w-6xl mx-auto px-6 py-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
           <div>
             <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-semibold">
@@ -945,7 +951,7 @@ export default function Home() {
       </section>
 
       {/* INTERACTIVE FAQ ACCORDION SECTION */}
-      <section className="relative z-10 max-w-4xl mx-auto px-6 py-12 space-y-8">
+      <section className="deferred-section relative z-10 max-w-4xl mx-auto px-6 py-12 space-y-8">
         <div className="text-center space-y-2">
           <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-semibold flex items-center justify-center gap-1">
             <HelpCircle className="w-3.5 h-3.5" /> Frequently Asked Questions
@@ -987,7 +993,7 @@ export default function Home() {
       </section>
 
       {/* ECOSYSTEM INTERNAL LINKING DIRECTORY (SEO & DISCOVERY) */}
-      <section className="relative z-10 max-w-6xl mx-auto px-6 py-10">
+      <section className="deferred-section relative z-10 max-w-6xl mx-auto px-6 py-10">
         <div className="text-center max-w-xl mx-auto mb-8 space-y-2">
           <span className="text-xs font-mono uppercase tracking-widest text-theme-primary font-semibold">
             Digital Ecosystem
@@ -1052,7 +1058,7 @@ export default function Home() {
       </section>
 
       {/* FINAL CTA BANNER */}
-      <section className="relative z-10 max-w-6xl mx-auto px-6 py-12">
+      <section className="deferred-section relative z-10 max-w-6xl mx-auto px-6 py-12">
         <WebliixCard variant="accent" accentColor="primary" className="p-8 sm:p-12 text-center space-y-5 border border-theme-primary/50 shadow-spatial-lg">
           <h2 className="text-2xl sm:text-5xl font-display font-bold text-theme-text max-w-2xl mx-auto leading-tight">
             Ready to Build Your <span className="text-shimmer">Digital Presence?</span>

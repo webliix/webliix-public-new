@@ -8,9 +8,11 @@ import { AudioProvider } from './context/AudioContext';
 import SpatialNavbar from './components/spatial/SpatialNavbar';
 import SpatialHeaderBackdrop from './components/spatial/SpatialHeaderBackdrop';
 import SpatialFooter from './components/spatial/SpatialFooter';
-import SpatialThemeControl from './components/spatial/SpatialThemeControl';
 import SpatialModal from './components/spatial/SpatialModal';
-import FloatingWhatsApp from './components/ui/FloatingWhatsApp';
+
+// Defer non-critical floating UI overlays to accelerate mobile TTI & FCP
+const SpatialThemeControl = React.lazy(() => import('./components/spatial/SpatialThemeControl'));
+const FloatingWhatsApp = React.lazy(() => import('./components/ui/FloatingWhatsApp'));
 import ScrollToTop from './components/ui/ScrollToTop';
 
 // Eager load Home for instant LCP on initial landing
@@ -129,10 +131,10 @@ export default function App() {
                 </main>
 
                 <SpatialFooter />
-                <SpatialThemeControl />
-                <FloatingWhatsApp />
                 <SpatialModal />
                 <React.Suspense fallback={null}>
+                  <SpatialThemeControl />
+                  <FloatingWhatsApp />
                   <FirstVisitEnquiry />
                 </React.Suspense>
               </div>
