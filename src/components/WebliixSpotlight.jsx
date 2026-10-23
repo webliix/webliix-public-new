@@ -66,7 +66,7 @@ export default function WebliixSpotlight({ spotlight = currentSpotlight }) {
         tilt={false}
         hoverGlare={false}
         hoverable={false}
-        className="p-6 sm:p-8 lg:p-10 border border-theme-primary/35 hover:border-theme-primary/65 shadow-spatial-md hover:shadow-spatial-lg relative overflow-hidden bg-theme-card/85 backdrop-blur-xl transition-all duration-300 ease-out group"
+        className="p-6 sm:p-8 lg:p-10 border border-theme-primary/35 hover:border-theme-primary/65 shadow-spatial-md hover:shadow-spatial-lg relative overflow-hidden bg-theme-card/45 backdrop-blur-xl transition-all duration-300 ease-out group"
       >
         {/* Subtle Ambient Background Glow (Safely Contained) */}
         <div

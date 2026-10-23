@@ -48,15 +48,10 @@ export default function Home() {
   const [activeProcessStep, setActiveProcessStep] = useState(0);
   const [expandedFaq, setExpandedFaq] = useState(null);
   const { openModal } = useModal();
-  const [activeHeroTab, setActiveHeroTab] = useState('web'); // 'web' | 'ecommerce' | 'seo'
-  const [isAuditing, setIsAuditing] = useState(false);
+  const [activeHeroTab, setActiveHeroTab] = useState('ecommerce'); // 'ecommerce' | 'seo'
 
-  const handleTestSpeed = () => {
-    setIsAuditing(true);
-    setTimeout(() => {
-      setIsAuditing(false);
-    }, 700);
-  };
+
+  
 
   const handleOpenServiceModal = (service) => {
     openModal({
@@ -436,7 +431,7 @@ export default function Home() {
               <span>100% Code Ownership</span>
             </div>
 
-            <WebliixCard variant="featured" className="p-4 sm:p-7 shadow-2xl relative text-left">
+            <WebliixCard variant="featured" className="p-4 sm:p-7 shadow-2xl relative text-left bg-theme-card/40 backdrop-blur-xl border border-theme-primary/30">
               
               {/* Studio Header: Browser Chrome + Mode Tabs */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 mb-5 border-b border-theme-border/60">
@@ -447,24 +442,14 @@ export default function Home() {
                     <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
                   </div>
-                  <div className="flex items-center gap-1.5 px-3 py-1 theme-rounded-badge bg-theme-bg/60 border border-theme-border/60 text-[11px] font-mono text-theme-muted">
+                  <div className="flex items-center gap-1.5 px-3 py-1 theme-rounded-badge bg-theme-bg/35 backdrop-blur-md border border-theme-border/50 text-[11px] font-mono text-theme-muted">
                     <Lock className="w-3 h-3 text-emerald-400 shrink-0" />
                     <span>https://yourbusiness.com</span>
                   </div>
                 </div>
 
                 {/* 3 Quick Interactive Switcher Tabs */}
-                <div className="inline-flex p-1 theme-rounded-card bg-theme-bg/60 border border-theme-border/60 text-xs font-mono font-semibold self-start sm:self-auto">
-                  <button
-                    onClick={() => setActiveHeroTab('web')}
-                    className={`px-3 py-1.5 theme-rounded-btn transition-all flex items-center gap-1.5 ${
-                      activeHeroTab === 'web' ? 'bg-theme-primary text-white font-bold shadow-sm'
-                        : 'text-theme-muted hover:text-theme-text'
-                    }`}
-                  >
-                    <Zap className="w-3.5 h-3.5" />
-                    <span>Fast Websites</span>
-                  </button>
+                <div className="inline-flex p-1 theme-rounded-card bg-theme-bg/35 backdrop-blur-md border border-theme-border/50 text-xs font-mono font-semibold self-start sm:self-auto">
                   <button
                     onClick={() => setActiveHeroTab('ecommerce')}
                     className={`px-3 py-1.5 theme-rounded-btn transition-all flex items-center gap-1.5 ${
@@ -488,77 +473,11 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* TAB 1: High-Speed Web */}
-              {activeHeroTab === 'web' && (
-                <div className="space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    <div className="p-4 theme-rounded-card glass-spatial border border-theme-border/60 flex flex-col justify-between">
-                      <div className="text-xs font-mono text-theme-muted uppercase tracking-wider mb-1">
-                        PageSpeed Score
-                      </div>
-                      <div className="text-3xl font-display font-extrabold text-emerald-400">
-                        {isAuditing ? '...' : '100 / 100'}
-                      </div>
-                      <div className="text-[11px] font-mono text-emerald-400/90 mt-1">
-                        ✓ Loads in under 0.5s
-                      </div>
-                    </div>
-
-                    <div className="p-4 theme-rounded-card glass-spatial border border-theme-border/60 flex flex-col justify-between">
-                      <div className="text-xs font-mono text-theme-muted uppercase tracking-wider mb-1">
-                        Global Edge Load
-                      </div>
-                      <div className="text-3xl font-display font-extrabold text-theme-primary">
-                        {isAuditing ? '...' : '0.42s'}
-                      </div>
-                      <div className="text-[11px] font-mono text-theme-muted mt-1">
-                        Fast global edge CDN
-                      </div>
-                    </div>
-
-                    <div className="p-4 theme-rounded-card glass-spatial border border-theme-border/60 flex flex-col justify-between">
-                      <div className="text-xs font-mono text-theme-muted uppercase tracking-wider mb-1">
-                        Code Ownership
-                      </div>
-                      <div className="text-3xl font-display font-extrabold text-theme-text">
-                        100%
-                      </div>
-                      <div className="text-[11px] font-mono text-cyan-400 mt-1">
-                        Full code & hosting rights
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap items-center justify-between gap-3 pt-1 text-xs font-mono text-theme-muted border-t border-theme-border/40">
-                    <div className="flex flex-wrap items-center gap-3">
-                      <span className="flex items-center gap-1.5 text-theme-text">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" /> Modern Fast Code
-                      </span>
-                      <span className="flex items-center gap-1.5 text-theme-text">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" /> 100% Mobile Ready
-                      </span>
-                      <span className="flex items-center gap-1.5 text-theme-text">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" /> Free SSL Security
-                      </span>
-                    </div>
-
-                    <button
-                      onClick={handleTestSpeed}
-                      disabled={isAuditing}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 theme-rounded-btn glass-spatial border border-theme-primary/40 text-theme-primary hover:bg-theme-primary/10 transition active:scale-95 disabled:opacity-60 ml-auto"
-                    >
-                      <RefreshCw className={`w-3.5 h-3.5 ${isAuditing ? 'animate-spin' : ''}`} />
-                      <span>{isAuditing ? 'Testing...' : 'Run Speed Test'}</span>
-                    </button>
-                  </div>
-                </div>
-              )}
-
               {/* TAB 2: E-Commerce Store */}
               {activeHeroTab === 'ecommerce' && (
                 <div className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    <div className="p-4 theme-rounded-card glass-spatial border border-theme-border/60">
+                    <div className="p-4 theme-rounded-card glass-spatial bg-theme-card/35 backdrop-blur-md border border-theme-border/50">
                       <div className="text-xs font-mono text-theme-muted uppercase tracking-wider mb-1">
                         Checkout Sales
                       </div>
@@ -570,7 +489,7 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <div className="p-4 theme-rounded-card glass-spatial border border-theme-border/60">
+                    <div className="p-4 theme-rounded-card glass-spatial bg-theme-card/35 backdrop-blur-md border border-theme-border/50">
                       <div className="text-xs font-mono text-theme-muted uppercase tracking-wider mb-1">
                         Store Platforms
                       </div>
@@ -582,7 +501,7 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <div className="p-4 theme-rounded-card glass-spatial border border-theme-border/60">
+                    <div className="p-4 theme-rounded-card glass-spatial bg-theme-card/35 backdrop-blur-md border border-theme-border/50">
                       <div className="text-xs font-mono text-theme-muted uppercase tracking-wider mb-1">
                         Indian Payments
                       </div>
@@ -617,7 +536,7 @@ export default function Home() {
               {activeHeroTab === 'seo' && (
                 <div className="space-y-4">
                   {/* Google SERP Simulated Result */}
-                  <div className="p-3.5 theme-rounded-card bg-theme-bg/60 border border-theme-border/70 space-y-1">
+                  <div className="p-3.5 theme-rounded-card bg-theme-bg/35 backdrop-blur-md border border-theme-border/50 space-y-1">
                     <div className="flex items-center gap-1.5 text-[10.5px] font-mono text-theme-muted">
                       <Globe className="w-3 h-3 text-emerald-400" />
                       <span>https://yourbusiness.com</span>

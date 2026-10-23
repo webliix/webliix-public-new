@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { ChevronRight, Home } from 'lucide-react';
+import { Home } from 'lucide-react';
 import WebliixIcon from './WebliixIcon';
 
 const routeLabels = {
@@ -178,12 +178,12 @@ export default function Breadcrumbs({ customCrumbs, className = '' }) {
 
       <nav
         aria-label="Breadcrumb"
-        className={`w-full flex items-center justify-start my-3 sm:my-4 select-none ${className}`}
+        className={`w-full flex items-center justify-start mb-4 sm:mb-6 select-none ${className}`}
       >
         <ol
           itemScope
           itemType="https://schema.org/BreadcrumbList"
-          className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 theme-rounded-badge glass-spatial border border-theme-border/60 hover:border-theme-primary/30 transition-all text-xs font-mono text-theme-muted max-w-full overflow-x-auto no-scrollbar shadow-xs whitespace-nowrap"
+          className="flex items-center flex-wrap gap-1.5 sm:gap-2 text-xs font-mono text-theme-muted max-w-full"
         >
           {crumbs.map((crumb, index) => {
             const isLast = index === crumbs.length - 1;
@@ -203,12 +203,9 @@ export default function Breadcrumbs({ customCrumbs, className = '' }) {
                 <meta itemProp="position" content={String(index + 1)} />
 
                 {index > 0 && (
-                  <WebliixIcon
-                    icon={ChevronRight}
-                    variant="inline"
-                    size="xs"
-                    className="opacity-40 shrink-0 text-theme-muted"
-                  />
+                  <span aria-hidden="true" className="opacity-45 text-theme-muted font-mono select-none px-0.5">
+                    &gt;
+                  </span>
                 )}
 
                 {isLast ? (
