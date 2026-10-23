@@ -24,7 +24,7 @@ export function getApiBaseUrl() {
       return envUrl.replace(/\/$/, '');
     }
   }
-  return API_SERVERS.LOCAL;
+  return API_SERVERS.CLOUD;
 }
 
 /**
