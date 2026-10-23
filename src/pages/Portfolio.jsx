@@ -208,8 +208,8 @@ export default function Portfolio() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-20">
       <Helmet>
-        <title>Our Work | Website, Branding &amp; Marketing Projects | Webliix</title>
-        <meta name="description" content="Explore Webliix portfolio of custom business websites, Shopify stores, brand identities, and SEO projects delivering verified growth for clients in India, USA, and worldwide." />
+        <title>Web Design &amp; Development Portfolio | Client Case Studies | Webliix</title>
+        <meta name="description" content="Explore our curated showcase of live business websites, e-commerce storefronts, web applications, and SEO growth case studies built by Webliix digital architects." />
         <meta name="keywords" content="web design portfolio, branding samples, ecommerce site showcase, SEO results, India USA website agency, Webliix client projects" />
         <link rel="canonical" href="https://webliix.com/portfolio" />
         <meta property="og:title" content="Our Work | Website, Branding & Marketing Projects | Webliix" />
@@ -254,7 +254,7 @@ export default function Portfolio() {
           <Sparkles className="w-3.5 h-3.5" /> Proven Client Results
         </span>
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">
-          Client Work &amp; <span className="text-shimmer">Website Design Portfolio</span>
+          Web Design &amp; Custom Software: <span className="text-shimmer">Selected Client Work Portfolio</span>
         </h1>
         <p className="text-theme-muted text-base sm:text-lg leading-relaxed">
           Explore responsive business websites, Shopify e-commerce platforms, and brand identities crafted by{' '}

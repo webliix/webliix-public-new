@@ -156,10 +156,10 @@ export default function Feedback() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-12">
       <Helmet>
-        <title>Client Feedback &amp; Reviews | {siteConfig.brand.name}</title>
+        <title>Client Reviews &amp; Verified Testimonials | {siteConfig.brand.name}</title>
         <meta
           name="description"
-          content="Share your experience working with Webliix. Read verified feedback and client reviews for our website development, SEO, and digital services."
+          content="Read verified client reviews, satisfaction ratings, and testimonials from founders and business owners who built their digital platforms with Webliix."
         />
         <meta name="keywords" content="Webliix reviews, Webliix client feedback, Webliix ratings, website agency reviews" />
         <link rel="canonical" href="https://webliix.com/feedback" />
@@ -229,7 +229,7 @@ export default function Feedback() {
               <MessageSquare className="w-3.5 h-3.5" /> We Value Your Opinion
             </span>
             <h1 className="text-4xl sm:text-5xl font-display font-extrabold text-theme-text">
-              Client Feedback &amp; <span className="text-shimmer">Reviews</span>
+              Client Reviews &amp; <span className="text-shimmer">Verified Project Testimonials</span>
             </h1>
             <p className="text-theme-muted text-base">
               Worked with Webliix? We'd love to hear how it went. Your honest

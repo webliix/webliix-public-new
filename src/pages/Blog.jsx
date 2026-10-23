@@ -155,10 +155,10 @@ export default function Blog() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-14">
       <Helmet>
-        <title>Web Development &amp; SEO Insights Blog | {siteConfig.brand.name}</title>
+        <title>Web Development, SEO &amp; Digital Growth Insights Blog | {siteConfig.brand.name}</title>
         <meta
           name="description"
-          content="Explore deep architectural breakdowns, digital growth tutorials, Google Ads strategies, and technical SEO guides by Webliix digital architects."
+          content="Actionable tutorials, architectural breakdowns, Google Ads tactics, and technical SEO guides published by the engineering and growth team at Webliix."
         />
         <meta name="keywords" content="web development blog, SEO tips, technical SEO, React development, business growth, digital marketing guides, Webliix blog" />
         <link rel="canonical" href="https://webliix.com/blog" />
@@ -196,7 +196,7 @@ export default function Blog() {
           <Sparkles className="w-3.5 h-3.5" /> Webliix Knowledge Hub
         </span>
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">
-          Web Development &amp; SEO Insights <span className="text-shimmer">Blog</span>
+          Web Development, SEO &amp; Digital Growth <span className="text-shimmer">Insights Blog</span>
         </h1>
         <p className="text-theme-muted text-base sm:text-lg leading-relaxed">
           Deep architectural breakdowns, practical tutorials, and digital growth strategies direct from Webliix engineers.

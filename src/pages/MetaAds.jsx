@@ -247,10 +247,10 @@ export default function MetaAds() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-16">
       <Helmet>
-        <title>Facebook & Instagram Ads Management | Webliix</title>
+        <title>Meta Ads Agency | Facebook &amp; Instagram Advertising | Webliix</title>
         <meta
           name="description"
-          content="Webliix helps small businesses manage Facebook and Instagram advertising campaigns with audience targeting, creative testing, conversion tracking and reporting."
+          content="Turn social scrollers into paying customers. Webliix creates scroll-stopping creatives, precision lookalike audiences, and Meta pixel conversion tracking on Instagram and Facebook."
         />
         <meta
           name="keywords"
@@ -280,7 +280,7 @@ export default function MetaAds() {
         </div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-theme-text leading-[1.15]">
-          Meta Ads Management: <span className="text-shimmer">Facebook &amp; Instagram Growth Campaigns</span>
+          Meta Ads Management: <span className="text-shimmer">Facebook &amp; Instagram Acquisition Campaigns</span>
         </h1>
 
         <p className="text-base sm:text-lg text-theme-muted leading-relaxed max-w-2xl mx-auto">

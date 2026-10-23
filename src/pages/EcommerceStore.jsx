@@ -246,8 +246,8 @@ export default function EcommerceStore() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-20">
       <Helmet>
-        <title>Shopify Store Development & Setup | Webliix</title>
-        <meta name="description" content="Shopify store development and setup for eCommerce businesses. Webliix builds custom Shopify stores with theme design, payments, shipping, product SEO and conversion-focused setup." />
+        <title>Shopify Store Development & E-Commerce Web Design | Webliix</title>
+        <meta name="description" content="Launch or scale your online store with Webliix. Expert Shopify development, custom theme design, payment gateway setup, and product SEO built to maximize checkout conversions." />
         <meta name="keywords" content="Shopify store setup, eCommerce website development, Shopify theme customization, online store development, WooCommerce website design, D2C eCommerce agency, Razorpay integration, online store builder India" />
         <meta name="robots" content="index, follow, max-image-preview:large" />
         <link rel="canonical" href="https://webliix.com/ecommerce-store" />
@@ -294,7 +294,7 @@ export default function EcommerceStore() {
           <Zap className="w-3.5 h-3.5" /> 5–7 Day Turnkey Deployment
         </span>
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">
-          <span className="text-shimmer">Shopify Store Development</span> & E-Commerce Setup
+          <span className="text-shimmer">Shopify Store Development</span> &amp; E-Commerce Web Design
         </h1>
         <p className="text-theme-muted text-base sm:text-lg leading-relaxed">
           Launch a professional Shopify store built around your products, brand and customers. Webliix handles Shopify setup, custom theme design, product catalog, payment gateways, shipping, analytics and SEO-ready storefront configuration for eCommerce businesses worldwide.

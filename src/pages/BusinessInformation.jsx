@@ -33,8 +33,8 @@ export default function BusinessInformation() {
       subtitle="Transparent. Professional. Registered. Official business identity and regulatory compliance information for WEBLIIX."
       categoryTag="Verified Regulatory Data"
       lastUpdated="August 2026"
-      seoTitle="Business Information & MSME Registration | WEBLIIX"
-      seoDescription="View official business, Udyam MSME registration and compliance information for WEBLIIX."
+      seoTitle="Business Information & Regulatory Compliance | WEBLIIX"
+      seoDescription="Official registered enterprise details, Udyam MSME certification, NIC business codes, and compliance credentials for Webliix."
       canonicalPath="/business-information"
       tableOfContents={tocItems}
     >

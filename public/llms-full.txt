@@ -1,0 +1,163 @@
+# Webliix — Complete Knowledge Base & Service Specifications
+
+> Webliix is a full-service digital agency and software engineering company registered as an MSME Enterprise in India (UDYAM-BR-07-0032646). Founded by Himanshu Sharma (Managing Director) and Abdul Latif (Technical Lead), Webliix engineers high-performance web platforms, custom web applications, Shopify e-commerce systems, mobile apps, and search engine optimization (SEO) solutions for clients across India, North America, Europe, and the Middle East.
+
+---
+
+## 1. Executive Summary & Brand Details
+
+- **Company Name**: Webliix (legal registration: WEBLIIX)
+- **Tagline**: < Your Success is our Code />
+- **Core Value Proposition**: 100% Client Code Ownership, No Vendor Lock-in, Sub-Second Edge Performance, Clean Modern Spatial Design, and Measurable Growth.
+- **Enterprise Registration**: Ministry of Micro, Small and Medium Enterprises (MSME), Government of India.
+- **Udyam Number**: UDYAM-BR-07-0032646
+- **Primary Website**: https://webliix.com
+- **Inquiry Email**: info@webliix.com
+- **Emergency / Direct Phone**: +91 93414 44503 / +91 99316 46422
+- **Locations Served**: India (NCR Delhi, Bihar, Bangalore, Mumbai), United States, Canada, United Kingdom, Germany, United Arab Emirates.
+
+---
+
+## 2. Technology Stack & Architecture
+
+Webliix builds with enterprise-grade, modern open technologies to guarantee longevity and speed:
+
+### Frontend Engineering
+- **Core Languages & Libraries**: React 19, JavaScript (ESNext), TypeScript
+- **Styling & Motion**: Tailwind CSS v4, Modern CSS Custom Properties, GPU-accelerated CSS Keyframes, Framer Motion
+- **Tooling & Build**: Vite, Rolldown engine, PostCSS, ESLint, Oxlint
+- **Rendering & Optimizations**: Static Site Generation (SSG), Route-based dynamic code-splitting, `content-visibility: auto`, Responsive Cloudinary CDN image pipelines
+
+### Backend & Cloud Infrastructure
+- **Core Framework**: Java 21, Spring Boot 3.x
+- **Databases**: PostgreSQL (Relational), Flyway Database Migrations
+- **Security & Auth**: Spring Security 6, JWT Authentication, Role-Based Access Control (RBAC)
+- **APIs**: RESTful JSON APIs, Swagger / OpenAPI 3.0 Documentation
+- **Hosting & Deployments**: Cloudflare Pages / AWS / Render / Vercel Edge Networks
+
+---
+
+## 3. Services & Solution Breakdown
+
+### 3.1 Custom Website Development
+- **Target URL**: https://webliix.com/website-development
+- **Overview**: Custom, responsive websites tailored for startups, small businesses, enterprises, and professionals.
+- **Key Features**: 
+  - Sub-second edge loading speeds
+  - Responsive layout across mobile, tablet, and desktop
+  - Custom React/Vite architecture with zero bloated CMS overhead
+  - Lead-capturing contact forms with instant email and WhatsApp alerts
+  - Full source code ownership transferred on project handover
+
+### 3.2 Shopify E-Commerce Store Development
+- **Target URL**: https://webliix.com/ecommerce-store
+- **Overview**: High-converting Shopify and custom e-commerce storefronts built for scale.
+- **Key Features**:
+  - Bespoke Liquid theme design and modern headless setups
+  - Payment gateway integrations (Razorpay, Stripe, Cashfree, PayPal)
+  - Automated shipping rates and courier tracking integration
+  - Conversion rate optimization (CRO) and streamlined checkout funnel
+  - On-page product schema, meta tags, and inventory setup
+
+### 3.3 Search Engine Optimization (SEO) & Google Business Profile (GMB)
+- **Target URL**: https://webliix.com/seo
+- **Overview**: Organic search optimization designed to build long-term traffic and local map domination.
+- **Key Features**:
+  - Google Business Profile (GMB) creation, verification, and category optimization
+  - Local Map Pack (3-Pack) ranking strategy and citation building
+  - Comprehensive technical SEO audits (Core Web Vitals, Crawlability, Sitemaps, Structured Data)
+  - Keyword research, content strategy, and on-page metadata optimization
+  - High-authority white-hat link building and press syndication
+
+### 3.4 Custom Web Application & SaaS Development
+- **Target URL**: https://webliix.com/web-app-development
+- **Overview**: Full-stack bespoke software, customer portals, and SaaS platforms.
+- **Key Features**:
+  - Secure multi-tenant SaaS architecture
+  - Custom internal tools (CRM, ERP, ticketing, invoicing, project management)
+  - Microservices and modular RESTful API architecture
+  - Robust role-based access control (Admin, Manager, Employee, Client)
+  - Automated database backups, audit logging, and compliance tracking
+
+### 3.5 Mobile Application Development
+- **Target URL**: https://webliix.com/mobile-app-development
+- **Overview**: Native and cross-platform mobile apps for iOS and Android.
+- **Key Features**:
+  - Single-codebase Flutter and React Native engineering
+  - Offline-first capabilities and SQLite local caching
+  - Push notifications, biometric authentication, and in-app purchases
+  - App Store (Apple) and Google Play Store submission and compliance
+
+### 3.6 Branding & UI/UX Design
+- **Target URL**: https://webliix.com/branding-design
+- **Overview**: Visual identities and product design that establish instant credibility.
+- **Key Features**:
+  - Custom vector logo creation with full copyright ownership
+  - Complete brand guidelines (color theory, typography palettes, icon libraries)
+  - High-fidelity interactive wireframes and prototypes in Figma
+  - Design-to-code translation with reusable design systems
+
+### 3.7 Website Maintenance & Developer Support
+- **Target URL**: https://webliix.com/website-maintenance
+- **Overview**: Proactive technical care keeping digital assets fast, secure, and operational.
+- **Key Features**:
+  - 24/7 uptime monitoring and incident response
+  - Weekly security audits, dependency updates, and SSL renewal management
+  - Automated offsite cloud backups
+  - Dedicated developer hours for feature requests, bug fixes, and content updates
+
+### 3.8 Performance Marketing & Paid Advertising
+- **Target URL**: https://webliix.com/paid-advertising
+- **Sub-pages**: 
+  - Google Ads: https://webliix.com/google-ads
+  - Meta Ads: https://webliix.com/meta-ads
+- **Overview**: Transparent, data-driven paid advertising delivering qualified inbound leads.
+- **Key Features**:
+  - Google Search Ads with strict negative-keyword lists to prevent wasted spend
+  - Google Local Services Ads (LSA) and Performance Max campaigns
+  - Meta (Facebook & Instagram) lookalike audience and retargeting funnels
+  - Conversion pixel setup with server-side Conversion API (CAPI)
+
+---
+
+## 4. Package Pricing & Investment Models
+
+### Webliix LaunchKit (Turnkey 5-Day Business Package)
+- **URL**: https://webliix.com/launch-kit
+- **Starter Package**: ₹9,999 (~$149 USD) one-time investment.
+  - 5 Custom responsive pages
+  - Modern React & Tailwind frontend
+  - Vector brand logo design
+  - Google Business Profile setup & local SEO foundation
+  - 1-Year domain configuration & HTTPS SSL
+  - Contact enquiry forms with WhatsApp integration
+  - 30 Days post-launch warranty support
+- **Growth Package**: ₹18,999 (~$279 USD) one-time investment.
+  - Up to 10 Custom pages with blog / case study publishing engine
+  - Advanced on-page SEO & Schema.org JSON-LD
+  - Social media integration & Google Analytics 4 tracking
+  - Priority delivery in 7–10 days
+
+### Custom Development & Retainer Engagements
+- **Custom Web Applications / SaaS**: Milestone-based scoping following discovery.
+- **Shopify Stores**: Custom packages starting from ₹14,999 (~$199 USD).
+- **SEO & Google Ads Retainers**: Monthly management packages with zero lock-in contracts.
+
+---
+
+## 5. Frequently Asked Questions (FAQ)
+
+### Who owns the website and source code?
+The client receives 100% full ownership of the source code, design assets, and database upon project completion. Webliix does not practice vendor lock-in or proprietary licensing fees.
+
+### What is the typical delivery timeframe?
+- **Webliix LaunchKit**: 5 to 7 business days.
+- **Standard Business Websites**: 7 to 14 business days.
+- **Shopify Stores**: 10 to 18 business days.
+- **Custom SaaS / Web Applications**: 4 to 8 weeks in phased sprint milestones.
+
+### How does Webliix handle SEO?
+Webliix builds websites with technical SEO foundations: semantic HTML5, valid Schema.org JSON-LD structured data, responsive viewports, Open Graph social tags, XML sitemaps, non-blocking fonts, and sub-second Largest Contentful Paint (LCP) performance.
+
+### How can a business get started?
+Clients can request a consultation via https://webliix.com/contact or reach the engineering team directly at info@webliix.com or +91 93414 44503.

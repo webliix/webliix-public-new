@@ -211,7 +211,7 @@ export default function MobileAppDevelopment() {
         <title>Mobile App Development Company | iOS & Android Apps | Webliix</title>
         <meta
           name="description"
-          content="Webliix builds custom mobile apps for iOS and Android using Flutter and React Native. Get MVP, ecommerce, booking, business and enterprise app development with UI/UX, APIs, payments and store launch support."
+          content="Partner with Webliix for cross-platform iOS and Android mobile app development. From UI/UX wireframes to native APIs, payment gateways, and App Store publishing."
         />
         <meta
           name="keywords"
@@ -288,7 +288,7 @@ export default function MobileAppDevelopment() {
           <Smartphone className="w-3.5 h-3.5" /> Flutter / React Native Cross-Platform Apps
         </span>
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">
-          <span className="text-shimmer">Mobile App Development</span> Company for iOS & Android
+          Custom <span className="text-shimmer">Mobile App Development</span> for iOS &amp; Android Devices
         </h1>
         <p className="text-theme-muted text-base sm:text-lg leading-relaxed">
           Turn your app idea into a product customers can actually use. Webliix designs and develops custom iOS and Android apps for startups and businesses using Flutter, React Native and API-driven backends, complete with UI/UX, payments, notifications, integrations and store launch support.

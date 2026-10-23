@@ -244,10 +244,10 @@ export default function GoogleAds() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-16">
       <Helmet>
-        <title>Google Ads Management for Small Businesses | Webliix</title>
+        <title>Google Ads Management &amp; PPC Advertising Agency | Webliix</title>
         <meta
           name="description"
-          content="Webliix manages Google Ads campaigns for small businesses, including campaign setup, keyword research, conversion tracking, optimization and reporting."
+          content="Capture high-intent buyers searching on Google. Webliix designs and optimizes targeted Google Search, Performance Max, and Local Services ads with negative-keyword budget protection."
         />
         <meta
           name="keywords"
@@ -277,7 +277,7 @@ export default function GoogleAds() {
         </div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-theme-text leading-[1.15]">
-          Google Ads Management &amp; <span className="text-shimmer">PPC Lead Campaigns</span>
+          Google Ads Management &amp; <span className="text-shimmer">High-Intent PPC Lead Campaigns</span>
         </h1>
 
         <p className="text-base sm:text-lg text-theme-muted leading-relaxed max-w-2xl mx-auto">

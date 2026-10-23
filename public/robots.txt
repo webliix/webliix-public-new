@@ -1,7 +1,6 @@
 # ─────────────────────────────────────────────────────────────────────────────
 # Webliix Public Website Robots.txt
 # https://webliix.com
-# Updated: October 11, 2026
 # ─────────────────────────────────────────────────────────────────────────────
 
 User-agent: *
@@ -18,5 +17,27 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-# XML Sitemap
+# LLM / AI Search & Crawling Agents
+User-agent: GPTBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: ClaudeBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: PerplexityBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# XML Sitemap & LLM Standards
 Sitemap: https://webliix.com/sitemap.xml

@@ -697,10 +697,10 @@ export default function LaunchKit() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-16">
       <Helmet>
-        <title>Website Design, Branding & SEO Packages for Businesses | Webliix</title>
+        <title>Webliix LaunchKit | Turnkey Website, Branding &amp; SEO Package</title>
         <meta
           name="description"
-          content="Website design, branding and SEO packages for businesses, startups and professionals. Launch with a professional website, brand identity, Google Business Profile setup and SEO foundations from ₹9,999."
+          content="Launch your business online in 5 days. Webliix LaunchKit bundles a custom responsive website, domain setup, brand assets, Google Business Profile, and local SEO starting from ₹9,999 ($149)."
         />
         <meta
           name="keywords"
@@ -708,10 +708,10 @@ export default function LaunchKit() {
         />
         <meta name="robots" content="index, follow, max-image-preview:large" />
         <link rel="canonical" href={canonicalUrl} />
-        <meta property="og:title" content="Website Design, Branding & SEO Packages for Businesses | Webliix" />
+        <meta property="og:title" content="Webliix LaunchKit: Complete Business Website, Branding &amp; Local SEO Package | Webliix" />
         <meta
           property="og:description"
-          content="Website design, branding and SEO packages for businesses, startups and professionals. Launch with a professional website, brand identity, Google Business Profile setup and SEO foundations from ₹9,999."
+          content="Launch your business online in 5 days. Webliix LaunchKit bundles a custom responsive website, domain setup, brand assets, Google Business Profile, and local SEO starting from ₹9,999 ($149)."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalUrl} />
@@ -730,7 +730,7 @@ export default function LaunchKit() {
         </div>
 
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-theme-text leading-[1.15]">
-          Website Design, Branding & <span className="text-shimmer">SEO Packages</span> for Businesses
+          Webliix LaunchKit: Complete Business Website, Branding &amp; <span className="text-shimmer">Local SEO Package</span>
         </h1>
 
         <p className="text-base sm:text-lg text-theme-muted leading-relaxed max-w-3xl mx-auto">

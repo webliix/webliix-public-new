@@ -282,10 +282,10 @@ export default function PaidAdvertising() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-16">
       <Helmet>
-        <title>Paid Advertising Services for Small Businesses | Webliix</title>
+        <title>Paid Advertising &amp; Performance Marketing Agency | Webliix</title>
         <meta
           name="description"
-          content="Webliix helps small businesses manage Google, Facebook and Instagram advertising with transparent pricing, controlled budgets and clear reporting."
+          content="Generate qualified inbound leads and profitable sales with Webliix paid advertising. High-converting Google Ads search campaigns, Meta retargeting, and transparent ROAS reporting."
         />
         <meta
           name="keywords"
@@ -315,7 +315,7 @@ export default function PaidAdvertising() {
         </div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-theme-text leading-[1.15]">
-          Paid Advertising Services: <span className="text-shimmer">Google, Meta &amp; Social Ads</span>
+          Paid Advertising &amp; Performance Marketing: <span className="text-shimmer">Google, Meta &amp; Social Ads</span>
         </h1>
 
         <p className="text-base sm:text-lg text-theme-muted leading-relaxed max-w-2xl mx-auto">

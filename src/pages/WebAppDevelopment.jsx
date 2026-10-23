@@ -212,10 +212,10 @@ export default function WebAppDevelopment() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-20">
       <Helmet>
-        <title>Custom Web Application & SaaS Development Services | Webliix</title>
+        <title>Custom Web Application & SaaS Development Company | Webliix</title>
         <meta
           name="description"
-          content="Custom web application and SaaS development for businesses and startups, including CRM, ERP, dashboards, portals, APIs and business software built with modern web technologies."
+          content="Build secure, scalable web applications and SaaS products. Webliix engineers custom business software, portals, internal dashboards, and robust REST APIs with Java & React."
         />
         <meta
           name="keywords"
@@ -256,7 +256,7 @@ export default function WebAppDevelopment() {
           <Cpu className="w-3.5 h-3.5" /> Custom Web Applications &amp; SaaS Development
         </span>
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">
-          Custom <span className="text-shimmer">Web Application</span> &amp; SaaS Development Services
+          Custom <span className="text-shimmer">Web Application &amp; Scalable SaaS</span> Development Services
         </h1>
         <p className="text-theme-muted text-base sm:text-lg leading-relaxed">
           Transform your complex business workflows into scalable, cloud-ready software platforms. We build high-throughput backends, stateful React dashboards, and robust multi-tenant SaaS products.

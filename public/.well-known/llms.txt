@@ -1,0 +1,38 @@
+# Webliix
+
+> Webliix is an MSME-registered full-service digital agency and software engineering company. Webliix designs, develops, and deploys high-performance business websites, Shopify e-commerce stores, custom SaaS applications, cross-platform mobile apps (iOS & Android), Google Business Profile (GMB) optimization, and technical SEO for businesses worldwide.
+
+## Core Capabilities & Services
+
+- [Custom Website Development](https://webliix.com/website-development): Responsive corporate websites, landing pages, and modern React 19 / Next.js web applications built for speed, conversion, and 100% client code ownership.
+- [Shopify E-Commerce Stores](https://webliix.com/ecommerce-store): Custom Shopify store setup, bespoke theme development, payment gateway integration, product SEO, and checkout optimization.
+- [SEO & Google Business Profile](https://webliix.com/seo): Technical SEO audits, on-page optimization, Google Business Profile (GMB) verification and local Maps 3-Pack ranking.
+- [Custom Web Applications & SaaS](https://webliix.com/web-app-development): Scalable SaaS systems, customer portals, internal CRM/ERP dashboards, and secure REST APIs built with Java Spring Boot and React.
+- [Mobile App Development](https://webliix.com/mobile-app-development): Cross-platform iOS and Android mobile applications built with Flutter and React Native.
+- [Branding & UI/UX Design](https://webliix.com/branding-design): Corporate visual identity, vector logo design, brand guidelines, and high-fidelity Figma design systems.
+- [Website Maintenance & Support](https://webliix.com/website-maintenance): 24/7 uptime monitoring, security patching, cloud backups, and on-demand developer support.
+- [Paid Advertising & Performance Marketing](https://webliix.com/paid-advertising): High-ROI performance marketing across Google Ads PPC and Meta (Facebook & Instagram) ads.
+  - [Google Ads Management](https://webliix.com/google-ads): High-intent Search, Performance Max, and Local Services PPC.
+  - [Meta Ads Management](https://webliix.com/meta-ads): Lookalike audience targeting, ad creatives, and conversion retargeting.
+- [Webliix LaunchKit](https://webliix.com/launch-kit): All-in-one 5-day business launch package (Website + Logo + Google Business Profile + Local SEO) starting at ₹9,999 ($149).
+
+## Company Identity & Verification
+
+- **Legal Entity**: WEBLIIX (Government of India MSME Registered Enterprise: UDYAM-BR-07-0032646)
+- **Founders**: Himanshu Sharma (Managing Director), Abdul Latif (Technical Lead)
+- **Primary Website**: https://webliix.com
+- **Direct Contacts**: info@webliix.com | +91 93414 44503 | +91 99316 46422
+- **Headquarters**: Bihar & NCR Delhi, India (Serving clients worldwide across USA, Canada, Germany, UK, and UAE)
+
+## Key Pages & Documentation
+
+- [Services Directory](https://webliix.com/services): Overview of all digital services and engineering solutions.
+- [Portfolio & Case Studies](https://webliix.com/portfolio): Live client websites, verified outcomes, and case studies.
+- [Web Development Blog](https://webliix.com/blog): Technical SEO breakdowns, engineering tutorials, and growth strategies.
+- [Careers & Partner Program](https://webliix.com/careers): Join Webliix as a developer, designer, or growth partner.
+- [Business Compliance](https://webliix.com/business-information): Official Udyam registration, tax status, and regulatory data.
+- [Contact & Consultation](https://webliix.com/contact): Project inquiries, discovery calls, and proposal requests.
+
+## Full Context for AI Agents & LLMs
+
+- [Full LLM Knowledge File](https://webliix.com/llms-full.txt): Comprehensive service specifications, tech stack architecture, pricing packages, FAQs, and business verification.

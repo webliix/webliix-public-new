@@ -116,8 +116,8 @@ export default function About() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-16">
       <Helmet>
-        <title>About Us | Founders & Agency Vision | {siteConfig.brand.name}</title>
-        <meta name="description" content="Meet Webliix founders Himanshu Sharma (Managing Director) and Abdul Latif (Technical Lead). Learn about our story, Java & React stack, and global digital agency vision." />
+        <title>About Webliix | Digital Agency, Engineering Team &amp; Company Vision</title>
+        <meta name="description" content="Discover Webliix, an MSME-registered digital agency founded by Himanshu Sharma and Abdul Latif. Learn about our engineering principles, enterprise tech stack, and client-first mission." />
         <meta name="keywords" content="about Webliix, Webliix founders, Himanshu Sharma, Abdul Latif, digital agency India, website development agency, web development company Bihar NCR" />
         <meta name="robots" content="index, follow, max-image-preview:large" />
         <link rel="canonical" href="https://webliix.com/about" />
@@ -174,7 +174,7 @@ export default function About() {
           </span>
         </div>
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">
-          About Webliix: <span className="text-shimmer">Full-Service Web &amp; Growth Agency</span>
+          About Webliix: <span className="text-shimmer">Digital Agency &amp; Software Engineering Team</span>
         </h1>
         <p className="text-theme-muted text-base sm:text-lg leading-relaxed">
           A modern digital growth agency built by founders who believe every business, regardless of size, deserves fast web engineering, memorable branding, and high search rankings.

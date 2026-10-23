@@ -100,8 +100,8 @@ export default function Contact() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-12">
       <Helmet>
-        <title>Contact Us | Free Website &amp; SEO Consultation | {siteConfig.brand.name}</title>
-        <meta name="description" content="Get in touch with Webliix engineers to start your website development, SEO ranking, or e-commerce project. Free project consultation & 2-hour response time." />
+        <title>Contact Webliix | Book a Free Website &amp; SEO Consultation</title>
+        <meta name="description" content="Connect with Webliix digital engineers. Request a free quote, discuss project scope, or schedule a strategy call for website development, Shopify stores, or Google SEO." />
         <meta name="keywords" content="contact Webliix, hire web developer India, website design quote, SEO consultation, Shopify expert contact, web agency contact" />
         <link rel="canonical" href="https://webliix.com/contact" />
         <meta property="og:title" content={`Contact Us | Free Website & SEO Consultation | ${siteConfig.brand.name}`} />
@@ -148,7 +148,7 @@ export default function Contact() {
           <Sparkles className="w-3.5 h-3.5" /> Let's Connect
         </span>
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text">
-          Contact Webliix: <span className="text-shimmer">Book a Free Consultation</span>
+          Contact Webliix: <span className="text-shimmer">Book Your Free Project Consultation</span>
         </h1>
         <p className="text-theme-muted text-base sm:text-lg">
           Connect with Webliix engineers to build high-converting business websites, Shopify stores, local SEO engines, or custom software platforms.

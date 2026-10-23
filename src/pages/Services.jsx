@@ -118,13 +118,11 @@ export default function Services() {
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-16">
 
       <Helmet>
-        <title>
-          Website Development, SEO & Digital Services | {siteConfig.brand.name}
-        </title>
+        <title>Web Design, SEO &amp; Custom Software Services | {siteConfig.brand.name}</title>
 
         <meta
           name="description"
-          content="Explore Webliix website development, e-commerce, SEO, Google Business Profile, digital marketing, branding, UI/UX and custom software services for businesses in India and international markets."
+          content="Explore Webliix digital agency services: custom website development, Shopify eCommerce, Google SEO & GMB, paid ads, UI/UX branding, and enterprise software solutions."
         />
 
         <meta
@@ -168,7 +166,7 @@ export default function Services() {
         </span>
 
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">
-          Website Development, SEO & Digital Services for Businesses Worldwide
+          Web Design, SEO & Custom Software Development Services
         </h1>
 
         <p className="text-theme-muted text-base sm:text-lg leading-relaxed">

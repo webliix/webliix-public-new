@@ -304,10 +304,10 @@ export default function Home() {
     <div className="relative min-h-screen pb-16">
       {/* ADVANCED SEO METADATA & SCHEMA.ORG INJECTION */}
       <Helmet>
-        <title>Webliix | Website Development, SEO & Digital Solutions</title>
+        <title>Webliix | Web Design, SEO & Custom Software Development Agency</title>
         <meta
           name="description"
-          content="Webliix builds business websites, e-commerce stores, custom web applications and SEO-focused digital solutions for businesses in India and international markets."
+          content="Webliix is a full-service digital agency building high-performance business websites, Shopify stores, custom web apps, and Google SEO that turn traffic into revenue."
         />
         <meta
           name="keywords"

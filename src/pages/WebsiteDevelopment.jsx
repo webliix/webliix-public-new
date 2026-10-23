@@ -235,10 +235,10 @@ export default function WebsiteDevelopment() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-20">
       <Helmet>
-        <title>Website Development Services for Businesses | Webliix</title>
+        <title>Custom Website Development Services | Modern Web Design | Webliix</title>
         <meta
           name="description"
-          content="Webliix provides website development services for businesses, startups and professionals, including responsive websites, landing pages, custom React/Next.js development and SEO-ready website foundations."
+          content="Get custom website development built for speed and conversions. Webliix delivers responsive business websites, landing pages, and React web apps with 100% code ownership."
         />
         <meta
           name="keywords"
@@ -311,7 +311,7 @@ export default function WebsiteDevelopment() {
           <Code className="w-3.5 h-3.5" /> Custom Website Development &amp; Web Design
         </span>
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">
-          <span className="text-shimmer">Website Development</span> Services for Businesses Worldwide
+          Custom <span className="text-shimmer">Website Development &amp; Modern Web Design</span> Services
         </h1>
         <p className="text-theme-muted text-base sm:text-lg leading-relaxed">
           Webliix builds custom, responsive websites for businesses, startups and professionals, ranging from business websites and landing pages to React, Next.js and web application development. Each project is structured around usability, mobile experience, search visibility and customer enquiries.

@@ -151,10 +151,10 @@ export default function WebsiteMaintenance() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-20">
       <Helmet>
-        <title>Website Maintenance & Support Services | Webliix</title>
+        <title>Website Maintenance &amp; Technical Support Services | Webliix</title>
         <meta
           name="description"
-          content="Website maintenance and technical support for business websites, WordPress, WooCommerce and custom web applications, including updates, backups, security checks, performance reviews and developer support."
+          content="Keep your website fast, secure, and always online. Webliix provides proactive 24/7 uptime monitoring, security patching, cloud backups, and on-demand developer support."
         />
         <meta
           name="keywords"
@@ -202,7 +202,7 @@ export default function WebsiteMaintenance() {
           <Wrench className="w-3.5 h-3.5" /> Ongoing Website Maintenance &amp; Technical Support
         </span>
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">
-          Website <span className="text-shimmer">Maintenance</span> &amp; Support Services
+          Website <span className="text-shimmer">Maintenance, Security</span> &amp; Technical Support Services
         </h1>
         <p className="text-theme-muted text-base sm:text-lg leading-relaxed">
           Keep your website maintained with scheduled updates, backup monitoring, security checks, performance reviews, troubleshooting and developer support. Maintenance is planned around your website platform and business requirements.

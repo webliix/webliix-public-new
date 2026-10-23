@@ -190,10 +190,10 @@ export default function SeoServices() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-16">
       <Helmet>
-        <title>SEO Services &amp; Google My Business (GMB) Optimization | {siteConfig.brand.name}</title>
+        <title>SEO Services &amp; Google Business Profile Optimization | {siteConfig.brand.name}</title>
         <meta
           name="description"
-          content="Rank higher on Google with Webliix SEO services: Technical SEO Audits, On-Page Content Optimization, Google My Business (GMB) Local Maps ranking, and high-authority link building."
+          content="Grow organic search rankings and local foot traffic with Webliix. Comprehensive technical SEO audits, on-page optimization, Google Business Profile (GMB) setup, and quality backlink building."
         />
         <meta
           name="keywords"
@@ -269,7 +269,7 @@ export default function SeoServices() {
         </span>
 
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">
-          Professional <span className="text-shimmer">SEO &amp; Google Business Profile</span> Services
+          Search Engine Optimization (SEO) &amp; <span className="text-shimmer">Google Business Profile Growth</span>
         </h1>
 
         <p className="text-theme-muted text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
