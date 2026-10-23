@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import {
-  Link } from 'react-router-dom';
-import { motion,
-  AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import {
   ArrowRight,
@@ -32,7 +30,9 @@ import {
   Activity,
   Terminal,
   RefreshCw,
-  Server
+  Server,
+  Lock,
+  ShoppingBag
 } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import { businessConfig } from '../config/businessConfig';
@@ -48,14 +48,14 @@ export default function Home() {
   const [activeProcessStep, setActiveProcessStep] = useState(0);
   const [expandedFaq, setExpandedFaq] = useState(null);
   const { openModal } = useModal();
-  const [cockpitTab, setCockpitTab] = useState('vitals'); // 'vitals' | 'stack' | 'seo'
+  const [activeHeroTab, setActiveHeroTab] = useState('web'); // 'web' | 'ecommerce' | 'seo'
   const [isAuditing, setIsAuditing] = useState(false);
 
-  const handleRunAudit = () => {
+  const handleTestSpeed = () => {
     setIsAuditing(true);
     setTimeout(() => {
       setIsAuditing(false);
-    }, 850);
+    }, 700);
   };
 
   const handleOpenServiceModal = (service) => {
@@ -351,345 +351,318 @@ export default function Home() {
         </script>
       </Helmet>
 
-      {/* REDESIGNED INTERACTIVE SPATIAL HERO SECTION */}
-      <section className="relative pt-4 pb-14 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* ═══════════════════════════════════════════════════════════════
+          REDESIGNED MODERN HERO SECTION (MINIMALIST, HIGH-IMPACT, ZERO GRID)
+          ═══════════════════════════════════════════════════════════════ */}
+      <section className="relative pt-6 sm:pt-10 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden text-center">
         <SpatialHeroCanvas />
 
-        <div className="relative z-10 max-w-7xl mx-auto">
-          {/* Main Hero Split Grid: Left Value Drivers + Right Interactive Engineering Cockpit */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
-            {/* LEFT COLUMN: Headings, Value Drivers, Actions */}
-            <div className="lg:col-span-7 text-left space-y-6">
-              
-              {/* Eyebrow Status Pill */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-bold tracking-wide shadow-xs">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>Webliix v2.5 Engineering • Fast Website &amp; SEO Engine</span>
-              </div>
-
-              {/* Main Headline */}
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-theme-text leading-[1.08] tracking-tight">
-                High-Performance Web &amp; App Development With<br />
-                <span className="text-shimmer">Data-Driven SEO Growth</span>
-              </h1>
-
-              {/* Subtext */}
-              <p className="text-theme-muted text-sm sm:text-base max-w-2xl leading-relaxed">
-                We engineer ultra-fast enterprise websites, headless Shopify e-commerce stores, custom cloud web applications, and local search engines. Built for sub-second page loads, conversion velocity, and 100% source-code ownership.
-              </p>
-
-              {/* Interactive Key Highlights Strip */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
-                <div className="p-2.5 rounded-xl glass-spatial border border-theme-border/60 hover:border-theme-primary/40 transition-all flex flex-col gap-1">
-                  <div className="flex items-center gap-1.5 text-theme-primary text-xs font-bold font-mono">
-                    <Zap className="w-3.5 h-3.5 text-theme-primary shrink-0" />
-                    <span>5-Day Launch</span>
-                  </div>
-                  <span className="text-[11px] text-theme-muted leading-tight">Turnkey launch kit with complete domain &amp; GMB</span>
-                </div>
-
-                <div className="p-2.5 rounded-xl glass-spatial border border-theme-border/60 hover:border-theme-primary/40 transition-all flex flex-col gap-1">
-                  <div className="flex items-center gap-1.5 text-theme-primary text-xs font-bold font-mono">
-                    <ShieldCheck className="w-3.5 h-3.5 text-theme-primary shrink-0" />
-                    <span>100% Code Rights</span>
-                  </div>
-                  <span className="text-[11px] text-theme-muted leading-tight">Zero vendor lock-in; all source &amp; hosting is yours</span>
-                </div>
-
-                <div className="p-2.5 rounded-xl glass-spatial border border-theme-border/60 hover:border-theme-primary/40 transition-all flex flex-col gap-1">
-                  <div className="flex items-center gap-1.5 text-theme-primary text-xs font-bold font-mono">
-                    <Gauge className="w-3.5 h-3.5 text-theme-primary shrink-0" />
-                    <span>99+ Vitals</span>
-                  </div>
-                  <span className="text-[11px] text-theme-muted leading-tight">Sub-second LCP with edge CDN caching</span>
-                </div>
-
-                <div className="p-2.5 rounded-xl glass-spatial border border-theme-border/60 hover:border-theme-primary/40 transition-all flex flex-col gap-1">
-                  <div className="flex items-center gap-1.5 text-theme-primary text-xs font-bold font-mono">
-                    <Target className="w-3.5 h-3.5 text-theme-primary shrink-0" />
-                    <span>#1 Local SEO</span>
-                  </div>
-                  <span className="text-[11px] text-theme-muted leading-tight">Schema.org JSON-LD &amp; Google Map Pack setup</span>
-                </div>
-              </div>
-
-              {/* Action CTAs */}
-              <div className="flex flex-wrap items-center gap-3 pt-2">
-                <Link to="/contact">
-                  <WebliixButton variant="primary" icon={ArrowRight} className="text-xs sm:text-sm px-6 py-3">
-                    Discuss Your Project
-                  </WebliixButton>
-                </Link>
-                <Link to="/services">
-                  <WebliixButton variant="ghost" className="text-xs sm:text-sm px-5 py-3">
-                    Explore Services
-                  </WebliixButton>
-                </Link>
-                <Link to="/launch-kit">
-                  <WebliixButton variant="ghost" className="text-xs sm:text-sm px-5 py-3 text-theme-primary">
-                    View LaunchKit
-                  </WebliixButton>
-                </Link>
-              </div>
-
-              {/* Social Proof & Compliance Strip */}
-              <div className="flex flex-wrap items-center gap-4 pt-1 text-xs text-theme-muted">
-                <div className="flex items-center gap-1.5">
-                  <div className="flex text-amber-400">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
-                  <span className="font-semibold text-theme-text font-mono">4.9/5 Rating</span>
-                  <span className="text-theme-muted">• 120+ Brands Launched</span>
-                </div>
-
-                <Link
-                  to="/business-information"
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full glass-spatial border border-theme-primary/30 text-[10.5px] font-mono text-theme-primary hover:bg-theme-primary/10 transition group"
-                >
-                  <Award className="w-3 h-3 text-theme-primary shrink-0" />
-                  <span>Udyam Registered Micro Enterprise</span>
-                  <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                </Link>
-              </div>
-            </div>
-
-            {/* RIGHT COLUMN: INTERACTIVE WEBLIIX SYSTEMS COCKPIT & LIVE DIAGNOSTICS */}
-            <div className="lg:col-span-5">
-              <WebliixCard variant="featured" className="p-4 sm:p-6 shadow-2xl relative">
-                {/* Cockpit Window Header */}
-                <div className="flex items-center justify-between pb-4 mb-4 border-b border-theme-border/60">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block" />
-                    <span className="text-xs font-mono text-theme-muted ml-1 flex items-center gap-1">
-                      <Terminal className="w-3 h-3 text-theme-primary" /> webliix-cockpit.sh
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1.5 text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/30">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    LIVE
-                  </div>
-                </div>
-
-                {/* Cockpit Tabs Switcher */}
-                <div className="grid grid-cols-3 gap-1 p-1 bg-theme-bg/60 rounded-xl border border-theme-border/60 mb-5 text-[11px] font-mono font-semibold">
-                  <button
-                    onClick={() => setCockpitTab('vitals')}
-                    className={`py-1.5 px-2 rounded-lg transition-all flex items-center justify-center gap-1.5 ${
-                      cockpitTab === 'vitals'
-                        ? 'bg-theme-primary text-black font-bold shadow-sm'
-                        : 'text-theme-muted hover:text-theme-text'
-                    }`}
-                  >
-                    <Gauge className="w-3 h-3" />
-                    <span>Speed</span>
-                  </button>
-                  <button
-                    onClick={() => setCockpitTab('stack')}
-                    className={`py-1.5 px-2 rounded-lg transition-all flex items-center justify-center gap-1.5 ${
-                      cockpitTab === 'stack'
-                        ? 'bg-theme-primary text-black font-bold shadow-sm'
-                        : 'text-theme-muted hover:text-theme-text'
-                    }`}
-                  >
-                    <Cpu className="w-3 h-3" />
-                    <span>Stack</span>
-                  </button>
-                  <button
-                    onClick={() => setCockpitTab('seo')}
-                    className={`py-1.5 px-2 rounded-lg transition-all flex items-center justify-center gap-1.5 ${
-                      cockpitTab === 'seo'
-                        ? 'bg-theme-primary text-black font-bold shadow-sm'
-                        : 'text-theme-muted hover:text-theme-text'
-                    }`}
-                  >
-                    <Search className="w-3 h-3" />
-                    <span>SEO</span>
-                  </button>
-                </div>
-
-                {/* Tab 1: Core Web Vitals & Speed */}
-                {cockpitTab === 'vitals' && (
-                  <div className="space-y-4">
-                    {/* Lighthouse Scores Ring Showcase */}
-                    <div className="grid grid-cols-4 gap-2 text-center">
-                      {[
-                        { label: 'Performance', val: isAuditing ? '...' : '100', color: 'text-emerald-400' },
-                        { label: 'Accessibility', val: isAuditing ? '...' : '100', color: 'text-emerald-400' },
-                        { label: 'Best Practices', val: isAuditing ? '...' : '100', color: 'text-emerald-400' },
-                        { label: 'SEO Health', val: isAuditing ? '...' : '100', color: 'text-emerald-400' },
-                      ].map((item, i) => (
-                        <div key={i} className="p-2 rounded-xl glass-spatial border border-theme-border/60">
-                          <div className={`text-base sm:text-lg font-mono font-bold ${item.color}`}>
-                            {item.val}
-                          </div>
-                          <div className="text-[9.5px] font-mono text-theme-muted truncate mt-0.5">
-                            {item.label}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Telemetry Metrics Table */}
-                    <div className="p-3 rounded-xl bg-theme-bg/50 border border-theme-border/60 space-y-2 text-xs font-mono">
-                      <div className="flex justify-between items-center text-theme-muted">
-                        <span className="flex items-center gap-1.5">
-                          <Activity className="w-3.5 h-3.5 text-theme-primary" />
-                          Largest Contentful Paint (LCP)
-                        </span>
-                        <span className="text-emerald-400 font-bold">{isAuditing ? 'Calculating...' : '0.42s'}</span>
-                      </div>
-                      <div className="flex justify-between items-center text-theme-muted">
-                        <span className="flex items-center gap-1.5">
-                          <Zap className="w-3.5 h-3.5 text-amber-400" />
-                          Interaction to Next Paint (INP)
-                        </span>
-                        <span className="text-emerald-400 font-bold">{isAuditing ? 'Calculating...' : '12ms'}</span>
-                      </div>
-                      <div className="flex justify-between items-center text-theme-muted">
-                        <span className="flex items-center gap-1.5">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400" />
-                          Cumulative Layout Shift (CLS)
-                        </span>
-                        <span className="text-emerald-400 font-bold">{isAuditing ? 'Calculating...' : '0.00'}</span>
-                      </div>
-                      <div className="flex justify-between items-center text-theme-muted">
-                        <span className="flex items-center gap-1.5">
-                          <Globe className="w-3.5 h-3.5 text-indigo-400" />
-                          Cloudflare Edge TTFB
-                        </span>
-                        <span className="text-emerald-400 font-bold">{isAuditing ? 'Calculating...' : '48ms'}</span>
-                      </div>
-                    </div>
-
-                    {/* Interactive Re-Audit Action Button */}
-                    <div className="flex items-center justify-between pt-1">
-                      <span className="text-[11px] font-mono text-theme-muted">
-                        Target benchmark: Mobile 4G Fast
-                      </span>
-                      <button
-                        onClick={handleRunAudit}
-                        disabled={isAuditing}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary hover:bg-theme-primary/10 transition active:scale-95 disabled:opacity-60"
-                      >
-                        <RefreshCw className={`w-3 h-3 ${isAuditing ? 'animate-spin' : ''}`} />
-                        <span>{isAuditing ? 'Simulating Audit...' : 'Re-test Speed'}</span>
-                      </button>
-                    </div>
-                  </div>
-                )}
-
-                {/* Tab 2: Modern Production Tech Stack */}
-                {cockpitTab === 'stack' && (
-                  <div className="space-y-2.5 text-xs font-mono">
-                    <div className="p-3 rounded-xl glass-spatial border border-theme-border/60 hover:border-theme-primary/40 transition">
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="font-bold text-theme-text flex items-center gap-1.5">
-                          <Code className="w-3.5 h-3.5 text-theme-primary" /> Modern Frontend Core
-                        </span>
-                        <span className="text-[10px] text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded">0.0s Hydration</span>
-                      </div>
-                      <p className="text-[11px] text-theme-muted">React 19, Vite Engine, Tailwind CSS, Framer Motion</p>
-                    </div>
-
-                    <div className="p-3 rounded-xl glass-spatial border border-theme-border/60 hover:border-theme-primary/40 transition">
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="font-bold text-theme-text flex items-center gap-1.5">
-                          <Server className="w-3.5 h-3.5 text-theme-primary" /> Backend &amp; Architecture
-                        </span>
-                        <span className="text-[10px] text-cyan-400 bg-cyan-500/10 px-1.5 py-0.5 rounded">Headless &amp; Cloud</span>
-                      </div>
-                      <p className="text-[11px] text-theme-muted">Node.js, Spring Boot microservices, PostgreSQL, Shopify Liquid</p>
-                    </div>
-
-                    <div className="p-3 rounded-xl glass-spatial border border-theme-border/60 hover:border-theme-primary/40 transition">
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="font-bold text-theme-text flex items-center gap-1.5">
-                          <ShieldCheck className="w-3.5 h-3.5 text-theme-primary" /> Global Edge Security
-                        </span>
-                        <span className="text-[10px] text-amber-400 bg-amber-500/10 px-1.5 py-0.5 rounded">SSL 256-bit</span>
-                      </div>
-                      <p className="text-[11px] text-theme-muted">Cloudflare Enterprise CDN, DDoS Shield, Automated Daily Backups</p>
-                    </div>
-
-                    <div className="pt-2 flex justify-between items-center text-[10px] text-theme-muted">
-                      <span>✓ 100% Client Code Ownership</span>
-                      <span>✓ Zero Platform Lock-in</span>
-                    </div>
-                  </div>
-                )}
-
-                {/* Tab 3: Search Engine Radar & SERP */}
-                {cockpitTab === 'seo' && (
-                  <div className="space-y-3">
-                    {/* Simulated Google SERP Card */}
-                    <div className="p-3 rounded-xl bg-theme-bg/60 border border-theme-border/80 space-y-1.5 text-left">
-                      <div className="flex items-center gap-1.5 text-[10px] font-mono text-theme-muted">
-                        <Globe className="w-3 h-3 text-emerald-400" />
-                        <span>https://webliix.com › website-development</span>
-                      </div>
-                      <div className="text-xs sm:text-sm font-semibold text-theme-primary hover:underline cursor-pointer">
-                        Top Website Development &amp; SEO Growth Agency | Webliix
-                      </div>
-                      <div className="flex items-center gap-2 text-[10.5px] font-mono text-amber-400">
-                        <span>★★★★★ 4.9 (48 reviews)</span>
-                        <span className="text-theme-muted">• Fast 5-Day Delivery</span>
-                      </div>
-                      <p className="text-[11px] text-theme-muted line-clamp-2">
-                        Turnkey business website design, custom software applications, and Google Business Profile ranking engines built for sustained revenue growth.
-                      </p>
-                    </div>
-
-                    {/* Ranking Signal Indicators */}
-                    <div className="grid grid-cols-2 gap-2 text-xs font-mono">
-                      <div className="p-2.5 rounded-lg glass-spatial border border-theme-border/60">
-                        <div className="text-emerald-400 font-bold text-sm">#1 Google 3-Pack</div>
-                        <div className="text-[10px] text-theme-muted">Target Local Search Ranking</div>
-                      </div>
-                      <div className="p-2.5 rounded-lg glass-spatial border border-theme-border/60">
-                        <div className="text-theme-primary font-bold text-sm">+340% Traffic</div>
-                        <div className="text-[10px] text-theme-muted">Avg. Organic Search Growth</div>
-                      </div>
-                    </div>
-
-                    <div className="pt-1 flex items-center justify-between text-[10px] font-mono text-theme-muted">
-                      <span>✓ JSON-LD Schema Verified</span>
-                      <span>✓ Canonical &amp; Sitemap Auto-Sync</span>
-                    </div>
-                  </div>
-                )}
-              </WebliixCard>
-            </div>
+        <div className="relative z-10 max-w-5xl mx-auto space-y-6 sm:space-y-8">
+          {/* Eyebrow Tagline Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-semibold shadow-xs">
+            <span className="w-2 h-2 rounded-full bg-theme-primary animate-pulse" />
+            <span>Turnkey Websites • Custom Web Apps • #1 Local SEO</span>
           </div>
 
-          {/* DYNAMIC EDITORIAL SPOTLIGHT HIGHLIGHT */}
-          <div className="w-full mt-10">
+          {/* Punchy Headline (High-converting, best text, no fluff) */}
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-display font-extrabold text-theme-text leading-[1.08] tracking-tight">
+            Websites &amp; Software Built to<br />
+            <span className="text-shimmer">Rank #1 and Scale Revenue</span>
+          </h1>
+
+          {/* Crisp 1-Sentence Subhead (Less text, clear value) */}
+          <p className="text-theme-muted text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            We build ultra-fast business websites, Shopify stores, and local SEO engines engineered for sub-second speeds and 100% source-code ownership.
+          </p>
+
+          {/* High-Impact Actions */}
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
+            <Link to="/contact">
+              <WebliixButton variant="primary" icon={ArrowRight} className="text-xs sm:text-sm px-6 py-3">
+                Discuss Your Project
+              </WebliixButton>
+            </Link>
+            <Link to="/launch-kit">
+              <WebliixButton variant="ghost" icon={Zap} className="text-xs sm:text-sm px-6 py-3 text-theme-primary">
+                Explore 5-Day LaunchKit
+              </WebliixButton>
+            </Link>
+          </div>
+
+          {/* Micro Social Proof & Verified Trust Indicator */}
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-theme-muted font-mono pt-1">
+            <div className="flex items-center gap-1.5">
+              <div className="flex text-amber-400">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                ))}
+              </div>
+              <span className="font-semibold text-theme-text">4.9/5 Rating</span>
+              <span>• 120+ Brands Launched</span>
+            </div>
+            <Link
+              to="/business-information"
+              className="inline-flex items-center gap-1 text-[11px] text-theme-primary hover:underline"
+            >
+              <Award className="w-3.5 h-3.5" />
+              <span>Udyam Registered Micro Enterprise</span>
+            </Link>
+          </div>
+
+          {/* ═══════════════════════════════════════════════════════════
+              NEW INTERACTIVE STUDIO SHOWCASE (CLEAN, MODERN, ENGAGING)
+              ═══════════════════════════════════════════════════════════ */}
+          <div className="pt-4 max-w-4xl mx-auto">
+            <WebliixCard variant="featured" className="p-4 sm:p-7 shadow-2xl relative text-left">
+              
+              {/* Studio Header: Browser Chrome + Mode Tabs */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 mb-5 border-b border-theme-border/60">
+                {/* Browser Address Bar Pill */}
+                <div className="flex items-center gap-2">
+                  <div className="flex gap-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                  </div>
+                  <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-theme-bg/60 border border-theme-border/60 text-[11px] font-mono text-theme-muted">
+                    <Lock className="w-3 h-3 text-emerald-400 shrink-0" />
+                    <span>https://yourbusiness.com</span>
+                  </div>
+                </div>
+
+                {/* 3 Quick Interactive Switcher Tabs */}
+                <div className="inline-flex p-1 rounded-xl bg-theme-bg/60 border border-theme-border/60 text-xs font-mono font-semibold self-start sm:self-auto">
+                  <button
+                    onClick={() => setActiveHeroTab('web')}
+                    className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 ${
+                      activeHeroTab === 'web'
+                        ? 'bg-theme-primary text-black font-bold shadow-sm'
+                        : 'text-theme-muted hover:text-theme-text'
+                    }`}
+                  >
+                    <Zap className="w-3.5 h-3.5" />
+                    <span>High-Speed Web</span>
+                  </button>
+                  <button
+                    onClick={() => setActiveHeroTab('ecommerce')}
+                    className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 ${
+                      activeHeroTab === 'ecommerce'
+                        ? 'bg-theme-primary text-black font-bold shadow-sm'
+                        : 'text-theme-muted hover:text-theme-text'
+                    }`}
+                  >
+                    <ShoppingBag className="w-3.5 h-3.5" />
+                    <span>E-Commerce</span>
+                  </button>
+                  <button
+                    onClick={() => setActiveHeroTab('seo')}
+                    className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 ${
+                      activeHeroTab === 'seo'
+                        ? 'bg-theme-primary text-black font-bold shadow-sm'
+                        : 'text-theme-muted hover:text-theme-text'
+                    }`}
+                  >
+                    <Target className="w-3.5 h-3.5" />
+                    <span>Local SEO</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* TAB 1: High-Speed Web */}
+              {activeHeroTab === 'web' && (
+                <div className="space-y-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div className="p-4 rounded-xl glass-spatial border border-theme-border/60 flex flex-col justify-between">
+                      <div className="text-xs font-mono text-theme-muted uppercase tracking-wider mb-1">
+                        PageSpeed Score
+                      </div>
+                      <div className="text-3xl font-display font-extrabold text-emerald-400">
+                        {isAuditing ? '...' : '100 / 100'}
+                      </div>
+                      <div className="text-[11px] font-mono text-emerald-400/90 mt-1">
+                        ✓ Optimal Core Web Vitals
+                      </div>
+                    </div>
+
+                    <div className="p-4 rounded-xl glass-spatial border border-theme-border/60 flex flex-col justify-between">
+                      <div className="text-xs font-mono text-theme-muted uppercase tracking-wider mb-1">
+                        Global Edge Load
+                      </div>
+                      <div className="text-3xl font-display font-extrabold text-theme-primary">
+                        {isAuditing ? '...' : '0.42s'}
+                      </div>
+                      <div className="text-[11px] font-mono text-theme-muted mt-1">
+                        Sub-second worldwide CDN
+                      </div>
+                    </div>
+
+                    <div className="p-4 rounded-xl glass-spatial border border-theme-border/60 flex flex-col justify-between">
+                      <div className="text-xs font-mono text-theme-muted uppercase tracking-wider mb-1">
+                        Code Ownership
+                      </div>
+                      <div className="text-3xl font-display font-extrabold text-theme-text">
+                        100%
+                      </div>
+                      <div className="text-[11px] font-mono text-cyan-400 mt-1">
+                        Zero platform lock-in
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap items-center justify-between gap-3 pt-1 text-xs font-mono text-theme-muted border-t border-theme-border/40">
+                    <div className="flex flex-wrap items-center gap-3">
+                      <span className="flex items-center gap-1.5 text-theme-text">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" /> React 19 + Vite
+                      </span>
+                      <span className="flex items-center gap-1.5 text-theme-text">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" /> Mobile-First Responsive
+                      </span>
+                      <span className="flex items-center gap-1.5 text-theme-text">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" /> Cloudflare Edge SSL
+                      </span>
+                    </div>
+
+                    <button
+                      onClick={handleTestSpeed}
+                      disabled={isAuditing}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg glass-spatial border border-theme-primary/40 text-theme-primary hover:bg-theme-primary/10 transition active:scale-95 disabled:opacity-60 ml-auto"
+                    >
+                      <RefreshCw className={`w-3.5 h-3.5 ${isAuditing ? 'animate-spin' : ''}`} />
+                      <span>{isAuditing ? 'Testing...' : 'Test Speed Demo'}</span>
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* TAB 2: E-Commerce Store */}
+              {activeHeroTab === 'ecommerce' && (
+                <div className="space-y-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div className="p-4 rounded-xl glass-spatial border border-theme-border/60">
+                      <div className="text-xs font-mono text-theme-muted uppercase tracking-wider mb-1">
+                        Cart Conversion
+                      </div>
+                      <div className="text-3xl font-display font-extrabold text-emerald-400">
+                        +42%
+                      </div>
+                      <div className="text-[11px] font-mono text-emerald-400/90 mt-1">
+                        Streamlined 1-click checkout
+                      </div>
+                    </div>
+
+                    <div className="p-4 rounded-xl glass-spatial border border-theme-border/60">
+                      <div className="text-xs font-mono text-theme-muted uppercase tracking-wider mb-1">
+                        Platforms
+                      </div>
+                      <div className="text-3xl font-display font-extrabold text-theme-primary">
+                        Shopify
+                      </div>
+                      <div className="text-[11px] font-mono text-theme-muted mt-1">
+                        + Custom WooCommerce &amp; Headless
+                      </div>
+                    </div>
+
+                    <div className="p-4 rounded-xl glass-spatial border border-theme-border/60">
+                      <div className="text-xs font-mono text-theme-muted uppercase tracking-wider mb-1">
+                        Payment Gateways
+                      </div>
+                      <div className="text-3xl font-display font-extrabold text-theme-text">
+                        UPI &amp; Cards
+                      </div>
+                      <div className="text-[11px] font-mono text-cyan-400 mt-1">
+                        Razorpay, Stripe &amp; Cashfree
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap items-center justify-between gap-3 pt-1 text-xs font-mono text-theme-muted border-t border-theme-border/40">
+                    <div className="flex flex-wrap items-center gap-3">
+                      <span className="flex items-center gap-1.5 text-theme-text">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" /> Auto Inventory &amp; Order Alerts
+                      </span>
+                      <span className="flex items-center gap-1.5 text-theme-text">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" /> WhatsApp Order Integration
+                      </span>
+                    </div>
+
+                    <Link to="/ecommerce-store" className="text-theme-primary hover:underline flex items-center gap-1 ml-auto">
+                      <span>View Store Details</span>
+                      <ArrowRight className="w-3 h-3" />
+                    </Link>
+                  </div>
+                </div>
+              )}
+
+              {/* TAB 3: Local SEO & Google Search */}
+              {activeHeroTab === 'seo' && (
+                <div className="space-y-4">
+                  {/* Google SERP Simulated Result */}
+                  <div className="p-3.5 rounded-xl bg-theme-bg/60 border border-theme-border/70 space-y-1">
+                    <div className="flex items-center gap-1.5 text-[10.5px] font-mono text-theme-muted">
+                      <Globe className="w-3 h-3 text-emerald-400" />
+                      <span>https://yourbusiness.com</span>
+                    </div>
+                    <div className="text-sm font-semibold text-theme-primary">
+                      Top Rated Local Service in Your City | Your Brand
+                    </div>
+                    <div className="flex items-center gap-2 text-[11px] font-mono text-amber-400">
+                      <span>★★★★★ 4.9 (52 Google Reviews)</span>
+                      <span className="text-theme-muted">• Open 9 AM - 8 PM</span>
+                    </div>
+                    <p className="text-xs text-theme-muted line-clamp-1">
+                      Professional service, verified location, instant consultation booking, and 100% verified customer satisfaction.
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap items-center justify-between gap-3 pt-1 text-xs font-mono text-theme-muted border-t border-theme-border/40">
+                    <div className="flex flex-wrap items-center gap-3">
+                      <span className="flex items-center gap-1.5 text-emerald-400 font-semibold">
+                        <CheckCircle2 className="w-3.5 h-3.5" /> #1 Local Map Pack Target
+                      </span>
+                      <span className="flex items-center gap-1.5 text-theme-text">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" /> Schema.org JSON-LD
+                      </span>
+                      <span className="flex items-center gap-1.5 text-theme-text">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" /> GMB Ranking Engine
+                      </span>
+                    </div>
+
+                    <Link to="/seo" className="text-theme-primary hover:underline flex items-center gap-1 ml-auto">
+                      <span>Explore SEO Services</span>
+                      <ArrowRight className="w-3 h-3" />
+                    </Link>
+                  </div>
+                </div>
+              )}
+
+            </WebliixCard>
+          </div>
+
+          {/* Dynamic Spotlight Feature Banner */}
+          <div className="w-full pt-4">
             <WebliixSpotlight />
           </div>
 
-          {/* Trust Highlights Strip */}
-          <div className="mt-8 pt-6 border-t border-theme-border/40 flex flex-wrap justify-center sm:justify-between items-center gap-4 text-xs font-mono text-theme-muted">
+          {/* Simple Clean Trust Ribbon */}
+          <div className="pt-6 border-t border-theme-border/40 flex flex-wrap justify-center sm:justify-between items-center gap-4 text-xs font-mono text-theme-muted">
             <span className="flex items-center gap-1.5">
-              <Zap className="w-4 h-4 text-theme-primary" />
-              <span>5-Day Fast Turnaround Available</span>
+              <Zap className="w-3.5 h-3.5 text-theme-primary" />
+              <span>5-Day Fast Turnaround</span>
             </span>
             <span className="flex items-center gap-1.5">
-              <Globe className="w-4 h-4 text-theme-primary" />
-              <span>Serving Clients Globally Across 4 Continents</span>
+              <ShieldCheck className="w-3.5 h-3.5 text-theme-primary" />
+              <span>100% Code &amp; Domain Rights</span>
             </span>
             <span className="flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-theme-primary" />
-              <span>100% Full Source Code &amp; Domain Ownership</span>
+              <Globe className="w-3.5 h-3.5 text-theme-primary" />
+              <span>120+ Delivered Worldwide</span>
             </span>
             <Link to="/business-information" className="hover:text-theme-primary transition flex items-center gap-1">
-              <Award className="w-4 h-4 text-theme-primary" />
-              <span>Government Registered (Udyam: {businessConfig.udyamNumber})</span>
+              <Award className="w-3.5 h-3.5 text-theme-primary" />
+              <span>Government Registered (Udyam)</span>
             </Link>
           </div>
+
         </div>
       </section>
 

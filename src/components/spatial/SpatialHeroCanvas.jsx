@@ -1,6 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import { useTheme } from '../../context/ThemeContext';
 
+/**
+ * SpatialHeroCanvas — Premium Ambient Atmospheric Backdrop
+ * ─────────────────────────────────────────────────────────────
+ * Clean, modern luxury ambient lighting with smooth glowing auroras
+ * and delicate floating light particles. Zero harsh wireframe grid lines.
+ */
 export default function SpatialHeroCanvas() {
   const canvasRef = useRef(null);
   const { currentTheme, canvasParticles } = useTheme();
@@ -12,8 +18,6 @@ export default function SpatialHeroCanvas() {
     const ctx = canvas.getContext('2d');
     let animationFrameId;
 
-    // Use window dimensions directly without accessing canvas.parentElement?.clientWidth
-    // which prevents forced synchronous layout calculations on mount
     const updateDimensions = () => {
       canvas.width = Math.max(window.innerWidth || 0, 320);
       canvas.height = Math.max(window.innerHeight || 0, 480);
@@ -23,7 +27,6 @@ export default function SpatialHeroCanvas() {
     let width = canvas.width;
     let height = canvas.height;
 
-    // Lazily evaluate bounding rect on interaction rather than forcing layout on mount & scroll
     let cachedRect = null;
     const getRect = () => {
       if (!cachedRect && canvas) {
@@ -41,7 +44,6 @@ export default function SpatialHeroCanvas() {
 
     window.addEventListener('resize', handleResize, { passive: true });
 
-    // Track Window Scroll for Differential Parallax Speed
     let scrollY = window.scrollY;
     let targetScrollY = window.scrollY;
 
@@ -52,13 +54,12 @@ export default function SpatialHeroCanvas() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    // Subtle Mouse Interaction State
     const mouse = {
       x: width / 2,
       y: height / 2,
       targetX: width / 2,
       targetY: height / 2,
-      radius: 260,
+      radius: 280,
       active: false
     };
 
@@ -88,57 +89,29 @@ export default function SpatialHeroCanvas() {
     window.addEventListener('touchmove', handleTouchMove, { passive: true });
     window.addEventListener('mouseleave', handleMouseLeave);
 
-    // Balanced IT Tokens, Brand & Services List
-    const itTokens = [
-      'Webliix',
-      'Software',
-      'LaunchKit',
-      'Web Development',
-      'E-Commerce',
-      'SEO & Maps',
-      'Branding & Design',
-      'Website Maintenance',
-      '</>',
-      'Your success is our code',
-      '{ }',
-      '=>',
-      'npm run dev',
-      'API',
-      'React',
-      'AI Systems'
-    ];
-
-    // Detect mobile device to scale particle and grid calculations for mobile CPU efficiency
     const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
-    // Floating Particles System (Optimized for Mobile)
-    const particleCount = isMobile ? 18 : Math.min(Math.floor(width / 16), 70);
+    // Floating Starlight Ambient Dust (Subtle, non-intrusive)
+    const particleCount = isMobile ? 16 : 36;
     const particles = [];
 
     for (let i = 0; i < particleCount; i++) {
-      const isText = i % 3 === 0;
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        radius: Math.random() * 2 + 1,
-        alpha: Math.random() * 0.4 + 0.22,
-        isText,
-        text: itTokens[i % itTokens.length],
-        fontSize: isText && (i % itTokens.length === 9) ? 12 : Math.floor(Math.random() * 3) + 11
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        radius: Math.random() * 1.6 + 0.8,
+        alpha: Math.random() * 0.35 + 0.15,
+        pulseSpeed: 0.02 + Math.random() * 0.02,
+        phase: Math.random() * Math.PI * 2
       });
     }
 
-    // Cache theme colors outside render loop to eliminate forced layout reflows
-    const primaryColor = currentTheme?.colors?.primary || '#6366f1';
+    const primaryColor = currentTheme?.colors?.primary || '#38bdf8';
     const isDark = currentTheme ? currentTheme.isDark !== false : true;
 
-    // 3D Perspective Grid Parameters (Scaled on mobile to prevent CPU lock)
-    const gridCols = isMobile ? 16 : 32;
-    const gridRows = isMobile ? 12 : 24;
     let time = 0;
-
     let isVisible = true;
     let isRendering = false;
 
@@ -151,169 +124,80 @@ export default function SpatialHeroCanvas() {
       ctx.clearRect(0, 0, width, height);
 
       // Smooth Physics Damping
-      mouse.x += (mouse.targetX - mouse.x) * 0.1;
-      mouse.y += (mouse.targetY - mouse.y) * 0.1;
+      mouse.x += (mouse.targetX - mouse.x) * 0.06;
+      mouse.y += (mouse.targetY - mouse.y) * 0.06;
       scrollY += (targetScrollY - scrollY) * 0.08;
+      time += 0.015;
 
-      time += 0.018;
+      // ─────────────────────────────────────────────────────────────
+      // 1. SOFT AMBIENT GLOW AURORAS (No grid lines whatsoever)
+      // ─────────────────────────────────────────────────────────────
+      if (canvasParticles !== false) {
+        // Primary Center-Top Aurora Orb (breathes and floats with mouse)
+        const orb1X = width * 0.5 + (mouse.x - width * 0.5) * 0.12 + Math.sin(time * 0.7) * 40;
+        const orb1Y = height * 0.32 + (mouse.y - height * 0.32) * 0.12 + Math.cos(time * 0.5) * 30;
+        const orb1Radius = Math.min(width * 0.45, 480);
 
-      // -------------------------------------------------------------
-      // 1. CLEAN 3D PERSPECTIVE GRID (Far Horizon Shifted Upwards + Slower Speed)
-      // -------------------------------------------------------------
-      const startY = height * 0.08;
+        const grad1 = ctx.createRadialGradient(orb1X, orb1Y, 0, orb1X, orb1Y, orb1Radius);
+        grad1.addColorStop(0, isDark ? 'rgba(56, 189, 248, 0.14)' : 'rgba(37, 99, 235, 0.10)');
+        grad1.addColorStop(0.5, isDark ? 'rgba(56, 189, 248, 0.04)' : 'rgba(37, 99, 235, 0.03)');
+        grad1.addColorStop(1, 'rgba(0, 0, 0, 0)');
 
-      const gridPoints = [];
-
-      ctx.save();
-      ctx.lineWidth = isDark ? 1.2 : 1.5;
-
-      for (let r = 0; r < gridRows; r++) {
-        gridPoints[r] = [];
-        const rowRatio = r / (gridRows - 1); // 0 at far horizon, 1 at near bottom
-
-        // DIFFERENTIAL SCROLL SPEED:
-        // Far Horizon (rowRatio = 0): moves at 0.05 speed (ULTRA SLOW)
-        // Near Bottom (rowRatio = 1): moves at 0.65 speed (FASTER WITH SCROLL)
-        const rowParallaxSpeed = 0.05 + Math.pow(rowRatio, 2.2) * 0.60;
-        const rowOffsetY = scrollY * rowParallaxSpeed;
-
-        const perspectiveFactor = Math.pow(rowRatio, 1.5);
-        const currentY = startY + rowOffsetY + Math.pow(rowRatio, 1.35) * (height - startY);
-
-        for (let c = 0; c < gridCols; c++) {
-          const colRatio = (c - (gridCols - 1) / 2) / ((gridCols - 1) / 2);
-          const perspectiveX = width / 2 + colRatio * (width * 0.78) * perspectiveFactor;
-
-          // Subtle Wave Motion
-          const waveZ = Math.sin(c * 0.35 + time) * 12 * perspectiveFactor + Math.cos(r * 0.35 + time * 1.2) * 12 * perspectiveFactor;
-
-          const dx = mouse.x - perspectiveX;
-          const dy = mouse.y - (currentY - waveZ);
-          const dist = Math.sqrt(dx * dx + dy * dy);
-
-          // Subtle Mouse Distortion
-          let mouseDistortion = 0;
-          if (dist < mouse.radius) {
-            const force = (1 - dist / mouse.radius);
-            mouseDistortion = Math.sin(force * Math.PI) * 35 * perspectiveFactor;
-          }
-
-          gridPoints[r][c] = {
-            x: perspectiveX + (dx / (dist + 1)) * -mouseDistortion * 0.15,
-            y: currentY - waveZ - mouseDistortion,
-            distToMouse: dist
-          };
-        }
-      }
-
-      // Draw Horizontal Grid Lines
-      for (let r = 0; r < gridRows; r++) {
+        ctx.fillStyle = grad1;
         ctx.beginPath();
-        for (let c = 0; c < gridCols; c++) {
-          const pt = gridPoints[r][c];
-          if (c === 0) {
-            ctx.moveTo(pt.x, pt.y);
-          } else {
-            ctx.lineTo(pt.x, pt.y);
-          }
-        }
-        const rowAlpha = isDark
-          ? Math.pow(r / (gridRows - 1), 1.3) * 0.5 + 0.15
-          : Math.pow(r / (gridRows - 1), 1.3) * 0.6 + 0.2;
+        ctx.arc(orb1X, orb1Y, orb1Radius, 0, Math.PI * 2);
+        ctx.fill();
 
-        ctx.strokeStyle = primaryColor;
-        ctx.globalAlpha = Math.min(rowAlpha, 0.85);
-        ctx.stroke();
-      }
+        // Secondary Accent Aurora Orb (Cyan / Indigo side glow)
+        const orb2X = width * 0.75 + (mouse.x - width * 0.75) * 0.08 - Math.cos(time * 0.6) * 35;
+        const orb2Y = height * 0.45 + (mouse.y - height * 0.45) * 0.08 + Math.sin(time * 0.4) * 25;
+        const orb2Radius = Math.min(width * 0.35, 380);
 
-      // Draw Vertical Perspective Grid Lines
-      for (let c = 0; c < gridCols; c += 2) {
+        const grad2 = ctx.createRadialGradient(orb2X, orb2Y, 0, orb2X, orb2Y, orb2Radius);
+        grad2.addColorStop(0, isDark ? 'rgba(99, 102, 241, 0.10)' : 'rgba(147, 51, 234, 0.07)');
+        grad2.addColorStop(0.6, isDark ? 'rgba(99, 102, 241, 0.02)' : 'rgba(147, 51, 234, 0.01)');
+        grad2.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+        ctx.fillStyle = grad2;
         ctx.beginPath();
-        for (let r = 0; r < gridRows; r++) {
-          const pt = gridPoints[r][c];
-          if (r === 0) {
-            ctx.moveTo(pt.x, pt.y);
-          } else {
-            ctx.lineTo(pt.x, pt.y);
-          }
-        }
-        ctx.strokeStyle = primaryColor;
-        ctx.globalAlpha = isDark ? 0.25 : 0.35;
-        ctx.stroke();
+        ctx.arc(orb2X, orb2Y, orb2Radius, 0, Math.PI * 2);
+        ctx.fill();
       }
 
-      // Draw Subtle Intersection Node Glow near Cursor
-      for (let r = 0; r < gridRows; r += 2) {
-        for (let c = 0; c < gridCols; c += 2) {
-          const pt = gridPoints[r][c];
-          if (pt.distToMouse < mouse.radius) {
-            const nodeGlow = (1 - pt.distToMouse / mouse.radius);
-            ctx.beginPath();
-            ctx.arc(pt.x, pt.y, 2 + nodeGlow * 2.5, 0, Math.PI * 2);
-            ctx.fillStyle = primaryColor;
-            ctx.globalAlpha = nodeGlow * 0.8;
-            ctx.fill();
-          }
-        }
-      }
-
-      ctx.restore();
-
-      // -------------------------------------------------------------
-      // 2. FLOATING BRAND, SERVICE & CODE TOKENS
-      // -------------------------------------------------------------
+      // ─────────────────────────────────────────────────────────────
+      // 2. DELICATE AMBIENT PARTICLES (Soft stars / motes of light)
+      // ─────────────────────────────────────────────────────────────
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
         p.x += p.vx;
         p.y += p.vy;
 
-        if (p.x < 0 || p.x > width) p.vx *= -1;
-        if (p.y < 0 || p.y > height) p.vy *= -1;
+        if (p.x < 0) p.x = width;
+        if (p.x > width) p.x = 0;
+        if (p.y < 0) p.y = height;
+        if (p.y > height) p.y = 0;
 
-        const particleY = p.y + scrollY * 0.15;
+        const particleY = p.y + scrollY * 0.12;
 
-        // Pointer Push Physics
+        // Subtle mouse push
         const dx = mouse.x - p.x;
         const dy = mouse.y - particleY;
         const dist = Math.sqrt(dx * dx + dy * dy);
 
-        if (dist < mouse.radius * 0.7) {
-          const force = (mouse.radius * 0.7 - dist) / (mouse.radius * 0.7);
-          p.x -= (dx / dist) * force * 2.5;
-          p.y -= (dy / dist) * force * 2.5;
+        if (dist < mouse.radius * 0.6) {
+          const force = (mouse.radius * 0.6 - dist) / (mouse.radius * 0.6);
+          p.x -= (dx / dist) * force * 1.5;
+          p.y -= (dy / dist) * force * 1.5;
         }
+
+        const currentAlpha = p.alpha * (0.7 + 0.3 * Math.sin(time * 2 + p.phase));
 
         ctx.save();
         ctx.fillStyle = primaryColor;
-        ctx.globalAlpha = isDark ? p.alpha : p.alpha * 1.25;
-
-        if (p.isText) {
-          ctx.font = `600 ${p.fontSize}px monospace`;
-          ctx.fillText(p.text, p.x, particleY);
-        } else {
-          ctx.beginPath();
-          ctx.arc(p.x, particleY, p.radius, 0, Math.PI * 2);
-          ctx.fill();
-        }
-
-        // Draw Subtle Mesh Connections
-        for (let j = i + 1; j < particles.length; j++) {
-          const p2 = particles[j];
-          const pdx = p2.x - p.x;
-          const pdy = (p2.y + scrollY * 0.15) - particleY;
-          const pdist = Math.sqrt(pdx * pdx + pdy * pdy);
-
-          if (pdist < 115) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, particleY);
-            ctx.lineTo(p2.x, p2.y + scrollY * 0.15);
-            ctx.strokeStyle = primaryColor;
-            ctx.globalAlpha = (1 - pdist / 115) * (isDark ? 0.2 : 0.3);
-            ctx.lineWidth = 0.7;
-            ctx.stroke();
-          }
-        }
-
+        ctx.globalAlpha = isDark ? currentAlpha : currentAlpha * 1.2;
+        ctx.beginPath();
+        ctx.arc(p.x, particleY, p.radius, 0, Math.PI * 2);
+        ctx.fill();
         ctx.restore();
       }
 
@@ -335,14 +219,17 @@ export default function SpatialHeroCanvas() {
       }
     };
 
-    const observer = new IntersectionObserver(([entry]) => {
-      isVisible = entry.isIntersecting;
-      if (isVisible) {
-        startRendering();
-      } else {
-        stopRendering();
-      }
-    }, { threshold: 0.05 });
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          startRendering();
+        } else {
+          stopRendering();
+        }
+      },
+      { threshold: 0.05 }
+    );
 
     observer.observe(canvas);
     startRendering();
@@ -361,7 +248,11 @@ export default function SpatialHeroCanvas() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 pointer-events-none z-0 opacity-100 transition-opacity duration-700"
+      className="pointer-events-none absolute inset-0 z-0 w-full h-full"
+      style={{
+        opacity: 0.9,
+        mixBlendMode: 'screen'
+      }}
     />
   );
 }

@@ -322,10 +322,10 @@ export default function SpatialThemeControl() {
                             ? 'bg-theme-primary/20 text-theme-primary border border-theme-primary font-bold'
                             : 'glass-spatial text-theme-muted border border-theme-border/60'
                         }`}
-                        title="Toggle 3D Background Grid"
+                        title="Toggle Background Ambient Glow"
                       >
                         <Zap className="w-2.5 h-2.5" />
-                        <span>Grid:{canvasParticles ? 'ON' : 'OFF'}</span>
+                        <span>Glow:{canvasParticles ? 'ON' : 'OFF'}</span>
                       </button>
 
                       <button
