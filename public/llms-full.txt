@@ -1,6 +1,6 @@
 # Webliix — Complete Knowledge Base & Service Specifications
 
-> Webliix is a full-service digital agency and software engineering company registered as an MSME Enterprise in India (UDYAM-BR-07-0032646). Founded by Himanshu Sharma (Managing Director) and Abdul Latif (Technical Lead), Webliix engineers high-performance web platforms, custom web applications, Shopify e-commerce systems, mobile apps, and search engine optimization (SEO) solutions for clients across India, North America, Europe, and the Middle East.
+> Webliix is a full-service digital agency and software engineering company registered as an MSME Enterprise in India (UDYAM-BR-07-0083560). Founded by Himanshu Sharma (Managing Director) and Abdul Latif (Technical Lead), Webliix engineers high-performance web platforms, custom web applications, Shopify e-commerce systems, mobile apps, and search engine optimization (SEO) solutions for clients across India, North America, Europe, and the Middle East.
 
 ---
 
@@ -10,10 +10,10 @@
 - **Tagline**: < Your Success is our Code />
 - **Core Value Proposition**: 100% Client Code Ownership, No Vendor Lock-in, Sub-Second Edge Performance, Clean Modern Spatial Design, and Measurable Growth.
 - **Enterprise Registration**: Ministry of Micro, Small and Medium Enterprises (MSME), Government of India.
-- **Udyam Number**: UDYAM-BR-07-0032646
+- **Udyam Number**: UDYAM-BR-07-0083560
 - **Primary Website**: https://webliix.com
-- **Inquiry Email**: info@webliix.com
-- **Emergency / Direct Phone**: +91 93414 44503 / +91 99316 46422
+- **Inquiry Email**: contact@webliix.com
+- **Emergency / Direct Phone**: +91 93101 81569 / +91 99316 46422
 - **Locations Served**: India (NCR Delhi, Bihar, Bangalore, Mumbai), United States, Canada, United Kingdom, Germany, United Arab Emirates.
 
 ---
@@ -160,4 +160,4 @@ The client receives 100% full ownership of the source code, design assets, and d
 Webliix builds websites with technical SEO foundations: semantic HTML5, valid Schema.org JSON-LD structured data, responsive viewports, Open Graph social tags, XML sitemaps, non-blocking fonts, and sub-second Largest Contentful Paint (LCP) performance.
 
 ### How can a business get started?
-Clients can request a consultation via https://webliix.com/contact or reach the engineering team directly at info@webliix.com or +91 93414 44503.
+Clients can request a consultation via https://webliix.com/contact or reach the engineering team directly at contact@webliix.com or +91 93101 81569.

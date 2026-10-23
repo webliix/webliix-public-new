@@ -313,14 +313,14 @@ export default function Home() {
           name="keywords"
           content="website development India, web design agency NCR, local SEO services, Google Business Profile optimization, GMB ranking, ecommerce website development, custom web applications, SaaS development, mobile app development, Webliix LaunchKit, website maintenance"
         />
-        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href="https://webliix.com/" />
         
         {/* Open Graph / Facebook / LinkedIn */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://webliix.com/" />
-        <meta property="og:title" content="Webliix | Website Development, SEO & Digital Solutions" />
-        <meta property="og:description" content="Business websites, e-commerce, custom web applications, SEO and digital solutions for businesses in India and international markets." />
+        <meta property="og:title" content="Webliix | Web Design, SEO & Custom Software Development Agency" />
+        <meta property="og:description" content="Webliix is a full-service digital agency building high-performance business websites, Shopify stores, custom web apps, and Google SEO that turn traffic into revenue." />
         <meta property="og:image" content="https://webliix.com/og-image.jpg" />
         <meta property="og:site_name" content="Webliix" />
         <meta property="og:locale" content="en_IN" />
@@ -328,16 +328,11 @@ export default function Home() {
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://webliix.com/" />
-        <meta name="twitter:title" content="Webliix | Website Development, SEO & Digital Solutions" />
-        <meta name="twitter:description" content="Business websites, e-commerce, custom web applications, SEO and digital solutions for businesses in India and international markets." />
+        <meta name="twitter:title" content="Webliix | Web Design, SEO & Custom Software Development Agency" />
+        <meta name="twitter:description" content="Webliix is a full-service digital agency building high-performance business websites, Shopify stores, custom web apps, and Google SEO that turn traffic into revenue." />
         <meta name="twitter:image" content="https://webliix.com/og-image.jpg" />
-{/* Google Structured Data JSON-LD Injections */}
-        <script type="application/ld+json">
-          {JSON.stringify(organizationSchema)}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify(websiteSchema)}
-        </script>
+
+        {/* Structured Data JSON-LD: ProfessionalService & FAQPage (Organization & WebSite provided by index.html) */}
         <script type="application/ld+json">
           {JSON.stringify(professionalServiceSchema)}
         </script>
@@ -656,6 +651,7 @@ export default function Home() {
             </WebliixCard>
           ))}
         </div>
+
       </section>
 
       {/* INFORMATIVE SECTION: WHY CHOOSE WEBLIIX */}
@@ -683,6 +679,7 @@ export default function Home() {
             </WebliixCard>
           ))}
         </div>
+
       </section>
 
       {/* CORE SERVICES */}
@@ -700,7 +697,7 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {siteConfig.services.map((service) => (
+          {siteConfig.services.slice(0, 6).map((service) => (
             <WebliixCard
               key={service.id}
               variant="featured"
@@ -747,6 +744,15 @@ export default function Home() {
               </div>
             </WebliixCard>
           ))}
+        </div>
+
+        {/* View All Services Action */}
+        <div className="mt-10 flex justify-center">
+          <Link to="/services">
+            <WebliixButton variant="primary" icon={ArrowRight} size="md" className="px-8 py-3.5 shadow-spatial font-bold hover:scale-[1.02] transition-transform">
+              View All Services &amp; Solutions
+            </WebliixButton>
+          </Link>
         </div>
       </section>
 
@@ -809,6 +815,7 @@ export default function Home() {
             </WebliixCard>
           ))}
         </div>
+
       </section>
 
       {/* INTERACTIVE 4-STEP BLUEPRINT WORKFLOW */}

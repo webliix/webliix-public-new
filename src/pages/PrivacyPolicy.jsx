@@ -147,8 +147,10 @@ export default function PrivacyPolicy() {
         <Para>
           WEBLIIX (Udyam Registration No. {businessConfig.udyamNumber}, registered at{' '}
           {businessConfig.businessAddress}) operates the website webliix.com (the "Website") and the Webliix Client Portal (login.webliix.com). We provide
-          custom website development, e-commerce, cloud software, Google Business Profile management,
-          local SEO, branding, and enterprise engineering solutions.
+          custom website development, Webliix LaunchKit turnkey packages, Shopify & e-commerce stores,
+          custom web applications & SaaS platforms, cross-platform mobile apps (iOS & Android),
+          Google Business Profile (GMB) optimization, technical SEO, performance advertising (Google Ads & Meta Ads),
+          UI/UX branding, and enterprise software solutions.
         </Para>
         <Para>
           This Privacy Policy explains what personal data we collect through our public web properties and the authenticated Client Portal, why we collect it,
@@ -338,6 +340,7 @@ export default function PrivacyPolicy() {
             ['spatial_font_id', 'Remembers your selected font pairing', 'Functional', 'No', 'Until you clear browser data'],
             ['spatial_canvas_particles', 'Remembers 3D canvas animation on/off setting', 'Functional', 'No', 'Until you clear browser data'],
             ['spatial_sound_enabled', 'Remembers sound effects on/off preference', 'Functional', 'No', 'Until you clear browser data'],
+            ['spatial_corner_style', 'Remembers UI corner curvature preference (edgy vs rounded)', 'Functional', 'No', 'Until you clear browser data'],
             ['webliix_client_terms_accepted', 'Stores client terms acceptance confirmation state', 'Functional / Consent', 'No', 'Until cleared or revoked'],
             ['webliix_client_terms_accepted_at', 'Timestamp of electronic terms acceptance', 'Audit / Consent', 'No', 'Until cleared or revoked'],
           ]}
@@ -385,6 +388,13 @@ export default function PrivacyPolicy() {
               'Loading website typography (fonts)',
               'IP address, browser information when requesting font files',
               'policies.google.com/privacy',
+            ],
+            [
+              'Cloudinary (Media CDN)',
+              'Cloudinary Ltd. (USA)',
+              'Serving responsive, optimized images and project media over global edge CDN',
+              'Standard HTTP headers, IP address for edge routing (no tracking cookies)',
+              'cloudinary.com/privacy',
             ],
             [
               'WhatsApp',
