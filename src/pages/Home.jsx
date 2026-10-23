@@ -306,7 +306,7 @@ export default function Home() {
   };
 
   return (
-    <div className="relative min-h-screen pt-28 pb-16">
+    <div className="relative min-h-screen pb-16">
       {/* ADVANCED SEO METADATA & SCHEMA.ORG INJECTION */}
       <Helmet>
         <title>Webliix | Website Development, SEO & Digital Solutions</title>
@@ -354,7 +354,7 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════════════
           REDESIGNED MODERN HERO SECTION (MINIMALIST, HIGH-IMPACT, ZERO GRID)
           ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative pt-6 sm:pt-10 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden text-center">
+      <section className="relative pt-24 sm:pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden text-center">
         {/* Layered CSS Ambient Radiant Halos (Linear & Stripe studio aesthetic) */}
         <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] sm:w-[950px] h-[320px] sm:h-[460px] bg-gradient-to-b from-cyan-500/25 via-indigo-500/18 to-transparent blur-[130px] rounded-full z-0 opacity-80" />
         <div className="pointer-events-none absolute top-1/4 -left-20 w-[300px] sm:w-[480px] h-[300px] sm:h-[480px] bg-purple-600/20 blur-[140px] rounded-full z-0" />

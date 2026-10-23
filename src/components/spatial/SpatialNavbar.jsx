@@ -159,14 +159,11 @@ export default function SpatialNavbar() {
   ];
 
   useEffect(() => {
-    let lastScrolled = typeof window !== 'undefined' && window.scrollY > 20;
     const handleScroll = () => {
       const isOver = window.scrollY > 20;
-      if (isOver !== lastScrolled) {
-        lastScrolled = isOver;
-        setScrolled(isOver);
-      }
+      setScrolled(isOver);
     };
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -269,14 +266,14 @@ export default function SpatialNavbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-[60] w-full transition-all duration-500 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-[60] w-full transition-all duration-300 ${
+        (scrolled || mobileOpen)
           ? 'glass-spatial border-b border-theme-border/80 shadow-spatial-lg'
           : 'bg-transparent border-b border-transparent shadow-none'
       }`}
       style={{
-        backdropFilter: scrolled ? 'blur(var(--glass-blur, 12px))' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(var(--glass-blur, 12px))' : 'none'
+        backdropFilter: (scrolled || mobileOpen) ? 'blur(var(--glass-blur, 12px))' : 'none',
+        WebkitBackdropFilter: (scrolled || mobileOpen) ? 'blur(var(--glass-blur, 12px))' : 'none'
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-[68px] flex items-center justify-between">
