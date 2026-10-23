@@ -48,6 +48,15 @@ export default function Home() {
   const [activeProcessStep, setActiveProcessStep] = useState(0);
   const [expandedFaq, setExpandedFaq] = useState(null);
   const { openModal } = useModal();
+  const [cockpitTab, setCockpitTab] = useState('vitals'); // 'vitals' | 'stack' | 'seo'
+  const [isAuditing, setIsAuditing] = useState(false);
+
+  const handleRunAudit = () => {
+    setIsAuditing(true);
+    setTimeout(() => {
+      setIsAuditing(false);
+    }, 850);
+  };
 
   const handleOpenServiceModal = (service) => {
     openModal({
