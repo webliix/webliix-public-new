@@ -1,22 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useTheme } from '../../context/ThemeContext';
 
 /**
- * SpatialHeaderBackdrop — Gentle Non-Interactive Ambient Aurora Backdrop
+ * SpatialHeaderBackdrop — Fixed Ambient Header Backdrop for Subpages
  * ─────────────────────────────────────────────────────────────────────────────
- * Renders an atmospheric, gently morphing ambient glow at the top of all subpages.
- * - Hardware-accelerated CSS keyframe animations (zero mouse tracking / zero CPU loop)
- * - Harmonious color breathing across Cyan, Indigo, Violet & Teal
- * - Completely transparent to interactions (pointer-events-none)
- * - Automatically hidden on homepage ('/') which uses SpatialHeroCanvas
+ * Renders an atmospheric, gently morphing gradient fixed behind the title section.
+ * - Hardware-accelerated CSS translate3d transforms (0% CPU / GPU composited)
+ * - Automatically fixed at top of viewport so title & breadcrumbs scroll smoothly over it
+ * - Automatically pauses compositing (visibility: hidden) when scrolled past header (>380px)
+ * - Zero JS loops or mouse tracking listeners for maximum speed & Core Web Vitals
  */
 export default function SpatialHeaderBackdrop() {
   const location = useLocation();
   const { currentTheme } = useTheme();
+  const [scrolledPast, setScrolledPast] = useState(false);
 
-  // The homepage has its own dedicated interactive hero canvas
-  if (location.pathname === '/') {
+  // Homepage has its own dedicated interactive hero canvas
+  const isHome = location.pathname === '/';
+
+  useEffect(() => {
+    if (isHome) return;
+
+    let lastState = false;
+    const handleScroll = () => {
+      const isPast = window.scrollY > 380;
+      if (isPast !== lastState) {
+        lastState = isPast;
+        setScrolledPast(isPast);
+      }
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isHome]);
+
+  if (isHome) {
     return null;
   }
 
@@ -25,45 +45,50 @@ export default function SpatialHeaderBackdrop() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute top-0 left-0 right-0 h-[400px] sm:h-[480px] overflow-hidden z-0 select-none"
+      className="pointer-events-none fixed top-0 left-0 right-0 h-[400px] sm:h-[480px] overflow-hidden z-0 select-none transition-opacity duration-500 ease-out"
+      style={{
+        opacity: scrolledPast ? 0 : 1,
+        visibility: scrolledPast ? 'hidden' : 'visible',
+        willChange: 'opacity, transform'
+      }}
     >
       <style>{`
         @keyframes headerAuroraShift {
           0% {
-            transform: translate(-50%, -20%) scale(1);
+            transform: translate3d(-50%, -20%, 0) scale(1);
             opacity: 0.75;
           }
           50% {
-            transform: translate(-48%, -15%) scale(1.12);
+            transform: translate3d(-48%, -15%, 0) scale(1.1);
             opacity: 0.95;
           }
           100% {
-            transform: translate(-50%, -20%) scale(1);
+            transform: translate3d(-50%, -20%, 0) scale(1);
             opacity: 0.75;
           }
         }
 
         @keyframes headerOrbLeft {
           0% {
-            transform: translate(0, 0) scale(1);
+            transform: translate3d(0, 0, 0) scale(1);
           }
           50% {
-            transform: translate(40px, 25px) scale(1.15);
+            transform: translate3d(35px, 20px, 0) scale(1.12);
           }
           100% {
-            transform: translate(0, 0) scale(1);
+            transform: translate3d(0, 0, 0) scale(1);
           }
         }
 
         @keyframes headerOrbRight {
           0% {
-            transform: translate(0, 0) scale(1);
+            transform: translate3d(0, 0, 0) scale(1);
           }
           50% {
-            transform: translate(-35px, -20px) scale(1.12);
+            transform: translate3d(-30px, -18px, 0) scale(1.1);
           }
           100% {
-            transform: translate(0, 0) scale(1);
+            transform: translate3d(0, 0, 0) scale(1);
           }
         }
       `}</style>
@@ -75,7 +100,8 @@ export default function SpatialHeaderBackdrop() {
           background: isDark
             ? 'radial-gradient(circle, rgba(56, 189, 248, 0.28) 0%, rgba(129, 140, 248, 0.18) 45%, rgba(168, 85, 247, 0.08) 75%, transparent 100%)'
             : 'radial-gradient(circle, rgba(2, 132, 199, 0.22) 0%, rgba(99, 102, 241, 0.14) 45%, transparent 100%)',
-          animation: 'headerAuroraShift 14s ease-in-out infinite'
+          animation: 'headerAuroraShift 14s ease-in-out infinite',
+          willChange: 'transform, opacity'
         }}
       />
 
@@ -86,7 +112,8 @@ export default function SpatialHeaderBackdrop() {
           background: isDark
             ? 'radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, rgba(99, 102, 241, 0.12) 60%, transparent 100%)'
             : 'radial-gradient(circle, rgba(147, 51, 234, 0.16) 0%, transparent 100%)',
-          animation: 'headerOrbLeft 18s ease-in-out infinite'
+          animation: 'headerOrbLeft 18s ease-in-out infinite',
+          willChange: 'transform'
         }}
       />
 
@@ -97,7 +124,8 @@ export default function SpatialHeaderBackdrop() {
           background: isDark
             ? 'radial-gradient(circle, rgba(6, 182, 212, 0.26) 0%, rgba(52, 211, 153, 0.10) 60%, transparent 100%)'
             : 'radial-gradient(circle, rgba(14, 165, 233, 0.18) 0%, transparent 100%)',
-          animation: 'headerOrbRight 22s ease-in-out infinite'
+          animation: 'headerOrbRight 22s ease-in-out infinite',
+          willChange: 'transform'
         }}
       />
 

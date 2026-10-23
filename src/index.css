@@ -267,21 +267,7 @@ h1, h2, h3, h4, h5, h6, .font-display {
   100% { background-position: 0% 50%; }
 }
 
-/* Scan line effect */
-.scan-line {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--color-primary, #2563eb), transparent);
-  animation: scan 6s linear infinite;
-  pointer-events: none;
-  z-index: 1;
-}
 
-@keyframes scan {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100vh); }
-}
 
 /* Infinite slow-looping marquee carousel */
 .animate-scroll-slow {

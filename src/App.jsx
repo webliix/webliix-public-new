@@ -52,7 +52,6 @@ export default function App() {
             <Router>
               <ScrollToTop />
               <div className="relative min-h-screen bg-theme-bg text-theme-text font-sans antialiased selection:bg-theme-primary selection:text-white">
-                <div className="scan-line" />
                 <SpatialNavbar />
                 <SpatialHeaderBackdrop />
 
