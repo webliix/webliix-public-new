@@ -9,17 +9,32 @@ const routeLabels = {
   'about': 'About Us',
   'services': 'Services & Solutions',
   'website-development': 'Website Development',
+  'web-development': 'Website Development',
+  'website-design': 'Website Development',
   'web-app-development': 'Web App Development',
+  'custom-software': 'Web App Development',
+  'saas-development': 'Web App Development',
   'mobile-app-development': 'Mobile App Development',
+  'mobile-apps': 'Mobile App Development',
+  'app-development': 'Mobile App Development',
   'ecommerce-store': 'E-Commerce Store',
+  'ecommerce': 'E-Commerce Store',
+  'fast-ecommerce': 'E-Commerce Store',
   'seo': 'SEO Services',
   'seo-services': 'SEO Services',
+  'seo-packages': 'SEO Services',
   'branding-design': 'Branding & UI/UX Design',
+  'ui-ux-design': 'Branding & UI/UX Design',
+  'branding': 'Branding & UI/UX Design',
   'paid-advertising': 'Paid Advertising (PPC)',
+  'ads': 'Paid Advertising (PPC)',
+  'paid-ads': 'Paid Advertising (PPC)',
   'google-ads': 'Google Ads',
   'meta-ads': 'Meta & Instagram Ads',
-  'launch-kit': 'LaunchKit',
+  'launch-kit': 'Webliix LaunchKit',
   'website-maintenance': 'Website Maintenance & Care',
+  'maintenance': 'Website Maintenance & Care',
+  'website-support': 'Website Maintenance & Care',
   'portfolio': 'Portfolio Showcase',
   'blog': 'Knowledge Hub',
   'tools': 'Free SEO Tools',
@@ -36,6 +51,37 @@ const routeLabels = {
   'disclaimer': 'Disclaimer'
 };
 
+// Set of all routes that belong to Services & Solutions
+const serviceRoutes = new Set([
+  'website-development',
+  'web-development',
+  'website-design',
+  'web-app-development',
+  'custom-software',
+  'saas-development',
+  'mobile-app-development',
+  'mobile-apps',
+  'app-development',
+  'ecommerce-store',
+  'ecommerce',
+  'fast-ecommerce',
+  'seo',
+  'seo-services',
+  'seo-packages',
+  'branding-design',
+  'ui-ux-design',
+  'branding',
+  'paid-advertising',
+  'ads',
+  'paid-ads',
+  'google-ads',
+  'meta-ads',
+  'launch-kit',
+  'website-maintenance',
+  'maintenance',
+  'website-support'
+]);
+
 const formatSegment = (segment) => {
   if (routeLabels[segment]) return routeLabels[segment];
   return segment
@@ -43,7 +89,7 @@ const formatSegment = (segment) => {
     .replace(/\b\w/g, (c) => c.toUpperCase());
 };
 
-const getAbsoluteUrl = (path, currentPathname) => {
+const getAbsoluteUrl = (path) => {
   const baseUrl = 'https://webliix.com';
   if (!path || path === '/') {
     return `${baseUrl}/`;
@@ -74,10 +120,28 @@ export default function Breadcrumbs({ customCrumbs, className = '' }) {
     }
 
     crumbs.push({ label: 'Home', path: '/' });
+
+    const firstSegment = pathSegments[0];
+    const isServiceSubpage = serviceRoutes.has(firstSegment) && firstSegment !== 'services';
+
+    // If viewing any service page, hierarchically nest it under Services & Solutions
+    if (isServiceSubpage) {
+      crumbs.push({
+        label: 'Services & Solutions',
+        path: '/services',
+      });
+    }
+
     let accumulated = '';
     pathSegments.forEach((segment, idx) => {
       accumulated += `/${segment}`;
       const isLast = idx === pathSegments.length - 1;
+
+      // Avoid redundant Services segment if route is /services/...
+      if (segment === 'services' && isServiceSubpage) {
+        return;
+      }
+
       crumbs.push({
         label: formatSegment(segment),
         path: isLast ? null : accumulated,
@@ -130,7 +194,7 @@ export default function Breadcrumbs({ customCrumbs, className = '' }) {
 
             return (
               <li
-                key={crumb.path || crumb.label}
+                key={crumb.path ? `${crumb.path}-${index}` : `${crumb.label}-${index}`}
                 itemProp="itemListElement"
                 itemScope
                 itemType="https://schema.org/ListItem"
