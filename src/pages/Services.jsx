@@ -142,27 +142,6 @@ export default function Services() {
         <script type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',
-            '@type': 'BreadcrumbList',
-            itemListElement: [
-              {
-                '@type': 'ListItem',
-                position: 1,
-                name: 'Home',
-                item: 'https://webliix.com/'
-              },
-              {
-                '@type': 'ListItem',
-                position: 2,
-                name: 'Services & Solutions',
-                item: 'https://webliix.com/services'
-              }
-            ]
-          })}
-        </script>
-
-        <script type="application/ld+json">
-          {JSON.stringify({
-            '@context': 'https://schema.org',
             '@type': 'ItemList',
             name: 'Webliix Digital Services',
             itemListElement: siteConfig.services

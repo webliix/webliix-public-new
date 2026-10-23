@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { ChevronRight, Home } from 'lucide-react';
 import WebliixIcon from './WebliixIcon';
 
@@ -42,6 +43,15 @@ const formatSegment = (segment) => {
     .replace(/\b\w/g, (c) => c.toUpperCase());
 };
 
+const getAbsoluteUrl = (path, currentPathname) => {
+  const baseUrl = 'https://webliix.com';
+  if (!path || path === '/') {
+    return `${baseUrl}/`;
+  }
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  return `${baseUrl}${cleanPath}`;
+};
+
 export default function Breadcrumbs({ customCrumbs, className = '' }) {
   const location = useLocation();
 
@@ -75,26 +85,35 @@ export default function Breadcrumbs({ customCrumbs, className = '' }) {
     });
   }
 
-  // Schema.org BreadcrumbList for rich snippets in Google Search
+  // Schema.org BreadcrumbList for rich snippets in Google Search Console
   const jsonLdData = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    itemListElement: crumbs.map((crumb, idx) => ({
-      '@type': 'ListItem',
-      position: idx + 1,
-      name: crumb.label,
-      item: crumb.path ? `https://webliix.com${crumb.path === '/' ? '' : crumb.path}` : `https://webliix.com${location.pathname}`
-    }))
+    itemListElement: crumbs.map((crumb, idx) => {
+      const isLast = idx === crumbs.length - 1;
+      const targetUrl = isLast
+        ? getAbsoluteUrl(location.pathname)
+        : getAbsoluteUrl(crumb.path);
+
+      return {
+        '@type': 'ListItem',
+        position: idx + 1,
+        name: crumb.label,
+        item: targetUrl
+      };
+    })
   };
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
-      />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(jsonLdData)}
+        </script>
+      </Helmet>
+
       <nav
-        aria-label="Breadcrumbs"
+        aria-label="Breadcrumb"
         className={`w-full flex items-center justify-start my-3 sm:my-4 select-none ${className}`}
       >
         <ol
@@ -105,6 +124,9 @@ export default function Breadcrumbs({ customCrumbs, className = '' }) {
           {crumbs.map((crumb, index) => {
             const isLast = index === crumbs.length - 1;
             const isHome = index === 0;
+            const itemUrl = isLast
+              ? getAbsoluteUrl(location.pathname)
+              : getAbsoluteUrl(crumb.path);
 
             return (
               <li
@@ -114,6 +136,8 @@ export default function Breadcrumbs({ customCrumbs, className = '' }) {
                 itemType="https://schema.org/ListItem"
                 className="inline-flex items-center gap-1.5 sm:gap-2 shrink-0"
               >
+                <meta itemProp="position" content={String(index + 1)} />
+
                 {index > 0 && (
                   <WebliixIcon
                     icon={ChevronRight}
@@ -124,14 +148,17 @@ export default function Breadcrumbs({ customCrumbs, className = '' }) {
                 )}
 
                 {isLast ? (
-                  <span
-                    itemProp="name"
-                    aria-current="page"
-                    className="text-theme-text font-semibold flex items-center gap-1.5 tracking-tight"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-theme-primary shrink-0 animate-pulse" />
-                    <span>{crumb.label}</span>
-                  </span>
+                  <>
+                    <meta itemProp="item" content={itemUrl} />
+                    <span
+                      itemProp="name"
+                      aria-current="page"
+                      className="text-theme-text font-semibold flex items-center gap-1.5 tracking-tight"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-theme-primary shrink-0 animate-pulse" />
+                      <span>{crumb.label}</span>
+                    </span>
+                  </>
                 ) : (
                   <Link
                     to={crumb.path || '/'}
@@ -151,7 +178,6 @@ export default function Breadcrumbs({ customCrumbs, className = '' }) {
                     </span>
                   </Link>
                 )}
-                <meta itemProp="position" content={String(index + 1)} />
               </li>
             );
           })}

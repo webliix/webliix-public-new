@@ -366,25 +366,25 @@ export default function Home() {
           {/* Eyebrow Tagline Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-semibold shadow-xs">
             <span className="w-2 h-2 rounded-full bg-theme-primary animate-pulse" />
-            <span>Turnkey Websites • Custom Web Apps • #1 Local SEO</span>
+            <span>Turnkey Websites • E-Commerce Stores • #1 Google Ranking</span>
           </div>
 
           {/* Punchy Headline (High-converting, best text, no fluff) */}
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-display font-extrabold text-theme-text leading-[1.08] tracking-tight">
-            Websites &amp; Software Built to<br />
-            <span className="text-shimmer">Rank #1 and Scale Revenue</span>
+            Modern Websites Built to<br />
+            <span className="text-shimmer">Win Customers &amp; Grow Sales</span>
           </h1>
 
           {/* Crisp 1-Sentence Subhead (Less text, clear value) */}
           <p className="text-theme-muted text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            We build ultra-fast business websites, Shopify stores, and local SEO engines engineered for sub-second speeds and 100% source-code ownership.
+            We build lightning-fast business websites, online stores, and Google SEO that help you attract more clients, close more sales, and own 100% of your code.
           </p>
 
           {/* High-Impact Actions */}
           <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
             <Link to="/contact">
               <WebliixButton variant="primary" icon={ArrowRight} className="text-xs sm:text-sm px-6 py-3">
-                Discuss Your Project
+                Start Your Project
               </WebliixButton>
             </Link>
             <Link to="/launch-kit">
@@ -410,7 +410,7 @@ export default function Home() {
               className="inline-flex items-center gap-1 text-[11px] text-theme-primary hover:underline"
             >
               <Award className="w-3.5 h-3.5" />
-              <span>Udyam Registered Micro Enterprise</span>
+              <span>Govt. MSME Registered Enterprise</span>
             </Link>
           </div>
 
@@ -457,7 +457,7 @@ export default function Home() {
                     }`}
                   >
                     <Zap className="w-3.5 h-3.5" />
-                    <span>High-Speed Web</span>
+                    <span>Fast Websites</span>
                   </button>
                   <button
                     onClick={() => setActiveHeroTab('ecommerce')}
@@ -468,7 +468,7 @@ export default function Home() {
                     }`}
                   >
                     <ShoppingBag className="w-3.5 h-3.5" />
-                    <span>E-Commerce</span>
+                    <span>Online Store</span>
                   </button>
                   <button
                     onClick={() => setActiveHeroTab('seo')}
@@ -479,7 +479,7 @@ export default function Home() {
                     }`}
                   >
                     <Target className="w-3.5 h-3.5" />
-                    <span>Local SEO</span>
+                    <span>Google SEO</span>
                   </button>
                 </div>
               </div>
@@ -496,7 +496,7 @@ export default function Home() {
                         {isAuditing ? '...' : '100 / 100'}
                       </div>
                       <div className="text-[11px] font-mono text-emerald-400/90 mt-1">
-                        ✓ Optimal Core Web Vitals
+                        ✓ Loads in under 0.5s
                       </div>
                     </div>
 
@@ -508,7 +508,7 @@ export default function Home() {
                         {isAuditing ? '...' : '0.42s'}
                       </div>
                       <div className="text-[11px] font-mono text-theme-muted mt-1">
-                        Sub-second worldwide CDN
+                        Fast global edge CDN
                       </div>
                     </div>
 
@@ -520,7 +520,7 @@ export default function Home() {
                         100%
                       </div>
                       <div className="text-[11px] font-mono text-cyan-400 mt-1">
-                        Zero platform lock-in
+                        Full code & hosting rights
                       </div>
                     </div>
                   </div>
@@ -528,13 +528,13 @@ export default function Home() {
                   <div className="flex flex-wrap items-center justify-between gap-3 pt-1 text-xs font-mono text-theme-muted border-t border-theme-border/40">
                     <div className="flex flex-wrap items-center gap-3">
                       <span className="flex items-center gap-1.5 text-theme-text">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" /> React 19 + Vite
+                        <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" /> Modern Fast Code
                       </span>
                       <span className="flex items-center gap-1.5 text-theme-text">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" /> Mobile-First Responsive
+                        <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" /> 100% Mobile Ready
                       </span>
                       <span className="flex items-center gap-1.5 text-theme-text">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" /> Cloudflare Edge SSL
+                        <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" /> Free SSL Security
                       </span>
                     </div>
 
@@ -544,7 +544,7 @@ export default function Home() {
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg glass-spatial border border-theme-primary/40 text-theme-primary hover:bg-theme-primary/10 transition active:scale-95 disabled:opacity-60 ml-auto"
                     >
                       <RefreshCw className={`w-3.5 h-3.5 ${isAuditing ? 'animate-spin' : ''}`} />
-                      <span>{isAuditing ? 'Testing...' : 'Test Speed Demo'}</span>
+                      <span>{isAuditing ? 'Testing...' : 'Run Speed Test'}</span>
                     </button>
                   </div>
                 </div>
@@ -556,37 +556,37 @@ export default function Home() {
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <div className="p-4 rounded-xl glass-spatial border border-theme-border/60">
                       <div className="text-xs font-mono text-theme-muted uppercase tracking-wider mb-1">
-                        Cart Conversion
+                        Checkout Sales
                       </div>
                       <div className="text-3xl font-display font-extrabold text-emerald-400">
                         +42%
                       </div>
                       <div className="text-[11px] font-mono text-emerald-400/90 mt-1">
-                        Streamlined 1-click checkout
+                        Quick 1-click mobile checkout
                       </div>
                     </div>
 
                     <div className="p-4 rounded-xl glass-spatial border border-theme-border/60">
                       <div className="text-xs font-mono text-theme-muted uppercase tracking-wider mb-1">
-                        Platforms
+                        Store Platforms
                       </div>
                       <div className="text-3xl font-display font-extrabold text-theme-primary">
                         Shopify
                       </div>
                       <div className="text-[11px] font-mono text-theme-muted mt-1">
-                        + Custom WooCommerce &amp; Headless
+                        + WooCommerce &amp; Custom
                       </div>
                     </div>
 
                     <div className="p-4 rounded-xl glass-spatial border border-theme-border/60">
                       <div className="text-xs font-mono text-theme-muted uppercase tracking-wider mb-1">
-                        Payment Gateways
+                        Indian Payments
                       </div>
                       <div className="text-3xl font-display font-extrabold text-theme-text">
                         UPI &amp; Cards
                       </div>
                       <div className="text-[11px] font-mono text-cyan-400 mt-1">
-                        Razorpay, Stripe &amp; Cashfree
+                        UPI, Cards &amp; NetBanking
                       </div>
                     </div>
                   </div>
@@ -594,7 +594,7 @@ export default function Home() {
                   <div className="flex flex-wrap items-center justify-between gap-3 pt-1 text-xs font-mono text-theme-muted border-t border-theme-border/40">
                     <div className="flex flex-wrap items-center gap-3">
                       <span className="flex items-center gap-1.5 text-theme-text">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" /> Auto Inventory &amp; Order Alerts
+                        <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" /> Instant Order Alerts
                       </span>
                       <span className="flex items-center gap-1.5 text-theme-text">
                         <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" /> WhatsApp Order Integration
@@ -602,7 +602,7 @@ export default function Home() {
                     </div>
 
                     <Link to="/ecommerce-store" className="text-theme-primary hover:underline flex items-center gap-1 ml-auto">
-                      <span>View Store Details</span>
+                      <span>Explore Store Packages</span>
                       <ArrowRight className="w-3 h-3" />
                     </Link>
                   </div>
@@ -619,32 +619,32 @@ export default function Home() {
                       <span>https://yourbusiness.com</span>
                     </div>
                     <div className="text-sm font-semibold text-theme-primary">
-                      Top Rated Local Service in Your City | Your Brand
+                      Top-Rated Local Business in Your City | Your Brand
                     </div>
                     <div className="flex items-center gap-2 text-[11px] font-mono text-amber-400">
                       <span>★★★★★ 4.9 (52 Google Reviews)</span>
                       <span className="text-theme-muted">• Open 9 AM - 8 PM</span>
                     </div>
                     <p className="text-xs text-theme-muted line-clamp-1">
-                      Professional service, verified location, instant consultation booking, and 100% verified customer satisfaction.
+                      Professional service, verified Google Maps location, instant contact booking, and 5-star customer reviews.
                     </p>
                   </div>
 
                   <div className="flex flex-wrap items-center justify-between gap-3 pt-1 text-xs font-mono text-theme-muted border-t border-theme-border/40">
                     <div className="flex flex-wrap items-center gap-3">
                       <span className="flex items-center gap-1.5 text-emerald-400 font-semibold">
-                        <CheckCircle2 className="w-3.5 h-3.5" /> #1 Local Map Pack Target
+                        <CheckCircle2 className="w-3.5 h-3.5" /> #1 Google Maps Ranking
                       </span>
                       <span className="flex items-center gap-1.5 text-theme-text">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" /> Schema.org JSON-LD
+                        <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" /> Google Search Ready
                       </span>
                       <span className="flex items-center gap-1.5 text-theme-text">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" /> GMB Ranking Engine
+                        <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" /> Google Business Profile Setup
                       </span>
                     </div>
 
                     <Link to="/seo" className="text-theme-primary hover:underline flex items-center gap-1 ml-auto">
-                      <span>Explore SEO Services</span>
+                      <span>Explore SEO Packages</span>
                       <ArrowRight className="w-3 h-3" />
                     </Link>
                   </div>

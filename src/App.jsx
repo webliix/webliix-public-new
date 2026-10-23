@@ -6,6 +6,7 @@ import { ModalProvider } from './context/ModalContext';
 import { AudioProvider } from './context/AudioContext';
 
 import SpatialNavbar from './components/spatial/SpatialNavbar';
+import SpatialHeaderBackdrop from './components/spatial/SpatialHeaderBackdrop';
 import SpatialFooter from './components/spatial/SpatialFooter';
 import SpatialThemeControl from './components/spatial/SpatialThemeControl';
 import SpatialModal from './components/spatial/SpatialModal';
@@ -53,6 +54,7 @@ export default function App() {
               <div className="relative min-h-screen bg-theme-bg text-theme-text font-sans antialiased selection:bg-theme-primary selection:text-white">
                 <div className="scan-line" />
                 <SpatialNavbar />
+                <SpatialHeaderBackdrop />
 
                 <main className="relative z-10">
                   <React.Suspense fallback={<div className="min-h-screen bg-theme-bg" />}>
