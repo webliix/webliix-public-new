@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import {
+  Link } from 'react-router-dom';
+import { motion,
+  AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import {
   ArrowRight,
@@ -25,7 +27,12 @@ import {
   MapPin,
   TrendingUp,
   Cpu,
-  Smartphone
+  Smartphone,
+  Gauge,
+  Activity,
+  Terminal,
+  RefreshCw,
+  Server
 } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import { businessConfig } from '../config/businessConfig';
