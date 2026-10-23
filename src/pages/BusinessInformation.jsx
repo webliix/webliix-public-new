@@ -82,7 +82,7 @@ export default function BusinessInformation() {
         <WebliixCard variant="featured" accentColor="primary" className="p-6 sm:p-8 space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-theme-border/60 pb-4">
             <div>
-              <span className="px-3 py-1 rounded-full bg-theme-primary/15 text-theme-primary text-xs font-mono font-bold border border-theme-primary/30 inline-block mb-1">
+              <span className="px-3 py-1 theme-rounded-badge bg-theme-primary/15 text-theme-primary text-xs font-mono font-bold border border-theme-primary/30 inline-block mb-1">
                 Udyam Registered Micro Enterprise
               </span>
               <h3 className="text-2xl font-display font-bold text-theme-text">{businessConfig.name}</h3>
@@ -239,7 +239,7 @@ export default function BusinessInformation() {
         <WebliixCard variant="standard" className="p-6 space-y-3">
           <div className="flex items-center justify-between">
             <span className="text-sm font-display font-bold text-theme-text">GST Registration</span>
-            <span className={`px-3 py-1 rounded-full text-xs font-mono font-bold border ${
+            <span className={`px-3 py-1 theme-rounded-badge text-xs font-mono font-bold border ${
               businessConfig.gstRegistered
                 ? 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30'
                 : 'bg-amber-500/15 text-amber-400 border-amber-500/30'

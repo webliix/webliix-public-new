@@ -308,7 +308,7 @@ export default function Careers() {
 
       {/* Hero Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
-        <span className="px-4 py-1.5 rounded-full glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-bold uppercase tracking-widest inline-flex items-center gap-1.5 shadow-sm">
+        <span className="px-4 py-1.5 theme-rounded-badge glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-bold uppercase tracking-widest inline-flex items-center gap-1.5 shadow-sm">
           <Sparkles className="w-3.5 h-3.5" /> Careers &amp; Strategic Partnerships
         </span>
         <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-theme-text leading-tight">

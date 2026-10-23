@@ -27,6 +27,14 @@
   --radius-container: 0px;
 }
 
+:root[data-corner-style="edgy"] {
+  --radius-card: 0px;
+  --radius-btn: 0px;
+  --radius-input: 0px;
+  --radius-badge: 0px;
+  --radius-container: 0px;
+}
+
 @media (min-width: 640px) {
   :root[data-corner-style="edgy"] {
     --radius-card: 4px;

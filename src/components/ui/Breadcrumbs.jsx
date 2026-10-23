@@ -183,7 +183,7 @@ export default function Breadcrumbs({ customCrumbs, className = '' }) {
         <ol
           itemScope
           itemType="https://schema.org/BreadcrumbList"
-          className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 rounded-full glass-spatial border border-theme-border/60 hover:border-theme-primary/30 transition-all text-xs font-mono text-theme-muted max-w-full overflow-x-auto no-scrollbar shadow-xs whitespace-nowrap"
+          className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 theme-rounded-badge glass-spatial border border-theme-border/60 hover:border-theme-primary/30 transition-all text-xs font-mono text-theme-muted max-w-full overflow-x-auto no-scrollbar shadow-xs whitespace-nowrap"
         >
           {crumbs.map((crumb, index) => {
             const isLast = index === crumbs.length - 1;

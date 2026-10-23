@@ -85,7 +85,7 @@ export default function LegalLayout({
 
       {/* Header Banner */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
-        <span className="px-3.5 py-1.5 rounded-full glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-semibold uppercase tracking-widest inline-flex items-center gap-1.5">
+        <span className="px-3.5 py-1.5 theme-rounded-badge glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-semibold uppercase tracking-widest inline-flex items-center gap-1.5">
           <WebliixIcon icon={ShieldCheck} variant="inline" size="xs" color="primary" />
           {categoryTag} • Last Updated: {lastUpdated}
         </span>

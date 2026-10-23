@@ -371,7 +371,7 @@ export default function Home() {
 
         <div className="relative z-10 max-w-5xl mx-auto space-y-6 sm:space-y-8">
           {/* Eyebrow Tagline Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-semibold shadow-xs">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 theme-rounded-badge glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-semibold shadow-xs">
             <span className="w-2 h-2 rounded-full bg-theme-primary animate-pulse" />
             <span>Turnkey Websites • E-Commerce Stores • Top Google Visibility</span>
           </div>
@@ -426,12 +426,12 @@ export default function Home() {
               ═══════════════════════════════════════════════════════════ */}
           <div className="pt-4 max-w-4xl mx-auto relative">
             {/* Floating Modern Accent Badges (Linear/Stripe Studio Aesthetic) */}
-            <div className="hidden lg:flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-spatial border border-emerald-500/40 text-[11px] font-mono text-emerald-400 absolute -top-3 -left-6 z-20 shadow-xl backdrop-blur-md pointer-events-none">
+            <div className="hidden lg:flex items-center gap-2 px-3.5 py-1.5 theme-rounded-badge glass-spatial border border-emerald-500/40 text-[11px] font-mono text-emerald-400 absolute -top-3 -left-6 z-20 shadow-xl backdrop-blur-md pointer-events-none">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
               <span>⚡ 0.4s Global Edge Load</span>
             </div>
 
-            <div className="hidden lg:flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-spatial border border-theme-primary/40 text-[11px] font-mono text-theme-primary absolute -bottom-3 -right-6 z-20 shadow-xl backdrop-blur-md pointer-events-none">
+            <div className="hidden lg:flex items-center gap-2 px-3.5 py-1.5 theme-rounded-badge glass-spatial border border-theme-primary/40 text-[11px] font-mono text-theme-primary absolute -bottom-3 -right-6 z-20 shadow-xl backdrop-blur-md pointer-events-none">
               <CheckCircle2 className="w-3.5 h-3.5 text-theme-primary" />
               <span>100% Code Ownership</span>
             </div>
@@ -447,17 +447,17 @@ export default function Home() {
                     <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
                   </div>
-                  <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-theme-bg/60 border border-theme-border/60 text-[11px] font-mono text-theme-muted">
+                  <div className="flex items-center gap-1.5 px-3 py-1 theme-rounded-badge bg-theme-bg/60 border border-theme-border/60 text-[11px] font-mono text-theme-muted">
                     <Lock className="w-3 h-3 text-emerald-400 shrink-0" />
                     <span>https://yourbusiness.com</span>
                   </div>
                 </div>
 
                 {/* 3 Quick Interactive Switcher Tabs */}
-                <div className="inline-flex p-1 rounded-xl bg-theme-bg/60 border border-theme-border/60 text-xs font-mono font-semibold self-start sm:self-auto">
+                <div className="inline-flex p-1 theme-rounded-card bg-theme-bg/60 border border-theme-border/60 text-xs font-mono font-semibold self-start sm:self-auto">
                   <button
                     onClick={() => setActiveHeroTab('web')}
-                    className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 ${
+                    className={`px-3 py-1.5 theme-rounded-btn transition-all flex items-center gap-1.5 ${
                       activeHeroTab === 'web' ? 'bg-theme-primary text-white font-bold shadow-sm'
                         : 'text-theme-muted hover:text-theme-text'
                     }`}
@@ -467,7 +467,7 @@ export default function Home() {
                   </button>
                   <button
                     onClick={() => setActiveHeroTab('ecommerce')}
-                    className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 ${
+                    className={`px-3 py-1.5 theme-rounded-btn transition-all flex items-center gap-1.5 ${
                       activeHeroTab === 'ecommerce' ? 'bg-theme-primary text-white font-bold shadow-sm'
                         : 'text-theme-muted hover:text-theme-text'
                     }`}
@@ -477,7 +477,7 @@ export default function Home() {
                   </button>
                   <button
                     onClick={() => setActiveHeroTab('seo')}
-                    className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 ${
+                    className={`px-3 py-1.5 theme-rounded-btn transition-all flex items-center gap-1.5 ${
                       activeHeroTab === 'seo' ? 'bg-theme-primary text-white font-bold shadow-sm'
                         : 'text-theme-muted hover:text-theme-text'
                     }`}
@@ -492,7 +492,7 @@ export default function Home() {
               {activeHeroTab === 'web' && (
                 <div className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    <div className="p-4 rounded-xl glass-spatial border border-theme-border/60 flex flex-col justify-between">
+                    <div className="p-4 theme-rounded-card glass-spatial border border-theme-border/60 flex flex-col justify-between">
                       <div className="text-xs font-mono text-theme-muted uppercase tracking-wider mb-1">
                         PageSpeed Score
                       </div>
@@ -504,7 +504,7 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <div className="p-4 rounded-xl glass-spatial border border-theme-border/60 flex flex-col justify-between">
+                    <div className="p-4 theme-rounded-card glass-spatial border border-theme-border/60 flex flex-col justify-between">
                       <div className="text-xs font-mono text-theme-muted uppercase tracking-wider mb-1">
                         Global Edge Load
                       </div>
@@ -516,7 +516,7 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <div className="p-4 rounded-xl glass-spatial border border-theme-border/60 flex flex-col justify-between">
+                    <div className="p-4 theme-rounded-card glass-spatial border border-theme-border/60 flex flex-col justify-between">
                       <div className="text-xs font-mono text-theme-muted uppercase tracking-wider mb-1">
                         Code Ownership
                       </div>
@@ -545,7 +545,7 @@ export default function Home() {
                     <button
                       onClick={handleTestSpeed}
                       disabled={isAuditing}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg glass-spatial border border-theme-primary/40 text-theme-primary hover:bg-theme-primary/10 transition active:scale-95 disabled:opacity-60 ml-auto"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 theme-rounded-btn glass-spatial border border-theme-primary/40 text-theme-primary hover:bg-theme-primary/10 transition active:scale-95 disabled:opacity-60 ml-auto"
                     >
                       <RefreshCw className={`w-3.5 h-3.5 ${isAuditing ? 'animate-spin' : ''}`} />
                       <span>{isAuditing ? 'Testing...' : 'Run Speed Test'}</span>
@@ -558,7 +558,7 @@ export default function Home() {
               {activeHeroTab === 'ecommerce' && (
                 <div className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    <div className="p-4 rounded-xl glass-spatial border border-theme-border/60">
+                    <div className="p-4 theme-rounded-card glass-spatial border border-theme-border/60">
                       <div className="text-xs font-mono text-theme-muted uppercase tracking-wider mb-1">
                         Checkout Sales
                       </div>
@@ -570,7 +570,7 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <div className="p-4 rounded-xl glass-spatial border border-theme-border/60">
+                    <div className="p-4 theme-rounded-card glass-spatial border border-theme-border/60">
                       <div className="text-xs font-mono text-theme-muted uppercase tracking-wider mb-1">
                         Store Platforms
                       </div>
@@ -582,7 +582,7 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <div className="p-4 rounded-xl glass-spatial border border-theme-border/60">
+                    <div className="p-4 theme-rounded-card glass-spatial border border-theme-border/60">
                       <div className="text-xs font-mono text-theme-muted uppercase tracking-wider mb-1">
                         Indian Payments
                       </div>
@@ -617,7 +617,7 @@ export default function Home() {
               {activeHeroTab === 'seo' && (
                 <div className="space-y-4">
                   {/* Google SERP Simulated Result */}
-                  <div className="p-3.5 rounded-xl bg-theme-bg/60 border border-theme-border/70 space-y-1">
+                  <div className="p-3.5 theme-rounded-card bg-theme-bg/60 border border-theme-border/70 space-y-1">
                     <div className="flex items-center gap-1.5 text-[10.5px] font-mono text-theme-muted">
                       <Globe className="w-3 h-3 text-emerald-400" />
                       <span>https://yourbusiness.com</span>

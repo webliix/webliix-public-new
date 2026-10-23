@@ -457,7 +457,7 @@ export default function BlogPost() {
       <header className="space-y-6">
         <div className="flex flex-wrap items-center gap-2.5">
           {postCategory && (
-            <span className="px-3.5 py-1 rounded-full bg-theme-primary/15 border border-theme-primary/30 text-theme-primary text-xs font-mono font-bold uppercase tracking-wider">
+            <span className="px-3.5 py-1 theme-rounded-badge bg-theme-primary/15 border border-theme-primary/30 text-theme-primary text-xs font-mono font-bold uppercase tracking-wider">
               {postCategory}
             </span>
           )}

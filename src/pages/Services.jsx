@@ -162,7 +162,7 @@ export default function Services() {
       {/* Hero */}
       <section className="text-center max-w-4xl mx-auto space-y-5">
 
-        <span className="px-4 py-1.5 rounded-full glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-bold uppercase tracking-widest inline-flex items-center gap-1.5 shadow-sm">
+        <span className="px-4 py-1.5 theme-rounded-badge glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-bold uppercase tracking-widest inline-flex items-center gap-1.5 shadow-sm">
           <Sparkles className="w-3.5 h-3.5" />
           Digital Services for Businesses Worldwide
         </span>

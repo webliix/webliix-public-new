@@ -225,7 +225,7 @@ export default function Feedback() {
         <>
           {/* Page Header */}
           <div className="text-center max-w-xl mx-auto mb-10 space-y-3">
-            <span className="px-4 py-1.5 rounded-full glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-semibold uppercase tracking-widest inline-flex items-center gap-1.5">
+            <span className="px-4 py-1.5 theme-rounded-badge glass-spatial border border-theme-primary/40 text-xs font-mono text-theme-primary font-semibold uppercase tracking-widest inline-flex items-center gap-1.5">
               <MessageSquare className="w-3.5 h-3.5" /> We Value Your Opinion
             </span>
             <h1 className="text-4xl sm:text-5xl font-display font-extrabold text-theme-text">

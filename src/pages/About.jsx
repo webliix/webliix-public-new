@@ -164,11 +164,11 @@ export default function About() {
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <div className="flex flex-wrap items-center justify-center gap-2">
-          <span className="px-3.5 py-1.5 rounded-none sm:rounded-[4px] glass-spatial border border-theme-primary/50 text-xs font-mono text-theme-primary font-bold tracking-wider inline-flex items-center gap-1.5 shadow-sm">
+          <span className="px-3.5 py-1.5 theme-rounded-badge glass-spatial border border-theme-primary/50 text-xs font-mono text-theme-primary font-bold tracking-wider inline-flex items-center gap-1.5 shadow-sm">
             <Code className="w-3.5 h-3.5 text-theme-primary" />
             <span>{siteConfig.brand.tagline}</span>
           </span>
-          <span className="px-3.5 py-1.5 rounded-none sm:rounded-[4px] glass-spatial border border-theme-border text-xs font-mono text-theme-muted tracking-wider inline-flex items-center gap-1.5 shadow-sm">
+          <span className="px-3.5 py-1.5 theme-rounded-badge glass-spatial border border-theme-border text-xs font-mono text-theme-muted tracking-wider inline-flex items-center gap-1.5 shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-theme-primary" />
             <span>Est. 2025</span>
           </span>
