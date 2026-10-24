@@ -479,10 +479,10 @@ export default function Home() {
                       <div className="text-xs font-mono text-theme-muted uppercase tracking-wider mb-1">
                         Checkout Sales
                       </div>
-                      <div className="text-3xl font-display font-extrabold text-emerald-400">
+                      <div className="text-3xl font-display font-extrabold text-emerald-300">
                         +42%
                       </div>
-                      <div className="text-[11px] font-mono text-emerald-400/90 mt-1">
+                      <div className="text-[11px] font-mono text-emerald-300 font-medium mt-1">
                         Quick 1-click mobile checkout
                       </div>
                     </div>
@@ -506,7 +506,7 @@ export default function Home() {
                       <div className="text-3xl font-display font-extrabold text-theme-text">
                         UPI &amp; Cards
                       </div>
-                      <div className="text-[11px] font-mono text-cyan-400 mt-1">
+                      <div className="text-[11px] font-mono text-cyan-300 font-medium mt-1">
                         UPI, Cards &amp; NetBanking
                       </div>
                     </div>
@@ -849,7 +849,7 @@ export default function Home() {
                   onClick={() => setActiveProcessStep(index)}
                   className="flex-col items-start h-auto p-3 text-left w-full"
                 >
-                  <span className="text-xs font-mono font-bold block opacity-80">{proc.step}</span>
+                  <span className={`text-xs font-mono font-bold block ${isActive ? "text-theme-primary" : "text-theme-text/90"}`}>{proc.step}</span>
                   <span className="text-xs font-display font-bold">{proc.title}</span>
                 </WebliixButton>
               );
@@ -931,7 +931,7 @@ export default function Home() {
                       <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-theme-primary px-2 py-0.5 rounded-full bg-theme-primary/10 border border-theme-primary/20">
                         {item.category}
                       </span>
-                      <span className="text-[10px] font-mono text-emerald-400 font-bold">
+                      <span className="text-[10px] font-mono text-emerald-300 font-bold">
                         {item.metrics}
                       </span>
                     </div>
@@ -1020,50 +1020,50 @@ export default function Home() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <WebliixCard variant="panel" className="p-4 space-y-2.5 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
-            <h4 className="text-xs font-mono font-bold text-theme-primary uppercase tracking-wider flex items-center gap-1.5">
+            <h3 className="text-xs font-mono font-bold text-theme-primary uppercase tracking-wider flex items-center gap-1.5">
               <Code className="w-3.5 h-3.5" /> Web &amp; Applications
-            </h4>
+            </h3>
             <ul className="space-y-1.5 text-xs text-theme-muted">
-              <li><Link to="/website-development" className="hover:text-theme-primary transition-colors flex items-center justify-between">Website Development <ArrowRight className="w-3 h-3" /></Link></li>
-              <li><Link to="/ecommerce-store" className="hover:text-theme-primary transition-colors flex items-center justify-between">E-Commerce Stores <ArrowRight className="w-3 h-3" /></Link></li>
-              <li><Link to="/web-app-development" className="hover:text-theme-primary transition-colors flex items-center justify-between">Custom Web Apps <ArrowRight className="w-3 h-3" /></Link></li>
-              <li><Link to="/mobile-app-development" className="hover:text-theme-primary transition-colors flex items-center justify-between">Mobile Applications <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/website-development" className="min-h-[44px] py-2 px-2 -mx-2 rounded-md hover:text-theme-primary hover:bg-theme-primary/10 transition-colors flex items-center justify-between">Website Development <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/ecommerce-store" className="min-h-[44px] py-2 px-2 -mx-2 rounded-md hover:text-theme-primary hover:bg-theme-primary/10 transition-colors flex items-center justify-between">E-Commerce Stores <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/web-app-development" className="min-h-[44px] py-2 px-2 -mx-2 rounded-md hover:text-theme-primary hover:bg-theme-primary/10 transition-colors flex items-center justify-between">Custom Web Apps <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/mobile-app-development" className="min-h-[44px] py-2 px-2 -mx-2 rounded-md hover:text-theme-primary hover:bg-theme-primary/10 transition-colors flex items-center justify-between">Mobile Applications <ArrowRight className="w-3 h-3" /></Link></li>
             </ul>
           </WebliixCard>
 
           <WebliixCard variant="panel" className="p-4 space-y-2.5 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
-            <h4 className="text-xs font-mono font-bold text-theme-primary uppercase tracking-wider flex items-center gap-1.5">
+            <h3 className="text-xs font-mono font-bold text-theme-primary uppercase tracking-wider flex items-center gap-1.5">
               <Search className="w-3.5 h-3.5" /> Search &amp; Growth
-            </h4>
+            </h3>
             <ul className="space-y-1.5 text-xs text-theme-muted">
-              <li><Link to="/seo" className="hover:text-theme-primary transition-colors flex items-center justify-between">Local SEO &amp; GMB <ArrowRight className="w-3 h-3" /></Link></li>
-              <li><Link to="/paid-advertising" className="hover:text-theme-primary transition-colors flex items-center justify-between">Paid Advertising <ArrowRight className="w-3 h-3" /></Link></li>
-              <li><Link to="/google-ads" className="hover:text-theme-primary transition-colors flex items-center justify-between">Google Ads PPC <ArrowRight className="w-3 h-3" /></Link></li>
-              <li><Link to="/meta-ads" className="hover:text-theme-primary transition-colors flex items-center justify-between">Meta &amp; Social Ads <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/seo" className="min-h-[44px] py-2 px-2 -mx-2 rounded-md hover:text-theme-primary hover:bg-theme-primary/10 transition-colors flex items-center justify-between">Local SEO &amp; GMB <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/paid-advertising" className="min-h-[44px] py-2 px-2 -mx-2 rounded-md hover:text-theme-primary hover:bg-theme-primary/10 transition-colors flex items-center justify-between">Paid Advertising <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/google-ads" className="min-h-[44px] py-2 px-2 -mx-2 rounded-md hover:text-theme-primary hover:bg-theme-primary/10 transition-colors flex items-center justify-between">Google Ads PPC <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/meta-ads" className="min-h-[44px] py-2 px-2 -mx-2 rounded-md hover:text-theme-primary hover:bg-theme-primary/10 transition-colors flex items-center justify-between">Meta &amp; Social Ads <ArrowRight className="w-3 h-3" /></Link></li>
             </ul>
           </WebliixCard>
 
           <WebliixCard variant="panel" className="p-4 space-y-2.5 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
-            <h4 className="text-xs font-mono font-bold text-theme-primary uppercase tracking-wider flex items-center gap-1.5">
+            <h3 className="text-xs font-mono font-bold text-theme-primary uppercase tracking-wider flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5" /> Turnkey &amp; Design
-            </h4>
+            </h3>
             <ul className="space-y-1.5 text-xs text-theme-muted">
-              <li><Link to="/launch-kit" className="hover:text-theme-primary transition-colors flex items-center justify-between">Webliix LaunchKit <ArrowRight className="w-3 h-3" /></Link></li>
-              <li><Link to="/branding-design" className="hover:text-theme-primary transition-colors flex items-center justify-between">Branding &amp; UI/UX <ArrowRight className="w-3 h-3" /></Link></li>
-              <li><Link to="/website-maintenance" className="hover:text-theme-primary transition-colors flex items-center justify-between">Website Maintenance <ArrowRight className="w-3 h-3" /></Link></li>
-              <li><Link to="/feedback" className="hover:text-theme-primary transition-colors flex items-center justify-between">Client Reviews <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/launch-kit" className="min-h-[44px] py-2 px-2 -mx-2 rounded-md hover:text-theme-primary hover:bg-theme-primary/10 transition-colors flex items-center justify-between">Webliix LaunchKit <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/branding-design" className="min-h-[44px] py-2 px-2 -mx-2 rounded-md hover:text-theme-primary hover:bg-theme-primary/10 transition-colors flex items-center justify-between">Branding &amp; UI/UX <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/website-maintenance" className="min-h-[44px] py-2 px-2 -mx-2 rounded-md hover:text-theme-primary hover:bg-theme-primary/10 transition-colors flex items-center justify-between">Website Maintenance <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/feedback" className="min-h-[44px] py-2 px-2 -mx-2 rounded-md hover:text-theme-primary hover:bg-theme-primary/10 transition-colors flex items-center justify-between">Client Reviews <ArrowRight className="w-3 h-3" /></Link></li>
             </ul>
           </WebliixCard>
 
           <WebliixCard variant="panel" className="p-4 space-y-2.5 border border-theme-border/70 hover:border-theme-primary/50 transition-colors">
-            <h4 className="text-xs font-mono font-bold text-theme-primary uppercase tracking-wider flex items-center gap-1.5">
+            <h3 className="text-xs font-mono font-bold text-theme-primary uppercase tracking-wider flex items-center gap-1.5">
               <Globe className="w-3.5 h-3.5" /> Proof &amp; Company
-            </h4>
+            </h3>
             <ul className="space-y-1.5 text-xs text-theme-muted">
-              <li><Link to="/portfolio" className="hover:text-theme-primary transition-colors flex items-center justify-between">Portfolio Showcase <ArrowRight className="w-3 h-3" /></Link></li>
-              <li><Link to="/feedback" className="hover:text-theme-primary transition-colors flex items-center justify-between">Client Feedback &amp; Reviews <ArrowRight className="w-3 h-3" /></Link></li>
-              <li><Link to="/blog" className="hover:text-theme-primary transition-colors flex items-center justify-between">SEO Knowledge Hub <ArrowRight className="w-3 h-3" /></Link></li>
-              <li><Link to="/careers" className="hover:text-theme-primary transition-colors flex items-center justify-between">Partner Program <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/portfolio" className="min-h-[44px] py-2 px-2 -mx-2 rounded-md hover:text-theme-primary hover:bg-theme-primary/10 transition-colors flex items-center justify-between">Portfolio Showcase <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/feedback" className="min-h-[44px] py-2 px-2 -mx-2 rounded-md hover:text-theme-primary hover:bg-theme-primary/10 transition-colors flex items-center justify-between">Client Feedback &amp; Reviews <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/blog" className="min-h-[44px] py-2 px-2 -mx-2 rounded-md hover:text-theme-primary hover:bg-theme-primary/10 transition-colors flex items-center justify-between">SEO Knowledge Hub <ArrowRight className="w-3 h-3" /></Link></li>
+              <li><Link to="/careers" className="min-h-[44px] py-2 px-2 -mx-2 rounded-md hover:text-theme-primary hover:bg-theme-primary/10 transition-colors flex items-center justify-between">Partner Program <ArrowRight className="w-3 h-3" /></Link></li>
             </ul>
           </WebliixCard>
         </div>

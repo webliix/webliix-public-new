@@ -124,6 +124,7 @@ export default function WebliixCard({
 }) {
   const { playClickSound } = useAudio();
   const cardRef = useRef(null);
+  const rectRef = useRef(null);
 
   const [isMobileView, setIsMobileView] = useState(() => isMobileCache);
 
@@ -143,16 +144,28 @@ export default function WebliixCard({
   const isInteractive = clickable || onClick != null;
   const isHoverable = hoverable !== undefined ? hoverable : isInteractive || cfg.lift !== 0;
 
+  const handleMouseEnter = useCallback(() => {
+    if (!cardRef.current || isMobileView) return;
+    rectRef.current = cardRef.current.getBoundingClientRect();
+    cardRef.current.style.setProperty('--glare-opacity', '1');
+    if (isHoverable && cfg.lift !== 0) {
+      cardRef.current.style.setProperty('--card-lift', `${cfg.lift}px`);
+    }
+  }, [isMobileView, isHoverable, cfg.lift]);
+
   const handleMouseMove = useCallback(
     (e) => {
       if (!cardRef.current || isMobileView) return;
-      const rect = cardRef.current.getBoundingClientRect();
+      if (!rectRef.current) {
+        rectRef.current = cardRef.current.getBoundingClientRect();
+      }
+      const rect = rectRef.current;
       const clientX = e.clientX;
       const clientY = e.clientY;
-      const x = Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width) * 100));
-      const y = Math.max(0, Math.min(100, ((clientY - rect.top) / rect.height) * 100));
+      const x = Math.max(0, Math.min(100, ((clientX - rect.left) / (rect.width || 1)) * 100));
+      const y = Math.max(0, Math.min(100, ((clientY - rect.top) / (rect.height || 1)) * 100));
 
-      // Direct DOM style property updates: 120 FPS cursor tracking with ZERO React component re-renders
+      // Direct DOM style property updates: 120 FPS cursor tracking with ZERO forced reflows
       cardRef.current.style.setProperty('--mouse-x', `${x}%`);
       cardRef.current.style.setProperty('--mouse-y', `${y}%`);
       cardRef.current.style.setProperty('--glare-opacity', '1');
@@ -164,15 +177,8 @@ export default function WebliixCard({
     [isHoverable, cfg.lift, isMobileView]
   );
 
-  const handleMouseEnter = useCallback(() => {
-    if (!cardRef.current || isMobileView) return;
-    cardRef.current.style.setProperty('--glare-opacity', '1');
-    if (isHoverable && cfg.lift !== 0) {
-      cardRef.current.style.setProperty('--card-lift', `${cfg.lift}px`);
-    }
-  }, [isMobileView, isHoverable, cfg.lift]);
-
   const handleMouseLeave = useCallback(() => {
+    rectRef.current = null;
     if (!cardRef.current) return;
     cardRef.current.style.setProperty('--glare-opacity', '0');
     cardRef.current.style.setProperty('--card-lift', '0px');

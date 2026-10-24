@@ -51,6 +51,7 @@ export default function SpatialHeroCanvas() {
     updateDimensions();
 
     const handleResize = () => {
+      cachedCanvasRect = null;
       updateDimensions();
     };
 
@@ -60,6 +61,7 @@ export default function SpatialHeroCanvas() {
     let targetScrollY = window.scrollY;
 
     const handleScroll = () => {
+      cachedCanvasRect = null;
       targetScrollY = window.scrollY;
     };
 
@@ -74,8 +76,16 @@ export default function SpatialHeroCanvas() {
       active: false
     };
 
+    let cachedCanvasRect = null;
+    const getCachedRect = () => {
+      if (!cachedCanvasRect) {
+        cachedCanvasRect = canvas.getBoundingClientRect();
+      }
+      return cachedCanvasRect;
+    };
+
     const updateMousePos = (clientX, clientY) => {
-      const rect = canvas.getBoundingClientRect();
+      const rect = getCachedRect();
       mouse.targetX = clientX - rect.left;
       mouse.targetY = clientY - rect.top;
       mouse.active = true;

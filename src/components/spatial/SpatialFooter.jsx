@@ -221,9 +221,9 @@ export default function SpatialFooter() {
 
         {/* Core Solutions Links */}
         <div className="space-y-3">
-          <h4 className="text-sm font-display font-bold text-theme-text uppercase tracking-wider">
+          <h3 className="text-sm font-display font-bold text-theme-text uppercase tracking-wider">
             Solutions
-          </h4>
+          </h3>
           <ul className="space-y-2 text-xs text-theme-muted">
             <li>
               <Link to="/launch-kit" className="hover:text-theme-primary transition-colors flex items-center gap-1 group">
@@ -286,9 +286,9 @@ export default function SpatialFooter() {
 
         {/* Quick Navigation */}
         <div className="space-y-3">
-          <h4 className="text-sm font-display font-bold text-theme-text uppercase tracking-wider">
+          <h3 className="text-sm font-display font-bold text-theme-text uppercase tracking-wider">
             Company
-          </h4>
+          </h3>
           <ul className="space-y-2 text-xs text-theme-muted">
             <li><Link to="/" className="hover:text-theme-primary transition">Home</Link></li>
             <li><Link to="/about" className="hover:text-theme-primary transition">About Us</Link></li>
@@ -306,9 +306,9 @@ export default function SpatialFooter() {
 
         {/* Business & Legal Area */}
         <div className="space-y-3">
-          <h4 className="text-sm font-display font-bold text-theme-text uppercase tracking-wider">
+          <h3 className="text-sm font-display font-bold text-theme-text uppercase tracking-wider">
             Business & Legal
-          </h4>
+          </h3>
           <ul className="space-y-2 text-xs text-theme-muted">
             <li><Link to="/business-information" className="hover:text-theme-primary transition flex items-center gap-1"><span>Business Information</span></Link></li>
             <li><Link to="/privacy-policy" className="hover:text-theme-primary transition">Privacy Policy</Link></li>
