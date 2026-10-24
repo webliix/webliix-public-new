@@ -318,7 +318,7 @@ export default function Portfolio() {
                     <h3 className="text-2xl font-display font-bold text-theme-text group-hover:text-theme-primary transition-colors">
                       {item.title}
                     </h3>
-                    <span className="px-3 py-1 theme-rounded-badge text-xs font-mono font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                    <span className="px-3 py-1 theme-rounded-badge text-xs font-mono font-bold badge-theme-success">
                       {item.metrics}
                     </span>
                   </div>

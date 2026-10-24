@@ -419,7 +419,7 @@ export default function Home() {
               ═══════════════════════════════════════════════════════════ */}
           <div className="pt-4 max-w-4xl mx-auto relative">
             {/* Floating Modern Accent Badges (Linear/Stripe Studio Aesthetic) */}
-            <div className="hidden lg:flex items-center gap-2 px-3.5 py-1.5 theme-rounded-badge glass-spatial border border-emerald-500/40 text-[11px] font-mono text-emerald-400 absolute -top-3 -left-6 z-20 shadow-xl backdrop-blur-md pointer-events-none">
+            <div className="hidden lg:flex items-center gap-2 px-3.5 py-1.5 theme-rounded-badge glass-spatial border border-theme-success/40 text-[11px] font-mono text-theme-success absolute -top-3 -left-6 z-20 shadow-xl backdrop-blur-md pointer-events-none">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
               <span>⚡ 0.4s Global Edge Load</span>
             </div>
@@ -479,10 +479,10 @@ export default function Home() {
                       <div className="text-xs font-mono text-theme-muted uppercase tracking-wider mb-1">
                         Checkout Sales
                       </div>
-                      <div className="text-3xl font-display font-extrabold text-emerald-300">
+                      <div className="text-3xl font-display font-extrabold text-theme-success">
                         +42%
                       </div>
-                      <div className="text-[11px] font-mono text-emerald-300 font-medium mt-1">
+                      <div className="text-[11px] font-mono text-theme-success font-semibold mt-1">
                         Quick 1-click mobile checkout
                       </div>
                     </div>
@@ -506,7 +506,7 @@ export default function Home() {
                       <div className="text-3xl font-display font-extrabold text-theme-text">
                         UPI &amp; Cards
                       </div>
-                      <div className="text-[11px] font-mono text-cyan-300 font-medium mt-1">
+                      <div className="text-[11px] font-mono text-theme-info font-semibold mt-1">
                         UPI, Cards &amp; NetBanking
                       </div>
                     </div>
@@ -553,7 +553,7 @@ export default function Home() {
 
                   <div className="flex flex-wrap items-center justify-between gap-3 pt-1 text-xs font-mono text-theme-muted border-t border-theme-border/40">
                     <div className="flex flex-wrap items-center gap-3">
-                      <span className="flex items-center gap-1.5 text-emerald-400 font-semibold">
+                      <span className="flex items-center gap-1.5 text-theme-success font-semibold">
                         <CheckCircle2 className="w-3.5 h-3.5" /> Top Google Maps Ranking
                       </span>
                       <span className="flex items-center gap-1.5 text-theme-text">
@@ -931,7 +931,7 @@ export default function Home() {
                       <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-theme-primary px-2 py-0.5 rounded-full bg-theme-primary/10 border border-theme-primary/20">
                         {item.category}
                       </span>
-                      <span className="text-[10px] font-mono text-emerald-300 font-bold">
+                      <span className="text-[10px] font-mono text-theme-success font-bold">
                         {item.metrics}
                       </span>
                     </div>

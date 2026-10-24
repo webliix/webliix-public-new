@@ -30,7 +30,9 @@ export const themePresets = [
       accent: '#1a3c60',
       glow: 'rgba(56, 189, 248, 0.20)',
       text: '#2c2c2c',
-      muted: '#64748B'
+      muted: '#64748B',
+      success: '#065f46',
+      info: '#155e75'
     }
   },
 
@@ -52,7 +54,9 @@ export const themePresets = [
       accent: '#F43F5E',
       glow: 'rgba(99, 102, 241, 0.28)',
       text: '#F8FAFC',
-      muted: '#94A3B8'
+      muted: '#94A3B8',
+      success: '#6ee7b7',
+      info: '#67e8f9'
     }
   },
 
@@ -74,7 +78,9 @@ export const themePresets = [
       accent: '#34D399',
       glow: 'rgba(16, 185, 129, 0.30)',
       text: '#ECFDF5',
-      muted: '#6EE7B7'
+      muted: '#6EE7B7',
+      success: '#6ee7b7',
+      info: '#67e8f9'
     }
   },
 
@@ -96,7 +102,9 @@ export const themePresets = [
       accent: '#FB923C',
       glow: 'rgba(232, 121, 249, 0.32)',
       text: '#FDF4FF',
-      muted: '#D8B4FE'
+      muted: '#D8B4FE',
+      success: '#6ee7b7',
+      info: '#67e8f9'
     }
   },
 
@@ -118,7 +126,9 @@ export const themePresets = [
       accent: '#FCD34D',
       glow: 'rgba(251, 191, 36, 0.28)',
       text: '#FFFBEB',
-      muted: '#D4AF37'
+      muted: '#D4AF37',
+      success: '#6ee7b7',
+      info: '#67e8f9'
     }
   },
 
@@ -140,7 +150,9 @@ export const themePresets = [
       accent: '#22D3EE',
       glow: 'rgba(6, 182, 212, 0.30)',
       text: '#F0FDFF',
-      muted: '#7DD3FC'
+      muted: '#7DD3FC',
+      success: '#6ee7b7',
+      info: '#67e8f9'
     }
   }
 ];

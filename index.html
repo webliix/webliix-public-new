@@ -1,7 +1,16 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme-mode="light">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      try {
+        var s = localStorage.getItem('spatial_theme_id');
+        var d = s ? (s !== 'webliix-light') : false;
+        document.documentElement.setAttribute('data-theme-mode', d ? 'dark' : 'light');
+        if (d) document.documentElement.classList.add('dark');
+      } catch (e) {}
+    </script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />

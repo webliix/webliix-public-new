@@ -143,7 +143,7 @@ export default function WebliixSpotlight({ spotlight = currentSpotlight }) {
                       Key Highlights
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono text-emerald-300 font-bold px-1.5 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/30">
+                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full badge-theme-success">
                     Live
                   </span>
                 </div>

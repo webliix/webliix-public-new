@@ -151,6 +151,13 @@ export const ThemeProvider = ({ children }) => {
       } catch {}
     }
 
+    const isDark = activeTheme ? activeTheme.isDark !== false : false;
+    root.setAttribute('data-theme-mode', isDark ? 'dark' : 'light');
+    if (isDark) {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
     root.setAttribute('data-corner-style', activeCorner);
     root.setAttribute('data-device-os', deviceOS);
 
