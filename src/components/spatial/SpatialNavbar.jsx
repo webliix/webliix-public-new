@@ -360,18 +360,16 @@ export default function SpatialNavbar() {
     : siteConfig.brand.logoDark;
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-[60] w-full transition-all duration-300 ${
-        (scrolled || mobileOpen)
-          ? 'glass-spatial border-b border-theme-border/80 shadow-spatial-lg'
-          : 'bg-transparent border-b border-transparent shadow-none'
-      }`}
-      style={{
-        backdropFilter: (scrolled || mobileOpen) ? 'blur(var(--glass-blur, 12px))' : 'none',
-        WebkitBackdropFilter: (scrolled || mobileOpen) ? 'blur(var(--glass-blur, 12px))' : 'none'
-      }}
-    >
-      <div className="w-full max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between">
+    <header className="fixed top-2.5 sm:top-4 md:top-5 inset-x-0 z-[60] px-3 sm:px-5 lg:px-8 pointer-events-none transition-all duration-300">
+      <div
+        className={`w-full max-w-7xl mx-auto pointer-events-auto h-14 sm:h-16 px-3.5 sm:px-6 flex items-center justify-between transition-all duration-300 glass-spatial border border-theme-border/80 shadow-spatial-lg theme-rounded-card ${
+          scrolled ? 'border-theme-primary/40 shadow-spatial-2xl bg-theme-bg/90' : 'bg-theme-bg/75'
+        }`}
+        style={{
+          backdropFilter: 'blur(var(--glass-blur, 12px))',
+          WebkitBackdropFilter: 'blur(var(--glass-blur, 12px))'
+        }}
+      >
         
         {/* Brand Logo */}
         <Link to="/" className="flex items-center gap-2.5 shrink-0 group">
@@ -382,29 +380,31 @@ export default function SpatialNavbar() {
             height="62"
             fetchPriority="high"
             decoding="async"
-            className="h-14 sm:h-[60px] lg:h-[62px] w-auto object-contain transition-transform group-hover:scale-105"
+            className="h-10 sm:h-11 md:h-12 w-auto object-contain transition-transform group-hover:scale-105"
           />
         </Link>
 
         {/* Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-7">
-          {/* Home Link */}
-          <Link
-            to="/"
-            className={`text-xs sm:text-sm font-medium tracking-tight transition-all relative py-1.5 ${
-              isActive('/')
-                ? 'text-theme-primary font-bold'
-                : 'text-theme-muted hover:text-theme-text'
-            }`}
-          >
-            Home
-            {isActive('/') && (
-              <motion.div
-                layoutId="activeNavIndicator"
-                className="absolute bottom-0 left-0 right-0 h-0.5 bg-theme-primary rounded-full shadow-[0_0_8px_var(--color-primary)]"
-              />
-            )}
-          </Link>
+          {/* Home Link - only rendered when NOT on home page */}
+          {location.pathname !== '/' && (
+            <Link
+              to="/"
+              className={`text-xs sm:text-sm font-medium tracking-tight transition-all relative py-1.5 ${
+                isActive('/')
+                  ? 'text-theme-primary font-bold'
+                  : 'text-theme-muted hover:text-theme-text'
+              }`}
+            >
+              Home
+              {isActive('/') && (
+                <motion.div
+                  layoutId="activeNavIndicator"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-theme-primary rounded-full shadow-[0_0_8px_var(--color-primary)]"
+                />
+              )}
+            </Link>
+          )}
 
           {/* Mega Services Trigger */}
           <div
@@ -446,7 +446,7 @@ export default function SpatialNavbar() {
                   transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
                   onMouseEnter={handleMouseEnterServices}
                   onMouseLeave={handleMouseLeaveServices}
-                  className="fixed top-14 sm:top-[60px] left-1/2 -translate-x-1/2 w-[95vw] max-w-[1140px] xl:max-w-[1200px] pt-2 z-50 pointer-events-auto"
+                  className="fixed top-[74px] sm:top-[84px] md:top-[88px] left-1/2 -translate-x-1/2 w-[95vw] max-w-[1140px] xl:max-w-[1200px] pt-2 z-50 pointer-events-auto"
                 >
                   <WebliixCard
                     variant="panel"
@@ -785,7 +785,7 @@ export default function SpatialNavbar() {
                   transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
                   onMouseEnter={handleMouseEnterCompany}
                   onMouseLeave={handleMouseLeaveCompany}
-                  className="fixed top-14 sm:top-[60px] left-1/2 -translate-x-1/2 w-[95vw] max-w-[1060px] xl:max-w-[1120px] pt-2 z-50 pointer-events-auto"
+                  className="fixed top-[74px] sm:top-[84px] md:top-[88px] left-1/2 -translate-x-1/2 w-[95vw] max-w-[1060px] xl:max-w-[1120px] pt-2 z-50 pointer-events-auto"
                 >
                   <WebliixCard
                     variant="panel"
@@ -1060,7 +1060,7 @@ export default function SpatialNavbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:hidden overflow-hidden px-4 pt-1 pb-4"
+            className="lg:hidden pointer-events-auto w-full max-w-7xl mx-auto pt-2 overflow-hidden"
           >
             <WebliixCard
               variant="spatial"
@@ -1073,17 +1073,19 @@ export default function SpatialNavbar() {
               }}
             >
               <nav className="flex flex-col space-y-1.5">
-                {/* Home */}
-                <Link
-                  to="/"
-                  className={`px-4 py-2.5 theme-rounded-btn text-sm font-semibold transition-all border ${
-                    isActive('/')
-                      ? 'bg-theme-primary text-white border-theme-primary shadow-sm font-bold'
-                      : 'text-theme-text hover:bg-theme-primary/10 hover:border-theme-primary/40 border-transparent bg-theme-bg/30'
-                  }`}
-                >
-                  Home
-                </Link>
+                {/* Home - only rendered when NOT on home page */}
+                {location.pathname !== '/' && (
+                  <Link
+                    to="/"
+                    className={`px-4 py-2.5 theme-rounded-btn text-sm font-semibold transition-all border ${
+                      isActive('/')
+                        ? 'bg-theme-primary text-white border-theme-primary shadow-sm font-bold'
+                        : 'text-theme-text hover:bg-theme-primary/10 hover:border-theme-primary/40 border-transparent bg-theme-bg/30'
+                    }`}
+                  >
+                    Home
+                  </Link>
+                )}
 
                 {/* Mobile Services Accordion with Categories */}
                 <div className="border border-theme-border/60 theme-rounded-card overflow-hidden bg-theme-bg/30">

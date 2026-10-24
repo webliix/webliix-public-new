@@ -345,7 +345,7 @@ export default function Home() {
           REDESIGNED MODERN HERO SECTION (MINIMALIST, HIGH-IMPACT, ZERO GRID)
           ═══════════════════════════════════════════════════════════════ */}
       <section
-        className="relative pt-20 sm:pt-24 pb-14 sm:pb-16 px-3 sm:px-6 lg:px-8 overflow-hidden text-center">
+        className="relative pt-24 sm:pt-32 md:pt-36 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden text-center">
         {/* Fixed Hero Background Layer (Stays fixed in viewport behind hero section) */}
         <div className="pointer-events-none fixed inset-0 z-0 w-full h-full overflow-hidden">
           {/* Layered CSS Ambient Radiant Halos */}
