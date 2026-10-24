@@ -1,3 +1,4 @@
+import safeStorage from '../utils/safeStorage';
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -147,9 +148,9 @@ export default function BlogPost() {
           const likedSlugKey = data.slug ? `webliix_liked_${data.slug}` : null;
           const likedIdKey = data.id ? `webliix_liked_${data.id}` : null;
           setHasLiked(Boolean(
-            localStorage.getItem(likedKey) ||
-            (likedSlugKey && localStorage.getItem(likedSlugKey)) ||
-            (likedIdKey && localStorage.getItem(likedIdKey))
+            safeStorage.getItem(likedKey) ||
+            (likedSlugKey && safeStorage.getItem(likedSlugKey)) ||
+            (likedIdKey && safeStorage.getItem(likedIdKey))
           ));
 
           // Fetch related recommendations & comments in parallel
@@ -193,9 +194,9 @@ export default function BlogPost() {
     playSound('success');
 
     try {
-      localStorage.setItem(`webliix_liked_${targetId}`, 'true');
-      if (post.id) localStorage.setItem(`webliix_liked_${post.id}`, 'true');
-      if (post.slug) localStorage.setItem(`webliix_liked_${post.slug}`, 'true');
+      safeStorage.setItem(`webliix_liked_${targetId}`, 'true');
+      if (post.id) safeStorage.setItem(`webliix_liked_${post.id}`, 'true');
+      if (post.slug) safeStorage.setItem(`webliix_liked_${post.slug}`, 'true');
       
       const res = await likeBlogPost(targetId);
       if (res && typeof res.likesCount === 'number') {

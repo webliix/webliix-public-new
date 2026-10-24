@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, Sparkles, ChevronRight, Phone, Mail, CheckCircle2 } from 'lucide-react';
+import safeStorage from '../../utils/safeStorage';
 import { siteConfig } from '../../config/siteConfig';
 import { useTheme } from '../../context/ThemeContext';
 import WebliixButton from './WebliixButton';
@@ -67,7 +68,7 @@ export default function FirstVisitEnquiry() {
 
   /* show once */
   useEffect(() => {
-    if (localStorage.getItem(STORAGE_KEY)) return;
+    if (safeStorage.getItem(STORAGE_KEY)) return;
     const t = setTimeout(() => setVisible(true), SHOW_DELAY_MS);
     return () => clearTimeout(t);
   }, []);
@@ -83,7 +84,7 @@ export default function FirstVisitEnquiry() {
   }, [visible]);
 
   const dismiss = () => {
-    localStorage.setItem(STORAGE_KEY, '1');
+    safeStorage.setItem(STORAGE_KEY, '1');
     setVisible(false);
   };
 
@@ -106,7 +107,7 @@ export default function FirstVisitEnquiry() {
       });
     } catch {/* local dev — ignore */}
     setStep(2);
-    localStorage.setItem(STORAGE_KEY, '1');
+    safeStorage.setItem(STORAGE_KEY, '1');
     setSubmitting(false);
     /* scroll inner container back to top for success view */
     if (scrollRef.current) scrollRef.current.scrollTop = 0;

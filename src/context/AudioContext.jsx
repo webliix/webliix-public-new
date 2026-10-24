@@ -1,10 +1,11 @@
 import React, { createContext, useContext, useState, useRef } from 'react';
+import safeStorage from '../utils/safeStorage';
 
 const AudioContextState = createContext(null);
 
 export const AudioProvider = ({ children }) => {
   const [soundEnabled, setSoundEnabled] = useState(() => {
-    return localStorage.getItem('spatial_sound_enabled') === 'true';
+    return safeStorage.getItem('spatial_sound_enabled') === 'true';
   });
 
   const audioCtxRef = useRef(null);
@@ -12,18 +13,22 @@ export const AudioProvider = ({ children }) => {
   const toggleSound = () => {
     const nextState = !soundEnabled;
     setSoundEnabled(nextState);
-    localStorage.setItem('spatial_sound_enabled', String(nextState));
+    safeStorage.setItem('spatial_sound_enabled', String(nextState));
   };
 
   const initAudio = () => {
-    if (!audioCtxRef.current) {
-      const AudioCtx = window.AudioContext || window.webkitAudioContext;
-      if (AudioCtx) {
-        audioCtxRef.current = new AudioCtx();
+    try {
+      if (!audioCtxRef.current) {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) {
+          audioCtxRef.current = new AudioCtx();
+        }
       }
-    }
-    if (audioCtxRef.current && audioCtxRef.current.state === 'suspended') {
-      audioCtxRef.current.resume();
+      if (audioCtxRef.current && audioCtxRef.current.state === 'suspended') {
+        audioCtxRef.current.resume().catch(() => {});
+      }
+    } catch {
+      // Ignore Safari security / user gesture restrictions
     }
   };
 

@@ -24,7 +24,13 @@ import {
   ShieldCheck,
   Clock,
   Globe2,
-  Compass
+  Compass,
+  Building2,
+  Users,
+  Award,
+  Star,
+  Briefcase,
+  PhoneCall
 } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
 import { useTheme } from '../../context/ThemeContext';
@@ -37,9 +43,12 @@ export default function SpatialNavbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [companyDropdownOpen, setCompanyDropdownOpen] = useState(false);
+  const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
   const location = useLocation();
   const { currentTheme, glassBlur } = useTheme();
   const dropdownTimeoutRef = useRef(null);
+  const companyTimeoutRef = useRef(null);
 
   // Categorized services data for the Mega Menu
   const serviceCategories = [
@@ -157,6 +166,74 @@ export default function SpatialNavbar() {
     },
     ...serviceCategories.flatMap((category) => category.items)
   ];
+  // Categorized Company data for the Mega Menu
+  const companyCategories = [
+    {
+      id: 'organization',
+      title: 'Agency & Culture',
+      badge: 'Identity',
+      icon: Building2,
+      items: [
+        {
+          name: 'About Webliix',
+          path: '/about',
+          tag: 'Who We Are',
+          icon: Users,
+          desc: 'Our engineering philosophy, full-stack mission, culture & team',
+          meta: 'Direct Execution • Zero Fluff'
+        },
+        {
+          name: 'Careers & Partner Program',
+          path: '/careers',
+          tag: 'Hiring & Affiliates',
+          icon: Briefcase,
+          desc: 'Join our developer network or become an agency referral partner',
+          meta: 'Remote-First • Growth Partner'
+        },
+        {
+          name: 'Business & Compliance',
+          path: '/business-information',
+          tag: 'Verified MSME',
+          icon: ShieldCheck,
+          desc: 'Govt MSME registration, GSTIN, legal credentials & tax compliance',
+          meta: 'Udyam Registered • Legal Entity'
+        }
+      ]
+    },
+    {
+      id: 'proof',
+      title: 'Proof & Trust',
+      badge: 'Proven Record',
+      icon: Award,
+      items: [
+        {
+          name: 'Selected Work & Portfolio',
+          path: '/portfolio',
+          tag: 'Case Studies',
+          icon: Layout,
+          desc: 'Live production web apps, stores & performance benchmarks',
+          meta: 'Real Results • 95+ PageSpeed'
+        },
+        {
+          name: 'Client Reviews & Feedback',
+          path: '/feedback',
+          tag: '4.9★ Rated',
+          icon: Star,
+          desc: 'Verified testimonials from founders, SMBs & enterprise clients',
+          meta: '100% Client Satisfaction'
+        },
+        {
+          name: 'Direct Consultation',
+          path: '/contact',
+          tag: 'Free 30-Min Call',
+          icon: PhoneCall,
+          desc: 'Discuss architecture, timeline & transparent pricing with senior engineers',
+          meta: 'Same-Day Response • Direct Architects'
+        }
+      ]
+    }
+  ];
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -172,6 +249,8 @@ export default function SpatialNavbar() {
     setMobileOpen(false);
     setServicesDropdownOpen(false);
     setMobileServicesOpen(false);
+    setCompanyDropdownOpen(false);
+    setMobileCompanyOpen(false);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -186,9 +265,9 @@ export default function SpatialNavbar() {
   }, [mobileOpen]);
 
   const handleMouseEnterServices = () => {
-    if (dropdownTimeoutRef.current) {
-      clearTimeout(dropdownTimeoutRef.current);
-    }
+    if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
+    if (companyTimeoutRef.current) clearTimeout(companyTimeoutRef.current);
+    setCompanyDropdownOpen(false);
     setServicesDropdownOpen(true);
   };
 
@@ -198,13 +277,29 @@ export default function SpatialNavbar() {
     }, 180);
   };
 
+  const handleMouseEnterCompany = () => {
+    if (companyTimeoutRef.current) clearTimeout(companyTimeoutRef.current);
+    if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
+    setServicesDropdownOpen(false);
+    setCompanyDropdownOpen(true);
+  };
+
+  const handleMouseLeaveCompany = () => {
+    companyTimeoutRef.current = setTimeout(() => {
+      setCompanyDropdownOpen(false);
+    }, 180);
+  };
+
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Portfolio', path: '/portfolio' },
     { name: 'Blog', path: '/blog' },
-    { name: 'About Us', path: '/about' },
     { name: 'Contact', path: '/contact' }
   ];
+
+  const isCompanyActive = () => {
+    const paths = ['/about', '/portfolio', '/feedback', '/careers', '/business-information'];
+    return paths.some((p) => location.pathname === p || location.pathname.startsWith(p + '/'));
+  };
 
   const socialLinks = [
     {
@@ -276,7 +371,7 @@ export default function SpatialNavbar() {
         WebkitBackdropFilter: (scrolled || mobileOpen) ? 'blur(var(--glass-blur, 12px))' : 'none'
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-[68px] flex items-center justify-between">
+      <div className="w-full max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between">
         
         {/* Brand Logo */}
         <Link to="/" className="flex items-center gap-2.5 shrink-0 group">
@@ -351,7 +446,7 @@ export default function SpatialNavbar() {
                   transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
                   onMouseEnter={handleMouseEnterServices}
                   onMouseLeave={handleMouseLeaveServices}
-                  className="fixed top-16 sm:top-[66px] left-1/2 -translate-x-1/2 w-[95vw] max-w-[1140px] xl:max-w-[1200px] pt-2 z-50 pointer-events-auto"
+                  className="fixed top-14 sm:top-[60px] left-1/2 -translate-x-1/2 w-[95vw] max-w-[1140px] xl:max-w-[1200px] pt-2 z-50 pointer-events-auto"
                 >
                   <WebliixCard
                     variant="panel"
@@ -649,6 +744,235 @@ export default function SpatialNavbar() {
             </AnimatePresence>
           </div>
 
+          {/* Mega Company Trigger */}
+          <div
+            className="relative py-2"
+            onMouseEnter={handleMouseEnterCompany}
+            onMouseLeave={handleMouseLeaveCompany}
+          >
+            <div className="flex items-center gap-1 cursor-pointer">
+              <button
+                type="button"
+                onClick={() => setCompanyDropdownOpen(!companyDropdownOpen)}
+                className={`text-xs sm:text-sm font-medium tracking-tight transition-all relative py-1.5 flex items-center gap-1.5 bg-transparent border-none cursor-pointer ${
+                  isCompanyActive()
+                    ? 'text-theme-primary font-bold'
+                    : 'text-theme-muted hover:text-theme-text'
+                }`}
+              >
+                <span>Company</span>
+                <ChevronDown
+                  className={`w-3.5 h-3.5 transition-transform duration-300 ${
+                    companyDropdownOpen ? 'rotate-180 text-theme-primary' : ''
+                  }`}
+                />
+                {isCompanyActive() && (
+                  <motion.div
+                    layoutId="activeNavIndicator"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-theme-primary rounded-full shadow-[0_0_8px_var(--color-primary)]"
+                  />
+                )}
+              </button>
+            </div>
+
+            {/* Desktop Full Mega Dropdown Menu for Company */}
+            <AnimatePresence>
+              {companyDropdownOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 12, scale: 0.985 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 8, scale: 0.985 }}
+                  transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+                  onMouseEnter={handleMouseEnterCompany}
+                  onMouseLeave={handleMouseLeaveCompany}
+                  className="fixed top-14 sm:top-[60px] left-1/2 -translate-x-1/2 w-[95vw] max-w-[1060px] xl:max-w-[1120px] pt-2 z-50 pointer-events-auto"
+                >
+                  <WebliixCard
+                    variant="panel"
+                    tilt={false}
+                    hoverable={false}
+                    className="p-5 sm:p-6 space-y-4 sm:space-y-5 border border-theme-primary/40 shadow-[0_24px_70px_rgba(0,0,0,0.35)] overflow-hidden glass-spatial max-h-[calc(100vh-84px)] overflow-y-auto transition-[background-color,border-color,backdrop-filter,border-radius] duration-300"
+                    style={{
+                      backdropFilter: 'blur(var(--glass-blur, 12px))',
+                      WebkitBackdropFilter: 'blur(var(--glass-blur, 12px))'
+                    }}
+                  >
+                    {/* Header bar */}
+                    <div className="flex items-center justify-between pb-3 border-b border-theme-border/20">
+                      <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                          <span className="text-xs font-mono font-bold uppercase tracking-wider text-theme-primary">
+                            Webliix Agency & Corporate Ecosystem
+                          </span>
+                        </div>
+                        <span className="hidden sm:inline-block text-[11px] font-mono text-theme-muted/70 pl-3 border-l border-theme-border/20">
+                          Bespoke Digital Engineering & Certified Enterprise Trust
+                        </span>
+                      </div>
+
+                      <div className="flex items-center gap-3">
+                        <Link
+                          to="/about"
+                          className="text-xs font-mono font-semibold text-theme-muted hover:text-theme-primary transition flex items-center gap-1.5 group px-2.5 py-1 rounded-lg hover:bg-theme-primary/10"
+                        >
+                          <span>About Webliix</span>
+                          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-theme-primary" />
+                        </Link>
+                      </div>
+                    </div>
+
+                    {/* Main Mega Grid: 2 Company Columns (8 cols) + 1 Trust Spotlight Rail (4 cols) */}
+                    <div className="grid grid-cols-12 gap-5">
+                      
+                      {/* Left: 2 Categorized Columns */}
+                      <div className="col-span-12 lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {companyCategories.map((category) => {
+                          const CategoryIcon = category.icon;
+                          return (
+                            <div key={category.id} className="space-y-1.5">
+                              <div className="flex items-center justify-between px-2 pb-1">
+                                <span className="text-xs font-mono font-bold text-theme-text uppercase tracking-wider flex items-center gap-1.5">
+                                  <CategoryIcon className="w-3.5 h-3.5 text-theme-primary" />
+                                  <span>{category.title}</span>
+                                </span>
+                                <span className="text-[10px] font-mono text-theme-muted/80 px-2 py-0.5 rounded-full bg-theme-primary/5">
+                                  {category.badge}
+                                </span>
+                              </div>
+
+                              <div className="space-y-0.5">
+                                {category.items.map((item) => {
+                                  const Icon = item.icon;
+                                  const isCurrent = location.pathname === item.path;
+                                  return (
+                                    <Link
+                                      key={item.path}
+                                      to={item.path}
+                                      className={`p-2.5 rounded-xl transition-all duration-200 group flex items-start gap-3 ${
+                                        isCurrent
+                                          ? 'bg-theme-primary/15 text-theme-primary font-semibold'
+                                          : 'hover:bg-theme-primary/[0.08] text-theme-text'
+                                      }`}
+                                    >
+                                      <div className={`p-2 rounded-lg shrink-0 mt-0.5 transition-all duration-200 ${
+                                        isCurrent
+                                          ? 'bg-theme-primary text-white shadow-sm'
+                                          : 'bg-theme-primary/10 text-theme-primary group-hover:bg-theme-primary group-hover:text-white'
+                                      }`}>
+                                        <Icon className="w-4 h-4" />
+                                      </div>
+                                      <div className="space-y-0.5 flex-1 min-w-0">
+                                        <div className="flex items-center justify-between gap-1">
+                                          <h4 className="text-xs font-display font-semibold text-theme-text group-hover:text-theme-primary transition-colors truncate">
+                                            {item.name}
+                                          </h4>
+                                          <span className="text-[9px] font-mono text-theme-primary/80 px-1.5 py-0.5 rounded bg-theme-primary/10 shrink-0">
+                                            {item.tag}
+                                          </span>
+                                        </div>
+                                        <p className="text-[11px] text-theme-muted line-clamp-1 leading-snug">
+                                          {item.desc}
+                                        </p>
+                                        <div className="text-[9px] font-mono text-theme-primary/80 font-medium pt-0.5 truncate">
+                                          {item.meta}
+                                        </div>
+                                      </div>
+                                    </Link>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+
+                      {/* Right: Company Spotlight Card */}
+                      <div className="col-span-12 lg:col-span-4 flex flex-col justify-between p-4 rounded-xl border border-theme-primary/30 bg-gradient-to-br from-theme-primary/[0.08] via-theme-primary/[0.03] to-transparent relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-theme-primary/20 blur-2xl rounded-full pointer-events-none" />
+
+                        <div className="space-y-3 relative z-10">
+                          <div className="flex items-center justify-between">
+                            <span className="text-[10px] font-mono uppercase font-bold text-theme-primary tracking-wider px-2 py-0.5 rounded-full bg-theme-primary/10">
+                              Why Webliix?
+                            </span>
+                            <span className="text-[10px] font-mono text-emerald-400 font-semibold flex items-center gap-1">
+                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                              MSME Verified
+                            </span>
+                          </div>
+
+                          <div>
+                            <h3 className="text-sm font-display font-bold text-theme-text group-hover:text-theme-primary transition-colors">
+                              Engineered for Speed & Direct ROI
+                            </h3>
+                            <p className="text-xs text-theme-muted mt-1 leading-relaxed">
+                              Zero bloated page builders. We build ultra-fast bespoke digital experiences with guaranteed 95+ PageSpeed scores and direct architect communication.
+                            </p>
+                          </div>
+
+                          <div className="space-y-1.5 pt-1">
+                            <div className="flex items-center gap-1.5 text-[11px] text-theme-text/90 font-medium">
+                              <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />
+                              <span>100% In-House Code Ownership</span>
+                            </div>
+                            <div className="flex items-center gap-1.5 text-[11px] text-theme-text/90 font-medium">
+                              <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />
+                              <span>Direct Access to Senior Architects</span>
+                            </div>
+                            <div className="flex items-center gap-1.5 text-[11px] text-theme-text/90 font-medium">
+                              <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />
+                              <span>Zero Lock-In & Transparent Pricing</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="pt-3 border-t border-theme-border/20 relative z-10 space-y-2 mt-3">
+                          <Link to="/portfolio" className="block w-full">
+                            <SpatialButton
+                              variant="primary"
+                              className="w-full py-2 text-xs font-bold justify-center shadow-sm"
+                              icon={ArrowRight}
+                            >
+                              Explore Portfolio
+                            </SpatialButton>
+                          </Link>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    {/* Bottom Trust Strip */}
+                    <div className="pt-3 border-t border-theme-border/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono bg-theme-primary/[0.03] -mx-5 -mb-5 sm:-mx-6 sm:-mb-6 px-5 py-3 sm:px-6 rounded-b-[inherit]">
+                      <div className="flex flex-wrap items-center gap-4 text-theme-muted text-[11px]">
+                        <div className="flex items-center gap-1.5">
+                          <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                          <span>Govt of India MSME Registered</span>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <Star className="w-3.5 h-3.5 text-amber-400 shrink-0 fill-amber-400" />
+                          <span>4.9/5★ Verified Client Satisfaction</span>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <Globe2 className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                          <span>Global Execution Across 12+ Countries</span>
+                        </div>
+                      </div>
+
+                      <Link
+                        to="/contact"
+                        className="text-xs font-bold text-theme-primary hover:underline flex items-center gap-1 self-end sm:self-auto"
+                      >
+                        <span>Schedule a 30-min Technical Discovery Call →</span>
+                      </Link>
+                    </div>
+                  </WebliixCard>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+
           {/* Other Nav Links */}
           {navLinks.slice(1).map((link) => (
             <Link
@@ -847,6 +1171,66 @@ export default function SpatialNavbar() {
                         <span>View Full Services Hub</span>
                         <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
+                    </div>
+                  )}
+                </div>
+
+                
+                {/* Mobile Company Accordion */}
+                <div className="border border-theme-border/60 theme-rounded-card overflow-hidden bg-theme-bg/30">
+                  <button
+                    onClick={() => setMobileCompanyOpen(!mobileCompanyOpen)}
+                    className={`w-full px-4 py-2.5 text-sm font-semibold flex items-center justify-between transition-colors ${
+                      isCompanyActive()
+                        ? 'bg-theme-primary/15 text-theme-primary font-bold'
+                        : 'text-theme-text hover:bg-theme-primary/5'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2">
+                      <Building2 className="w-4 h-4 text-theme-primary" />
+                      <span>Company</span>
+                    </span>
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform duration-300 ${
+                        mobileCompanyOpen ? 'rotate-180 text-theme-primary' : ''
+                      }`}
+                    />
+                  </button>
+
+                  {mobileCompanyOpen && (
+                    <div className="p-3 space-y-3 bg-theme-bg/60 border-t border-theme-border/40">
+                      {companyCategories.map((category) => (
+                        <div key={category.id} className="space-y-1.5 pt-1">
+                          <div className="text-[10px] font-mono uppercase font-bold text-theme-primary tracking-wider px-1">
+                            {category.title}
+                          </div>
+                          <div className="space-y-1">
+                            {category.items.map((item) => {
+                              const Icon = item.icon;
+                              const isItemActive = location.pathname === item.path;
+                              return (
+                                <Link
+                                  key={item.path}
+                                  to={item.path}
+                                  className={`px-3 py-2 rounded-lg text-xs font-medium flex items-center justify-between transition-all duration-200 ${
+                                    isItemActive
+                                      ? 'bg-theme-primary text-white font-bold shadow-sm'
+                                      : 'text-theme-text hover:bg-theme-primary/10 hover:text-theme-primary'
+                                  }`}
+                                >
+                                  <div className="flex items-center gap-2 min-w-0">
+                                    <Icon className="w-3.5 h-3.5 shrink-0 text-theme-primary" />
+                                    <span className="truncate">{item.name}</span>
+                                  </div>
+                                  <span className="text-[10px] font-mono opacity-80 shrink-0 ml-2">
+                                    {item.tag}
+                                  </span>
+                                </Link>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   )}
                 </div>
