@@ -406,7 +406,7 @@ export default function SpatialNavbar() {
         </Link>
 
         {/* Right Section: Desktop Navigation Links (adjusted to the right) + Actions & Socials */}
-        <div className="hidden lg:flex items-center gap-3 xl:gap-4 min-w-0 shrink-0">
+        <div className="hidden lg:flex items-center gap-4 xl:gap-6 min-w-0 shrink-0">
           {/* Desktop Navigation Links */}
           <nav className="flex items-center gap-1 xl:gap-1.5 shrink-0">
           {/* Home Link - only rendered when NOT on home page */}
@@ -1063,7 +1063,7 @@ export default function SpatialNavbar() {
           </nav>
 
           {/* Elegant Divider between Nav links and Actions */}
-          <div className="h-5 w-px bg-theme-border/60 shrink-0" />
+          <div className="h-5 w-px bg-theme-border/60 shrink-0 mx-1.5 xl:mx-2.5" />
 
           {/* Header Action Buttons & Social Icons */}
           <div className="flex items-center gap-2 xl:gap-3 shrink-0">
