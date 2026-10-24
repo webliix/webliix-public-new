@@ -23,7 +23,7 @@ export const themePresets = [
     isDark: false,
     colors: {
       bg: '#F8FAFC',
-      card: 'rgba(255, 255, 255, 0.88)',
+      card: 'rgba(255, 255, 255, 0.98)',
       border: 'rgba(37, 99, 235, 0.20)',
       primary: 'rgb(14, 40, 96)',
       secondary: 'rgb(11, 57, 142)',
@@ -45,7 +45,7 @@ export const themePresets = [
     isDark: true,
     colors: {
       bg: '#090D16',
-      card: 'rgba(15, 23, 42, 0.80)',
+      card: 'rgba(15, 23, 42, 0.96)',
       border: 'rgba(129, 140, 248, 0.25)',
       primary: '#6366F1',
       secondary: '#8B5CF6',
@@ -67,7 +67,7 @@ export const themePresets = [
     isDark: true,
     colors: {
       bg: '#03140F',
-      card: 'rgba(6, 38, 28, 0.72)',
+      card: 'rgba(6, 38, 28, 0.95)',
       border: 'rgba(52, 211, 153, 0.26)',
       primary: '#10B981',
       secondary: '#059669',
@@ -89,7 +89,7 @@ export const themePresets = [
     isDark: true,
     colors: {
       bg: '#0D061A',
-      card: 'rgba(28, 14, 52, 0.72)',
+      card: 'rgba(28, 14, 52, 0.95)',
       border: 'rgba(217, 70, 239, 0.26)',
       primary: '#E879F9',
       secondary: '#A855F7',
@@ -111,7 +111,7 @@ export const themePresets = [
     isDark: true,
     colors: {
       bg: '#120F09',
-      card: 'rgba(38, 30, 16, 0.72)',
+      card: 'rgba(38, 30, 16, 0.95)',
       border: 'rgba(251, 191, 36, 0.26)',
       primary: '#FBBF24',
       secondary: '#D97706',
@@ -133,7 +133,7 @@ export const themePresets = [
     isDark: true,
     colors: {
       bg: '#04070B',
-      card: 'rgba(8, 20, 32, 0.72)',
+      card: 'rgba(8, 20, 32, 0.95)',
       border: 'rgba(6, 182, 212, 0.28)',
       primary: '#06B6D4',
       secondary: '#0284C7',

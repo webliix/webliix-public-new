@@ -214,7 +214,7 @@ h1, h2, h3, h4, h5, h6, .font-display {
 
 /* W3C Standard Glassmorphism Container */
 .glass-spatial {
-  background: var(--color-card, rgba(15, 23, 42, 0.75));
+  background: var(--color-card, rgba(15, 23, 42, 0.96));
   backdrop-filter: blur(var(--glass-blur, 12px));
   -webkit-backdrop-filter: blur(var(--glass-blur, 12px));
   border: 1px solid var(--color-border, rgba(37, 99, 235, 0.35));

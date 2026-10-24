@@ -183,8 +183,7 @@ export default function Home() {
     sameAs: [
       siteConfig.brand.socials.linkedin,
       siteConfig.brand.socials.instagram,
-      siteConfig.brand.socials.facebook,
-      siteConfig.brand.socials.github
+      siteConfig.brand.socials.facebook
     ]
   };
 
@@ -604,6 +603,8 @@ export default function Home() {
         </div>
       </section>
 
+            {/* WRAPPER FOR SECTIONS BELOW HERO: ENSURES CLEAN BG FOR CARDS AND COVERS FIXED HERO CANVAS */}
+      <div className="relative z-10 bg-theme-bg">
       {/* CLIENT LOGOS SHOWCASE TICKER */}
       <section className="deferred-section relative z-10 py-10 border-y border-theme-border/40 bg-theme-bg/40 backdrop-blur-md overflow-hidden">
         <div className="text-center mb-6 text-[11px] font-mono text-theme-muted uppercase tracking-widest font-semibold">
@@ -1080,6 +1081,7 @@ export default function Home() {
           </div>
         </WebliixCard>
       </section>
+      </div>
     </div>
   );
 }

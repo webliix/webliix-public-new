@@ -109,7 +109,6 @@ export const siteConfig = {
       linkedin: 'https://www.linkedin.com/company/webliix/',
       instagram: 'https://www.instagram.com/webliixmedia',
       facebook: 'https://www.facebook.com/webliix',
-      github: 'https://github.com/webliix/'
     }
   },
 
