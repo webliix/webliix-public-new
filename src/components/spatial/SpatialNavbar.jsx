@@ -388,27 +388,27 @@ export default function SpatialNavbar() {
             : 'pointer-events-auto h-16 sm:h-20 lg:h-22 px-3.5 sm:px-6 bg-transparent border border-transparent shadow-none'
         }`}
       >
-        {/* Left Section: Brand Logo + Desktop Nav links (tight spacing, zero overlap!) */}
-        <div className="flex items-center gap-3 sm:gap-4 lg:gap-4 xl:gap-6 min-w-0">
-          {/* Brand Logo */}
-          <Link to="/" className="flex items-center gap-2.5 shrink-0 group">
-            <img
-              src={logoSrc}
-              alt={siteConfig.brand.name}
-              width="280"
-              height="72"
-              fetchPriority="high"
-              decoding="async"
-              className={`w-auto object-contain transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105 ${
-                isDocked
-                  ? 'h-9 sm:h-10 md:h-11'
-                  : 'h-11 sm:h-13 md:h-14 lg:h-16'
-              }`}
-            />
-          </Link>
+        {/* Brand Logo - Pinned to the Left */}
+        <Link to="/" className="flex items-center gap-2.5 shrink-0 group">
+          <img
+            src={logoSrc}
+            alt={siteConfig.brand.name}
+            width="280"
+            height="72"
+            fetchPriority="high"
+            decoding="async"
+            className={`w-auto object-contain transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105 ${
+              isDocked
+                ? 'h-9 sm:h-10 md:h-11'
+                : 'h-11 sm:h-13 md:h-14 lg:h-16'
+            }`}
+          />
+        </Link>
 
-          {/* Desktop Navigation Links - directly adjacent to logo with reduced space */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5">
+        {/* Right Section: Desktop Navigation Links (adjusted to the right) + Actions & Socials */}
+        <div className="hidden lg:flex items-center gap-3 xl:gap-4 min-w-0 shrink-0">
+          {/* Desktop Navigation Links */}
+          <nav className="flex items-center gap-1 xl:gap-1.5 shrink-0">
           {/* Home Link - only rendered when NOT on home page */}
           {location.pathname !== '/' && (
             <Link
@@ -1061,10 +1061,12 @@ export default function SpatialNavbar() {
             </Link>
           ))}
           </nav>
-        </div>
 
-        {/* Header Action Buttons & Social Icons */}
-        <div className="hidden lg:flex items-center gap-2 xl:gap-3 shrink-0">
+          {/* Elegant Divider between Nav links and Actions */}
+          <div className="h-5 w-px bg-theme-border/60 shrink-0" />
+
+          {/* Header Action Buttons & Social Icons */}
+          <div className="flex items-center gap-2 xl:gap-3 shrink-0">
           {/* Social Links (visible on xl: 1280px+; hidden on lg: 1024-1279px to prevent crowding) */}
           <div className="hidden xl:flex items-center gap-1 border-r border-theme-border/60 pr-2.5">
             {socialLinks.map((social) => (
@@ -1110,6 +1112,7 @@ export default function SpatialNavbar() {
               Get Started
             </SpatialButton>
           </Link>
+        </div>
         </div>
 
         {/* Mobile Menu Toggle */}
