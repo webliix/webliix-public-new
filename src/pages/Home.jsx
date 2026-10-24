@@ -365,7 +365,7 @@ export default function Home() {
 
           {/* Punchy Headline (High-converting, best text, no fluff) */}
           {/* Punchy Headline (High-converting, best text, no fluff) with Modern Clip-Reveal Effect */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-display font-extrabold text-theme-text leading-[1.08] tracking-tight">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold text-theme-text leading-[1.08] tracking-tight">
             <span className="inline-block overflow-hidden py-1">
               <span className="inline-block animate-hero-reveal-line1">Modern Websites Built to</span>
             </span>
