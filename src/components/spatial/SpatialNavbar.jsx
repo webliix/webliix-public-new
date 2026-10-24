@@ -246,9 +246,16 @@ export default function SpatialNavbar() {
 
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      const isOver = window.scrollY > 20;
-      setScrolled(isOver);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const isOver = window.scrollY > 24;
+          setScrolled(isOver);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -364,10 +371,10 @@ export default function SpatialNavbar() {
 
   return (
     <header
-      className={`fixed z-[60] transition-all duration-300 ${
+      className={`fixed z-[60] left-0 right-0 w-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
         isDocked
-          ? 'top-0 left-0 right-0 w-full glass-spatial border-b border-theme-border/80 shadow-spatial-lg'
-          : 'top-2.5 sm:top-4 md:top-5 inset-x-0 px-3 sm:px-5 lg:px-8 pointer-events-none'
+          ? 'top-0 glass-spatial border-b border-theme-border/80 shadow-spatial-lg'
+          : 'top-3 sm:top-4 md:top-5 px-3 sm:px-6 lg:px-8 pointer-events-none'
       }`}
       style={{
         backdropFilter: isDocked ? 'blur(var(--glass-blur, 12px))' : 'none',
@@ -375,28 +382,36 @@ export default function SpatialNavbar() {
       }}
     >
       <div
-        className={`w-full max-w-7xl mx-auto flex items-center justify-between transition-all duration-300 ${
+        className={`w-full max-w-7xl mx-auto flex items-center justify-between relative transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           isDocked
             ? 'px-4 sm:px-6 h-14 sm:h-16'
-            : 'pointer-events-auto h-14 sm:h-16 px-3.5 sm:px-6 bg-transparent border border-transparent shadow-none'
+            : 'pointer-events-auto h-16 sm:h-20 lg:h-22 px-3.5 sm:px-6 bg-transparent border border-transparent shadow-none'
         }`}
       >
         
         {/* Brand Logo */}
-        <Link to="/" className="flex items-center gap-2.5 shrink-0 group">
+        <Link to="/" className="flex items-center gap-2.5 shrink-0 group z-20">
           <img
             src={logoSrc}
             alt={siteConfig.brand.name}
-            width="240"
-            height="62"
+            width="280"
+            height="72"
             fetchPriority="high"
             decoding="async"
-            className="h-10 sm:h-11 md:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+            className={`w-auto object-contain transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105 ${
+              isDocked
+                ? 'h-10 sm:h-11 md:h-12'
+                : 'h-12 sm:h-15 md:h-16 lg:h-[4.25rem]'
+            }`}
           />
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-6 xl:gap-7">
+        <nav
+          className={`hidden lg:flex items-center absolute left-1/2 -translate-x-1/2 z-10 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            isDocked ? 'gap-4 xl:gap-5' : 'gap-3 xl:gap-3.5'
+          }`}
+        >
           {/* Home Link - only rendered when NOT on home page */}
           {location.pathname !== '/' && (
             <Link
@@ -457,7 +472,7 @@ export default function SpatialNavbar() {
                   transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
                   onMouseEnter={handleMouseEnterServices}
                   onMouseLeave={handleMouseLeaveServices}
-                  className={`fixed ${isDocked ? "top-14 sm:top-16" : "top-[74px] sm:top-[84px] md:top-[88px]"} left-1/2 -translate-x-1/2 w-[95vw] max-w-[1140px] xl:max-w-[1200px] pt-2 z-50 pointer-events-auto`}
+                  className={`fixed ${isDocked ? "top-14 sm:top-16" : "top-[76px] sm:top-[90px] md:top-[98px]"} left-1/2 -translate-x-1/2 w-[95vw] max-w-[1140px] xl:max-w-[1200px] pt-2 z-50 pointer-events-auto`}
                 >
                   <WebliixCard
                     variant="panel"
@@ -796,7 +811,7 @@ export default function SpatialNavbar() {
                   transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
                   onMouseEnter={handleMouseEnterCompany}
                   onMouseLeave={handleMouseLeaveCompany}
-                  className={`fixed ${isDocked ? "top-14 sm:top-16" : "top-[74px] sm:top-[84px] md:top-[88px]"} left-1/2 -translate-x-1/2 w-[95vw] max-w-[1060px] xl:max-w-[1120px] pt-2 z-50 pointer-events-auto`}
+                  className={`fixed ${isDocked ? "top-14 sm:top-16" : "top-[76px] sm:top-[90px] md:top-[98px]"} left-1/2 -translate-x-1/2 w-[95vw] max-w-[1060px] xl:max-w-[1120px] pt-2 z-50 pointer-events-auto`}
                 >
                   <WebliixCard
                     variant="panel"
@@ -1051,7 +1066,7 @@ export default function SpatialNavbar() {
         </nav>
 
         {/* Header Action Buttons & Social Icons */}
-        <div className="hidden lg:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-3 shrink-0 z-20">
           <div className="flex items-center gap-1 border-r border-theme-border/60 pr-3">
             {socialLinks.map((social) => (
               <a
