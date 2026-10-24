@@ -30,7 +30,8 @@ import {
   Award,
   Star,
   Briefcase,
-  PhoneCall
+  PhoneCall,
+  LogIn
 } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
 import { useTheme } from '../../context/ThemeContext';
@@ -221,6 +222,15 @@ export default function SpatialNavbar() {
           icon: Star,
           desc: 'Verified testimonials from founders, SMBs & enterprise clients',
           meta: '100% Client Satisfaction'
+        },
+        {
+          name: 'Client Portal Login',
+          href: 'https://login.webliix.com',
+          isExternal: true,
+          tag: 'Customer Login',
+          icon: LogIn,
+          desc: 'Client access for real-time project milestones, invoices, live chat & support tickets',
+          meta: 'login.webliix.com • 24/7 Access'
         },
         {
           name: 'Direct Consultation',
@@ -812,12 +822,22 @@ export default function SpatialNavbar() {
                         </span>
                       </div>
 
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-2">
+                        <a
+                          href="https://login.webliix.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xs font-mono font-semibold text-theme-primary bg-theme-primary/10 hover:bg-theme-primary/20 px-2.5 py-1 rounded-lg transition flex items-center gap-1.5 border border-theme-primary/30"
+                        >
+                          <LogIn className="w-3.5 h-3.5" />
+                          <span>Client Portal Login</span>
+                          <ArrowUpRight className="w-3 h-3" />
+                        </a>
                         <Link
                           to="/about"
                           className="text-xs font-mono font-semibold text-theme-muted hover:text-theme-primary transition flex items-center gap-1.5 group px-2.5 py-1 rounded-lg hover:bg-theme-primary/10"
                         >
-                          <span>About Webliix</span>
+                          <span>About Us</span>
                           <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-theme-primary" />
                         </Link>
                       </div>
@@ -845,7 +865,41 @@ export default function SpatialNavbar() {
                               <div className="space-y-0.5">
                                 {category.items.map((item) => {
                                   const Icon = item.icon;
-                                  const isCurrent = location.pathname === item.path;
+                                  const isCurrent = item.path ? location.pathname === item.path : false;
+                                  
+                                  if (item.isExternal) {
+                                    return (
+                                      <a
+                                        key={item.href || item.name}
+                                        href={item.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="p-2.5 rounded-xl transition-all duration-200 group flex items-start gap-3 hover:bg-theme-primary/[0.08] text-theme-text"
+                                      >
+                                        <div className="p-2 rounded-lg shrink-0 mt-0.5 transition-all duration-200 bg-theme-primary/10 text-theme-primary group-hover:bg-theme-primary group-hover:text-white">
+                                          <Icon className="w-4 h-4" />
+                                        </div>
+                                        <div className="space-y-0.5 flex-1 min-w-0">
+                                          <div className="flex items-center justify-between gap-1">
+                                            <h4 className="text-xs font-display font-semibold text-theme-text group-hover:text-theme-primary transition-colors truncate flex items-center gap-1">
+                                              <span>{item.name}</span>
+                                              <ArrowUpRight className="w-3 h-3 opacity-60 group-hover:opacity-100 transition-opacity" />
+                                            </h4>
+                                            <span className="text-[9px] font-mono text-theme-primary/80 px-1.5 py-0.5 rounded bg-theme-primary/10 shrink-0">
+                                              {item.tag}
+                                            </span>
+                                          </div>
+                                          <p className="text-[11px] text-theme-muted line-clamp-1 leading-snug">
+                                            {item.desc}
+                                          </p>
+                                          <div className="text-[9px] font-mono text-theme-primary/80 font-medium pt-0.5 truncate">
+                                            {item.meta}
+                                          </div>
+                                        </div>
+                                      </a>
+                                    );
+                                  }
+
                                   return (
                                     <Link
                                       key={item.path}
@@ -1210,7 +1264,31 @@ export default function SpatialNavbar() {
                           <div className="space-y-1">
                             {category.items.map((item) => {
                               const Icon = item.icon;
-                              const isItemActive = location.pathname === item.path;
+                              const isItemActive = item.path ? location.pathname === item.path : false;
+
+                              if (item.isExternal) {
+                                return (
+                                  <a
+                                    key={item.href || item.name}
+                                    href={item.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="px-3 py-2 rounded-lg text-xs font-medium flex items-center justify-between transition-all duration-200 text-theme-text hover:bg-theme-primary/10 hover:text-theme-primary"
+                                  >
+                                    <div className="flex items-center gap-2 min-w-0">
+                                      <Icon className="w-3.5 h-3.5 shrink-0 text-theme-primary" />
+                                      <span className="truncate">{item.name}</span>
+                                    </div>
+                                    <div className="flex items-center gap-1 shrink-0 ml-2">
+                                      <span className="text-[10px] font-mono opacity-80">
+                                        {item.tag}
+                                      </span>
+                                      <ArrowUpRight className="w-3 h-3 text-theme-primary" />
+                                    </div>
+                                  </a>
+                                );
+                              }
+
                               return (
                                 <Link
                                   key={item.path}

@@ -238,21 +238,7 @@ export default function WebliixCard({
       {/* CORNER BRACKETS — signature accent, hidden on calm 'panel' variant */}
       {variant !== 'panel' && <CornerBrackets />}
 
-      {/* INTERACTIVE BORDER GLOW ACCENT (Illuminates the edge near cursor on desktop) */}
-      {!isMobileView && (
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300 theme-rounded-card"
-          style={{
-            opacity: 'var(--glare-opacity, 0)',
-            padding: '1px',
-            background: `radial-gradient(360px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--color-primary, #38bdf8), transparent 70%)`,
-            WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-            WebkitMaskComposite: 'xor',
-            maskComposite: 'exclude',
-          }}
-        />
-      )}
+      {/* Interactive border edge stroke removed per user request */}
 
       {/* MOUSE-FOLLOWING SPOTLIGHT GLARE */}
       {hoverGlare && !isMobileView && (

@@ -603,8 +603,14 @@ export default function Home() {
         </div>
       </section>
 
-            {/* WRAPPER FOR SECTIONS BELOW HERO: ENSURES CLEAN BG FOR CARDS AND COVERS FIXED HERO CANVAS */}
-      <div className="relative z-10 bg-theme-bg">
+            {/* WRAPPER FOR SECTIONS BELOW HERO: CONTROLLED BY THEME BLUR EFFECTS */}
+      <div
+        className="relative z-10 bg-theme-bg/90 transition-[backdrop-filter,background-color] duration-300"
+        style={{
+          backdropFilter: 'blur(var(--glass-blur, 12px))',
+          WebkitBackdropFilter: 'blur(var(--glass-blur, 12px))'
+        }}
+      >
       {/* CLIENT LOGOS SHOWCASE TICKER */}
       <section className="deferred-section relative z-10 py-10 border-y border-theme-border/40 bg-theme-bg/40 backdrop-blur-md overflow-hidden">
         <div className="text-center mb-6 text-[11px] font-mono text-theme-muted uppercase tracking-widest font-semibold">

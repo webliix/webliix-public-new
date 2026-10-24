@@ -84,7 +84,7 @@ export default function SpatialFooter() {
   ];
 
   return (
-    <footer className="relative z-10 border-t border-theme-border/60 glass-spatial mt-20 pt-16 pb-12 px-6">
+    <footer className="relative z-10 border-t border-theme-border/60 glass-spatial mt-0 pt-12 sm:pt-16 pb-12 px-6">
       {/* Hidden Netlify detection form */}
       <form name="newsletter-subscribe" data-netlify="true" netlify-honeypot="bot-field" hidden>
         <input type="email" name="email" />
