@@ -385,7 +385,7 @@ export default function SpatialNavbar() {
         className={`w-full max-w-7xl mx-auto flex items-center justify-between transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           isDocked
             ? 'px-4 sm:px-6 h-14 sm:h-16'
-            : 'pointer-events-auto h-16 sm:h-20 lg:h-22 px-3.5 sm:px-6 bg-transparent border border-transparent shadow-none'
+            : 'pointer-events-auto h-20 sm:h-20 lg:h-22 px-3.5 sm:px-6 bg-transparent border border-transparent shadow-none'
         }`}
       >
         {/* Brand Logo - Pinned to the Left */}
@@ -399,8 +399,8 @@ export default function SpatialNavbar() {
             decoding="async"
             className={`w-auto object-contain transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105 ${
               isDocked
-                ? 'h-9 sm:h-10 md:h-11'
-                : 'h-11 sm:h-13 md:h-14 lg:h-16'
+                ? 'h-10 sm:h-11 md:h-12'
+                : 'h-16 sm:h-16 lg:h-16'
             }`}
           />
         </Link>
@@ -1118,10 +1118,14 @@ export default function SpatialNavbar() {
         {/* Mobile Menu Toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden p-2 theme-rounded-btn glass-spatial border border-theme-border/80 text-theme-text hover:text-theme-primary hover:border-theme-primary transition shadow-sm"
+          className={`lg:hidden p-2 theme-rounded-btn text-theme-text hover:text-theme-primary transition-all duration-300 ${
+            isDocked
+              ? 'glass-spatial border border-theme-border/80 shadow-sm'
+              : 'bg-transparent border border-transparent shadow-none'
+          }`}
           aria-label="Toggle Navigation"
         >
-          {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
